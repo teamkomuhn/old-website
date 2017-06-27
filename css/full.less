@@ -1,0 +1,136 @@
+@import "variables";
+@import "mixins";
+
+/**/
+.wrap {
+    .flex-display();
+    .flex-flow(row wrap);
+
+    header.main,
+    main {
+        .flex(1);
+        height: 60vw;
+    }
+
+    header.main {
+        h1.logo {
+            img {
+                width: 25vw;
+            }
+        }
+    }
+
+    main {
+        padding: 0;
+
+        h2.tagline {
+            font-size: @font-size-biggest;
+            margin-left: 4rem;
+        }
+        p.description {
+            font-size: @font-size-big;
+            width: 70%;
+            margin-left: 4rem;
+        }
+    }
+}
+
+.team {
+    min-height: 80vh;
+    img.komuhn {
+        width: 50%;
+    }
+}
+
+.services {
+    header {
+        min-height: 80vh;
+        padding: 4em;
+
+        .flex-display();
+        .flex-flow(column wrap);
+        .justify-content(center);
+        .align-items(left);
+
+        h2 {}
+        .wrap {}
+    }
+
+}
+
+.services {
+    .service {
+        &.design { .flex-order(0); }
+        &.spaces { .flex-order(2); }
+        &.content { .flex-order(1); }
+        &.problem-solving { .flex-order(3); }
+        &.organization { .flex-order(4); }
+        &.participation { .flex-order(6); }
+        &.learning { .flex-order(5); }
+        &.research { .flex-order(7); }
+    }
+}
+
+.grid {
+    .column {
+        width: 50%;
+        height: 25vw;
+        > h3 {
+            font-size: 2em;
+        }
+    }
+}
+
+.contacts {
+    .flex-direction(row);
+    .justify-content(center);
+    padding: 4em 0;
+
+    > section {
+        width: 30em;
+        &.connect {
+            img {
+                margin: 1em 0 1.35em 0;
+            }
+        }
+    }
+}
+
+footer.main {
+    height: 80vw;
+    img {
+         &.logo {
+             width: 30em;
+         }
+    }
+}
+
+
+/* BIGGER SCREENS */
+@media screen and (min-width: 1681px) {
+    .container {
+        width: 1680px;
+        margin: 0 auto;
+    }
+
+    header.main {
+        h1.logo {
+            img {
+                width: 21em !important;
+            }
+        }
+    }
+
+    header.main,
+    main,
+    .team,
+    footer.main  {
+        height: 60em !important;
+    }
+
+    .grid {
+        .column {
+            height: 22.5em !important;
+        }
+    }
+}
