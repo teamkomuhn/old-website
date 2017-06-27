@@ -17,6 +17,7 @@ h1, h2, h3 , h4, h5,
 p, a {
     font-family: @font-text;
     font-size: @font-size-medium;
+    font-weight: 400;
     color: #222222;
 
     text-rendering: optimizeLegibility !important;
@@ -102,21 +103,18 @@ main {
 
     .content {
 
+        h2, p {
+            color: @color-white;
+        }
+
         h2.tagline {
             font-size: @font-size-bigger;
             font-weight: 300;
-            color: @color-white;
             padding-bottom: 1em;
 
             i {
                 font-weight: 600;
             }
-        }
-
-        p.description {
-            font-size: @font-size-medium;
-            font-weight: 400;
-            color: @color-white;
         }
     }
 }
@@ -137,37 +135,24 @@ section {}
 }
 
 .services {
-    .flex-display();
-    .flex-flow(row wrap);
 
-    article.service {
-        .flex-display();
-        .flex-flow(row-reverse wrap);
-        width: 100vw;
-        height: 50vw;
+    header {
+        background-color: @color-blue;
+        padding: 2em;
 
-        &:nth-child(even) {
-            .flex-direction(row);
-        }
-
-        > h3 {
-            .flex(1);
-            .flex-center;
-            font-size: 1.8em;
-            font-weight: 400;
+        h2, p {
             color: @color-white;
-            text-align: center;
-            line-height: 1em;
         }
 
-        > figure {
-            .flex(1);
-            .flex-center;
-
-            img { width: 50%; }
-
+        h2.title {
+            font-size: @font-size-bigger;
+            font-weight: 300;
+            padding-bottom: 1em;
         }
 
+    }
+
+    .service {
         &.design {
             > h3 {
                 background-color: @color-blue;
@@ -245,6 +230,40 @@ section {}
     }
 }
 
+.grid {
+    .flex-display();
+    .flex-flow(row wrap);
+
+    .column {
+        .flex-display();
+        .flex-flow(row-reverse wrap);
+        width: 100vw;
+        height: 50vw;
+
+        &:nth-child(even) {
+            .flex-direction(row);
+        }
+
+        > h3 {
+            .flex(1);
+            .flex-center;
+            font-size: 1.8em;
+            font-weight: 400;
+            color: @color-white;
+            text-align: center;
+            line-height: 1em;
+        }
+
+        > figure {
+            .flex(1);
+            .flex-center;
+
+            img { width: 50%; }
+
+        }
+    }
+}
+
 .contacts {
     .flex-display();
     .flex-flow(column wrap);
@@ -301,9 +320,9 @@ footer.main {
 }
 
 /**/
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1681px) {
     .container {
-        width: 1440px;
+        width: 1680px;
         margin: 0 auto;
     }
 
@@ -322,15 +341,15 @@ footer.main {
         height: 60em !important;
     }
 
-    .services {
-        article.service {
+    .grid {
+        .column {
             height: 22.5em !important;
         }
     }
 }
 
 /**/
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1025px) {
 
     .wrap {
         .flex-display();
@@ -366,17 +385,30 @@ footer.main {
     }
 
     .team {
-        height: 80vw;
+        min-height: 80vh;
         img.komuhn {
             width: 50%;
         }
     }
 
     .services {
-        article.service {
-            width: 50%;
-            height: 25vw;
+        header {
+            min-height: 80vh;
+            padding: 4em;
 
+            .flex-display();
+            .flex-flow(column wrap);
+            .justify-content(center);
+            .align-items(left);
+
+            h2 {}
+            .wrap {}
+        }
+
+    }
+
+    .services {
+        .service {
             &.design { .flex-order(0); }
             &.spaces { .flex-order(2); }
             &.content { .flex-order(1); }
@@ -385,11 +417,16 @@ footer.main {
             &.participation { .flex-order(6); }
             &.learning { .flex-order(5); }
             &.research { .flex-order(7); }
+        }
+    }
 
+    .grid {
+        .column {
+            width: 50%;
+            height: 25vw;
             > h3 {
                 font-size: 2em;
             }
-
         }
     }
 

@@ -16,6 +16,7 @@ p,
 a {
   font-family: 'Open Sans', Helvetica, sans-serif;
   font-size: 1.1rem;
+  font-weight: 400;
   color: #222222;
   text-rendering: optimizeLegibility !important;
   -webkit-font-smoothing: antialiased !important;
@@ -168,19 +169,17 @@ main:after {
 main:after {
   clear: both;
 }
+main .content h2,
+main .content p {
+  color: #FFFFFF;
+}
 main .content h2.tagline {
   font-size: 2rem;
   font-weight: 300;
-  color: #FFFFFF;
   padding-bottom: 1em;
 }
 main .content h2.tagline i {
   font-weight: 600;
-}
-main .content p.description {
-  font-size: 1.1rem;
-  font-weight: 400;
-  color: #FFFFFF;
 }
 /**/
 .team {
@@ -212,7 +211,82 @@ main .content p.description {
 .team img.komuhn {
   width: 70%;
 }
-.services {
+.services header {
+  background-color: #2D2C86;
+  padding: 2em;
+}
+.services header h2,
+.services header p {
+  color: #FFFFFF;
+}
+.services header h2.title {
+  font-size: 2rem;
+  font-weight: 300;
+  padding-bottom: 1em;
+}
+.services .service.design > h3 {
+  background-color: #2D2C86;
+  color: #1EE29C;
+}
+.services .service.design > figure {
+  background-color: #1EE29C;
+}
+.services .service.design > figure img {
+  width: 80%;
+}
+.services .service.spaces > h3 {
+  background-color: #F84D5A;
+  color: #E1E22D;
+}
+.services .service.spaces > figure {
+  background-color: #E1E22D;
+}
+.services .service.spaces > figure img {
+  width: 60%;
+}
+.services .service.content > h3 {
+  background-color: #1EE29C;
+  color: #E1E22D;
+}
+.services .service.content > figure {
+  background-color: #E1E22D;
+}
+.services .service.problem-solving > h3 {
+  background-color: #2D2C86;
+  color: #F84D5A;
+}
+.services .service.problem-solving > figure {
+  background-color: #F84D5A;
+}
+.services .service.organization > h3 {
+  background-color: #2D2C86;
+  color: #E1E22D;
+}
+.services .service.organization > figure {
+  background-color: #E1E22D;
+}
+.services .service.participation > h3 {
+  background-color: #1EE29C;
+  color: #F84D5A;
+}
+.services .service.participation > figure {
+  background-color: #F84D5A;
+}
+.services .service.learning > h3 {
+  background-color: #2D2C86;
+  color: #F84D5A;
+}
+.services .service.learning > figure {
+  background-color: #F84D5A;
+}
+.services .service.research > h3 {
+  background-color: #E1E22D;
+  color: #F84D5A;
+}
+.services .service.research > figure {
+  background-color: #F84D5A;
+}
+.grid {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: -ms-flex;
@@ -221,7 +295,7 @@ main .content p.description {
   -ms-flex-flow: row wrap;
   flex-flow: row wrap;
 }
-.services article.service {
+.grid .column {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: -ms-flex;
@@ -232,12 +306,12 @@ main .content p.description {
   width: 100vw;
   height: 50vw;
 }
-.services article.service:nth-child(even) {
+.grid .column:nth-child(even) {
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
 }
-.services article.service > h3 {
+.grid .column > h3 {
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
@@ -260,7 +334,7 @@ main .content p.description {
   text-align: center;
   line-height: 1em;
 }
-.services article.service > figure {
+.grid .column > figure {
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
@@ -278,70 +352,8 @@ main .content p.description {
   -ms-align-items: center;
   align-items: center;
 }
-.services article.service > figure img {
+.grid .column > figure img {
   width: 50%;
-}
-.services article.service.design > h3 {
-  background-color: #2D2C86;
-  color: #1EE29C;
-}
-.services article.service.design > figure {
-  background-color: #1EE29C;
-}
-.services article.service.design > figure img {
-  width: 80%;
-}
-.services article.service.spaces > h3 {
-  background-color: #F84D5A;
-  color: #E1E22D;
-}
-.services article.service.spaces > figure {
-  background-color: #E1E22D;
-}
-.services article.service.spaces > figure img {
-  width: 60%;
-}
-.services article.service.content > h3 {
-  background-color: #1EE29C;
-  color: #E1E22D;
-}
-.services article.service.content > figure {
-  background-color: #E1E22D;
-}
-.services article.service.problem-solving > h3 {
-  background-color: #2D2C86;
-  color: #F84D5A;
-}
-.services article.service.problem-solving > figure {
-  background-color: #F84D5A;
-}
-.services article.service.organization > h3 {
-  background-color: #2D2C86;
-  color: #E1E22D;
-}
-.services article.service.organization > figure {
-  background-color: #E1E22D;
-}
-.services article.service.participation > h3 {
-  background-color: #1EE29C;
-  color: #F84D5A;
-}
-.services article.service.participation > figure {
-  background-color: #F84D5A;
-}
-.services article.service.learning > h3 {
-  background-color: #2D2C86;
-  color: #F84D5A;
-}
-.services article.service.learning > figure {
-  background-color: #F84D5A;
-}
-.services article.service.research > h3 {
-  background-color: #E1E22D;
-  color: #F84D5A;
-}
-.services article.service.research > figure {
-  background-color: #F84D5A;
 }
 .contacts {
   display: -webkit-flex;
@@ -406,9 +418,9 @@ footer.main img.colab {
   margin-top: 3em;
 }
 /**/
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1681px) {
   .container {
-    width: 1440px;
+    width: 1680px;
     margin: 0 auto;
   }
   header.main h1.logo img {
@@ -420,12 +432,12 @@ footer.main img.colab {
   footer.main {
     height: 60em !important;
   }
-  .services article.service {
+  .grid .column {
     height: 22.5em !important;
   }
 }
 /**/
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1025px) {
   .wrap {
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -458,56 +470,73 @@ footer.main img.colab {
     margin-left: 4rem;
   }
   .team {
-    height: 80vw;
+    min-height: 80vh;
   }
   .team img.komuhn {
     width: 50%;
   }
-  .services article.service {
-    width: 50%;
-    height: 25vw;
+  .services header {
+    min-height: 80vh;
+    padding: 4em;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: -ms-flex;
+    display: flex;
+    -webkit-flex-flow: column wrap;
+    -ms-flex-flow: column wrap;
+    flex-flow: column wrap;
+    -webkit-justify-content: center;
+    -ms-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: left;
+    -ms-align-items: left;
+    align-items: left;
   }
-  .services article.service.design {
+  .services .service.design {
     -webkit-order: 0;
     -ms-order: 0;
     order: 0;
   }
-  .services article.service.spaces {
+  .services .service.spaces {
     -webkit-order: 2;
     -ms-order: 2;
     order: 2;
   }
-  .services article.service.content {
+  .services .service.content {
     -webkit-order: 1;
     -ms-order: 1;
     order: 1;
   }
-  .services article.service.problem-solving {
+  .services .service.problem-solving {
     -webkit-order: 3;
     -ms-order: 3;
     order: 3;
   }
-  .services article.service.organization {
+  .services .service.organization {
     -webkit-order: 4;
     -ms-order: 4;
     order: 4;
   }
-  .services article.service.participation {
+  .services .service.participation {
     -webkit-order: 6;
     -ms-order: 6;
     order: 6;
   }
-  .services article.service.learning {
+  .services .service.learning {
     -webkit-order: 5;
     -ms-order: 5;
     order: 5;
   }
-  .services article.service.research {
+  .services .service.research {
     -webkit-order: 7;
     -ms-order: 7;
     order: 7;
   }
-  .services article.service > h3 {
+  .grid .column {
+    width: 50%;
+    height: 25vw;
+  }
+  .grid .column > h3 {
     font-size: 2em;
   }
   .contacts {
