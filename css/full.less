@@ -5,71 +5,100 @@
 .wrap {
     .flex-display();
     .flex-flow(row wrap);
+}
 
-    header.main,
-    main {
-        .flex(1);
-        height: 60vw;
-    }
+header.main,
+main {
+    .flex(1);
+    height: 100vh;
+}
 
-    header.main {
-        h1.logo {
-            img {
-                width: 25vw;
-            }
-        }
-    }
-
-    main {
-        padding: 0;
-
-        h2.tagline {
-            font-size: @font-size-biggest;
-            margin-left: 4rem;
-        }
-        p.description {
-            font-size: @font-size-big;
-            width: 70%;
-            margin-left: 4rem;
+header.main {
+    h1.logo {
+        img {
+            width: 25vw;
         }
     }
 }
 
+main {
+    padding: 0;
+
+    h2.tagline {
+        font-size: @font-size-biggest;
+        margin-left: 4rem;
+    }
+    p.description {
+        font-size: @font-size-big;
+        width: 70%;
+        margin-left: 4rem;
+    }
+}
+
+
 .team {
-    min-height: 80vh;
+    height: 80vh;
     img.komuhn {
         width: 50%;
     }
 }
 
 .services {
-    header {
-        min-height: 80vh;
-        padding: 4em;
 
-        .flex-display();
-        .flex-flow(column wrap);
-        .justify-content(center);
-        .align-items(left);
+    min-height: 50vw;
 
-        h2 {}
-        .wrap {}
+    .flex-display();
+    .flex-flow(row wrap);
+
+    > header , .service {
+        .flex(1);
+        width: 50vw;
     }
 
-}
+    > header {
+        padding: 0;
 
-.services {
+        h2.title {
+            font-size: @font-size-giant;
+            margin: 3rem 3rem -1rem 3rem;
+            padding: 1rem;
+            line-height: 1em;
+        }
+        .content {
+            margin: 1rem 3rem 3rem 3rem;
+            padding: 1rem;
+        }
+    }
+
     .service {
-        &.design { .flex-order(0); }
-        &.spaces { .flex-order(2); }
-        &.content { .flex-order(1); }
-        &.problem-solving { .flex-order(3); }
-        &.organization { .flex-order(4); }
-        &.participation { .flex-order(6); }
-        &.learning { .flex-order(5); }
-        &.research { .flex-order(7); }
+        height: auto;
+
+        header, figure {
+            padding: 0 4rem;
+        }
+
+        header {
+            h3, p {
+                font-size: @font-size-big;
+            }
+        }
+
     }
+
 }
+
+// .services {
+//     .service {
+//         &.design { .flex-order(0); }
+//         &.spaces { .flex-order(2); }
+//         &.content { .flex-order(1); }
+//         &.problem-solving { .flex-order(3); }
+//         &.organization { .flex-order(4); }
+//         &.participation { .flex-order(6); }
+//         &.learning { .flex-order(5); }
+//         &.research { .flex-order(7); }
+//     }
+// }
 
 .grid {
     .column {

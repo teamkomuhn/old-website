@@ -21,6 +21,9 @@ figure {
 
 /**/
 
+/* ICONS */
+
+
 body {}
 
 a.button {
@@ -86,7 +89,7 @@ header.main {
 
 main {
     background-color: @color-green;
-    padding: 2em;
+    padding: 2rem;
 
     .flex-center;
     .clearfix;
@@ -126,9 +129,10 @@ section {}
 
 .services {
 
-    header {
-        background-color: @color-blue;
-        padding: 2em;
+    > header {
+        background: @color-red url("../img/bkg_pattern_yellow.svg") repeat center center;
+        background-size: 50em;
+        padding: 2rem;
 
         h2, p {
             color: @color-white;
@@ -137,87 +141,128 @@ section {}
         h2.title {
             font-size: @font-size-bigger;
             font-weight: 300;
-            padding-bottom: 1em;
+            padding-bottom: 1rem;
+            display: inline-block;
         }
 
+        h2, .content {
+            background-color: fade( @color-red, 60%);
+        }
     }
 
     .service {
-        &.design {
-            > h3 {
-                background-color: @color-blue;
-                color: @color-green;
-            }
-            > figure {
-                background-color: @color-green;
-                img { width: 80%; }
-            }
-        }
-        &.spaces {
-            > h3 {
-                background-color: @color-red;
-                color: @color-yellow;
-            }
-            > figure {
-                background-color: @color-yellow;
-                img { width: 60%; }
-            }
-        }
-        &.content {
-            > h3 {
-                background-color: @color-green;
-                color: @color-yellow;
-            }
-            > figure {
-                background-color: @color-yellow;
-            }
-        }
-        &.problem-solving {
-            > h3 {
-                background-color: @color-blue;
+        background-color: @color-yellow;
+        height: 100vh;
+
+        .flex-center;
+        .flex-flow(column-reverse wrap);
+        .clearfix;
+
+        header {
+            text-align: center;
+            padding: 0 2rem;
+
+            h3, p {
                 color: @color-red;
+                display: inline;
             }
-            > figure {
-                background-color: @color-red;
-            }
-        }
-        &.organization {
-            > h3 {
-                background-color: @color-blue;
-                color: @color-yellow;
-            }
-            > figure {
-                background-color: @color-yellow;
+            h3 {
+                font-weight: 600;
+                &::after {
+                    content: ":";
+                }
             }
         }
-        &.participation {
-            > h3 {
-                background-color: @color-green;
-                color: @color-red;
-            }
-            > figure {
-                background-color: @color-red;
-            }
-        }
-        &.learning {
-            > h3 {
-                background-color: @color-blue;
-                color: @color-red;
-            }
-            > figure {
-                background-color: @color-red;
+
+        .icon {
+            .icon-size(12rem);
+            margin-bottom: 2rem;
+            fill: @color-red;
+
+            &.icon-design {
+                .icon-size(16rem);
+                margin: -4rem 0 -2rem 0;
             }
         }
-        &.research {
-            > h3 {
-                background-color: @color-yellow;
-                color: @color-red;
-            }
-            > figure {
-                background-color: @color-red;
-            }
-        }
+
     }
+
+    // .service {
+    //     &.design {
+    //         > h3 {
+    //             background-color: @color-blue;
+    //             color: @color-green;
+    //         }
+    //         > figure {
+    //             background-color: @color-green;
+    //             img { width: 80%; }
+    //         }
+    //     }
+    //     &.spaces {
+    //         > h3 {
+    //             background-color: @color-red;
+    //             color: @color-yellow;
+    //         }
+    //         > figure {
+    //             background-color: @color-yellow;
+    //             img { width: 60%; }
+    //         }
+    //     }
+    //     &.content {
+    //         > h3 {
+    //             background-color: @color-green;
+    //             color: @color-yellow;
+    //         }
+    //         > figure {
+    //             background-color: @color-yellow;
+    //         }
+    //     }
+    //     &.problem-solving {
+    //         > h3 {
+    //             background-color: @color-blue;
+    //             color: @color-red;
+    //         }
+    //         > figure {
+    //             background-color: @color-red;
+    //         }
+    //     }
+    //     &.organization {
+    //         > h3 {
+    //             background-color: @color-blue;
+    //             color: @color-yellow;
+    //         }
+    //         > figure {
+    //             background-color: @color-yellow;
+    //         }
+    //     }
+    //     &.participation {
+    //         > h3 {
+    //             background-color: @color-green;
+    //             color: @color-red;
+    //         }
+    //         > figure {
+    //             background-color: @color-red;
+    //         }
+    //     }
+    //     &.learning {
+    //         > h3 {
+    //             background-color: @color-blue;
+    //             color: @color-red;
+    //         }
+    //         > figure {
+    //             background-color: @color-red;
+    //         }
+    //     }
+    //     &.research {
+    //         > h3 {
+    //             background-color: @color-yellow;
+    //             color: @color-red;
+    //         }
+    //         > figure {
+    //             background-color: @color-red;
+    //         }
+    //     }
+    // }
 }
 
 .grid {
@@ -229,6 +274,7 @@ section {}
         .flex-flow(row-reverse wrap);
         width: 100vw;
         height: 50vw;
+        padding: 0;
 
         &:nth-child(even) {
             .flex-direction(row);
