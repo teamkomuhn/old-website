@@ -27,7 +27,11 @@
   align-items: center;
 }
 /**/
-.wrap {
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.columns {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: -ms-flex;
@@ -36,36 +40,118 @@
   -ms-flex-flow: row wrap;
   flex-flow: row wrap;
 }
-header.main,
-main {
+.columns .column {
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
-  height: 100vh;
+}
+/**/
+header.main h1.logo {
+  padding: 4rem 0 0 4rem;
 }
 header.main h1.logo img {
-  width: 25vw;
+  width: 10rem;
 }
-main {
-  padding: 0;
+/**/
+.intro {
+  width: 40rem;
+  margin-top: -20rem;
 }
-main h2.tagline {
-  font-size: 2.5rem;
-  margin-left: 4rem;
+.intro h2,
+.intro p {
+  padding: 4rem;
+  max-width: 30rem;
 }
-main p.description {
-  font-size: 1.5rem;
-  width: 70%;
-  margin-left: 4rem;
+.intro h2.tagline {
+  font-size: 3.74rem;
+  line-height: 1.2em;
 }
-.team {
-  height: 80vh;
+.intro p {
+  padding-top: 2rem;
 }
-.team img.komuhn {
-  width: 50%;
-}
+/**/
 .services {
-  min-height: 50vw;
+  -webkit-flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+  -webkit-justify-content: flex-start;
+  -ms-justify-content: flex-start;
+  justify-content: flex-start;
+  /**/
+}
+.services > header {
+  width: 32rem;
+  margin: -30rem 0 0 -20rem;
+  padding: 2rem 4rem;
+  padding-top: 2.9rem;
+}
+.services > header h2 {
+  font-size: 3.74rem;
+}
+.services > .image {
+  margin-top: -4rem;
+  width: 60rem;
+  height: 40rem;
+  position: relative;
+  z-index: 99;
+}
+.services > .image img {
+  width: 100%;
+  margin-left: 0;
+}
+.services .strengths {
+  position: relative;
+  z-index: 9;
+  margin-top: -4rem;
+}
+.services .strengths ol {
+  padding: 4rem 0 4rem 4rem;
+  padding-top: 8rem;
+  width: 36rem;
+}
+.services .strengths ol > li {
+  padding: 0.3em 0;
+}
+.services .strengths ol > li h3 {
+  font-size: 2.64rem;
+}
+.services .strengths ol > li .content {
+  position: absolute;
+  right: 0;
+  left: 40rem;
+  top: 0;
+  margin: 0;
+  padding: 0 4rem;
+  height: 100%;
+  display: block;
+  opacity: 0;
+  -webkit-transition: 0.5s ease-in-out;
+  -moz-transition: 0.5s ease-in-out;
+  -ms-transition: 0.5s ease-in-out;
+  -o-transition: 0.5s ease-in-out;
+}
+.services .strengths ol > li .content h4 {
+  margin-top: 8.6rem;
+  font-size: 2.64rem;
+}
+.services .strengths ol > li .content p {
+  max-width: 40rem;
+}
+.services .strengths ol > li.current .content {
+  opacity: 1;
+}
+.services .strengths .nav {
+  display: flex;
+  position: absolute;
+  left: 43.5rem;
+  bottom: 4rem;
+}
+/**/
+ul.nav.dot {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  cursor: default;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: -ms-flex;
@@ -74,81 +160,28 @@ main p.description {
   -ms-flex-flow: row wrap;
   flex-flow: row wrap;
 }
-.services > header,
-.services .service {
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  width: 50vw;
+ul.nav.dot li {
+  background-color: #1E0959;
+  height: 1rem;
+  width: 1rem;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  text-indent: 100%;
+  overflow: hidden;
+  margin-right: 0.5rem;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
 }
-.services > header {
-  padding: 0;
+ul.nav.dot li:hover {
+  background-color: #FFFFFF;
+  cursor: pointer;
 }
-.services > header h2.title {
-  font-size: 3.5rem;
-  margin: 3rem 3rem -1rem 3rem;
-  padding: 1rem;
-  line-height: 1em;
-}
-.services > header .content {
-  margin: 1rem 3rem 3rem 3rem;
-  padding: 1rem;
-}
-.services .service {
-  height: auto;
-}
-.services .service header,
-.services .service figure {
-  padding: 0 4rem;
-}
-.services .service header h3,
-.services .service header p {
-  font-size: 1.5rem;
-}
-.grid .column {
-  width: 50%;
-  height: 25vw;
-}
-.grid .column > h3 {
-  font-size: 2em;
-}
-.contacts {
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-justify-content: center;
-  -ms-justify-content: center;
-  justify-content: center;
-  padding: 4em 0;
-}
-.contacts > section {
-  width: 30em;
-}
-.contacts > section.connect img {
-  margin: 1em 0 1.35em 0;
-}
-footer.main {
-  height: 80vw;
-}
-footer.main img.logo {
-  width: 30em;
-}
-/* BIGGER SCREENS */
-@media screen and (min-width: 1681px) {
-  .container {
-    width: 1680px;
-    margin: 0 auto;
-  }
-  header.main h1.logo img {
-    width: 21em !important;
-  }
-  header.main,
-  main,
-  .team,
-  footer.main {
-    height: 60em !important;
-  }
-  .grid .column {
-    height: 22.5em !important;
-  }
+ul.nav.dot li.current {
+  background-color: #24C398;
 }
