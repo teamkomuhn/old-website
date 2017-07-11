@@ -284,7 +284,118 @@ section {}
 }
 
 /**/
+.team {
 
+    .member {
+        .flex-display();
+        .flex-flow(column-reverse wrap);
+        position: relative;
+
+        header {
+            background-color: @color-white;
+            margin-right: 2rem;
+            margin-top: -50vw;
+            position: relative;
+            z-index: 999;
+            padding: 2rem;
+
+            h3 {
+                display: inline-block;
+                font-size: @font-size-biggest;
+                line-height: 1em;
+                color: @color-black;
+                // background: transparent url("../img/bkg-arrow-down-green.svg") left bottom repeat-x;
+                background-size: 1rem;
+                padding-bottom: 0.3em;
+                margin-bottom: 1rem;
+            }
+            p {
+
+            }
+
+        }
+        figure {
+            width: 100vw;
+            overflow: hidden;
+            .flex-display();
+            .justify-content(center);
+
+            > img {
+
+            }
+        }
+        span.wiggly {
+            position: absolute;
+            left: 2rem;
+            top: 36rem;
+            z-index: 999;
+            width: 10rem;
+            height: 0.6rem;
+            background: transparent url("../img/bkg-arrow-down-yellow.svg") left center repeat-x;
+            background-size: contain;
+        }
+
+        &:nth-child(even) {
+            header {
+                margin-right: 0;
+                margin-left: 2rem;
+            }
+            span.wiggly {
+                left: 4rem;
+            }
+        }
+
+        &:nth-child(n+2) {
+            margin-top: -6rem;
+        }
+
+        &.tita {
+            header {
+                // background-color: @color-yellow;
+                h3 {
+                    // color: @color-purple-light;
+                }
+            }
+            span.wiggly {
+                width: 7.6rem;
+            }
+        }
+
+        &.pepe {
+            header {
+                // background-color: @color-yellow;
+                h3 {
+                    // color: #4c6898;
+                }
+            }
+            span.wiggly {
+                width: 5.3rem;
+            }
+        }
+        &.ri {
+            header {
+                // background-color: @color-purple-lighter;
+                h3 {
+                    // color: #5e446b;
+                }
+            }
+            span.wiggly {
+                width: 10.3rem;
+            }
+        }
+        &.su {
+            header {
+                // background-color: @color-blue-light;
+                h3 {
+                    // color: #8d4439;
+                }
+            }
+            span.wiggly {
+                width: 12.2rem;
+            }
+        }
+    }
+}
 
 /**/
 .grid {

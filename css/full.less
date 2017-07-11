@@ -16,13 +16,7 @@
     }
 }
 
-
-
-
-
 /**/
-
-
 header.main {
 
     h1.logo {
@@ -172,5 +166,96 @@ ul.nav.dot {
         &.current {
             background-color: @color-green;
         }
+    }
+}
+
+/**/
+.team {
+    .flex-display();
+    .flex-flow(row wrap);
+    .justify-content(center);
+    margin: 9vw 0;
+
+    .member {
+        .flex-flow(row-reverse wrap);
+
+        header, figure {
+            .flex(1);
+
+        }
+
+        header {
+            margin-right: 0;
+            margin-top: 0;
+            padding: 4rem;
+            max-width: 32rem;
+
+            h3 {
+                font-size: @font-size-giant;
+                padding-bottom: 0.3em;
+                margin-bottom: 1rem;
+            }
+            p {
+
+            }
+
+        }
+        figure {
+            max-width: 40rem;
+
+            > img {
+
+            }
+        }
+        span.wiggly {
+            top: 12rem;
+            left: 50%;
+            .transform( translateX(-50%) );
+            height: 0.61rem;
+            width: 40rem;
+        }
+
+        &:nth-child(even) {
+            .flex-flow(row wrap);
+            header {
+                margin-left: 0;
+                text-align: right;
+            }
+            span.wiggly {
+                left: auto;
+                right: 50%;
+                .transform( translateX(50%) );
+            }
+        }
+
+        &:nth-child(n+2) {
+            margin-top: 0;
+        }
+
+        &.tita {
+            span.wiggly {
+                width: 29rem;
+            }
+        }
+
+        &.pepe {
+            span.wiggly {
+                width: 24rem;
+            }
+        }
+        &.ri {
+            span.wiggly {
+                width: 25rem;
+                .transform( translateX(-25%) );
+            }
+        }
+        &.su {
+            span.wiggly {
+                width: 40rem;
+                .transform( translateX(45%) );
+            }
+        }
+
+
     }
 }

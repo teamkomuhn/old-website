@@ -332,6 +332,76 @@ header.main h1.logo img {
   display: none;
 }
 /**/
+.team .member {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-flow: column-reverse wrap;
+  -ms-flex-flow: column-reverse wrap;
+  flex-flow: column-reverse wrap;
+  position: relative;
+}
+.team .member header {
+  background-color: #FFFFFF;
+  margin-right: 2rem;
+  margin-top: -50vw;
+  position: relative;
+  z-index: 999;
+  padding: 2rem;
+}
+.team .member header h3 {
+  display: inline-block;
+  font-size: 2.64rem;
+  line-height: 1em;
+  color: #222222;
+  background-size: 1rem;
+  padding-bottom: 0.3em;
+  margin-bottom: 1rem;
+}
+.team .member figure {
+  width: 100vw;
+  overflow: hidden;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+}
+.team .member span.wiggly {
+  position: absolute;
+  left: 2rem;
+  top: 36rem;
+  z-index: 999;
+  width: 10rem;
+  height: 0.6rem;
+  background: transparent url("../img/bkg-arrow-down-yellow.svg") left center repeat-x;
+  background-size: contain;
+}
+.team .member:nth-child(even) header {
+  margin-right: 0;
+  margin-left: 2rem;
+}
+.team .member:nth-child(even) span.wiggly {
+  left: 4rem;
+}
+.team .member:nth-child(n+2) {
+  margin-top: -6rem;
+}
+.team .member.tita span.wiggly {
+  width: 7.6rem;
+}
+.team .member.pepe span.wiggly {
+  width: 5.3rem;
+}
+.team .member.ri span.wiggly {
+  width: 10.3rem;
+}
+.team .member.su span.wiggly {
+  width: 12.2rem;
+}
 /**/
 .grid {
   display: -webkit-flex;

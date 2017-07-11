@@ -185,3 +185,92 @@ ul.nav.dot li:hover {
 ul.nav.dot li.current {
   background-color: #24C398;
 }
+/**/
+.team {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+  -webkit-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  margin: 9vw 0;
+}
+.team .member {
+  -webkit-flex-flow: row-reverse wrap;
+  -ms-flex-flow: row-reverse wrap;
+  flex-flow: row-reverse wrap;
+}
+.team .member header,
+.team .member figure {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+.team .member header {
+  margin-right: 0;
+  margin-top: 0;
+  padding: 4rem;
+  max-width: 32rem;
+}
+.team .member header h3 {
+  font-size: 3.74rem;
+  padding-bottom: 0.3em;
+  margin-bottom: 1rem;
+}
+.team .member figure {
+  max-width: 40rem;
+}
+.team .member span.wiggly {
+  top: 12rem;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  height: 0.61rem;
+  width: 40rem;
+}
+.team .member:nth-child(even) {
+  -webkit-flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+}
+.team .member:nth-child(even) header {
+  margin-left: 0;
+  text-align: right;
+}
+.team .member:nth-child(even) span.wiggly {
+  left: auto;
+  right: 50%;
+  -webkit-transform: translateX(50%);
+  -moz-transform: translateX(50%);
+  -ms-transform: translateX(50%);
+  -o-transform: translateX(50%);
+}
+.team .member:nth-child(n+2) {
+  margin-top: 0;
+}
+.team .member.tita span.wiggly {
+  width: 29rem;
+}
+.team .member.pepe span.wiggly {
+  width: 24rem;
+}
+.team .member.ri span.wiggly {
+  width: 25rem;
+  -webkit-transform: translateX(-25%);
+  -moz-transform: translateX(-25%);
+  -ms-transform: translateX(-25%);
+  -o-transform: translateX(-25%);
+}
+.team .member.su span.wiggly {
+  width: 40rem;
+  -webkit-transform: translateX(45%);
+  -moz-transform: translateX(45%);
+  -ms-transform: translateX(45%);
+  -o-transform: translateX(45%);
+}
