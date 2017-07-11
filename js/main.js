@@ -3,7 +3,7 @@ $(function() {
     'use strict';
 
     // Add hover functionality in mobile
-    $('body').bind('touchstart', function() {});
+    // $('body').bind('touchstart', function() {});
 
     // .strengths navigation
     var iCurrent = 0;
@@ -30,8 +30,6 @@ $(function() {
         }
         markCurrent();
     });
-    // Hide loading from jquery mobile
-    $.mobile.loading().hide();
 
     function markCurrent() {
         //console.log("iCurrent: " + iCurrent);
@@ -43,5 +41,13 @@ $(function() {
             scrollTop: $('#strengths').offset().top
         }, 500);
     }
+
+    // .team .member .links activate
+    $('.links').on('click', 'button', function() {
+        $(this).closest('aside').toggleClass('active');
+    });
+
+    // Hide loading from jquery mobile
+    $.mobile.loading().hide();
 
 });

@@ -221,6 +221,12 @@ ul.nav.dot li.current {
   padding-bottom: 0.3em;
   margin-bottom: 1rem;
 }
+.team .member header aside.links button {
+  right: auto;
+  left: -2rem;
+  top: auto;
+  bottom: 4rem;
+}
 .team .member figure {
   max-width: 40rem;
 }
@@ -242,6 +248,10 @@ ul.nav.dot li.current {
 .team .member:nth-child(even) header {
   margin-left: 0;
   text-align: right;
+}
+.team .member:nth-child(even) header aside.links button {
+  right: -2rem;
+  left: auto;
 }
 .team .member:nth-child(even) span.wiggly {
   left: auto;
@@ -273,4 +283,20 @@ ul.nav.dot li.current {
   -moz-transform: translateX(45%);
   -ms-transform: translateX(45%);
   -o-transform: translateX(45%);
+}
+/**/
+menu.social-media {
+  position: absolute;
+  left: 3.5rem;
+  bottom: 4rem;
+}
+menu.social-media a .icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+menu.social-media a:nth-child(5) {
+  margin-right: 0.5rem;
+}
+menu.social-media.collapse {
+  margin-left: -5.5rem;
 }

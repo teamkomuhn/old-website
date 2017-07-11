@@ -195,10 +195,15 @@ ul.nav.dot {
                 padding-bottom: 0.3em;
                 margin-bottom: 1rem;
             }
-            p {
 
+            aside.links {
+                button {
+                    right: auto;
+                    left: -2rem;
+                    top: auto;
+                    bottom: 4rem;
+                }
             }
-
         }
         figure {
             max-width: 40rem;
@@ -220,6 +225,12 @@ ul.nav.dot {
             header {
                 margin-left: 0;
                 text-align: right;
+                aside.links {
+                    button {
+                        right: -2rem;
+                        left: auto;
+                    }
+                }
             }
             span.wiggly {
                 left: auto;
@@ -255,7 +266,26 @@ ul.nav.dot {
                 .transform( translateX(45%) );
             }
         }
+    }
+}
 
+/**/
+menu.social-media {
+    position: absolute;
+    left: 3.5rem;
+    bottom: 4rem;
+    a {
+        .icon {
+            .icon-size(1.5rem);
+        }
+        &:nth-child(5) {
+            margin-right: 0.5rem;
+        }
+    }
+    &.collapse {
+        margin-left: -5.5rem;
+        button {
 
+        }
     }
 }

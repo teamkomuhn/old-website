@@ -347,7 +347,7 @@ header.main h1.logo img {
   margin-right: 2rem;
   margin-top: -50vw;
   position: relative;
-  z-index: 999;
+  z-index: 9;
   padding: 2rem;
 }
 .team .member header h3 {
@@ -355,9 +355,101 @@ header.main h1.logo img {
   font-size: 2.64rem;
   line-height: 1em;
   color: #222222;
+  background: transparent url("../img/bkg-arrow-down-yellow.svg") left bottom repeat-x;
   background-size: 1rem;
   padding-bottom: 0.3em;
   margin-bottom: 1rem;
+}
+.team .member header aside.links button {
+  background-color: #222222;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+  border: none;
+  padding: 1.3rem;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  position: absolute;
+  right: 2rem;
+  top: -2rem;
+  z-index: 9999;
+}
+.team .member header aside.links button .icon {
+  fill: #FFFFFF;
+  width: 1.2rem;
+  height: 1.2rem;
+  display: block;
+}
+.team .member header aside.links button:hover {
+  background-color: #EEEEEE;
+}
+.team .member header aside.links button:hover .icon {
+  fill: #222222;
+}
+.team .member header aside.links button:focus {
+  outline: none;
+}
+.team .member header aside.links ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 999;
+  background-color: #FFFFFF;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-flow: column wrap;
+  -ms-flex-flow: column wrap;
+  flex-flow: column wrap;
+  -webkit-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  opacity: 0;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+.team .member header aside.links ul li {
+  margin: 0.5rem 0;
+}
+.team .member header aside.links ul li a .icon {
+  width: 2rem;
+  height: 2rem;
+  fill: #222222;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+}
+.team .member header aside.links ul li a:hover .icon {
+  fill: rgba(0, 0, 0, 0.3);
+}
+.team .member header aside.links ul li a:nth-child(5) {
+  margin-right: 0;
+}
+.team .member header aside.links.active button {
+  background-color: #EEEEEE;
+}
+.team .member header aside.links.active button .icon {
+  fill: #222222;
+}
+.team .member header aside.links.active ul {
+  opacity: 1;
 }
 .team .member figure {
   width: 100vw;
@@ -374,7 +466,7 @@ header.main h1.logo img {
   position: absolute;
   left: 2rem;
   top: 36rem;
-  z-index: 999;
+  z-index: 9;
   width: 10rem;
   height: 0.6rem;
   background: transparent url("../img/bkg-arrow-down-yellow.svg") left center repeat-x;
@@ -401,6 +493,84 @@ header.main h1.logo img {
 }
 .team .member.su span.wiggly {
   width: 12.2rem;
+}
+/**/
+menu.social-media {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+  padding: 0;
+  margin: 2rem 0 0 -0.5rem;
+}
+menu.social-media a {
+  margin: 0.5rem;
+}
+menu.social-media a .icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: #222222;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+}
+menu.social-media a:hover .icon {
+  fill: rgba(0, 0, 0, 0.3);
+}
+menu.social-media a:nth-child(5) {
+  margin-right: 0;
+}
+menu.social-media.collapse {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+  -webkit-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  width: 3.8rem;
+  height: 3.8rem;
+  overflow: hidden;
+  margin-left: 0;
+}
+menu.social-media.collapse button {
+  background-color: #222222;
+  border: none;
+  padding: 1.3rem;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  margin-right: .5rem;
+}
+menu.social-media.collapse button .icon {
+  fill: #FFFFFF;
+  width: 1.2rem;
+  height: 1.2rem;
+  display: block;
+}
+menu.social-media.collapse > .collapse {
+  opacity: 0;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+menu.social-media.collapse:hover {
+  width: auto;
+  height: auto;
+}
+menu.social-media.collapse:hover > .collapse {
+  opacity: 1;
 }
 /**/
 .grid {
