@@ -46,6 +46,12 @@ $(function() {
     $('.links').on('click', 'button', function() {
         $(this).closest('aside').toggleClass('active');
     });
+    // Click outside closes
+    $(document).on('click', function(event) {
+        if (!$(event.target).closest('.links').length) {
+            $('.links').removeClass('active');
+        }
+    });
 
     // Hide loading from jquery mobile
     $.mobile.loading().hide();
