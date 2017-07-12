@@ -45,6 +45,11 @@ $(function() {
     // .team .member .links activate
     $('.links').on('click', 'button', function() {
         $(this).closest('aside').toggleClass('active');
+        //
+        var id = $(this).closest('header').attr('id');
+        $('html, body').animate({
+            scrollTop: $('#'+id).offset().top
+        }, 500);
     });
     // Click outside closes
     $(document).on('click', function(event) {
