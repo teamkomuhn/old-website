@@ -524,7 +524,7 @@ menu.social-media a .icon {
   -o-transition: 0.3s;
 }
 menu.social-media a:hover .icon {
-  fill: rgba(0, 0, 0, 0.3);
+  fill: rgba(34, 34, 34, 0.5);
 }
 menu.social-media.collapse {
   display: -webkit-flex;
@@ -651,11 +651,35 @@ footer.main .made-with-colab a img {
   width: 50%;
   display: block;
 }
+footer.main .made-with-colab a.button {
+  background-color: transparent;
+  border-color: #FFFFFF;
+  color: #FFFFFF;
+  margin-top: 2rem;
+}
+footer.main .made-with-colab a.button:hover {
+  background-color: #FFFFFF;
+  color: #FB4D5B;
+}
+footer.main .made-with-colab p {
+  text-align: center;
+  padding: 0 10vw;
+  color: #222222;
+}
 footer.main .social-media {
   -webkit-flex-flow: row wrap;
   -ms-flex-flow: row wrap;
   flex-flow: row wrap;
-  background-color: #CCCCCC;
+  background-color: #321979;
+}
+footer.main .social-media a {
+  margin: 0.5rem;
+}
+footer.main .social-media a .icon {
+  fill: #8C6CC2;
+}
+footer.main .social-media a:hover .icon {
+  fill: #FFFFFF;
 }
 /**/
 .grid {

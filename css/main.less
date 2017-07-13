@@ -475,7 +475,7 @@ menu.social-media {
         }
         &:hover {
             .icon {
-                fill: @color-black-transparent;
+                fill: fade(@color-black, 50%);
             }
         }
     }
@@ -571,10 +571,36 @@ footer.main {
                 display: block;
             }
         }
+        a.button {
+            background-color: transparent;
+            border-color: @color-white;
+            color: @color-white;
+            margin-top: 2rem;
+            &:hover {
+                background-color: @color-white;
+                color: @color-red;
+            }
+        }
+        p {
+            text-align: center;
+            padding: 0 10vw;
+            color: @color-black;
+        }
     }
     .social-media {
         .flex-flow(row wrap);
-        background-color: @color-grey;
+        background-color: @color-purple;
+        a {
+            margin: 0.5rem;
+            .icon {
+                fill: @color-purple-light;
+            }
+            &:hover {
+                .icon {
+                    fill: @color-white;
+                }
+            }
+        }
     }
 }
 
