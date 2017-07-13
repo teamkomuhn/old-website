@@ -87,19 +87,24 @@ figure.image svg {
 /**/
 a.button {
   background-color: #FFFFFF;
-  border: 1px solid #DDDDDD;
+  width: auto;
+}
+a.button {
+  display: inline-block;
+  background-color: #FFFFFF;
+  border: #222222 1px solid;
   padding: 0.8em 2em;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
   -moz-background-clip: padding;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
   color: #666;
   text-decoration: none;
-  text-transform: uppercase;
-  font-size: 0.8em;
-  letter-spacing: 0.05em;
+  font-family: "Helvetica Neue", "Open Sans", Helvetica, sans-serif;
+  font-size: 1.1rem;
+  font-weight: bold;
   -webkit-transition: 0.5s;
   -moz-transition: 0.5s;
   -ms-transition: 0.5s;
@@ -504,7 +509,7 @@ menu.social-media {
   -ms-flex-flow: row wrap;
   flex-flow: row wrap;
   padding: 0;
-  margin: 2rem 0 0 -0.5rem;
+  margin: 0;
 }
 menu.social-media a {
   margin: 0.5rem;
@@ -520,9 +525,6 @@ menu.social-media a .icon {
 }
 menu.social-media a:hover .icon {
   fill: rgba(0, 0, 0, 0.3);
-}
-menu.social-media a:nth-child(5) {
-  margin-right: 0;
 }
 menu.social-media.collapse {
   display: -webkit-flex;
@@ -571,6 +573,89 @@ menu.social-media.collapse:hover {
 }
 menu.social-media.collapse:hover > .collapse {
   opacity: 1;
+}
+footer.main {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+}
+footer.main .contact,
+footer.main .social-media,
+footer.main .made-with-colab {
+  width: 100vw;
+  height: 100vh;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-flow: column wrap;
+  -ms-flex-flow: column wrap;
+  flex-flow: column wrap;
+  -webkit-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+}
+footer.main .contact header {
+  text-align: center;
+}
+footer.main .contact header h2 {
+  font-size: 3.74rem;
+  font-family: "Helvetica Neue", "Open Sans", Helvetica, sans-serif;
+  color: #FB4D5B;
+  display: inline-block;
+  background: transparent url("../img/bkg-arrow-down-green.svg") left bottom repeat-x;
+  background-size: 1rem;
+  padding-bottom: 0.3rem;
+}
+footer.main .contact header a.button {
+  background-color: transparent;
+  border-color: #FB4D5B;
+  color: #FB4D5B;
+  margin-top: 2rem;
+}
+footer.main .contact header a.button:hover {
+  background-color: #FB4D5B;
+  color: #FFFFFF;
+}
+footer.main .contact header p {
+  text-align: center;
+  padding: 0 10vw;
+  color: #1E0959;
+}
+footer.main .made-with-colab {
+  background-color: #FB4D5B;
+}
+footer.main .made-with-colab a {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-flow: column wrap;
+  -ms-flex-flow: column wrap;
+  flex-flow: column wrap;
+  -webkit-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+}
+footer.main .made-with-colab a img {
+  width: 50%;
+  display: block;
+}
+footer.main .social-media {
+  -webkit-flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+  background-color: #CCCCCC;
 }
 /**/
 .grid {

@@ -59,15 +59,24 @@ figure.image {
 
 a.button {
 
+    background-color: @color-white;
+    width: auto;
+
+    &:hover {
+
+    }
+}
+a.button {
+    display: inline-block;
     background-color: #FFFFFF;
-    border: 1px solid #DDDDDD;
+    border: @color-black 1px solid;
     padding: 0.8em 2em;
-    .border-radius();
+    .border-radius(4px);
     color: #666;
     text-decoration: none;
-    text-transform: uppercase;
-    font-size: 0.8em;
-    letter-spacing: 0.05em;
+    font-family: @font-header;
+    font-size: @font-size-medium;
+    font-weight: bold;
     .transition(.5s);
 
     &:hover {
@@ -103,6 +112,7 @@ a.button {
         }
     }
 }
+
 
 /**/
 .wrapper {
@@ -454,7 +464,7 @@ menu.social-media {
     .flex-display();
     .flex-flow(row wrap);
     padding: 0;
-    margin: 2rem 0 0 -0.5rem;
+    margin: 0;
 
     a {
         margin: 0.5rem;
@@ -467,9 +477,6 @@ menu.social-media {
             .icon {
                 fill: @color-black-transparent;
             }
-        }
-        &:nth-child(5) {
-            margin-right: 0;
         }
     }
 
@@ -488,7 +495,6 @@ menu.social-media {
             padding: 1.3rem;
             .border-radius(50%);
             margin-right: .5rem;
-
 
             .icon {
                 fill: @color-white;
@@ -512,7 +518,65 @@ menu.social-media {
     }
 }
 
+footer.main {
+    .flex-display();
+    .flex-flow(row wrap);
 
+    .contact,
+    .social-media,
+    .made-with-colab  {
+        width: 100vw;
+        height: 100vh;
+        .flex-center();
+    }
+
+    .contact {
+        // background-color: @color-purple-light;
+
+        header {
+            text-align: center;
+            h2 {
+                font-size: @font-size-giant;
+                font-family: @font-header;
+                color: @color-red;
+                display: inline-block;
+                background: transparent url("../img/bkg-arrow-down-green.svg") left bottom repeat-x;
+                background-size: 1rem;
+                padding-bottom: 0.3rem;
+
+            }
+            a.button {
+                background-color: transparent;
+                border-color: @color-red;
+                color: @color-red;
+                margin-top: 2rem;
+                &:hover {
+                    background-color: @color-red;
+                    color: @color-white;
+                }
+            }
+            p {
+                text-align: center;
+                padding: 0 10vw;
+                color: @color-purple-dark;
+            }
+        }
+    }
+    .made-with-colab {
+        background-color: @color-red;
+        a {
+            .flex-center();
+            img {
+                width: 50%;
+                display: block;
+            }
+        }
+    }
+    .social-media {
+        .flex-flow(row wrap);
+        background-color: @color-grey;
+    }
+}
 
 /**/
 .grid {

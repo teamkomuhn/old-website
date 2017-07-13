@@ -271,21 +271,41 @@ ul.nav.dot {
 
 /**/
 menu.social-media {
-    position: absolute;
-    left: 3.5rem;
-    bottom: 4rem;
     a {
         .icon {
             .icon-size(1.5rem);
         }
-        &:nth-child(5) {
-            margin-right: 0.5rem;
+    }
+}
+
+/**/
+footer.main {
+    .contact,
+    .made-with-colab  {
+        .flex(1);
+        height: 50vw;
+    }
+    .contact {
+        header {
+            h2 {
+                font-size: 5rem;
+            }
         }
     }
-    &.collapse {
-        margin-left: -5.5rem;
-        button {
-
+    .made-with-colab {
+        a {
+            img {
+                width: 30%;
+            }
+        }
+    }
+    .social-media {
+        height: 30vw;
+        a {
+            margin: 1rem;
+            .icon {
+                .icon-size(2rem);
+            }
         }
     }
 }

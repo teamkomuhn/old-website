@@ -285,18 +285,31 @@ ul.nav.dot li.current {
   -o-transform: translateX(45%);
 }
 /**/
-menu.social-media {
-  position: absolute;
-  left: 3.5rem;
-  bottom: 4rem;
-}
 menu.social-media a .icon {
   width: 1.5rem;
   height: 1.5rem;
 }
-menu.social-media a:nth-child(5) {
-  margin-right: 0.5rem;
+/**/
+footer.main .contact,
+footer.main .made-with-colab {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  height: 50vw;
 }
-menu.social-media.collapse {
-  margin-left: -5.5rem;
+footer.main .contact header h2 {
+  font-size: 5rem;
+}
+footer.main .made-with-colab a img {
+  width: 30%;
+}
+footer.main .social-media {
+  height: 30vw;
+}
+footer.main .social-media a {
+  margin: 1rem;
+}
+footer.main .social-media a .icon {
+  width: 2rem;
+  height: 2rem;
 }
