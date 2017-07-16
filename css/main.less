@@ -198,7 +198,35 @@ section {}
         }
     }
 
-    
+    .contact-us {
+        background: transparent url("../img/bkg-arrow-down-yellow.svg") center center repeat;
+        background-size: 1rem;
+        h3 {
+            font-size: @font-size-bigger;
+            font-family: @font-header;
+            font-weight: bold;
+            color: @color-purple;
+            text-align: center;
+            margin: 4rem 2rem 4rem 2rem;
+            line-height: 1em;
+
+            a.button {
+                margin: 1rem 0;
+                border-color: @color-purple;
+                background-color: @color-purple;
+                color: @color-yellow;
+                font-size: inherit;
+                padding: 0.6em 1em 0.8em 1em;
+
+
+                &:hover {
+                    border-color: @color-yellow;
+                    background-color: @color-yellow;
+                    color: @color-purple;
+                }
+            }
+        }
+    }
 
     /**/
     .strengths {

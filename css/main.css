@@ -261,6 +261,32 @@ header.main h1.logo img {
   padding-bottom: 0.2em;
   margin-bottom: 1rem;
 }
+.services .contact-us {
+  background: transparent url("../img/bkg-arrow-down-yellow.svg") center center repeat;
+  background-size: 1rem;
+}
+.services .contact-us h3 {
+  font-size: 2.2rem;
+  font-family: "Helvetica Neue", "Open Sans", Helvetica, sans-serif;
+  font-weight: bold;
+  color: #321979;
+  text-align: center;
+  margin: 4rem 2rem 4rem 2rem;
+  line-height: 1em;
+}
+.services .contact-us h3 a.button {
+  margin: 1rem 0;
+  border-color: #321979;
+  background-color: #321979;
+  color: #FEF200;
+  font-size: inherit;
+  padding: 0.6em 1em 0.8em 1em;
+}
+.services .contact-us h3 a.button:hover {
+  border-color: #FEF200;
+  background-color: #FEF200;
+  color: #321979;
+}
 .services .strengths {
   width: 100vw;
   background-color: #321979;
