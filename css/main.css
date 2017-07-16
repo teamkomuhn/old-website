@@ -86,10 +86,6 @@ figure.image svg {
 }
 /**/
 a.button {
-  background-color: #FFFFFF;
-  width: auto;
-}
-a.button {
   display: inline-block;
   background-color: #FFFFFF;
   border: #222222 1px solid;
@@ -105,6 +101,7 @@ a.button {
   font-family: "Helvetica Neue", "Open Sans", Helvetica, sans-serif;
   font-size: 1.1rem;
   font-weight: bold;
+  text-align: center;
   -webkit-transition: 0.5s;
   -moz-transition: 0.5s;
   -ms-transition: 0.5s;
@@ -238,6 +235,15 @@ header.main h1.logo img {
   flex-flow: column wrap;
   /**/
 }
+.services > .image {
+  overflow: hidden;
+  margin-top: -6rem;
+}
+.services > .image img {
+  width: 200%;
+  height: auto;
+  margin-left: -40%;
+}
 .services > header {
   padding: 2rem;
 }
@@ -254,15 +260,6 @@ header.main h1.logo img {
   display: inline-block;
   padding-bottom: 0.2em;
   margin-bottom: 1rem;
-}
-.services > .image {
-  overflow: hidden;
-  margin-top: -6rem;
-}
-.services > .image img {
-  width: 200%;
-  height: auto;
-  margin-left: -40%;
 }
 .services .strengths {
   width: 100vw;

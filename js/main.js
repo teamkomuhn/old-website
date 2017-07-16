@@ -5,6 +5,17 @@ $(function() {
     // Add hover functionality in mobile
     // $('body').bind('touchstart', function() {});
 
+    // Scroll to # with easing
+    function scrollTo( id ) {
+        $('html, body').animate({
+            scrollTop: $( id ).offset().top
+        }, 500);
+    }
+    $('a.scroll-to').on('click', function() {
+        var id = $(this).attr('href');
+        scrollTo( id );
+    });
+
     // .strengths navigation
     var iCurrent = 0;
     $('.strengths > ol > li').on('click', 'h3', function() {
@@ -37,9 +48,7 @@ $(function() {
         $('.strengths > ol > li').eq( iCurrent ).addClass( 'current' );
         $('.nav.dot > li').eq( iCurrent ).addClass( 'current' );
         //
-        $('html, body').animate({
-            scrollTop: $('#strengths').offset().top
-        }, 500);
+        scrollTo('#strengths');
     }
 
     // .team .member .links activate
@@ -47,9 +56,7 @@ $(function() {
         $(this).closest('aside').toggleClass('active');
         //
         var id = $(this).closest('header').attr('id');
-        $('html, body').animate({
-            scrollTop: $('#'+id).offset().top
-        }, 500);
+        scrollTo('#'+id);
     });
     // Click outside closes
     $(document).on('click', function(event) {

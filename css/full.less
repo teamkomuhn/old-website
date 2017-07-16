@@ -20,17 +20,18 @@
 header.main {
 
     h1.logo {
-        padding: 4rem 0 0 4rem;
+        padding: 14rem 0 0 4rem;
 
         img {
-            width: 10rem;
+            width: 12rem;
         }
     }
 }
 
 /**/
 .intro {
-    width: 40rem;
+    width: 50vw;
+    max-width: 40rem;
     margin-top: -20rem;
 
     h2, p {
@@ -53,22 +54,12 @@ header.main {
 .services {
     .flex-flow(row wrap);
     .justify-content(flex-start);
-
-    > header {
-        width: 32rem;
-        margin: -30rem 0 0 -20rem;
-        padding: 2rem 4rem;
-        padding-top: 2.9rem;
-
-        h2 {
-            font-size: @font-size-giant;
-
-        }
-    }
+    position: relative;
 
     > .image {
         margin-top: -4rem;
-        width: 60rem;
+        width: 75vw;
+        max-width: 60rem;
         height: 40rem;
         position: relative;
         z-index: 99;
@@ -77,8 +68,24 @@ header.main {
             width: 100%;
             margin-left: 0;
         }
-
     }
+
+    > header {
+        width: 50vw;
+        max-width: 40rem;
+        margin: -32rem 0 0 -25vw;
+        padding: 0;
+
+        h2 {
+            font-size: @font-size-giant;
+            margin: 4rem 4rem 2.85rem 4rem;
+        }
+        p {
+            margin: 0 4rem;
+        }
+    }
+
+    
 
     /**/
     .strengths {
@@ -306,6 +313,18 @@ footer.main {
             .icon {
                 .icon-size(2rem);
             }
+        }
+    }
+}
+
+/* BIGGER SCREENS */
+@media screen and (min-width: 1280px) {
+    body {
+        // background-color: red !important;
+    }
+    .services {
+        > header {
+            margin-left: -20rem;
         }
     }
 }

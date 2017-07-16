@@ -56,19 +56,9 @@ figure.image {
 }
 
 /**/
-
-a.button {
-
-    background-color: @color-white;
-    width: auto;
-
-    &:hover {
-
-    }
-}
 a.button {
     display: inline-block;
-    background-color: #FFFFFF;
+    background-color: @color-white;
     border: @color-black 1px solid;
     padding: 0.8em 2em;
     .border-radius(4px);
@@ -77,6 +67,7 @@ a.button {
     font-family: @font-header;
     font-size: @font-size-medium;
     font-weight: bold;
+    text-align: center;
     .transition(.5s);
 
     &:hover {
@@ -149,9 +140,7 @@ header.main {
             width: 10rem;
         }
     }
-
 }
-
 
 /**/
 section {}
@@ -180,6 +169,16 @@ section {}
     .flex-display();
     .flex-flow(column wrap);
 
+    > .image {
+        overflow: hidden;
+        margin-top: -6rem;
+
+        img {
+            width: 200%; height: auto;
+            margin-left: -40%;
+        }
+    }
+
     > header {
         padding: 2rem;
 
@@ -199,15 +198,7 @@ section {}
         }
     }
 
-    > .image {
-        overflow: hidden;
-        margin-top: -6rem;
-
-        img {
-            width: 200%; height: auto;
-            margin-left: -40%;
-        }
-    }
+    
 
     /**/
     .strengths {
