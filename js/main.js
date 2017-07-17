@@ -29,7 +29,7 @@ $(function() {
 
     $('.strengths .content').on( 'swipeleft', function() {
         iCurrent = iCurrent+1;
-        if (iCurrent >= 8) {
+        if (iCurrent >= 6) {
             iCurrent = 0;
         }
         markCurrent();
@@ -37,7 +37,7 @@ $(function() {
     $('.strengths .content').on( 'swiperight', function() {
         iCurrent = iCurrent-1;
         if (iCurrent <= -1) {
-            iCurrent = 7;
+            iCurrent = 5;
         }
         markCurrent();
     });

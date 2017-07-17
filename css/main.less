@@ -272,18 +272,37 @@ section {}
                     margin: 1rem 0;
                     display: none;
 
-                    p, h4 {
+                    h4, p {
                         color: @color-white;
                         margin: 0;
                     }
                     h4 {
-                        display: inline-block;
                         font-size: @font-size-big;
-                        // border-bottom: @color-green 0.1em dotted;
-                        background: transparent url("../img/bkg-arrow-down-green.svg") left bottom repeat-x;
-                        background-size: 1rem;
-                        padding-bottom: 0.3em;
                         margin-bottom: 1em;
+
+                        span {
+                            display: table;
+                            background: transparent url("../img/bkg-arrow-down-green.svg") left bottom repeat-x;
+                            background-size: 1rem;
+                            padding-bottom: 0.3em;
+                        }
+                    }
+                    ul.hashtags {
+                        list-style-type: none;
+                        padding: 0;
+                        margin: 2rem 0 0;
+                        .flex-display();
+                        .flex-flow(row wrap);
+
+
+                        li {
+                            font-size: @font-size-medium;
+                            color: @color-white;
+                            padding: 0.2em 0.4em;
+                            background-color: @color-purple-dark;
+                            letter-spacing: 1px;
+                            margin: 0.5em 0.5em 0 0;
+                        }
                     }
                 }
 

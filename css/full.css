@@ -141,6 +141,8 @@ header.main h1.logo img {
   padding: 4rem 0 4rem 4rem;
   padding-top: 8rem;
   width: 36rem;
+  height: 80vh;
+  min-height: 730px;
 }
 .services .strengths ol > li {
   padding: 0.3em 0;
@@ -167,7 +169,8 @@ header.main h1.logo img {
   margin-top: 8.6rem;
   font-size: 2.64rem;
 }
-.services .strengths ol > li .content p {
+.services .strengths ol > li .content p,
+.services .strengths ol > li .content ul.hashtags {
   max-width: 40rem;
 }
 .services .strengths ol > li.current .content {

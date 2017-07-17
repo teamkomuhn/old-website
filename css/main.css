@@ -332,18 +332,40 @@ header.main h1.logo img {
   margin: 1rem 0;
   display: none;
 }
-.services .strengths ol > li .content p,
-.services .strengths ol > li .content h4 {
+.services .strengths ol > li .content h4,
+.services .strengths ol > li .content p {
   color: #FFFFFF;
   margin: 0;
 }
 .services .strengths ol > li .content h4 {
-  display: inline-block;
   font-size: 1.76rem;
+  margin-bottom: 1em;
+}
+.services .strengths ol > li .content h4 span {
+  display: table;
   background: transparent url("../img/bkg-arrow-down-green.svg") left bottom repeat-x;
   background-size: 1rem;
   padding-bottom: 0.3em;
-  margin-bottom: 1em;
+}
+.services .strengths ol > li .content ul.hashtags {
+  list-style-type: none;
+  padding: 0;
+  margin: 2rem 0 0;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+}
+.services .strengths ol > li .content ul.hashtags li {
+  font-size: 1.1rem;
+  color: #FFFFFF;
+  padding: 0.2em 0.4em;
+  background-color: #1E0959;
+  letter-spacing: 1px;
+  margin: 0.5em 0.5em 0 0;
 }
 .services .strengths ol > li.current h3 {
   color: #321979;
