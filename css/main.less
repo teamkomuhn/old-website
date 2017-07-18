@@ -335,6 +335,7 @@ section {}
 
 /**/
 .team {
+    > header {display: none;}
 
     .member {
         .flex-display();
@@ -479,7 +480,7 @@ section {}
 }
 
 /**/
-menu.social-media {
+.social-media {
     .flex-display();
     .flex-flow(row wrap);
     padding: 0;
@@ -552,7 +553,7 @@ footer.main {
     .contact {
         // background-color: @color-purple-light;
 
-        header {
+        .wrap {
             text-align: center;
             h2 {
                 font-size: @font-size-giant;
