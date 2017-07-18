@@ -43,7 +43,7 @@ $(function() {
     });
 
     function markCurrent() {
-        //console.log("iCurrent: " + iCurrent);
+        //console.log('iCurrent: ' + iCurrent);
         $('.nav.dot > li, .strengths > ol > li').removeClass( 'current' );
         $('.strengths > ol > li').eq( iCurrent ).addClass( 'current' );
         $('.nav.dot > li').eq( iCurrent ).addClass( 'current' );
@@ -67,5 +67,22 @@ $(function() {
 
     // Hide loading from jquery mobile
     $.mobile.loading().hide();
+
+    // Say hi!
+    var hi = ['hello', 'olá', 'moi'];
+    var hiCounter = 0;
+
+    setInterval(function(){
+        console.log(hi[hiCounter]);
+
+        $('#say-hi').html(hi[hiCounter]);
+        hiCounter++;
+        if(hiCounter >= hi.length) { hiCounter = 0; }
+
+    }, 1500);
+
+
+
+
 
 });
