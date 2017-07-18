@@ -96,7 +96,7 @@ a.button {
   -moz-background-clip: padding;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
-  color: #666;
+  color: #222222;
   text-decoration: none;
   font-family: "Helvetica Neue", "Open Sans", Helvetica, sans-serif;
   font-size: 1.1rem;
@@ -108,8 +108,8 @@ a.button {
   -o-transition: 0.5s;
 }
 a.button:hover {
-  border-color: #999;
-  color: #222;
+  background-color: #222222;
+  color: #FFFFFF;
 }
 a.button.facebook {
   background-color: #3b5998;
@@ -264,6 +264,7 @@ header.main h1.logo img {
 .services .contact-us {
   background: transparent url("../img/bkg-arrow-down-yellow.svg") center center repeat;
   background-size: 1rem;
+  margin-bottom: 4rem;
 }
 .services .contact-us h3 {
   font-size: 2.2rem;
@@ -401,16 +402,18 @@ header.main h1.logo img {
   padding: 2rem;
 }
 .team .member header h3 {
-  display: inline-block;
   font-size: 2.64rem;
   line-height: 1em;
   color: #222222;
+  margin-bottom: 1rem;
+}
+.team .member header h3 span {
+  display: inline-block;
   background: transparent url("../img/bkg-arrow-down-yellow.svg") left bottom repeat-x;
   background-size: 1rem;
   padding-bottom: 0.3em;
-  margin-bottom: 1rem;
 }
-.team .member header aside.links button {
+.team .member header aside.links > button {
   background-color: #222222;
   -webkit-transition: 0.3s;
   -moz-transition: 0.3s;
@@ -429,19 +432,19 @@ header.main h1.logo img {
   top: -2rem;
   z-index: 9999;
 }
-.team .member header aside.links button .icon {
+.team .member header aside.links > button .icon {
   fill: #FFFFFF;
   width: 1.2rem;
   height: 1.2rem;
   display: block;
 }
-.team .member header aside.links button:hover {
-  background-color: #EEEEEE;
+.team .member header aside.links > button:hover {
+  background-color: #FFFFFF;
 }
-.team .member header aside.links button:hover .icon {
+.team .member header aside.links > button:hover .icon {
   fill: #222222;
 }
-.team .member header aside.links button:focus {
+.team .member header aside.links > button:focus {
   outline: none;
 }
 .team .member header aside.links ul {
@@ -454,20 +457,20 @@ header.main h1.logo img {
   top: 0;
   bottom: 0;
   z-index: 999;
-  background-color: #FFFFFF;
+  background-color: #321979;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: -ms-flex;
   display: flex;
-  -webkit-flex-flow: column wrap;
-  -ms-flex-flow: column wrap;
-  flex-flow: column wrap;
+  -webkit-flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
   -webkit-justify-content: center;
   -ms-justify-content: center;
   justify-content: center;
-  -webkit-align-items: center;
-  -ms-align-items: center;
-  align-items: center;
+  -webkit-align-content: center;
+  -ms-align-content: center;
+  align-content: center;
   opacity: 0;
   -webkit-transition: 0.5s;
   -moz-transition: 0.5s;
@@ -475,25 +478,38 @@ header.main h1.logo img {
   -o-transition: 0.5s;
 }
 .team .member header aside.links ul li {
-  margin: 0.5rem 0;
+  margin: 1rem;
 }
 .team .member header aside.links ul li a .icon {
   width: 2rem;
   height: 2rem;
-  fill: #222222;
+  fill: #8C6CC2;
   -webkit-transition: 0.3s;
   -moz-transition: 0.3s;
   -ms-transition: 0.3s;
   -o-transition: 0.3s;
 }
 .team .member header aside.links ul li a:hover .icon {
-  fill: rgba(0, 0, 0, 0.3);
+  fill: #FFFFFF;
 }
-.team .member header aside.links ul li a:nth-child(5) {
-  margin-right: 0;
+.team .member header aside.links ul li:nth-of-type(1) {
+  width: 100%;
+  text-align: center;
+}
+.team .member header aside.links ul li:nth-of-type(1) a.button {
+  background-color: #1E0959;
+  border-color: #1E0959;
+  font-size: 1.5rem;
+  color: #8C6CC2;
+  padding: 0.6em 1em 0.8em 1em;
+}
+.team .member header aside.links ul li:nth-of-type(1) a.button:hover {
+  background-color: #FFFFFF;
+  border-color: #FFFFFF;
+  color: #321979;
 }
 .team .member header aside.links.active button {
-  background-color: #EEEEEE;
+  background-color: #FFFFFF;
 }
 .team .member header aside.links.active button .icon {
   fill: #222222;
@@ -511,38 +527,6 @@ header.main h1.logo img {
   -webkit-justify-content: center;
   -ms-justify-content: center;
   justify-content: center;
-}
-.team .member span.wiggly {
-  position: absolute;
-  left: 2rem;
-  top: 36rem;
-  z-index: 9;
-  width: 10rem;
-  height: 0.6rem;
-  background: transparent url("../img/bkg-arrow-down-yellow.svg") left center repeat-x;
-  background-size: contain;
-}
-.team .member:nth-child(even) header {
-  margin-right: 0;
-  margin-left: 2rem;
-}
-.team .member:nth-child(even) span.wiggly {
-  left: 4rem;
-}
-.team .member:nth-child(n+2) {
-  margin-top: -6rem;
-}
-.team .member.tita span.wiggly {
-  width: 7.6rem;
-}
-.team .member.pepe span.wiggly {
-  width: 5.3rem;
-}
-.team .member.ri span.wiggly {
-  width: 10.3rem;
-}
-.team .member.su span.wiggly {
-  width: 12.2rem;
 }
 /**/
 menu.social-media {

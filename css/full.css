@@ -257,24 +257,20 @@ ul.nav.dot li.current {
   padding-bottom: 0.3em;
   margin-bottom: 1rem;
 }
-.team .member header aside.links button {
+.team .member header aside.links > button {
   right: auto;
   left: -2rem;
-  top: auto;
-  bottom: 4rem;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+}
+.team .member header aside.links ul {
+  padding-bottom: 6rem;
 }
 .team .member figure {
   max-width: 40rem;
-}
-.team .member span.wiggly {
-  top: 12rem;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-  height: 0.61rem;
-  width: 40rem;
 }
 .team .member:nth-child(even) {
   -webkit-flex-flow: row wrap;
@@ -288,37 +284,6 @@ ul.nav.dot li.current {
 .team .member:nth-child(even) header aside.links button {
   right: -2rem;
   left: auto;
-}
-.team .member:nth-child(even) span.wiggly {
-  left: auto;
-  right: 50%;
-  -webkit-transform: translateX(50%);
-  -moz-transform: translateX(50%);
-  -ms-transform: translateX(50%);
-  -o-transform: translateX(50%);
-}
-.team .member:nth-child(n+2) {
-  margin-top: 0;
-}
-.team .member.tita span.wiggly {
-  width: 29rem;
-}
-.team .member.pepe span.wiggly {
-  width: 24rem;
-}
-.team .member.ri span.wiggly {
-  width: 25rem;
-  -webkit-transform: translateX(-25%);
-  -moz-transform: translateX(-25%);
-  -ms-transform: translateX(-25%);
-  -o-transform: translateX(-25%);
-}
-.team .member.su span.wiggly {
-  width: 40rem;
-  -webkit-transform: translateX(45%);
-  -moz-transform: translateX(45%);
-  -ms-transform: translateX(45%);
-  -o-transform: translateX(45%);
 }
 /**/
 menu.social-media a .icon {

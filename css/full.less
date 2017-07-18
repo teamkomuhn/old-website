@@ -221,11 +221,16 @@ ul.nav.dot {
             }
 
             aside.links {
-                button {
+                > button {
                     right: auto;
                     left: -2rem;
-                    top: auto;
-                    bottom: 4rem;
+                    top: 50%;
+                    .transform( translateY(-50%) );
+                    // bottom: 4rem;
+                }
+
+                ul {
+                    padding-bottom: 6rem;
                 }
             }
         }
@@ -235,13 +240,6 @@ ul.nav.dot {
             > img {
 
             }
-        }
-        span.wiggly {
-            top: 12rem;
-            left: 50%;
-            .transform( translateX(-50%) );
-            height: 0.61rem;
-            width: 40rem;
         }
 
         &:nth-child(even) {
@@ -255,39 +253,6 @@ ul.nav.dot {
                         left: auto;
                     }
                 }
-            }
-            span.wiggly {
-                left: auto;
-                right: 50%;
-                .transform( translateX(50%) );
-            }
-        }
-
-        &:nth-child(n+2) {
-            margin-top: 0;
-        }
-
-        &.tita {
-            span.wiggly {
-                width: 29rem;
-            }
-        }
-
-        &.pepe {
-            span.wiggly {
-                width: 24rem;
-            }
-        }
-        &.ri {
-            span.wiggly {
-                width: 25rem;
-                .transform( translateX(-25%) );
-            }
-        }
-        &.su {
-            span.wiggly {
-                width: 40rem;
-                .transform( translateX(45%) );
             }
         }
     }
