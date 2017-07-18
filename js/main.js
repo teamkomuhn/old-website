@@ -73,8 +73,6 @@ $(function() {
     var hiCounter = 0;
 
     setInterval(function(){
-        console.log(hi[hiCounter]);
-
         $('#say-hi').html(hi[hiCounter]);
         hiCounter++;
         if(hiCounter >= hi.length) { hiCounter = 0; }
