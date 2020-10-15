@@ -1,0 +1,219 @@
+@import "normalize";
+@import "variables";
+@import "mixins";
+
+/*! HTML5 Boilerplate v7.3.0 | MIT License | https://html5boilerplate.com/ */
+
+/* main.css 2.0.0 | MIT License | https://github.com/h5bp/main.css#readme */
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+	 Base styles: opinionated defaults
+	 ========================================================================== */
+
+html {
+	color: #222;
+	font-size: 1em;
+	line-height: 1.4;
+}
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * Vendor-prefixed and regular ::selection selectors cannot be combined:
+ * https://stackoverflow.com/a/16982510/7133471
+ *
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+	background: #b3d4fc;
+	text-shadow: none;
+}
+
+::selection {
+	background: #b3d4fc;
+	text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+	display: block;
+	height: 1px;
+	border: 0;
+	border-top: 1px solid #ccc;
+	margin: 1em 0;
+	padding: 0;
+}
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+	vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+	resize: vertical;
+}
+
+/* ==========================================================================
+	 Browser Upgrade Prompt
+	 ========================================================================== */
+
+.browserupgrade {
+	margin: 0.2em 0;
+	background: #ccc;
+	color: #000;
+	padding: 0.2em 0;
+}
+
+/* ==========================================================================
+	 Author's custom styles
+	 ========================================================================== */
+
+body {
+	 font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+h1 {
+	font-size: 2rem;
+	@media screen and (min-width: 768px){
+		font-size: 3rem;
+	}
+}
+
+//HEADER
+.main-header {
+	padding: 2rem 1.5rem;
+	background-color: white;
+	.logo {
+		 img{
+			max-width: 220px;
+		}
+	}
+}
+
+//PORTFOLIO PAGE
+.portfolio {
+	@media screen and (min-width: 768px){
+		display: flex;
+		flex-wrap: wrap;
+	}
+	.item-project {
+		height: 100vh;
+		@media screen and (min-width: 768px){
+			width: 100vw;
+		}
+		&:first-child {
+			height: calc(100vh - 103px);
+		}
+		&:nth-child(even){
+			&.display-half {
+				justify-content: flex-end;
+			}
+			.item-content {
+				text-align: right;
+				@media screen and (min-width: 768px){
+					.item-title {
+						margin-left: auto;
+					}
+				}
+			}
+		}
+		&.display-half {
+			height: 50vh;
+			display: flex;
+			align-items: center;
+			@media screen and (min-width: 768px){
+				width: 50vw;
+				height: 100vh;
+				.item-content {
+					.item-title {
+						width: 80%;
+					}
+				}
+			}
+		}
+	}
+}
+
+.about {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	align-content: center;
+	height: 100vh;
+	padding: 1.5rem;
+	span {
+		font-weight: 200;
+	}
+}
+
+//BUTTONS
+.btn-white {
+	color: white;
+	font-size: 1.1rem;
+	font-weight: bold;
+	padding: .8rem 3rem;
+	border: 2px solid white;
+	border-radius: 5px;
+	text-decoration: none;
+}
+
+//ITEMS
+.item-project {
+	position: relative;
+	.item-image {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		object-fit: cover;
+	}
+	.item-content {
+		position: relative;
+		padding: 1.5rem;
+		.item-title {
+			color: white;
+			@media screen and (min-width: 768px){
+				width: 50%;
+			}
+		}
+		.btn-white {
+			display: inline-block;
+			margin-top: 2rem;
+		}
+	}
+}
