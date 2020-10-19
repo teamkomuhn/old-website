@@ -268,9 +268,6 @@ header.main h1.logo img {
   width: 50vw;
   max-width: 40rem;
 }
-.team figure img {
-  max-width: 100%;
-}
 /**/
 .social-media a .icon {
   width: 1.5rem;
