@@ -116,7 +116,7 @@ header.main {
             max-width: 40rem;
             height: 100vh - 12rem;
             min-height: 730px;
-
+            height: 100%;
             > li {
                 padding: 0.3em 4rem;
 
@@ -169,8 +169,8 @@ header.main {
 .team {
     .flex-display();
     .flex-flow(row wrap);
-    .justify-content(center);
-    margin: 9vw 0;
+    //.justify-content(center);
+    //margin: 9vw 0;
 
     .member {
         .flex-flow(row-reverse wrap);
@@ -226,6 +226,28 @@ header.main {
                     }
                 }
             }
+        }
+    }
+
+    div {
+        padding: 0;
+        align-self: center;
+        h3 {
+            font-size: @font-size-giant;
+            margin: 4rem 4rem 2.85rem 4rem;
+        }
+        p {
+            margin: 0 4rem;
+        }
+    }
+    div, figure {
+        .flex(1);
+        width: 50vw;
+        max-width: 40rem;
+    }
+    figure {
+        img {
+            max-width: 100%;
         }
     }
 }
