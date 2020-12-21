@@ -221,7 +221,7 @@
 		},
 	"/img/cover-chaos.jpg": {
 		"ft": 16384,
-		"iS": 738015,
+		"iS": 285810,
 		"jF": 0,
 		"oA": 0,
 		"oAP": "/img/cover-chaos.jpg",
@@ -370,7 +370,7 @@
 		"oAP": "/img/cover.jpg",
 		"oF": 0,
 		"oIPL": 0,
-		"opt": 0,
+		"opt": 1,
 		"q": 100
 		},
 	"/img/favicon.png": {
@@ -392,7 +392,7 @@
 		"oAP": "/img/fb_cover.jpg",
 		"oF": 0,
 		"oIPL": 0,
-		"opt": 0,
+		"opt": 1,
 		"q": 100
 		},
 	"/img/icons.svg": {

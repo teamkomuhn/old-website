@@ -50,7 +50,7 @@ header.main h1.logo {
   padding: 14rem 0 0 4rem;
 }
 header.main h1.logo img {
-  width: 12rem;
+  width: 7rem;
 }
 /**/
 .intro {
@@ -96,7 +96,7 @@ header.main h1.logo img {
 .services > header {
   width: 50vw;
   max-width: 40rem;
-  margin: -32rem 0 0 -20rem;
+  margin: -30rem 0 0 -20rem;
   padding: 0;
 }
 .services > header h2 {
