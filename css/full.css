@@ -279,10 +279,17 @@ footer.main .made-with-colab {
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
+}
+footer.main .contact {
   height: 50vw;
 }
 footer.main .contact .wrap h2 {
   font-size: 5rem;
+}
+footer.main .made-with-colab {
+  height: 60vw;
+  margin-top: -10vw;
+  margin-left: -2rem;
 }
 footer.main .made-with-colab a img {
   width: 30%;
