@@ -1,2 +1,2 @@
-# website-v2
+# Komuhn website v2
 Komuhn's website?
