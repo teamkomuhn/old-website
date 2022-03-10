@@ -45,11 +45,21 @@
     <section class="log">
         <h2>Log</h2>
 
-        <article id="log-2022-02-25">
+        <article id="log-2022-03-10">
             <h3>Published this page 🎉</h3>
             <time datetime="2022-02-25">2022-02-25</time>
             <ul>
                 <li>Publish online</li>
+                <li>Make a cute image for our own wordpress theme - komuhn-website-v2 (check <a href="https://github.com/teamkomuhn/komuhn-website-v2.git">GitHub repository</a>) <img src="<?php echo get_template_directory_uri(); ?>/screenshot.png" alt="komuhn-website-v2 wordpress theme" style="max-width:150px; display:block;"/></li>
+                <li>Setup wordpress and new theme</li>
+                <li>Organize old directories in our server > <a href="https://komuhn.co/old/">https://komuhn.co/old/</a></li>
+            </ul>
+        </article>
+
+        <article id="log-2022-02-25">
+            <h3>Built this page ⚡</h3>
+            <time datetime="2022-02-25">2022-02-25</time>
+            <ul>
                 <li>Add Google analytics script</li>
                 <li>Add initial content to page</li>
                 <li>Create HTML, CSS files</li>
@@ -67,7 +77,7 @@
             <li>Tasks on <a href="#">Trello</a></li>
             <li>Content on <a href="https://docs.google.com/document/d/11nrReF8hhR_bdICX_AEbbe_ZEzYlXQxKjl-Bg9If0uc/edit?usp=sharing">Google docs</a></li>
             <li>Design files on <a href="#">Figma</a></li>
-            <li>Repository on <a href="#">GitHub</a></li>
+            <li>Repository on <a href="https://github.com/teamkomuhn">GitHub</a></li>
             <li>Hosted on <a href="#">SiteGround</a></li>
         </ul>
     </footer>
