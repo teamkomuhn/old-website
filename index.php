@@ -54,6 +54,14 @@
     <section class="log">
         <h2>Log</h2>
 
+        <article id="log-2022-03-15">
+            <h3>Published this page 🎉</h3>
+            <time datetime="2022-03-15">2022-03-15</time>
+            <ul>
+                <li>Add a favicon, one of those tiny little images decorating your tabs, so you can quickly identify your its content.</li>
+            </ul>
+        </article>
+
         <article id="log-2022-03-10">
             <h3>Published this page 🎉</h3>
             <time datetime="2022-03-10">2022-03-10</time>
