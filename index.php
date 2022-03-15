@@ -7,6 +7,15 @@
     <meta name="description" content="Our new website">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!--Favicon Default-->
+    <link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/Favicon-32x32.png"/>
+    <!--Favicon Apple Touch Icon-->
+    <link rel="apple-touch-icon" sizes="180x180" href="<?php echo get_template_directory_uri(); ?>/Favicon-apple-touch-icon-180x180.png">
+    <!--Favicon Android, Chrome and Opera-->
+    <link rel="manifest" href="<?php echo get_template_directory_uri(); ?>/manifest.json">
+    <!--Favicon Safari-->
+    <link rel="mask-icon" href="<?php echo get_template_directory_uri(); ?>/Favicon-16x16.svg">
+
     <link rel="stylesheet" href="css/main.css">
 
 </head>
@@ -47,7 +56,7 @@
 
         <article id="log-2022-03-10">
             <h3>Published this page 🎉</h3>
-            <time datetime="2022-02-25">2022-02-25</time>
+            <time datetime="2022-03-10">2022-03-10</time>
             <ul>
                 <li>Publish online</li>
                 <li>Make a cute image for our own wordpress theme - komuhn-website-v2 (check <a href="https://github.com/teamkomuhn/komuhn-website-v2.git">GitHub repository</a>) <img src="<?php echo get_template_directory_uri(); ?>/screenshot.png" alt="komuhn-website-v2 wordpress theme" style="max-width:150px; display:block;"/></li>
