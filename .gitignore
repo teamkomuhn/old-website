@@ -24,3 +24,5 @@ node_modules/
 
 # ignore config files
 *.codekit3
+.DS_Store
+.DS_Store
