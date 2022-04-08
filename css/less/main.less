@@ -1,22 +1,29 @@
 // @import "css/normalize.css";
 @import "variables";
 
-html {
-    color: #222;
-    font-size: 1em;
-    line-height: 1.4;
-}
-
 body {
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 1em;
+    color: #222;
+    line-height: 1.4;
 
-    padding: 2em;
+
+    padding: 2rem;
 }
 
 hr {
-    margin: 4em auto 2em;
+    margin: 4rem auto 2rem;
     border-style: solid;
     border-width: .5px;
+}
+
+time {
+    font-size: 1em;
+    // font-weight: bold;
+    white-space: nowrap;
+
+    padding: .2rem .5rem;
+    background-color: #eee;
 }
 
 .home {
@@ -26,9 +33,8 @@ hr {
         }
     }
 
-    section {
+    section {}
 
-    }
     h2.section-title {
         text-transform: uppercase;
         font-size: 1em;
@@ -42,17 +48,11 @@ hr {
             > header {
                 h3 {
                     font-size: 3em;
-                    margin-bottom: .5em;
+                    margin-bottom: 1rem;
                     line-height: 1em;
                 }
 
-                time {
-                    font-size: 1em;
-                    font-weight: bold;
-
-                    background-color: #eee;
-                    padding: .2em .5em;
-                }
+                time {}
             }
 
         }
@@ -64,8 +64,8 @@ hr {
         article {
             background-color: #efefef;
             border: #222 .5px dashed;
-            padding: 1em;
-            margin-bottom: 2em;
+            padding: 1rem;
+            margin-bottom: 2rem;
 
             > header {
                 display: flex;
@@ -84,13 +84,9 @@ hr {
                 time {
                     order: 0;
 
-                    font-size: 1em;
-                    font-weight: bold;
-                    white-space: nowrap;
-
+                    background-color: transparent;
                     border: #222 .5px solid;
-                    padding: .2em .5em;
-                    margin-right: 1em;
+                    margin-right: 1rem;
 
                 }
             }
@@ -106,7 +102,7 @@ hr {
             img {
                 display: block;
                 max-width: 100px;
-                margin: .5em .5em .5em 0;
+                margin: .5rem .5rem .5rem 0;
             }
 
             &:first-of-type {
@@ -115,7 +111,25 @@ hr {
 
         }
     } // .log
-
 } //.home
+
+.single {
+
+    header.main-header {
+        h1.logo {
+            > a {
+                text-decoration: none;
+                color: #ccc;
+            }
+
+        }
+    }
+
+    h1.post-title {
+        font-size: 4em;
+        word-break: break-all;
+        line-height: 1em;
+    }
+} //.single
 
 @import "full" @desktop;

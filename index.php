@@ -47,8 +47,8 @@
                 <h3>Outgrowing.</h3>
                 <time datetime="2022-02-25">2022-02-25</time>
             </header>
-            <p>Donec eu dignissim nibh. Praesent hendrerit lobortis arcu at volutpat. Quisque eu mi viverra, luctus augue non, luctus odio. Praesent quis tristique nibh, et tempor urna.</p>
-            <a href="#">Read more -></a>
+            <p>If you’re a parent you probably have gone through the wonderful menace that is experiencing humans change in front of your eyes. Not change like in a change of clothes (even if that seems to happen way too often) but change like: this child could barely hold their food inside of them and today is discussing things you can barely comprehend. And you know why it feels so overwhelming (and amazing)? It’s because it happens so unexpectedly fast and so often. We call it growing.</p>
+            <a href="<?php echo esc_url( get_permalink( get_page_by_title( 'Outgrowing' ) ) ); ?>">Read more -></a>
         </article>
 
         <article id="post-2022-02-26">
@@ -66,6 +66,16 @@
 
     <section class="log">
         <h2 class="section-title">Log</h2>
+
+        <article id="log-2022-04-08">
+            <header>
+                <h3>A page for posts</h3>
+                <time datetime="2022-04-08">2022-04-08</time>
+            </header>
+            <ul>
+                <li>Create a page template to publish posts. See here: <a href="<?php echo esc_url( get_permalink( get_page_by_title( 'Outgrowing' ) ) ); ?>"><?php print esc_url( get_permalink( get_page_by_title( 'Outgrowing' ) ) ); ?></a></li>
+            </ul>
+        </article>
 
         <article id="log-2022-04-07">
             <header>
