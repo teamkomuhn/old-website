@@ -25,5 +25,5 @@
 <body <?php body_class(); ?>>
 
     <header class="main-header">
-        <h1 class="logo">Komuhn</h1>
+        <h1 class="logo"><a href="<?php echo esc_url( home_url( '/' ) ) ?>">Komuhn</a></h1>
     </header>
