@@ -1,30 +1,4 @@
-<!doctype html>
-<html class="no-js" lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <title>Komuhn</title>
-    <meta name="description" content="Our new website">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!--Favicon Default-->
-    <link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/Favicon-32x32.png"/>
-    <!--Favicon Apple Touch Icon-->
-    <link rel="apple-touch-icon" sizes="180x180" href="<?php echo get_template_directory_uri(); ?>/Favicon-apple-touch-icon-180x180.png">
-    <!--Favicon Android, Chrome and Opera-->
-    <link rel="manifest" href="<?php echo get_template_directory_uri(); ?>/manifest.json">
-    <!--Favicon Safari-->
-    <link rel="mask-icon" href="<?php echo get_template_directory_uri(); ?>/Favicon-16x16.svg">
-
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/main.css">
-
-</head>
-
-<body <?php body_class(); ?>>
-
-    <header class="main-header">
-        <h1 class="logo">Komuhn</h1>
-    </header>
+<?php get_header(); ?>
 
     <section class="intro">
         <h1>We're making a new website*</h1>
@@ -37,93 +11,82 @@
 
     </section>
 
+    <?php //GET POSTS
+    $args = array(
+        'post_type'         => array('post'),
+        'category_name'     => 'post',
+        'post_status'       => array('publish'),
+    	'posts_per_page'    => '10',
+        'order'             => 'DESC',
+        'orderby'           => 'date',
+    );
+
+    $ko_posts = new WP_Query( $args );
+    if ( $ko_posts -> have_posts() ):
+    ?>
+
     <hr>
 
     <section class="posts">
         <h2 class="section-title">Posts</h2>
 
-        <article id="post-2022-02-25">
-            <header>
-                <h3>Outgrowing.</h3>
-                <time datetime="2022-02-25">2022-02-25</time>
-            </header>
-            <p>If you’re a parent you probably have gone through the wonderful menace that is experiencing humans change in front of your eyes. Not change like in a change of clothes (even if that seems to happen way too often) but change like: this child could barely hold their food inside of them and today is discussing things you can barely comprehend. And you know why it feels so overwhelming (and amazing)? It’s because it happens so unexpectedly fast and so often. We call it growing.</p>
-            <a href="<?php echo esc_url( get_permalink( get_page_by_title( 'Outgrowing' ) ) ); ?>">Read more -></a>
-        </article>
+        <?php while ( $ko_posts -> have_posts() ): $ko_posts -> the_post(); ?>
+            <?php //Make unique readable post ID
+            $slug = removeEmoji( get_the_title() );
+            $slug = sanitize_title( $slug  );
+            $post_id = $slug . '-' . get_the_date('Y-m-d');
+            ?>
 
-        <article id="post-2022-02-26">
-            <header>
-                <h3>Another post</h3>
-                <time datetime="2022-02-25">2022-02-25</time>
-            </header>
-            <p>Donec eu dignissim nibh. Praesent hendrerit lobortis arcu at volutpat. Quisque eu mi viverra, luctus augue non, luctus odio. Praesent quis tristique nibh, et tempor urna.</p>
-            <a href="#">Read more -></a>
-        </article>
+            <article id="<?php echo $post_id; ?>">
+                <header>
+                    <h3><?php the_title(); ?></h3>
+                    <time datetime="<?php echo get_the_date('c'); ?>"><?php print get_the_date('F j, Y'); ?></time>
+                </header>
+                <p><?php the_excerpt(); ?></p>
+                <a href="<?php the_permalink(); ?>">Read more -></a>
+            </article>
 
+        <?php endwhile; ?>
+    <?php endif; wp_reset_postdata(); ?>
     </section>
+
+
+    <?php //GET LOGS
+    $args = array(
+        'post_type'         => array('post'),
+        'category_name'     => 'log',
+        'post_status'       => array('publish'),
+    	'posts_per_page'    => '10',
+        'order'             => 'DESC',
+        'orderby'           => 'date',
+    );
+
+    $ko_logs = new WP_Query( $args );
+    if ( $ko_logs -> have_posts() ):
+    ?>
 
     <hr>
 
     <section class="log">
         <h2 class="section-title">Log</h2>
 
-        <article id="log-2022-04-08">
-            <header>
-                <h3>A page for posts</h3>
-                <time datetime="2022-04-08">2022-04-08</time>
-            </header>
-            <ul>
-                <li>Create a page template to publish posts. See here: <a href="<?php echo esc_url( get_permalink( get_page_by_title( 'Outgrowing' ) ) ); ?>"><?php print esc_url( get_permalink( get_page_by_title( 'Outgrowing' ) ) ); ?></a></li>
-            </ul>
-        </article>
+        <?php while ( $ko_logs -> have_posts() ): $ko_logs -> the_post(); ?>
+            <?php //Make unique readable post ID
+            $slug = removeEmoji( get_the_title() );
+            $slug = sanitize_title( $slug  );
+            $log_id = 'log-' . $slug . '-' . get_the_date('Y-m-d');
+            ?>
 
-        <article id="log-2022-04-07">
-            <header>
-                <h3>Make it easier to read</h3>
-                <time datetime="2022-04-07">2022-04-07</time>
-            </header>
-            <ul>
-                <li>Make initial CSS styles for readability</li>
-            </ul>
-        </article>
+            <article id="<?php echo $log_id; ?>">
+                <header>
+                    <h3><?php the_title(); ?></h3>
+                    <time datetime="<?php echo get_the_date('c'); ?>"><?php print get_the_date('F j, Y'); ?></time>
+                </header>
+                <?php the_content(); ?>
+            </article>
 
-        <article id="log-2022-03-15">
-            <header>
-                <h3>Customizing for the soul</h3>
-                <time datetime="2022-03-15">2022-03-15</time>
-            </header>
-            <ul>
-                <li>Add a favicon, one of those tiny little images decorating your browser tabs, so you can quickly identify your tabs content.</li>
-            </ul>
-        </article>
-
-        <article id="log-2022-03-10">
-            <header>
-                <h3>Published this page 🎉</h3>
-                <time datetime="2022-03-10">2022-03-10</time>
-            </header>
-            <ul>
-                <li>Publish online</li>
-                <li>Make a cute image for our own wordpress theme - komuhn-website-v2 (check <a href="https://github.com/teamkomuhn/komuhn-website-v2.git">GitHub repository</a>) <img src="<?php echo get_template_directory_uri(); ?>/screenshot.png" alt="komuhn-website-v2 wordpress theme" /></li>
-                <li>Setup wordpress and new theme</li>
-                <li>Organize old directories in our server > <a href="https://komuhn.co/old/">https://komuhn.co/old/</a></li>
-            </ul>
-        </article>
-
-        <article id="log-2022-02-25">
-            <header>
-                <h3>Built this page ⚡</h3>
-                <time datetime="2022-02-25">2022-02-25</time>
-            </header>
-            <ul>
-                <li>Add Google analytics script</li>
-                <li>Add initial content to page</li>
-                <li>Create HTML, CSS files</li>
-                <li>Create Figma file</li>
-                <li>Create GitHub repository</li>
-            </ul>
-        </article>
-
+        <?php endwhile; ?>
+    <?php endif; wp_reset_postdata(); ?>
     </section>
 
     <hr>
