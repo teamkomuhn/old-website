@@ -39,16 +39,43 @@ header.main-header {
 
 .home {
     header.main-header {
+
         h1.logo {
             font-size: 4em;
         }
     }
 
-    section {}
+    section {
+        margin-bottom: 4rem;
 
-    h2.section-title {
+        article {
+            > header {
+                h1 {
+                    font-size: 3em;
+                    margin-bottom: 1rem;
+                    line-height: 1em;
+                }
+            }
+        }
+    }
+
+    h1.section-title {
         text-transform: uppercase;
         font-size: 1em;
+    }
+
+    section.intro {
+        > header {
+            margin-bottom: 4rem;
+
+            h1 {
+                span.pre {
+                    display: block;
+                    // font-size: 1.5em;
+                }
+            }
+        }
+
     }
 
     section.posts {
@@ -57,7 +84,7 @@ header.main-header {
             // background-color: pink;
 
             > header {
-                h3 {
+                h1 {
                     font-size: 3em;
                     margin-bottom: 1rem;
                     line-height: 1em;
@@ -80,15 +107,15 @@ header.main-header {
 
             > header {
                 display: flex;
-                flex-flow: row nowrap;
+                flex-flow: row wrap;
                 align-items: flex-start;
 
-                h3 {
+                h1 {
                     order: 1;
 
                     font-size: 1.2em;
                     margin-top: 0;
-                    margin-bottom: .0;
+                    margin-bottom: 0;
                     line-height: 1.2em;
                 }
 
@@ -98,7 +125,7 @@ header.main-header {
                     background-color: transparent;
                     border: #222 .5px solid;
                     margin-right: 1rem;
-
+                    margin-bottom: .5rem;
                 }
             }
 

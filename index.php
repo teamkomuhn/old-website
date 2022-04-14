@@ -1,8 +1,10 @@
 <?php get_header(); ?>
 
     <section class="intro">
-        <h1>We're making a new website*</h1>
-        <p><em>*If you're looking for our old website you can find it here: <a href="https://komuhn.co/old/">https://komuhn.co/old/</a></em></p>
+        <header>
+            <h1><span class="pre">Olá 👋 </span> We are Komuhn - a collaborative design team.</h1>
+            <p><em>*If you're looking for our old website you can find it here: <a href="https://komuhn.co/old/">https://komuhn.co/old/</a></em></p>
+        </header>
 
         <?php // GET STICKY POST
         $stickies = get_option( 'sticky_posts' );
@@ -23,7 +25,7 @@
 
                 <article id="<?php echo $post_id; ?>">
                     <header>
-                        <h3><?php the_title(); ?></h3>
+                        <h1><?php the_title(); ?></h1>
                         <time datetime="<?php echo get_the_date('c'); ?>"><?php print get_the_date('F j, Y'); ?></time>
                     </header>
                     <p><?php the_excerpt(); ?></p>
@@ -53,7 +55,7 @@
     <hr>
 
     <section class="posts">
-        <h2 class="section-title">Posts</h2>
+        <h1 class="section-title">More posts</h1>
 
         <?php
         while ( $ko_posts -> have_posts() ): $ko_posts -> the_post();
@@ -63,7 +65,7 @@
 
         <article id="<?php echo $post_id; ?>">
             <header>
-                <h3><?php the_title(); ?></h3>
+                <h1><?php the_title(); ?></h1>
                 <time datetime="<?php echo get_the_date('c'); ?>"><?php print get_the_date('F j, Y'); ?></time>
             </header>
             <p><?php the_excerpt(); ?></p>
@@ -92,7 +94,7 @@
     <hr>
 
     <section class="log">
-        <h2 class="section-title">Log</h2>
+        <h1 class="section-title">Log</h1>
 
         <?php
         while ( $ko_logs -> have_posts() ): $ko_logs -> the_post();
@@ -102,7 +104,7 @@
 
         <article id="<?php echo $log_id; ?>">
             <header>
-                <h3><?php the_title(); ?></h3>
+                <h1><?php the_title(); ?></h1>
                 <time datetime="<?php echo get_the_date('c'); ?>"><?php print get_the_date('F j, Y'); ?></time>
             </header>
             <?php the_content(); ?>
