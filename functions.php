@@ -6,4 +6,7 @@ function removeEmoji( string $text ): string {
     $text = preg_replace('/\s+/', ' ', $text);
     return iconv('ISO-8859-15', 'UTF-8', $text);
 };
+
+// ADD SUPPORT FOR MENUS
+add_theme_support( 'menus' );
 ?>
