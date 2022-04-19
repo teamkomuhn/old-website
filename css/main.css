@@ -89,10 +89,10 @@ header.main-header h1.logo > a {
 }
 .home section.log article > header time {
   order: 0;
+  align-self: center;
   background-color: transparent;
   border: #222 0.5px solid;
   margin-right: 1rem;
-  margin-bottom: 0.5rem;
 }
 .home section.log article ul {
   padding-left: inherit;
