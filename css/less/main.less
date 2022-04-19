@@ -26,6 +26,22 @@ time {
     background-color: #eee;
 }
 
+p.author {
+    display: inline-flex;
+    align-items: center;
+    img {
+        border-radius: 50%;
+        border: 1px solid black;
+        width: 2em;
+        height: 2em;
+        margin-right: .5em;
+    }
+}
+
+p.last-edit {
+    font-size: smaller;
+}
+
 
 header.main-header {
     h1.logo {
@@ -60,20 +76,8 @@ header.main-header {
                     line-height: 1em;
                 }
                 p.author {
-                    display: inline-flex;
-                    align-items: center;
                     margin-right: .5em;
-                    img {
-                        border-radius: 50%;
-                        border: 1px solid black;
-                        width: 2em;
-                        height: 2em;
-                        margin-right: .5em;
-                    }
                 }
-            }
-            p.last-edit {
-                font-size: smaller;
             }
         }
     }

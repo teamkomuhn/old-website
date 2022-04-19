@@ -10,10 +10,12 @@ get_header(); ?>
     <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
         <h1 class="post-title"><?php the_title(); ?></h1>
+        <?php author_section(); ?>
 
         <?php the_content(); ?>
 
-        <time datetime="2022-02-25">2022-02-25</time>
+        <time datetime="<?php echo get_the_date('c'); ?>"><?php print get_the_date('F j, Y'); ?></time>
+        <?php last_edit_details(); ?>
 
         <?php
         // If comments are open or we have at least one comment, load up the comment template.

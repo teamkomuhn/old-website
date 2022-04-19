@@ -73,7 +73,7 @@ function last_edit_details() {
     $postDate = get_the_date('Y-m-d');
 
     if($latest_revision > 0 && $latest_revision_date > $postDate) {
-        echo '<p class="last-edit">Last edit by <a href="'. $latest_revision_author_URL .'">'. $latest_revision_author .' </a> on '. get_the_modified_date(). '</p>';
+        echo '<p class="last-edit">Last edit by <a href="'. $latest_revision_author_URL .'">'. $latest_revision_author .' </a> on <time datetime="'. get_the_modified_date() .'">'. get_the_modified_date(). '</time></p>';
     }
 
 }

@@ -16,6 +16,20 @@ time {
   padding: 0.2rem 0.5rem;
   background-color: #eee;
 }
+p.author {
+  display: inline-flex;
+  align-items: center;
+}
+p.author img {
+  border-radius: 50%;
+  border: 1px solid black;
+  width: 2em;
+  height: 2em;
+  margin-right: 0.5em;
+}
+p.last-edit {
+  font-size: smaller;
+}
 header.main-header h1.logo > a {
   text-decoration: none;
   color: #222;
@@ -38,19 +52,7 @@ header.main-header h1.logo > a {
   line-height: 1em;
 }
 .home section article > header p.author {
-  display: inline-flex;
-  align-items: center;
   margin-right: 0.5em;
-}
-.home section article > header p.author img {
-  border-radius: 50%;
-  border: 1px solid black;
-  width: 2em;
-  height: 2em;
-  margin-right: 0.5em;
-}
-.home section article p.last-edit {
-  font-size: smaller;
 }
 .home h1.section-title {
   text-transform: uppercase;
