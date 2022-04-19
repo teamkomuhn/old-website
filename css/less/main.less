@@ -50,11 +50,30 @@ header.main-header {
 
         article {
             > header {
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
                 h1 {
+                    width: 100%;
                     font-size: 3em;
                     margin-bottom: 1rem;
                     line-height: 1em;
                 }
+                p.author {
+                    display: inline-flex;
+                    align-items: center;
+                    margin-right: .5em;
+                    img {
+                        border-radius: 50%;
+                        border: 1px solid black;
+                        width: 2em;
+                        height: 2em;
+                        margin-right: .5em;
+                    }
+                }
+            }
+            p.last-edit {
+                font-size: smaller;
             }
         }
     }
