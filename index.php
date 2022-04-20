@@ -20,7 +20,7 @@
             if ( $ko_sticky -> have_posts() ) :
                 while ( $ko_sticky -> have_posts() ): $ko_sticky -> the_post();
                 //Make unique readable post ID
-                $post_id = make_unique_id( get_the_title(), get_the_date('Y-m-d'), false );
+                $post_id = make_unique_id( get_the_title(), get_the_date('Y-m-d') );
         ?>
 
                 <article id="<?php echo $post_id; ?>">
@@ -60,7 +60,7 @@
         <?php
         while ( $ko_posts -> have_posts() ): $ko_posts -> the_post();
         //Make unique readable post ID
-        $post_id = make_unique_id( get_the_title(), get_the_date('Y-m-d'), false );
+        $post_id = make_unique_id( get_the_title(), get_the_date('Y-m-d') );
         ?>
 
         <article id="<?php echo $post_id; ?>">
