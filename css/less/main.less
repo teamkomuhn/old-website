@@ -166,7 +166,7 @@ header.main-header {
     main {
 
         > header {
-            margin-bottom: 4rem;
+            margin-bottom: 2rem;
 
             h1.post-title {
                 font-size: 4em;
@@ -174,8 +174,11 @@ header.main-header {
                 line-height: 1em;
             }
 
-            blockquote.excerpt {
-                margin: 0;
+            details.excerpt {
+                > summary {
+                    display: none;
+                }
+
                 border-left: 10px #ccc solid;
                 padding-left: 1em;
                 Font-family: Cambria, Georgia, serif;
@@ -184,6 +187,8 @@ header.main-header {
                 margin-top: 2rem;
                 margin-bottom: 2rem;
             }
+
+
         }
 
         > p {
