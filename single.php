@@ -7,13 +7,22 @@ get_header(); ?>
 
     <main>
 
-    <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+    <?php if ( have_posts() ) : while ( have_posts() ) : the_post();
+        //Make unique readable post ID
+        $post_id = make_unique_id( get_the_title(), get_the_date('Y-m-d') );
+    ?>
+        <header>
+            <h1 class="post-title"><?php the_title(); ?></h1>
 
-        <h1 class="post-title"><?php the_title(); ?></h1>
+
+            <blockquote class="excerpt" cite="<?php echo get_home_url() . '/#' . $post_id; ?>">
+                <?php the_excerpt(); ?>
+            </blockquote>
+
+            <time datetime="<?php echo get_the_date('c'); ?>"><?php print get_the_date('F j, Y'); ?></time>
+        </header>
 
         <?php the_content(); ?>
-
-        <time datetime="2022-02-25">2022-02-25</time>
 
         <?php
         // If comments are open or we have at least one comment, load up the comment template.
