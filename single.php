@@ -21,9 +21,6 @@ get_header(); ?>
                 <?php the_excerpt(); ?>
             </details>
 
-
-
-
             <time datetime="<?php echo get_the_date('c'); ?>"><?php print get_the_date('F j, Y'); ?></time>
         </header>
 

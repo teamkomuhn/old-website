@@ -172,6 +172,7 @@ header.main-header {
                 font-size: 4em;
                 word-break: break-all;
                 line-height: 1em;
+                margin-bottom: 0;
             }
 
             details.excerpt {
@@ -179,21 +180,41 @@ header.main-header {
                     display: none;
                 }
 
-                border-left: 10px #ccc solid;
-                padding-left: 1em;
-                Font-family: Cambria, Georgia, serif;
+                font-family: Cambria, Georgia, serif;
                 font-style: italic;
-                font-size: 1.2em;
-                margin-top: 2rem;
-                margin-bottom: 2rem;
+                font-size: 1.3em;
+                color: #555;
             }
-
 
         }
 
         > p {
             font-weight: 400;
             line-height: 1.5em;
+        }
+
+        p.tldr {
+            font-size: 1.1em;
+            font-style: italic;
+
+            border: 1px #bbb dashed;
+            padding: .5rem;
+            margin: 4em -.5rem 2rem -.5rem;
+
+            &::before {
+                content: 'TL;DR ';
+                font-family: monospace;
+                font-size: 1.2em;
+                font-weight: 600;
+                font-style: normal;
+                display: block;
+            }
+        }
+
+        > ul, > ol {
+            li {
+                line-height: 1.5;
+            }
         }
 
         > h2 {
@@ -206,6 +227,15 @@ header.main-header {
 
         > h4 {
             font-size: 1.1em;
+        }
+
+        > blockquote {
+            border-left: 10px #ccc solid;
+            padding-left: 1em;
+            font-family: Cambria, Georgia, serif;
+            font-style: italic;
+            font-size: 1.5em;
+            margin: 2em 0;
         }
     }
 
