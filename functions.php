@@ -27,7 +27,7 @@ function make_unique_id( string $str, string $date, $pre = false ): string { // 
 
 add_filter( 'avatar_defaults', 'wbcom_new_gravatar' );
 function wbcom_new_gravatar ($avatar_defaults) {
-    $myavatar = 'http://komuhn.co/wordpress/wp-content/uploads/ok-avatar.png';
+    $myavatar = 'https://komuhn.co/wordpress/wp-content/uploads/ok-avatar.png';
     $avatar_defaults[$myavatar] = "Default Gravatar";
     return $avatar_defaults;
 }
