@@ -45,6 +45,21 @@ p.last-edit {
     }
 }
 
+.author-section {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+
+    p.author {
+        margin-right: 1em;
+    }
+
+    p.last-edit {
+        width: 100%;
+    }
+
+}
+
 
 header.main-header {
     h1.logo {
@@ -212,26 +227,6 @@ header.main-header {
                 font-style: italic;
                 font-size: 1.3em;
                 color: #555;
-            }
-            div.author-section {
-                display: flex;
-                flex-flow: row wrap;
-                align-items: center;
-
-                p.author {
-                    margin-right: 1em;
-                }
-
-                p.last-edit {
-                    margin-left: 1em;
-
-                    &::before {
-                        content: '•';
-                        font-size: 1.2em;
-                        margin-right: 1em;
-                    }
-                }
-
             }
 
         }

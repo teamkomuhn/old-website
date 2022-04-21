@@ -33,7 +33,7 @@ function wbcom_new_gravatar ($avatar_defaults) {
 }
 
 //Get author avatar and name
-function author_section() {
+function author() {
 
     $avatar = get_avatar(get_the_author_meta('ID', $post_id));
     $author_name = get_the_author_meta( 'display_name', $post->post_author );

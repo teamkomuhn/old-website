@@ -4,6 +4,21 @@ body {
     max-width: 50rem; //800px
 }
 
+
+.author-section {
+    p.last-edit {
+        width: inherit;
+        margin-left: 1em;
+
+        &::before {
+            content: '•';
+            font-size: 1.2em;
+            margin-right: 1em;
+        }
+    }
+
+}
+
 // HOME PAGE
 .home {
     header.main-header {

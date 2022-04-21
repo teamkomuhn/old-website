@@ -27,7 +27,6 @@ get_header(); ?>
                 <?php last_edit_details(); ?>
             </div>
 
-
         </header>
 
         <?php the_content(); ?>
