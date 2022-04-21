@@ -21,7 +21,13 @@ get_header(); ?>
                 <?php the_excerpt(); ?>
             </details>
 
-            <time datetime="<?php echo get_the_date('c'); ?>"><?php print get_the_date('F j, Y'); ?></time>
+            <div class="author-section">
+                <?php author(); ?>
+                <time datetime="<?php echo get_the_date('c'); ?>"><?php print get_the_date('F j, Y'); ?></time>
+                <?php last_edit_details(); ?>
+            </div>
+
+
         </header>
 
         <?php the_content(); ?>
