@@ -21,7 +21,7 @@ get_header(); ?>
                 <?php the_excerpt(); ?>
             </details>
 
-            <div class="author-section">
+            <div class="post-details">
                 <?php author(); ?>
                 <time datetime="<?php echo get_the_date('c'); ?>"><?php print get_the_date('F j, Y'); ?></time>
                 <?php last_edit_details(); ?>

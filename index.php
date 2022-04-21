@@ -66,7 +66,7 @@
         <article id="<?php echo $post_id; ?>">
             <header>
                 <h1><?php the_title(); ?></h1>
-                <div class="author-section">
+                <div class="post-details">
                     <?php author(); ?>
                     <time datetime="<?php echo get_the_date('c'); ?>"><?php print get_the_date('F j, Y'); ?></time>
                     <?php last_edit_details(); ?>
