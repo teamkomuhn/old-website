@@ -5,8 +5,6 @@
 
 get_header(); ?>
 
-    <main>
-
     <?php if ( have_posts() ) : while ( have_posts() ) : the_post();
         //Make unique readable post ID
         //$post_id = make_unique_id( get_the_title(), get_the_date('Y-m-d') );
@@ -49,18 +47,5 @@ get_header(); ?>
         ?>
 
     <?php endwhile; endif;?>
-    </main>
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JJN9Q36MB0"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-JJN9Q36MB0');
-    </script>
-
-</body>
-
-</html>
+<?php get_footer(); ?>

@@ -119,23 +119,4 @@
     <?php endif; wp_reset_postdata(); ?>
     </section>
 
-    <hr>
-
-    <footer class="main-footer">
-        <h2 class="section-title">About this website</h2>
-        <?php wp_nav_menu( array( 'menu' => "Where we are" )); ?>
-    </footer>
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JJN9Q36MB0"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-JJN9Q36MB0');
-    </script>
-
-</body>
-
-</html>
+<?php get_footer(); ?>

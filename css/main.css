@@ -55,9 +55,10 @@ footer.main-footer .menu-where-we-are-container li a:visited,
 footer.main-footer .menu-where-we-are-container li a:hover,
 footer.main-footer .menu-where-we-are-container li a:active,
 footer.main-footer .menu-where-we-are-container li a:-webkit-any-link {
+  pointer-events: none;
+  cursor: default;
   color: black;
   text-decoration: none;
-  cursor: default;
 }
 footer.main-footer .menu-where-we-are-container li a span,
 footer.main-footer .menu-where-we-are-container li a:link span,
@@ -65,8 +66,9 @@ footer.main-footer .menu-where-we-are-container li a:visited span,
 footer.main-footer .menu-where-we-are-container li a:hover span,
 footer.main-footer .menu-where-we-are-container li a:active span,
 footer.main-footer .menu-where-we-are-container li a:-webkit-any-link span {
-  color: blue;
+  pointer-events: auto;
   cursor: pointer;
+  color: blue;
   text-decoration: underline;
 }
 .home header.main-header h1.logo {

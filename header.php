@@ -27,3 +27,5 @@
     <header class="main-header">
         <h1 class="logo"><a href="<?php echo esc_url( home_url( '/' ) ) ?>">Komuhn</a></h1>
     </header>
+    
+    <main>
