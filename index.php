@@ -121,16 +121,9 @@
 
     <hr>
 
-    <footer>
+    <footer class="main-footer">
         <h2 class="section-title">About this website</h2>
-        <ul>
-            <li>Discussion on <a href="#">Tribe?</a></li>
-            <li>Tasks on <a href="#">Trello</a></li>
-            <li>Content on <a href="https://docs.google.com/document/d/11nrReF8hhR_bdICX_AEbbe_ZEzYlXQxKjl-Bg9If0uc/edit?usp=sharing">Google docs</a></li>
-            <li>Design files on <a href="#">Figma</a></li>
-            <li>Repository on <a href="https://github.com/teamkomuhn">GitHub</a></li>
-            <li>Hosted on <a href="#">SiteGround</a></li>
-        </ul>
+        <?php wp_nav_menu( array( 'menu' => "Where we are" )); ?>
     </footer>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->

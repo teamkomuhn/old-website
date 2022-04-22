@@ -49,6 +49,26 @@ header.main-header h1.logo > a {
   text-decoration: none;
   color: #222;
 }
+footer.main-footer .menu-where-we-are-container li a,
+footer.main-footer .menu-where-we-are-container li a:link,
+footer.main-footer .menu-where-we-are-container li a:visited,
+footer.main-footer .menu-where-we-are-container li a:hover,
+footer.main-footer .menu-where-we-are-container li a:active,
+footer.main-footer .menu-where-we-are-container li a:-webkit-any-link {
+  color: black;
+  text-decoration: none;
+  cursor: default;
+}
+footer.main-footer .menu-where-we-are-container li a span,
+footer.main-footer .menu-where-we-are-container li a:link span,
+footer.main-footer .menu-where-we-are-container li a:visited span,
+footer.main-footer .menu-where-we-are-container li a:hover span,
+footer.main-footer .menu-where-we-are-container li a:active span,
+footer.main-footer .menu-where-we-are-container li a:-webkit-any-link span {
+  color: blue;
+  cursor: pointer;
+  text-decoration: underline;
+}
 .home header.main-header h1.logo {
   font-size: 3.5em;
 }
