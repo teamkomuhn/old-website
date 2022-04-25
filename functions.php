@@ -2,6 +2,34 @@
 global $post;
 $post_id = $post->ID;
 
+define('THEME_DIR', get_template_directory_uri());
+
+// REMOVE GENERATOR META TAG
+remove_action('wp_head', 'wp_generator');
+
+// ENQUEUE SCRIPTS and STYLES - Add custom CSS and JS
+function enqueue_scripts_styles() {
+	// REGISTER
+		/// CSS
+		//wp_register_style( 'style', get_stylesheet_directory_uri() . '/style.css' );
+
+		/// JS
+		//wp_register_script( 'mailcheck', get_template_directory_uri() . '/js/mailcheck-min.js');
+		wp_register_script( 'script_min', get_template_directory_uri() . '/js/main-min.js', array(), '1.0.0', true );
+
+	// ENQUEUE
+		/// CSS
+		//wp_enqueue_style( 'style');
+
+		/// JS
+		//wp_enqueue_script( 'mailcheck' );
+		// wp_enqueue_script( 'jquery_mobile' );
+		wp_enqueue_script( 'script_min' );
+
+
+}
+add_action( 'wp_enqueue_scripts', 'enqueue_scripts_styles' );
+
 // ADD SUPPORT FOR MENUS
 add_theme_support( 'menus' );
 
