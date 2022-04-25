@@ -4,11 +4,11 @@
 <head>
     <meta charset="utf-8">
 
-    <?php //openGraph(); ?>
-
     <title>Komuhn</title>
     <meta name="description" content="Our new website">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <?php openGraph(); ?>
 
     <?php wp_head(); ?>
 
