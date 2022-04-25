@@ -22,7 +22,7 @@ get_header(); ?>
             <div class="post-details">
                 <?php author(); ?>
                 <time datetime="<?php echo get_the_date('c'); ?>"><?php print get_the_date('F j, Y'); ?></time>
-                <?php last_edit_details(); ?>
+                <?php //last_edit_details(); ?>
             </div>
 
         </header>
