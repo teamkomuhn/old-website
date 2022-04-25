@@ -25,8 +25,12 @@
 
                 <article id="<?php echo $post_id; ?>">
                     <header>
-                        <h1><?php the_title(); ?></h1>
-                        <time datetime="<?php echo get_the_date('c'); ?>"><?php print get_the_date('F j, Y'); ?></time>
+                        <h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
+                        <div class="post-details">
+                            <time datetime="<?php echo get_the_date('c'); ?>"><?php print get_the_date('F j, Y'); ?></time>
+                            <address class="author"><?php print get_avatar( get_the_author_meta( 'ID' ) ); ?> <span class="author-name"><?php print get_author_name(); ?></span> </address>
+                            <?php //last_edit_details(); ?>
+                        </div>
                     </header>
                     <p><?php the_excerpt(); ?></p>
                     <a href="<?php the_permalink(); ?>">Read more -></a>
@@ -65,10 +69,10 @@
 
         <article id="<?php echo $post_id; ?>">
             <header>
-                <h1><?php the_title(); ?></h1>
+                <h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
                 <div class="post-details">
-                    <?php author(); ?>
                     <time datetime="<?php echo get_the_date('c'); ?>"><?php print get_the_date('F j, Y'); ?></time>
+                    <address class="author"><?php print get_avatar( get_the_author_meta( 'ID' ) ); ?> <span class="author-name"><?php print get_author_name(); ?></span> </address>
                     <?php //last_edit_details(); ?>
                 </div>
             </header>
@@ -109,8 +113,11 @@
         <article id="<?php echo $log_id; ?>">
             <header>
                 <h1><?php the_title(); ?></h1>
-                <?php author(); ?>
-                <time datetime="<?php echo get_the_date('c'); ?>"><?php print get_the_date('F j, Y'); ?></time>
+                <div class="post-details">
+                    <time datetime="<?php echo get_the_date('c'); ?>"><?php print get_the_date('F j, Y'); ?></time>
+                    <address class="author"><?php print get_avatar( get_the_author_meta( 'ID' ) ); ?> <span class="author-name"><?php print get_author_name(); ?></span> </address>
+                    <?php //last_edit_details(); ?>
+                </div>
             </header>
             <?php the_content(); ?>
         </article>
