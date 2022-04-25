@@ -37,8 +37,8 @@ function openGraph(){
 	
 	$website_name = get_bloginfo( 'name' );
 
-	$default_image = get_template_directory_uri() . "/screenshot.png"; //replace this with a default image on your server or an image in your media library
-		
+	$default_image = get_template_directory_uri() . "/img/open-graph-image.jpg"; //replace this with a default image on your server or an image in your media library
+
 	$post_featured_image = get_post_thumbnail_id($post);
 
 	if ( !empty($post_featured_image) ){
