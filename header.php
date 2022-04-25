@@ -3,11 +3,15 @@
 
 <head>
     <meta charset="utf-8">
+
+    <?php openGraph(); ?>
+    
     <title>Komuhn</title>
     <meta name="description" content="Our new website">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <?php wp_head(); ?>
+
 
     <!--Favicon Default-->
     <link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/Favicon-32x32.png"/>

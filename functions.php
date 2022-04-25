@@ -33,6 +33,47 @@ add_action( 'wp_enqueue_scripts', 'enqueue_scripts_styles' );
 // ADD SUPPORT FOR MENUS
 add_theme_support( 'menus' );
 
+function openGraph(){
+
+	$website_name = get_bloginfo($name);
+
+	$default_image = get_template_directory_uri() . "/screenshot.png"; //replace this with a default image on your server or an image in your media library
+		
+	$post_featured_image = get_post_thumbnail_id($post);
+	
+	if ( !empty($post_featured_image) ){
+		$featured_image = wp_get_attachment_image_url($post_featured_image, 'medium');
+	} else {
+		$featured_image = $default_image;
+	}
+
+	echo '<meta property="og:locale" content="alternate"/>';
+	echo '<meta property="og:site_name" content="'. $website_name .'"/>';
+	if ( is_home() ) {
+		echo '<title>'. $website_name .' | '. strip_tags(get_bloginfo( 'description' )) .'</title>';
+		echo '<meta property="og:type" content="website"/>';
+		echo '<meta property="og:title" content="'. $website_name .' | '. strip_tags(get_bloginfo( 'description' )) .'"/>';
+		echo '<meta property="og:description" content="' . strip_tags(get_bloginfo( 'description' )) . '"/>';
+		echo '<meta property="og:image" content="' . $default_image . '"/>';
+
+	} elseif ( is_page() || is_singular('post') )  {
+		echo '<title>' . strip_tags(get_the_title( $post )) . ' - '. $website_name .'</title>';
+		echo '<meta property="og:type" content="article"/>';
+		echo '<meta property="og:title" content="' . strip_tags(get_the_title( $post )) . ' - '. $website_name .'"/>';
+		echo '<meta property="og:description" content="' . strip_tags(limit_characters(get_the_excerpt($post), 200)) . '"/>';
+		echo '<meta property="og:url" content="' . get_permalink($post) . '"/>';
+		echo '<meta property="og:image" content="' . $featured_image . '"/>';
+
+	} else {
+		echo '<title>' . strip_tags(get_the_title()) . ' - '. $website_name .'</title>';
+		echo '<meta property="og:type" content="website"/>';
+		echo '<meta property="og:title" content="' . strip_tags(get_the_title()) . ' - '. $website_name .'"/>';
+		echo '<meta property="og:description" content="' . strip_tags(limit_characters(get_the_excerpt($post->post_parent ), 200)) . '"/>';
+		echo '<meta property="og:url" content="' . get_permalink() . '"/>';
+		echo '<meta property="og:image" content="' . $featured_image . '"/>';
+	}
+}
+
 // REMOVE EMOJI FROM STRINGS https://stackoverflow.com/a/65179618
 function removeEmoji( string $text ): string {
     $text = iconv('UTF-8', 'ISO-8859-15//IGNORE', $text);
