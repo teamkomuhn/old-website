@@ -10,6 +10,21 @@ body {
     padding: 2rem;
 }
 
+a {
+    &.button {
+        text-decoration: none;
+        color: #333;
+        font-weight: 500;
+        display: inline-block;
+
+
+        border: 1px solid #333;
+        border-radius: .2rem;
+        padding: .5rem 1rem;
+        margin-top: 1rem;
+    }
+}
+
 hr {
     margin: 4rem auto 2rem;
     border-style: solid;
@@ -105,14 +120,14 @@ footer.main-footer {
         }
     }
 
-    section {
+    section { //All sections
         margin-bottom: 4rem;
 
         article {
+            // display: flex;
+            // flex-flow: column wrap;
+
             > header {
-                display: flex;
-                align-items: center;
-                flex-wrap: wrap;
                 h1 {
                     width: 100%;
                     font-size: 2.7em;
@@ -126,6 +141,12 @@ footer.main-footer {
                     }
                 }
             }
+
+            a.button {
+                padding: .5rem 2rem;
+                // margin-left: auto;
+            }
+
         }
     }
 
@@ -135,6 +156,7 @@ footer.main-footer {
     }
 
     section.intro {
+
         > header {
             margin-bottom: 4rem;
 
@@ -144,7 +166,6 @@ footer.main-footer {
                     // font-size: 1.5em;
                 }
             }
-
         }
 
     }
@@ -152,8 +173,6 @@ footer.main-footer {
     section.posts {
 
         article {
-            // background-color: pink;
-
             > header {
                 h1 {
                     margin-bottom: 1rem;

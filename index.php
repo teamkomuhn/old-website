@@ -33,7 +33,7 @@
                         </div>
                     </header>
                     <p><?php the_excerpt(); ?></p>
-                    <a href="<?php the_permalink(); ?>">Read more -></a>
+                    <a class="button" href="<?php the_permalink(); ?>">Read more</a>
                 </article>
 
                 <?php endwhile; ?>
@@ -77,7 +77,7 @@
                 </div>
             </header>
             <p><?php the_excerpt(); ?></p>
-            <a href="<?php the_permalink(); ?>">Read more -></a>
+            <a class="button" href="<?php the_permalink(); ?>">Read more</a>
         </article>
 
         <?php endwhile; ?>
