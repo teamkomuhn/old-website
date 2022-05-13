@@ -33,6 +33,13 @@ add_action( 'wp_enqueue_scripts', 'enqueue_scripts_styles' );
 // ADD SUPPORT FOR MENUS
 add_theme_support( 'menus' );
 
+// ADD SUPPORT FOR FEATURED IMAGE
+function my_theme_setup(){
+    add_theme_support('post-thumbnails');
+}
+
+add_action('after_setup_theme', 'my_theme_setup');
+
 function openGraph(){
 	
 	$website_name = get_bloginfo( 'name' );
@@ -73,6 +80,7 @@ function openGraph(){
 		echo '<meta property="og:image" content="' . $featured_image . '"/>';
 	}
 }
+
 
 // REMOVE EMOJI FROM STRINGS https://stackoverflow.com/a/65179618
 function removeEmoji( string $text ): string {
