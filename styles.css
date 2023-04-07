@@ -1,0 +1,153 @@
+:root {
+    /** TODO Use modern colors? */
+    --dark: #222;
+    --primary: #b4ffe4;
+    --secondary: #ffe8bb;
+
+    --large: 4rem;
+    --medium: 2rem;
+
+    --bold: 700;
+
+    --spacing: 3rem;
+    --relative-spacing: 1em;
+}
+
+* {
+    box-sizing: border-box;
+
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: ui-sans-serif, system-ui, BlinkMacSystemFont, -apple-system,
+        'Segoe UI', sans-serif;
+
+    display: grid;
+
+    grid-template-rows: auto auto calc(var(--spacing) * 1.5) auto;
+
+    grid-template-areas:
+        'nav'
+        'header'
+        'overlap'
+        'first-section';
+}
+
+main {
+    display: contents;
+}
+
+nav {
+    grid-area: nav;
+    padding: var(--spacing);
+}
+
+nav > h1 {
+    font-size: 1rem;
+    text-transform: lowercase;
+    color: black !important;
+}
+
+nav > h1 > a {
+    text-decoration: none;
+    color: black;
+}
+
+nav > h1 > a > #ko {
+    text-decoration: underline;
+}
+
+header {
+    grid-row: header / overlap;
+    grid-column: 1;
+}
+
+header > h2 {
+    font-weight: 900;
+    font-family: ui-serif, serif;
+    padding: var(--spacing);
+    font-size: var(--large);
+    font-style: italic;
+    padding-block: calc(var(--spacing) * 2);
+    padding-top: 0;
+}
+
+header > h2 > #care {
+    /* --mask: linear-gradient(to left, black, transparent); */
+    /* background-image: linear-gradient(green, mediumblue);
+
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text; */
+
+    /* mask: var(--mask);
+    -webkit-mask: var(--mask); */
+}
+
+/* header > h2 > #care::before {
+    content: '';
+
+    /* background-color: green; 
+
+    position: absolute;
+    inset: 0;
+
+    --mask: linear-gradient(to right, black, transparent);
+    --backdrop-filter: blur(30px);
+
+    mask: var(--mask);
+    -webkit-mask: var(--mask);
+
+    backdrop-filter: var(--backdrop-filter);
+    -webkit-backdrop-filter: var(--backdrop-filter);
+} */
+
+header > div {
+    padding: var(--spacing);
+    background-color: var(--dark);
+    color: white;
+
+    padding-bottom: calc(var(--spacing) * 2.5);
+}
+
+header > div > * + * {
+    margin-top: var(--relative-spacing);
+}
+
+header > div > h3 {
+    font-family: ui-serif, serif;
+    font-style: italic;
+    font-size: var(--medium);
+}
+
+section#first {
+    grid-row: overlap / first-section;
+    grid-column: 1;
+
+    margin-left: var(--spacing);
+}
+
+section#first > ul {
+    list-style-type: none;
+}
+
+section#first > ul > li:first-of-type {
+    background-color: var(--primary);
+}
+
+section#first > ul > li {
+    padding: 1rem;
+    padding-right: var(--spacing);
+
+    font-size: 1.25rem;
+
+    font-weight: var(--bold);
+
+    background-color: var(--secondary);
+}
+
+section#first > ul > li + li {
+    border-top: 2px solid var(--dark);
+}
