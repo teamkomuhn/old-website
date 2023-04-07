@@ -5,9 +5,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link rel="stylesheet" href="/wp-content/themes/komuhn.co/styles.css">
-
-        <?php wp_head() ?>
+        
+        <link rel="stylesheet" href="<?php echo wp_make_link_relative(get_template_directory_uri() . '/styles.css') ?>">
 
         <title>Care</title>
     </head>
