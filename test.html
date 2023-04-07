@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Test</title>
+
+        <style>
+            body {
+                display: grid;
+
+                grid-template-areas:
+                    'one'
+                    'three';
+            }
+
+            .one {
+                background-color: red;
+            }
+
+            .two {
+                background-color: blue;
+
+                margin-top: -10px;
+            }
+
+            .three {
+                background-color: green;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="one">One</div>
+        <div class="two">Two</div>
+        <div class="three">Three</div>
+    </body>
+</html>

@@ -4,7 +4,7 @@
     --primary: #b4ffe4;
     --secondary: #ffe8bb;
 
-    --large: 4rem;
+    --large: 6rem;
     --medium: 2rem;
 
     --bold: 700;
@@ -21,18 +21,55 @@
 }
 
 body {
+    /* --gap: var(--spacing); */
+
     font-family: ui-sans-serif, system-ui, BlinkMacSystemFont, -apple-system,
         'Segoe UI', sans-serif;
 
     display: grid;
 
-    grid-template-rows: auto auto calc(var(--spacing) * 1.5) auto;
+    /* grid-template-columns: 1fr calc(960px / 3) 1fr;
+    grid-template-rows: auto auto auto var(--spacing); */
 
-    grid-template-areas:
-        'nav'
-        'header'
-        'overlap'
-        'first-section';
+    grid-template:
+        '. navigation navigation navigation .' auto
+        '. header1 header1 header1 .' auto
+        '. header header aside aside' auto
+        'learnings-side learnings learnings learnings learnings' auto
+        '. wawt-header wawt-header wawt-header .' auto
+        'wawt-side wawt wawt wawt wawt' auto
+        '. play-header play-header play-header .' auto
+        'play-side play play play .' auto / 1fr 320px 320px 320px 1fr;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: ui-serif, serif;
+    font-style: italic;
+}
+
+h1 {
+    font-size: var(--large);
+}
+
+button,
+.button {
+    font: inherit;
+
+    padding: 1rem 4rem;
+
+    text-decoration: none;
+
+    background-color: transparent;
+    border: 1px solid currentColor;
+    color: inherit;
+    display: inline-block;
+
+    border-radius: 0.5rem;
 }
 
 main {
@@ -40,104 +77,89 @@ main {
 }
 
 nav {
-    grid-area: nav;
-    padding: var(--spacing);
+    grid-area: navigation;
+    padding-block: var(--spacing);
 }
 
-nav > h1 {
-    font-size: 1rem;
-    text-transform: lowercase;
-    color: black !important;
-}
-
-nav > h1 > a {
+nav > a {
     text-decoration: none;
     color: black;
 }
 
-nav > h1 > a > #ko {
-    text-decoration: underline;
-}
-
 header {
-    grid-row: header / overlap;
-    grid-column: 1;
+    display: contents;
 }
 
-header > h2 {
-    font-weight: 900;
+header > h1 {
+    grid-area: header1;
+    /* width: 960px; */
+    /* font-weight: 900;
     font-family: ui-serif, serif;
     padding: var(--spacing);
     font-size: var(--large);
     font-style: italic;
     padding-block: calc(var(--spacing) * 2);
-    padding-top: 0;
+    padding-top: 0; */
 }
-
-header > h2 > #care {
-    /* --mask: linear-gradient(to left, black, transparent); */
-    /* background-image: linear-gradient(green, mediumblue);
-
-    color: transparent;
-    background-clip: text;
-    -webkit-background-clip: text; */
-
-    /* mask: var(--mask);
-    -webkit-mask: var(--mask); */
-}
-
-/* header > h2 > #care::before {
-    content: '';
-
-    /* background-color: green; 
-
-    position: absolute;
-    inset: 0;
-
-    --mask: linear-gradient(to right, black, transparent);
-    --backdrop-filter: blur(30px);
-
-    mask: var(--mask);
-    -webkit-mask: var(--mask);
-
-    backdrop-filter: var(--backdrop-filter);
-    -webkit-backdrop-filter: var(--backdrop-filter);
-} */
 
 header > div {
-    padding: var(--spacing);
+    grid-area: header;
+    padding-block: var(--spacing);
     background-color: var(--dark);
     color: white;
 
-    padding-bottom: calc(var(--spacing) * 2.5);
+    box-shadow: #222 0 0 0 100vw;
+    clip-path: polygon(-100vw 0%, -100vw 100%, 100vw 100%, 100vw 0%);
+    z-index: -1;
+
+    padding-bottom: calc(var(--spacing) * 2);
 }
 
 header > div > * + * {
     margin-top: var(--relative-spacing);
 }
 
-header > div > h3 {
+header > div > h2 {
     font-family: ui-serif, serif;
     font-style: italic;
     font-size: var(--medium);
 }
 
-section#first {
-    grid-row: overlap / first-section;
-    grid-column: 1;
+aside {
+    grid-area: aside;
 
-    margin-left: var(--spacing);
+    color: white;
+
+    padding-block: var(--spacing);
 }
 
-section#first > ul {
+section#learnings {
+    display: contents;
+}
+
+section > header {
+    grid-area: learnings-header;
+}
+
+section#learnings > .side {
+    grid-area: learnings-side;
+}
+
+section#learnings > ul {
+    grid-area: learnings;
+
+    margin-top: calc(var(--spacing) * -1);
+}
+
+section#learnings > ul {
     list-style-type: none;
 }
 
-section#first > ul > li:first-of-type {
+section#learnings > ul > li:first-of-type {
     background-color: var(--primary);
 }
 
-section#first > ul > li {
+section#learnings > ul > li {
     padding: 1rem;
     padding-right: var(--spacing);
 
@@ -148,6 +170,33 @@ section#first > ul > li {
     background-color: var(--secondary);
 }
 
-section#first > ul > li + li {
+section#learnings > ul > li + li {
     border-top: 2px solid var(--dark);
+}
+
+section#why-are-we-together {
+    grid-area: wawt;
+}
+
+section#why-are-we-together > div:not(.side) {
+    display: grid;
+    gap: 1rem;
+
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+section#why-are-we-together > div:not(.side) > article {
+    background-color: lightblue;
+}
+
+section#why-are-we-together > div:not(.side) > button {
+    /* grid-row: 10000; */
+    grid-column: 1/-1;
+}
+
+section#lets-play {
+    grid-area: play;
+
+    background-color: var(--dark);
+    color: white;
 }
