@@ -3,7 +3,7 @@
     <section class="intro">
         <header>
             <h1><span class="pre">Olá 👋 </span> We are Komuhn - a collaborative design team.</h1>
-            <p><em>*If you're looking for our old website you can find it here: <a href="https://komuhn.co/old/">https://komuhn.co/old/</a></em></p>
+            <p><em>*If you're looking for our old website you can find it here: <a href="https://komuhn.org/old/">https://komuhn.org/old/</a></em></p>
         </header>
 
         <?php // GET STICKY POST
