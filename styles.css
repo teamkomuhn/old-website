@@ -1,16 +1,50 @@
 :root {
     /** TODO Use modern colors? */
+    --light: white;
+    --light-grey: #999;
+    --mid-grey: #666;
+    --dark-grey: #444;
     --dark: #222;
-    --primary: #b4ffe4;
-    --secondary: #ffe8bb;
+    --blue: #a2e2eb;
+    --green: #b4ffe4;
+    --yellow: #ffe8bb;
+    --orange: #fcc57a;
+    --red: #ffa184;
 
-    --large: 6rem;
-    --medium: 2rem;
+    --foreground: var(--dark);
+    --background: var(--light);
 
-    --bold: 700;
+    --font-family-sans: Inter, ui-sans-serif, system-ui, BlinkMacSystemFont,
+        -apple-system, 'Segoe UI', sans-serif;
+    --font-family-serif: 'Crimson Pro', ui-serif, serif;
 
-    --spacing: 3rem;
+    --font-size-huge: 128px;
+    --font-size-large: 64px;
+    --font-size-medium: 32px;
+    --font-size-normal: 24px;
+    --font-size-small: 18px;
+
+    --font-weight-bold: 700;
+
+    --spacing-huge: 12rem;
+    --spacing-large: 6rem;
+    --spacing-medium: 3rem;
+    --spacing-small: 1.5rem;
+
+    --spacing-horizontal: var(--spacing-huge);
+    --spacing-vertical: var(--spacing-medium);
+
     --relative-spacing: 1em;
+
+    --border-thin: 1px solid currentColor;
+    --border-thick: 4px solid currentColor;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --foreground: var(--light);
+        --background: var(--dark);
+    }
 }
 
 * {
@@ -18,28 +52,43 @@
 
     margin: 0;
     padding: 0;
+
+    transition: all 0.1s;
 }
 
 body {
-    /* --gap: var(--spacing); */
+    font-family: var(--font-family-sans);
+    font-size: var(--font-size-normal);
 
-    font-family: ui-sans-serif, system-ui, BlinkMacSystemFont, -apple-system,
-        'Segoe UI', sans-serif;
+    background-color: var(--background);
+    color: var(--foreground);
 
     display: grid;
 
-    /* grid-template-columns: 1fr calc(960px / 3) 1fr;
-    grid-template-rows: auto auto auto var(--spacing); */
+    /* row-gap: var(--spacing-horizontal); */
+    column-gap: var(--spacing-vertical);
 
-    grid-template:
-        '. navigation navigation navigation .' auto
-        '. header1 header1 header1 .' auto
-        '. header header aside aside' auto
-        'learnings-side learnings learnings learnings learnings' auto
-        '. wawt-header wawt-header wawt-header .' auto
-        'wawt-side wawt wawt wawt wawt' auto
-        '. play-header play-header play-header .' auto
-        'play-side play play play .' auto / 1fr 320px 320px 320px 1fr;
+    --main-columns-width: calc((70ch - 2 * var(--spacing-vertical)) / 3);
+
+    grid-template-columns:
+        1fr var(--main-columns-width) var(--main-columns-width)
+        var(--main-columns-width) 1fr;
+
+    grid-template-areas:
+        '.                    navigation             navigation             navigation      .'
+        '.                    header                 header                 .               .'
+        '.                    header                 header                 aside           aside'
+        'learnings-side       learnings              learnings              learnings       learnings'
+        '.                    making-together-header making-together-header .               .'
+        'making-together-side making-together        making-together        making-together making-together'
+        'lets-play-side       lets-play-header       lets-play-header       .               .'
+        '.                    lets-play              lets-play              lets-play       .';
+}
+
+@media (max-width: 500px) {
+    body {
+        display: block;
+    }
 }
 
 h1,
@@ -48,155 +97,340 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: ui-serif, serif;
+    font-family: var(--font-family-serif);
     font-style: italic;
+
+    line-height: 120%;
 }
 
 h1 {
-    font-size: var(--large);
+    font-size: var(--font-size-huge);
+}
+
+h2 {
+    font-size: var(--font-size-large);
 }
 
 button,
 .button {
+    display: block;
     font: inherit;
+    font-size: var(--font-size-normal);
 
-    padding: 1rem 4rem;
+    padding-block: var(--spacing-small);
+    text-align: center;
 
     text-decoration: none;
 
     background-color: transparent;
-    border: 1px solid currentColor;
+    border: var(--border-thin);
     color: inherit;
-    display: inline-block;
 
     border-radius: 0.5rem;
+
+    font-weight: var(--font-weight-bold);
 }
+
+p {
+    color: currentColor;
+}
+
+p,
+li {
+    line-height: 150%;
+}
+
+/* CARDS */
+
+@media (hover: hover) {
+    .cards > :hover {
+        background-color: var(--color-hover);
+    }
+
+    .cards > .selected:not(:hover) {
+        background-color: var(--color-selected);
+    }
+}
+
+.cards:not(:hover:has(> .selected)) > :first-of-type {
+    background-color: var(--color-hover);
+}
+
+.cards > * {
+    padding: var(--spacing-small);
+
+    background-color: var(--color-regular);
+    border-bottom: var(--border-thick);
+}
+
+.cards > .selected {
+    background-color: var(--color-selected);
+}
+
+.cards > * > :is(h1, h2, h3, h4, h5, h6) {
+    font-size: var(--font-size-medium);
+    font-family: var(--font-family-sans);
+    font-weight: var(--font-weight-bold);
+    font-style: normal;
+}
+
+/* MAIN */
 
 main {
     display: contents;
 }
 
+/* NAVIGATION */
+
 nav {
     grid-area: navigation;
-    padding-block: var(--spacing);
 }
 
-nav > a {
-    text-decoration: none;
-    color: black;
-}
+/* HEADER */
 
-header {
-    display: contents;
-}
-
-header > h1 {
-    grid-area: header1;
-    /* width: 960px; */
-    /* font-weight: 900;
-    font-family: ui-serif, serif;
-    padding: var(--spacing);
-    font-size: var(--large);
-    font-style: italic;
-    padding-block: calc(var(--spacing) * 2);
-    padding-top: 0; */
-}
-
-header > div {
+main > header {
     grid-area: header;
-    padding-block: var(--spacing);
-    background-color: var(--dark);
-    color: white;
+}
 
-    box-shadow: #222 0 0 0 100vw;
+main > header > h1 {
+    font-weight: 900;
+    margin-block: var(--spacing-huge);
+}
+
+main > header > div,
+aside {
+    padding-block: var(--spacing-huge);
+
+    padding-bottom: calc(var(--spacing-horizontal) + var(--spacing-large));
+}
+
+main > header > div {
+    background-color: var(--foreground);
+    color: var(--background);
+
+    box-shadow: var(--foreground) 0 0 0 100vw;
     clip-path: polygon(-100vw 0%, -100vw 100%, 100vw 100%, 100vw 0%);
-    z-index: -1;
-
-    padding-bottom: calc(var(--spacing) * 2);
 }
 
-header > div > * + * {
-    margin-top: var(--relative-spacing);
-}
+/* ASIDE, SIDE */
 
-header > div > h2 {
-    font-family: ui-serif, serif;
-    font-style: italic;
-    font-size: var(--medium);
+aside,
+.side {
+    max-width: 400px;
+    font-size: var(--font-size-small);
 }
 
 aside {
+    color: var(--light-grey);
     grid-area: aside;
-
-    color: white;
-
-    padding-block: var(--spacing);
+    z-index: 1;
+    margin-right: var(--spacing-medium);
 }
 
+aside > img {
+    float: left;
+    height: 2lh;
+    margin-right: var(--spacing-small);
+}
+
+aside > * + *:not(:nth-child(2)) {
+    margin-top: var(--relative-spacing);
+}
+
+.side {
+    color: var(--dark-grey);
+    justify-self: end;
+
+    display: flex;
+    flex-direction: column-reverse;
+
+    justify-content: start;
+
+    margin-left: var(--spacing-medium);
+}
+
+.side > :is(h1, h2, h3, h4, h5, h6) {
+    font-size: var(--font-size-normal);
+    font-family: var(--font-family-sans);
+    font-style: normal;
+}
+
+.side > :is(h1, h2, h3, h4, h5, h6)::after {
+    content: ' →';
+}
+
+.side > * + * {
+    margin-bottom: var(--relative-spacing);
+}
+
+/* LEARNINGS */
+
 section#learnings {
+    --color-selected: var(--blue);
+    --color-hover: var(--green);
+    --color-regular: var(--yellow);
+
     display: contents;
 }
 
-section > header {
-    grid-area: learnings-header;
-}
-
-section#learnings > .side {
+section#learnings > header.side {
+    margin-top: var(--spacing-huge);
     grid-area: learnings-side;
 }
 
 section#learnings > ul {
+    z-index: 1;
+
     grid-area: learnings;
 
-    margin-top: calc(var(--spacing) * -1);
-}
-
-section#learnings > ul {
+    margin-top: calc(var(--spacing-medium) * -1);
     list-style-type: none;
 }
 
-section#learnings > ul > li:first-of-type {
-    background-color: var(--primary);
-}
-
 section#learnings > ul > li {
-    padding: 1rem;
-    padding-right: var(--spacing);
+    padding-right: calc(100vw - 100% + var(--spacing));
 
-    font-size: 1.25rem;
+    display: flex;
+    gap: var(--spacing-small);
 
-    font-weight: var(--bold);
-
-    background-color: var(--secondary);
+    font-size: var(--font-size-medium);
+    font-weight: var(--font-weight-bold);
 }
 
-section#learnings > ul > li + li {
-    border-top: 2px solid var(--dark);
+section#learnings > ul > li > img {
+    align-self: start;
+    translate: 0 calc((1lh - 100%) / 2);
+
+    width: 1lh;
+    max-height: 1lh;
 }
 
-section#why-are-we-together {
-    grid-area: wawt;
+/* MAKING TOGETHER */
+
+section#making-together {
+    --color-selected: var(--green);
+    --color-hover: var(--blue);
+    --color-regular: var(--yellow);
+
+    display: contents;
 }
 
-section#why-are-we-together > div:not(.side) {
+section#making-together > header {
+    display: contents;
+}
+
+section#making-together > header > div:not(.side) {
+    grid-area: making-together-header;
+
+    margin-top: var(--spacing-huge);
+    margin-bottom: var(--spacing-large);
+}
+
+section#making-together > header > div:not(.side) > * + * {
+    margin-top: var(--relative-spacing);
+}
+
+section#making-together > header > .side {
+    grid-area: making-together-side;
+}
+
+section#making-together > div {
+    grid-area: making-together;
+
     display: grid;
-    gap: 1rem;
+    gap: var(--spacing-vertical);
 
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(
+        auto-fill,
+        minmax(var(--main-columns-width), var(--main-columns-width))
+    );
 }
 
-section#why-are-we-together > div:not(.side) > article {
-    background-color: lightblue;
+section#making-together > div > div {
+    display: contents;
 }
 
-section#why-are-we-together > div:not(.side) > button {
-    /* grid-row: 10000; */
-    grid-column: 1/-1;
+section#making-together > div > div > article {
+    height: 320px;
 }
+
+section#making-together > div > button {
+    margin-top: var(--spacing-medium);
+    grid-column: 2;
+
+    margin-left: calc(var(--spacing-vertical) / 2 * -1);
+    margin-right: calc(var(--spacing-vertical) / 2 * -1);
+
+    color: var(--mid-grey);
+}
+
+section#making-together > div > button:hover {
+    color: var(--dark);
+}
+
+/* LET'S PLAY */
 
 section#lets-play {
-    grid-area: play;
+    --color-selected: var(--yellow);
+    --color-hover: var(--red);
+    --color-regular: var(--orange);
 
-    background-color: var(--dark);
-    color: white;
+    display: contents;
+}
+
+section#lets-play > header {
+    display: contents;
+}
+
+section#lets-play > header > div:not(.side) {
+    margin-top: var(--spacing-huge);
+    padding-block: var(--spacing-huge);
+    padding-bottom: calc(var(--spacing-huge) + 200px);
+    grid-area: lets-play-header;
+    box-shadow: var(--foreground) 0 0 0 100vw;
+    clip-path: polygon(-100vw 0%, -100vw 100%, 100vw 100%, 100vw 0%);
+    background-color: var(--foreground);
+    color: var(--background);
+
+    z-index: -1;
+}
+
+section#lets-play > header > div:not(.side) > * + * {
+    margin-top: var(--relative-spacing);
+}
+
+section#lets-play > header > .side {
+    grid-area: lets-play-side;
+
+    margin-bottom: var(--spacing-large);
+
+    align-self: end;
+
+    color: var(--light-grey);
+}
+
+section#lets-play > div {
+    grid-area: lets-play;
+
+    margin-top: -160px;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-medium);
+}
+
+section#lets-play > div > div {
+    display: contents;
+}
+
+section#lets-play > div > div > article {
+    height: 320px;
+}
+
+section#lets-play > div > button {
+    margin-top: var(--spacing-medium);
+    grid-column: -2;
+    background-color: var(--red);
+    /* TODO */
 }
