@@ -251,7 +251,13 @@ main > header {
 }
 
 #header-titles > h1 {
+    font-size: 0;
     font-weight: 900;
+    /*margin-block: var(--spacing-huge);*/
+}
+
+main > header > img {
+    max-width: 100%;
     margin-block: var(--spacing-horizontal-large);
 }
 
