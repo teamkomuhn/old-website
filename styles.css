@@ -5,11 +5,14 @@
     --mid-grey: #666;
     --dark-grey: #444;
     --dark: #222;
-    --blue: #a2e2eb;
-    --green: #b4ffe4;
-    --yellow: #ffe8bb;
-    --orange: #fcc57a;
-    --red: #ffa184;
+    --light-blue: #a2e2eb;
+    --dark-blue: #4edcf1;
+    --light-green: #b4ffe4;
+    --dark-green: #51f6bb;
+    --light-yellow: #ffe8bb;
+    --dark-yellow: #fcc57a;
+    --light-red: #ffa184;
+    --dark-red: #f07b56;
 
     --foreground: var(--dark);
     --background: var(--light);
@@ -18,11 +21,11 @@
         -apple-system, 'Segoe UI', sans-serif;
     --font-family-serif: 'Crimson Pro', ui-serif, serif;
 
-    --font-size-huge: 128px;
-    --font-size-large: 64px;
-    --font-size-medium: 32px;
-    --font-size-normal: 24px;
-    --font-size-small: 18px;
+    --font-size-huge: 64px;
+    --font-size-large: 40px;
+    --font-size-medium: 22px;
+    --font-size-normal: 16px;
+    --font-size-small: 14px;
 
     --font-weight-bold: 700;
 
@@ -31,13 +34,38 @@
     --spacing-medium: 3rem;
     --spacing-small: 1.5rem;
 
-    --spacing-horizontal: var(--spacing-huge);
-    --spacing-vertical: var(--spacing-medium);
+    --spacing-horizontal-huge: var(--spacing-large);
+    --spacing-horizontal-large: var(--spacing-medium);
+    --spacing-horizontal-medium: var(--spacing-medium);
+    --spacing-horizontal-small: var(--spacing-medium);
+    --spacing-horizontal-tiny: var(--spacing-small);
 
-    --relative-spacing: 1em;
+    --spacing-horizontal-relative: 1em;
+
+    --spacing-vertical-large: var(--spacing-medium);
+    --spacing-vertical-medium: var(--spacing-small);
+    --spacing-vertical-small: var(--spacing-small);
 
     --border-thin: 1px solid currentColor;
     --border-thick: 4px solid currentColor;
+}
+
+@media (min-width: 500px) {
+    :root {
+        --font-size-huge: 128px;
+        --font-size-large: 64px;
+        --font-size-medium: 32px;
+        --font-size-normal: 24px;
+        --font-size-small: 18px;
+
+        --spacing-horizontal-huge: var(--spacing-huge);
+        --spacing-horizontal-large: var(--spacing-huge);
+        --spacing-horizontal-medium: var(--spacing-large);
+        --spacing-horizontal-tiny: var(--spacing-medium);
+
+        --spacing-vertical-large: var(--spacing-large);
+        --spacing-vertical-medium: var(--spacing-medium);
+    }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -65,29 +93,42 @@ body {
 
     display: grid;
 
-    /* row-gap: var(--spacing-horizontal); */
-    column-gap: var(--spacing-vertical);
-
-    --main-columns-width: calc((70ch - 2 * var(--spacing-vertical)) / 3);
-
-    grid-template-columns:
-        1fr var(--main-columns-width) var(--main-columns-width)
-        var(--main-columns-width) 1fr;
+    grid-template-columns: var(--spacing-vertical-large) 1fr var(
+            --spacing-vertical-large
+        );
 
     grid-template-areas:
-        '.                    navigation             navigation             navigation      .'
-        '.                    header                 header                 .               .'
-        '.                    header                 header                 aside           aside'
-        'learnings-side       learnings              learnings              learnings       learnings'
-        '.                    making-together-header making-together-header .               .'
-        'making-together-side making-together        making-together        making-together making-together'
-        'lets-play-side       lets-play-header       lets-play-header       .               .'
-        '.                    lets-play              lets-play              lets-play       .';
+        '. navigation             .'
+        '. header-titles          .'
+        '. header-content         .'
+        '. learnings              learnings'
+        '. making-together-header .'
+        '. making-together        .'
+        '. lets-play-header       .'
+        '. lets-play              .'
+        '. masters-of-care        .';
 }
 
-@media (max-width: 500px) {
+@media (min-width: 500px) {
     body {
-        display: block;
+        --main-columns-width: calc(33ch - var(--spacing-vertical-large) / 2);
+
+        column-gap: var(--spacing-vertical-large);
+
+        grid-template-columns:
+            1fr var(--main-columns-width) var(--main-columns-width)
+            var(--main-columns-width) 1fr;
+
+        grid-template-areas:
+            '.                    navigation             navigation             navigation      .'
+            '.                    header-titles          header-titles          .               .'
+            '.                    header-content         header-content         aside           aside'
+            'learnings-side       learnings              learnings              learnings       learnings'
+            '.                    making-together-header making-together-header .               .'
+            'making-together-side making-together        making-together        making-together making-together'
+            'lets-play-side       lets-play-header       lets-play-header       .               .'
+            '.                    lets-play              lets-play              lets-play       .'
+            '.                    masters-of-care        masters-of-care        masters-of-care .';
     }
 }
 
@@ -114,21 +155,22 @@ h2 {
 button,
 .button {
     display: block;
-    font: inherit;
-    font-size: var(--font-size-normal);
 
+    /* TODO */
     padding-block: var(--spacing-small);
-    text-align: center;
+
+    font: var(--font-family-sans);
+    font-size: var(--font-size-normal);
+    font-weight: var(--font-weight-bold);
 
     text-decoration: none;
+    text-align: center;
 
     background-color: transparent;
-    border: var(--border-thin);
     color: inherit;
 
+    border: var(--border-thin);
     border-radius: 0.5rem;
-
-    font-weight: var(--font-weight-bold);
 }
 
 p {
@@ -152,12 +194,13 @@ li {
     }
 }
 
-.cards:not(:hover:has(> .selected)) > :first-of-type {
+.cards:not(:hover:has(> .selected), :has(> .selected)) > :first-of-type {
     background-color: var(--color-hover);
 }
 
 .cards > * {
-    padding: var(--spacing-small);
+    padding-inline: var(--spacing-vertical-medium);
+    padding-block: var(--spacing-horizontal-small);
 
     background-color: var(--color-regular);
     border-bottom: var(--border-thick);
@@ -186,67 +229,110 @@ nav {
     grid-area: navigation;
 }
 
+#ok {
+    background-color: #8f8cff;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    padding: 1rem 1rem;
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    font-weight: var(--font-weight-bold);
+}
+
 /* HEADER */
 
 main > header {
-    grid-area: header;
+    display: contents;
 }
 
-main > header > h1 {
+#header-titles {
+    grid-area: header-titles;
+}
+
+#header-titles > h1 {
     font-weight: 900;
-    margin-block: var(--spacing-huge);
+    margin-block: var(--spacing-horizontal-large);
 }
 
-main > header > div,
-aside {
-    padding-block: var(--spacing-huge);
-
-    padding-bottom: calc(var(--spacing-horizontal) + var(--spacing-large));
-}
-
-main > header > div {
+#header-titles > h2,
+#header-content {
     background-color: var(--foreground);
     color: var(--background);
-
     box-shadow: var(--foreground) 0 0 0 100vw;
-    clip-path: polygon(-100vw 0%, -100vw 100%, 100vw 100%, 100vw 0%);
+    clip-path: inset(-1px -100vw);
+}
+
+#header-titles > h2 {
+    padding-top: var(--spacing-horizontal-large);
+}
+
+#header-content {
+    grid-area: header-content;
+
+    z-index: -1;
+}
+
+#header-content > * {
+    margin-top: var(--spacing-horizontal-relative);
+}
+
+#header-content,
+aside {
+    padding-bottom: calc(
+        var(--spacing-horizontal-large) + var(--spacing-horizontal-medium)
+    );
 }
 
 /* ASIDE, SIDE */
 
 aside,
 .side {
+    display: none;
     max-width: 400px;
     font-size: var(--font-size-small);
 }
 
 aside {
+    padding-bottom: calc(
+        var(--spacing-horizontal-large) + var(--spacing-horizontal-medium)
+    );
+
     color: var(--light-grey);
     grid-area: aside;
-    z-index: 1;
-    margin-right: var(--spacing-medium);
+    margin-right: var(--spacing-vertical-large);
+    margin-top: var(
+        --font-size-normal
+    ); /* TODO this is hacky; to align with header-content */
+}
+
+@media (min-width: 500px) {
+    aside {
+        display: revert;
+    }
+
+    .side {
+        display: flex;
+    }
 }
 
 aside > img {
     float: left;
     height: 2lh;
-    margin-right: var(--spacing-small);
+    margin-right: var(--spacing-vertical-small);
 }
 
 aside > * + *:not(:nth-child(2)) {
-    margin-top: var(--relative-spacing);
+    margin-top: var(--spacing-horizontal-relative);
 }
 
 .side {
+    margin-left: var(--spacing-vertical-large);
     color: var(--dark-grey);
     justify-self: end;
-
-    display: flex;
     flex-direction: column-reverse;
 
     justify-content: start;
-
-    margin-left: var(--spacing-medium);
 }
 
 .side > :is(h1, h2, h3, h4, h5, h6) {
@@ -260,146 +346,159 @@ aside > * + *:not(:nth-child(2)) {
 }
 
 .side > * + * {
-    margin-bottom: var(--relative-spacing);
+    margin-bottom: var(--spacing-horizontal-relative);
 }
 
 /* LEARNINGS */
 
-section#learnings {
-    --color-selected: var(--blue);
-    --color-hover: var(--green);
-    --color-regular: var(--yellow);
+#learnings {
+    --color-selected: var(--dark-green);
+    --color-hover: var(--light-green);
+    --color-regular: var(--light-yellow);
 
     display: contents;
 }
 
-section#learnings > header.side {
-    margin-top: var(--spacing-huge);
+#learnings > header.side {
     grid-area: learnings-side;
+
+    margin-top: var(--spacing-horizontal-huge);
 }
 
-section#learnings > ul {
-    z-index: 1;
-
+#learnings > ul {
     grid-area: learnings;
 
-    margin-top: calc(var(--spacing-medium) * -1);
+    margin-top: calc(var(--spacing-horizontal-medium) * -1);
     list-style-type: none;
 }
 
-section#learnings > ul > li {
-    padding-right: calc(100vw - 100% + var(--spacing));
-
+#learnings > ul > li {
     display: flex;
-    gap: var(--spacing-small);
+    gap: var(--spacing-vertical-small);
+
+    padding-right: var(--spacing-vertical-medium);
+    padding-block: var(--spacing-horizontal-tiny);
 
     font-size: var(--font-size-medium);
     font-weight: var(--font-weight-bold);
 }
 
-section#learnings > ul > li > img {
-    align-self: start;
+@media (min-width: 500px) {
+    #learnings > ul > li {
+        padding-right: calc(100vw - 100% + var(--spacing-vertical-medium));
+    }
+}
+
+#learnings > ul > li > img {
     translate: 0 calc((1lh - 100%) / 2);
 
     width: 1lh;
-    max-height: 1lh;
+    height: 1lh;
 }
 
 /* MAKING TOGETHER */
 
-section#making-together {
-    --color-selected: var(--green);
-    --color-hover: var(--blue);
-    --color-regular: var(--yellow);
+#making-together {
+    --color-selected: var(--dark-blue);
+    --color-hover: var(--light-blue);
+    --color-regular: var(--light-yellow);
 
     display: contents;
 }
 
-section#making-together > header {
+#making-together > header {
     display: contents;
 }
 
-section#making-together > header > div:not(.side) {
+#making-together > header > div:not(.side) {
     grid-area: making-together-header;
 
-    margin-top: var(--spacing-huge);
-    margin-bottom: var(--spacing-large);
+    margin-top: var(--spacing-horizontal-huge);
 }
 
-section#making-together > header > div:not(.side) > * + * {
-    margin-top: var(--relative-spacing);
+#making-together > header > div:not(.side) > * + * {
+    margin-top: var(--spacing-horizontal-relative);
 }
 
-section#making-together > header > .side {
+#making-together > header > .side {
     grid-area: making-together-side;
 }
 
-section#making-together > div {
+#making-together > div {
+    display: grid;
+
     grid-area: making-together;
 
-    display: grid;
-    gap: var(--spacing-vertical);
+    margin-top: var(--spacing-horizontal-medium);
 
-    grid-template-columns: repeat(
-        auto-fill,
-        minmax(var(--main-columns-width), var(--main-columns-width))
-    );
+    gap: var(--spacing-horizontal-small);
 }
 
-section#making-together > div > div {
+@media (min-width: 500px) {
+    #making-together > div {
+        grid-template-columns: repeat(
+            auto-fill,
+            minmax(var(--main-columns-width), var(--main-columns-width))
+        );
+    }
+}
+
+#making-together > div > div {
     display: contents;
 }
 
-section#making-together > div > div > article {
+#making-together > div > div > article {
     height: 320px;
 }
 
-section#making-together > div > button {
-    margin-top: var(--spacing-medium);
-    grid-column: 2;
-
-    margin-left: calc(var(--spacing-vertical) / 2 * -1);
-    margin-right: calc(var(--spacing-vertical) / 2 * -1);
-
+#making-together > div > button {
+    margin-top: 0;
     color: var(--mid-grey);
 }
 
-section#making-together > div > button:hover {
+@media (min-width: 500px) {
+    #making-together > div > button {
+        grid-column: 2;
+
+        margin-top: var(--spacing-horizontal-medium);
+
+        margin-left: calc(var(--spacing-vertical) / 2 * -1);
+        margin-right: calc(var(--spacing-vertical) / 2 * -1);
+    }
+}
+
+#making-together > div > button:hover {
     color: var(--dark);
 }
 
 /* LET'S PLAY */
 
-section#lets-play {
-    --color-selected: var(--yellow);
-    --color-hover: var(--red);
-    --color-regular: var(--orange);
+#lets-play {
+    --color-selected: var(--dark-red);
+    --color-hover: var(--light-red);
+    --color-regular: var(--dark-yellow);
 
     display: contents;
 }
 
-section#lets-play > header {
+#lets-play > header {
     display: contents;
 }
 
-section#lets-play > header > div:not(.side) {
-    margin-top: var(--spacing-huge);
-    padding-block: var(--spacing-huge);
-    padding-bottom: calc(var(--spacing-huge) + 200px);
+#lets-play > header > div:not(.side) {
+    margin-top: var(--spacing-horizontal-huge);
+    padding-block: var(--spacing-horizontal-huge);
+    padding-bottom: calc(var(--spacing-horizontal-huge) + 160px);
     grid-area: lets-play-header;
     box-shadow: var(--foreground) 0 0 0 100vw;
-    clip-path: polygon(-100vw 0%, -100vw 100%, 100vw 100%, 100vw 0%);
+    clip-path: inset(0 -100vw);
     background-color: var(--foreground);
     color: var(--background);
 
     z-index: -1;
 }
 
-section#lets-play > header > div:not(.side) > * + * {
-    margin-top: var(--relative-spacing);
-}
-
-section#lets-play > header > .side {
+#lets-play > header > .side {
     grid-area: lets-play-side;
 
     margin-bottom: var(--spacing-large);
@@ -409,28 +508,85 @@ section#lets-play > header > .side {
     color: var(--light-grey);
 }
 
-section#lets-play > div {
-    grid-area: lets-play;
+#lets-play > header > div:not(.side) > * + * {
+    margin-top: var(--spacing-horizontal-relative);
+}
 
-    margin-top: -160px;
+@media (min-width: 500px) {
+    #lets-play > div {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+#lets-play > div {
+    grid-area: lets-play;
 
     display: grid;
 
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--spacing-medium);
+    margin-top: -160px;
+
+    gap: var(--spacing-horizontal-small);
 }
 
-section#lets-play > div > div {
+#lets-play > div > div {
     display: contents;
 }
 
-section#lets-play > div > div > article {
+#lets-play > div > div > article {
     height: 320px;
 }
 
-section#lets-play > div > button {
-    margin-top: var(--spacing-medium);
-    grid-column: -2;
-    background-color: var(--red);
-    /* TODO */
+@media (min-width: 500px) {
+    #lets-play > div > button {
+        grid-column: -2;
+    }
+}
+
+#lets-play > div > button {
+    background-color: var(--color-hover);
+}
+
+#lets-play > div > button:hover {
+    background-color: var(--color-selected);
+}
+
+@media (min-width: 500px) {
+    #lets-play > div > button {
+        margin-top: var(--spacing-horizontal-small);
+    }
+}
+
+/* MASTERS OF CARE */
+
+#masters-of-care {
+    grid-area: masters-of-care;
+
+    margin-top: var(--spacing-horizontal-huge);
+}
+
+#masters-of-care > p {
+    margin-top: var(--spacing-horizontal-relative);
+}
+
+#masters-of-care > ul {
+    display: grid;
+    margin-top: var(--spacing-horizontal-medium);
+    column-gap: var(--spacing-vertical-medium);
+    row-gap: var(--spacing-horizontal-medium);
+}
+
+@media (min-width: 500px) {
+    #masters-of-care > ul {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+#masters-of-care > ul > li {
+    display: flex;
+    gap: var(--spacing-vertical-medium);
+}
+
+#masters-of-care > ul > li:nth-child(3) > img {
+    margin-left: -17px;
+    margin-right: -13px;
 }
