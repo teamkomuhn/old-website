@@ -25,6 +25,7 @@
         <main>
             <header>
                 <h1>Fluency<br/>in <span id="care">care</span></h1>
+                <img src="<?php echo wp_make_link_relative(get_template_directory_uri()) . '/fluency-in-care.png'; ?>" alt="Fluency in care">
 
                 <div>
                     <h2>Thriving organizations through empathy</h2>
@@ -36,7 +37,7 @@
             </header>
 
             <aside>
-                <img arin-hidden="true" src="<?php echo wp_make_link_relative(get_template_directory_uri()) . '/read-the-post.svg'; ?>">
+                <img aria-hidden="true" src="<?php echo wp_make_link_relative(get_template_directory_uri()) . '/read-the-post.svg'; ?>">
 
                 <p>Within many types of organizations - care - is often seen as something important, still, there’s this uncertainty about its impact or how to put it into practice. How do we go about defining and manifesting it?</p>
 
