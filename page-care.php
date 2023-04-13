@@ -24,7 +24,7 @@
 
         <main>
             <header>
-                <h1>Fluency<br />in <span id="care">care</span></h1>
+                <h1>Fluency<br/>in <span id="care">care</span></h1>
 
                 <div>
                     <h2>Thriving organazations through empathy</h2>
@@ -52,11 +52,11 @@
 
                 <ul class="cards">
                     <li><img aria-hidden="true" src="<?php echo wp_make_link_relative(get_template_directory_uri()) . '/lightning.svg'; ?>" />Identify opportunities for raising capacity</li>
-                    <li><img aria-hidden="true" src="..." />Recognize power imbalences, understand its cause, and learn to propose distribution</li>
+                    <li><img aria-hidden="true" src="<?php echo wp_make_link_relative(get_template_directory_uri()) . '/sliders.svg'; ?>" />Recognize power imbalences, understand its cause, and learn to propose distribution</li>
                     <li><img aria-hidden="true" src="<?php echo wp_make_link_relative(get_template_directory_uri()) . '/eye.svg'; ?>" />Enable practices that create awereness of positive habits and behaviors, and help detect obstacles to progress</li>
-                    <li><img aria-hidden="true" src="..." />Facilitate activities that amplify strengths and consider everyone's needs</li>
-                    <li><img aria-hidden="true" src="..." />Apply confilict as a device for supporting diversity</li>
-                    <li><img aria-hidden="true" src="..." />Culture-in uncertain and complexity and tranform resistance into vulnerability and curiosity</li>
+                    <li><img aria-hidden="true" src="<?php echo wp_make_link_relative(get_template_directory_uri()) . '/circle-half-stroke.svg'; ?>" />Facilitate activities that amplify strengths and consider everyone's needs</li>
+                    <li><img aria-hidden="true" src="<?php echo wp_make_link_relative(get_template_directory_uri()) . '/circle-nodes.svg'; ?>" />Apply confilict as a device for supporting diversity</li>
+                    <li><img aria-hidden="true" src="<?php echo wp_make_link_relative(get_template_directory_uri()) . '/draft.svg'; ?>" />Culture-in uncertain and complexity and tranform resistance into vulnerability and curiosity</li>
                 </ul>
             </section>
 
