@@ -15,7 +15,7 @@
 
         <meta name="viewport" content="width=device-width">
 
-        <title>Care</title>
+        <title>Komuhn</title>
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,8 +43,21 @@
     
     <body>
         <div>
-            <nav>
-                <a id="ok" href="/">OK</a>
-            </nav>
+            <header class="main-header">
+
+                <?php 
+                    $title_tag = is_front_page() ? 'h1' : 'div';
+                    $logo = is_front_page() ? 'white' : 'grey';
+                
+                ?>
+
+                <<?php echo $title_tag; ?> class="logo">
+                    <a href="<?php echo esc_url( home_url( '/' ) ) ?>" title="Komuhn">
+                        Komuhn
+                        <!--<img src="<?//=url('/images/logo-ko-'. $logo .'.svg'); ?>" alt="Komuhn">-->
+                    </a>
+                </<?php echo $title_tag; ?>>
+
+            </header>
 
             <main>
