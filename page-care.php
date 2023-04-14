@@ -4,7 +4,7 @@
     <div id="header-titles">
         <h1>
             <!--Fluency<br/>in <span id="care">care</span>-->
-            <img src="<?= url('/fluency-in-care.png'); ?>" title="Fluency in care" alt="Fluency in care">
+            <img src="<?=url('/images/fluency-in-care.png'); ?>" title="Fluency in care" alt="Fluency in care">
         </h1>
         
 
@@ -18,7 +18,7 @@
 </header>
 
 <aside>
-    <img aria-hidden="true" src="<?= url('/read-the-post.svg'); ?>">
+    <img aria-hidden="true" src="<?=url('/images/read-the-post.svg'); ?>">
 
     <p>Within many types of organizations - care - is often seen as something important, still, there’s this uncertainty about its impact or how to put it into practice. How do we go about defining and manifesting it?</p>
 
@@ -34,12 +34,12 @@
     </header>
 
     <ul class="cards">
-        <li><img aria-hidden="true" src="<?= url('/lightning.svg'); ?>" />Identify opportunities for raising collective capacity</li>
-        <li><img aria-hidden="true" src="<?= url('/sliders.svg'); ?>" />Recognize power imbalances, understand its causes, and learn to propose distribution</li>
-        <li><img aria-hidden="true" src="<?= url('/eye.svg'); ?>" />Enable practices that create awareness of positive habits and behaviors, and help detect obstacles to progress</li>
-        <li><img aria-hidden="true" src="<?= url('/circle-half-stroke.svg'); ?>" />Facilitate activities that amplify strengths and consider everyone's needs</li>
-        <li><img aria-hidden="true" src="<?= url('/circle-nodes.svg'); ?>" />Apply conflict as a device for supporting diversity</li>
-        <li><img aria-hidden="true" src="<?= url('/draft.svg'); ?>" />Culture-in uncertainty and complexity and transform resistance into vulnerability and curiosity</li>
+        <li><img aria-hidden="true" src="<?=url('/images/lightning.svg'); ?>" />Identify opportunities for raising collective capacity</li>
+        <li><img aria-hidden="true" src="<?=url('/images/sliders.svg'); ?>" />Recognize power imbalances, understand its causes, and learn to propose distribution</li>
+        <li><img aria-hidden="true" src="<?=url('/images/eye.svg'); ?>" />Enable practices that create awareness of positive habits and behaviors, and help detect obstacles to progress</li>
+        <li><img aria-hidden="true" src="<?=url('/images/circle-half-stroke.svg'); ?>" />Facilitate activities that amplify strengths and consider everyone's needs</li>
+        <li><img aria-hidden="true" src="<?=url('/images/circle-nodes.svg'); ?>" />Apply conflict as a device for supporting diversity</li>
+        <li><img aria-hidden="true" src="<?=url('/images/draft.svg'); ?>" />Culture-in uncertainty and complexity and transform resistance into vulnerability and curiosity</li>
     </ul>
 </section>
 
@@ -167,7 +167,7 @@
 <section id="lets-play">
     <header>
         <div>
-            <img src="<?= url('/box.svg'); ?>">
+            <img src="<?=url('/images/box.svg'); ?>">
             <h2>Let's play</h2>
 
             <p><strong>The playground is open.</strong>  What we can do depends greatly on the daring ability to build on top of each other ideas.</p>
@@ -215,7 +215,7 @@
     <ul>
         <li><span>You're part of a <strong>team</strong> that wants to go the long haul and is looking for ways to create <strong>sustainable involvement</strong>.</span></li>
         <li><span>You want to build a culture in your <strong>organization</strong> that enables people to be with uncertainty and <strong>tackle difficult issues</strong>.</span></li>
-        <li /><img src="<?= url('/hands-3.svg'); ?>');" /><span>You lead a <strong>community</strong> project that is seeking more <strong>investment</strong> from the participants.</span></li>
+        <li /><img src="<?=url('/images/hands-3.svg'); ?>');" /><span>You lead a <strong>community</strong> project that is seeking more <strong>investment</strong> from the participants.</span></li>
         <li><span>You're always looking for self-improvement and want to learn more about <strong>fair and thriving collaborations</strong>.</span></li>
     </ul>
 </section>
