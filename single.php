@@ -4,7 +4,7 @@
     <article>
         <header>
             <h1><?= get_the_title(); ?></h1>
-            <h2><?= get_the_excerpt(); ?></h2>
+            <h2><?= get_the_ID(); ?></h2>
 
             <aside>
                 <address>
@@ -20,13 +20,19 @@
             <img src="<?= get_the_post_thumbnail_url(); ?>" />
         </header>
 
-        <?= get_the_content(); ?>
+        <div class="side">
+            hey ima sider
+        </div>
 
-        <?php if (comments_open() || get_comments_number()): ?>
-            <section>
-                <?php comments_template(); ?>
-            </section>
-        <?php endif; ?>
+        <section id="content">
+            <?= get_the_content(); ?>
+        </section>
+
+        <?php
+            if (comments_open() || get_comments_number()) {
+                comments_template();
+            } 
+        ?>
     </article>
 <?php endwhile; ?>
 

@@ -42,22 +42,20 @@
     </head>
     
     <body>
-        <div>
-            <header class="main-header">
-
+        <header>
+            <nav>
                 <?php 
                     $title_tag = is_front_page() ? 'h1' : 'div';
                     $logo = is_front_page() ? 'white' : 'grey';
-                
                 ?>
 
-                <<?php echo $title_tag; ?> class="logo">
-                    <a href="<?php echo esc_url( home_url( '/' ) ) ?>" title="Komuhn">
+                <<?= $title_tag; ?> class="logo">
+                    <a href="<?= esc_url(home_url('/')) ?>" title="Komuhn">
                         Komuhn
-                        <!--<img src="<?//=url('/images/logo-ko-'. $logo .'.svg'); ?>" alt="Komuhn">-->
                     </a>
-                </<?php echo $title_tag; ?>>
+                    <!--<img src="<?//=url('/images/logo-ko-'. $logo .'.svg'); ?>" alt="Komuhn">-->
+                </<?= $title_tag; ?>>
+            </nav>
+        </header>
 
-            </header>
-
-            <main>
+        <main>
