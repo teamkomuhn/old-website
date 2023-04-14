@@ -91,7 +91,7 @@ body {
     background-color: var(--background);
     color: var(--foreground);
 
-    /* display: grid; */
+    display: grid;
 
     grid-template-columns: var(--spacing-vertical-large) 1fr var(
             --spacing-vertical-large
@@ -115,15 +115,22 @@ body {
 
         column-gap: var(--spacing-vertical-large);
 
-        grid-template-columns: [sidebar-start] 99ch [sidebar-end];
+        grid-template-columns:
+            1fr var(--main-columns-width) var(--main-columns-width)
+            var(--main-columns-width) 1fr;
+
+        grid-template-areas:
+            '.                    navigation             navigation             navigation      .'
+            '.                    header-titles          header-titles          .               .'
+            '.                    header-content         header-content         aside           aside'
+            'learnings-side       learnings              learnings              learnings       learnings'
+            '.                    making-together-header making-together-header .               .'
+            'making-together-side making-together        making-together        making-together making-together'
+            'lets-play-side       lets-play-header       lets-play-header       .               .'
+            '.                    lets-play              lets-play              lets-play       .'
+            '.                    masters-of-care        masters-of-care        masters-of-care .';
     }
 }
-
-body > div {
-    padding: 10rem;
-}
-
-/*//////////////////*/
 
 h1,
 h2,

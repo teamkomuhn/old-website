@@ -21,19 +21,30 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
         <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@1,600&family=Inter:wght@400;700&display=swap" rel="stylesheet">
-        
+
         <link rel="stylesheet" href="<?= url('/styles.css'); ?>" />
 
-        <?php foreach ($args['scripts'] as $script) {
-            $script_URL = url($script);
+        <?php
+            foreach ($args['styles'] ?? [] as $style) {
+                $style_URL = url($style);
 
-            echo "<script type=\"module\" src=\"{$script_URL}\"></script>";
-        }?>
+                echo "<link rel=\"stylesheet\" href=\"{$style_URL}\" />";
+            }
+        ?>
+
+        <?php
+            foreach ($args['scripts'] ?? [] as $script) {
+                $script_URL = url($script);
+
+                echo "<script type=\"module\" src=\"{$script_URL}\"></script>";
+            }
+        ?>
     </head>
     
     <body>
-        <nav>
-            <a id="ok" href="/">OK</a>
-        </nav>
+        <div>
+            <nav>
+                <a id="ok" href="/">OK</a>
+            </nav>
 
-        <main>
+            <main>
