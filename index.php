@@ -1,4 +1,4 @@
-<?php get_header(); ?>
+<?php get_header(null, [ 'styles' => [ '/styles.css' ] ]); ?>
 
 <header>
     <h1>

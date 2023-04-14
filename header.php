@@ -22,8 +22,6 @@
 
         <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@1,600&family=Inter:wght@400;700&display=swap" rel="stylesheet">
 
-        <link rel="stylesheet" href="<?= url('/styles.css'); ?>" />
-
         <?php
             foreach ($args['styles'] ?? [] as $style) {
                 $style_URL = url($style);

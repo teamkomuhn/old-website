@@ -1,4 +1,4 @@
-<?php get_header(null, [ 'scripts' => [ '/interaction.js' ] ]); ?>
+<?php get_header(null, [ 'styles' => [ '/fluency-in-care.css' ], 'scripts' => [ '/interaction.js' ] ]); ?>
 
 <header>
     <div id="header-titles">

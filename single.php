@@ -1,10 +1,12 @@
-<?php get_header(); ?>
+<?php get_header(null, [ 'styles' => [ '/styles.css' ] ]); ?>
 
 <?php while (have_posts()): the_post();?>
     <article>
         <header>
-            <h1><?= get_the_title(); ?></h1>
-            <h2><?= get_the_ID(); ?></h2>
+            <div>
+                <h1><?= get_the_title(); ?></h1>
+                <h2><?= get_post_meta(get_the_ID(), 'subtitle', true); ?></h2>
+            </div>
 
             <aside>
                 <address>
