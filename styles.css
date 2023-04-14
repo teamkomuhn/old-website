@@ -1,0 +1,598 @@
+:root {
+    /** TODO Use modern colors? */
+    --light: white;
+    --light-grey: #999;
+    --mid-grey: #666;
+    --dark-grey: #444;
+    --dark: #222;
+    --light-blue: #a2e2eb;
+    --dark-blue: #4edcf1;
+    --light-green: #b4ffe4;
+    --dark-green: #51f6bb;
+    --light-yellow: #ffe8bb;
+    --dark-yellow: #fcc57a;
+    --light-red: #ffa184;
+    --dark-red: #f07b56;
+
+    --foreground: var(--dark);
+    --background: var(--light);
+
+    --font-family-sans: Inter, ui-sans-serif, system-ui, BlinkMacSystemFont,
+        -apple-system, 'Segoe UI', sans-serif;
+    --font-family-serif: 'Crimson Pro', ui-serif, serif;
+
+    --font-size-huge: 64px;
+    --font-size-large: 40px;
+    --font-size-medium: 22px;
+    --font-size-normal: 16px;
+    --font-size-small: 14px;
+
+    --font-weight-bold: 700;
+
+    --spacing-huge: 12rem;
+    --spacing-large: 6rem;
+    --spacing-medium: 3rem;
+    --spacing-small: 1.5rem;
+
+    --spacing-horizontal-huge: var(--spacing-large);
+    --spacing-horizontal-large: var(--spacing-medium);
+    --spacing-horizontal-medium: var(--spacing-medium);
+    --spacing-horizontal-small: var(--spacing-medium);
+    --spacing-horizontal-tiny: var(--spacing-small);
+
+    --spacing-horizontal-relative: 1em;
+
+    --spacing-vertical-large: var(--spacing-medium);
+    --spacing-vertical-medium: var(--spacing-small);
+    --spacing-vertical-small: var(--spacing-small);
+
+    --border-thin: 1px solid currentColor;
+    --border-thick: 4px solid currentColor;
+}
+
+@media (min-width: 500px) {
+    :root {
+        --font-size-huge: 128px;
+        --font-size-large: 64px;
+        --font-size-medium: 32px;
+        --font-size-normal: 24px;
+        --font-size-small: 18px;
+
+        --spacing-horizontal-huge: var(--spacing-huge);
+        --spacing-horizontal-large: var(--spacing-huge);
+        --spacing-horizontal-medium: var(--spacing-large);
+        --spacing-horizontal-tiny: var(--spacing-medium);
+
+        --spacing-vertical-large: var(--spacing-large);
+        --spacing-vertical-medium: var(--spacing-medium);
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --foreground: var(--light);
+        --background: var(--dark);
+    }
+}
+
+* {
+    box-sizing: border-box;
+
+    margin: 0;
+    padding: 0;
+
+    transition: all 0.1s;
+}
+
+body {
+    font-family: var(--font-family-sans);
+    font-size: var(--font-size-normal);
+
+    background-color: var(--background);
+    color: var(--foreground);
+
+    display: grid;
+
+    grid-template-columns: var(--spacing-vertical-large) 1fr var(
+            --spacing-vertical-large
+        );
+
+    grid-template-areas:
+        '. navigation             .'
+        '. header-titles          .'
+        '. header-content         .'
+        '. learnings              learnings'
+        '. making-together-header .'
+        '. making-together        .'
+        '. lets-play-header       .'
+        '. lets-play              .'
+        '. masters-of-care        .';
+}
+
+@media (min-width: 500px) {
+    body {
+        --main-columns-width: calc(33ch - var(--spacing-vertical-large) / 2);
+
+        column-gap: var(--spacing-vertical-large);
+
+        grid-template-columns:
+            1fr var(--main-columns-width) var(--main-columns-width)
+            var(--main-columns-width) 1fr;
+
+        grid-template-areas:
+            '.                    navigation             navigation             navigation      .'
+            '.                    header-titles          header-titles          .               .'
+            '.                    header-content         header-content         aside           aside'
+            'learnings-side       learnings              learnings              learnings       learnings'
+            '.                    making-together-header making-together-header .               .'
+            'making-together-side making-together        making-together        making-together making-together'
+            'lets-play-side       lets-play-header       lets-play-header       .               .'
+            '.                    lets-play              lets-play              lets-play       .'
+            '.                    masters-of-care        masters-of-care        masters-of-care .';
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-family-serif);
+    font-style: italic;
+
+    line-height: 120%;
+}
+
+h1 {
+    font-size: var(--font-size-huge);
+}
+
+h2 {
+    font-size: var(--font-size-large);
+}
+
+button,
+.button {
+    display: block;
+
+    /* TODO */
+    padding-block: var(--spacing-small);
+
+    font: var(--font-family-sans);
+    font-size: var(--font-size-normal);
+    font-weight: var(--font-weight-bold);
+
+    text-decoration: none;
+    text-align: center;
+
+    background-color: transparent;
+    color: inherit;
+
+    border: var(--border-thin);
+    border-radius: 0.5rem;
+}
+
+p {
+    color: currentColor;
+}
+
+p,
+li {
+    line-height: 150%;
+}
+
+/* CARDS */
+
+@media (hover: hover) {
+    .cards > :hover {
+        background-color: var(--color-hover);
+    }
+
+    .cards > .selected:not(:hover) {
+        background-color: var(--color-selected);
+    }
+}
+
+.cards:not(:hover:has(> .selected), :has(> .selected)) > :first-of-type {
+    background-color: var(--color-hover);
+}
+
+.cards > * {
+    padding-inline: var(--spacing-vertical-medium);
+    padding-block: var(--spacing-horizontal-small);
+
+    background-color: var(--color-regular);
+    border-bottom: var(--border-thick);
+}
+
+.cards > .selected {
+    background-color: var(--color-selected);
+}
+
+.cards > * > :is(h1, h2, h3, h4, h5, h6) {
+    font-size: var(--font-size-medium);
+    font-family: var(--font-family-sans);
+    font-weight: var(--font-weight-bold);
+    font-style: normal;
+}
+
+/* MAIN */
+
+main {
+    display: contents;
+}
+
+/* NAVIGATION */
+
+nav {
+    grid-area: navigation;
+}
+
+#ok {
+    background-color: #8f8cff;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    padding: 1rem 1rem;
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    font-weight: var(--font-weight-bold);
+}
+
+/* HEADER */
+
+main > header {
+    display: contents;
+}
+
+#header-titles {
+    grid-area: header-titles;
+}
+
+#header-titles > h1 {
+    /* font-size: 0;
+    font-weight: 900;
+    margin-block: var(--spacing-huge); */
+}
+
+#header-titles > h1 > img {
+    max-width: 100%;
+    margin-block: var(--spacing-horizontal-large);
+}
+
+#header-titles > h2,
+#header-content {
+    background-color: var(--foreground);
+    color: var(--background);
+    box-shadow: var(--foreground) 0 0 0 100vw;
+    clip-path: inset(-1px -100vw);
+}
+
+#header-titles > h2 {
+    padding-top: var(--spacing-horizontal-large);
+}
+
+#header-content {
+    grid-area: header-content;
+
+    z-index: -1;
+}
+
+#header-content > * {
+    margin-top: var(--spacing-horizontal-relative);
+}
+
+#header-content,
+aside {
+    padding-bottom: calc(
+        var(--spacing-horizontal-large) + var(--spacing-horizontal-medium)
+    );
+}
+
+/* ASIDE, SIDE */
+
+aside,
+.side {
+    display: none;
+    max-width: 400px;
+    font-size: var(--font-size-small);
+}
+
+aside {
+    padding-bottom: calc(
+        var(--spacing-horizontal-large) + var(--spacing-horizontal-medium)
+    );
+
+    color: var(--light-grey);
+    grid-area: aside;
+    margin-right: var(--spacing-vertical-large);
+    margin-top: var(
+        --font-size-normal
+    ); /* TODO this is hacky; to align with header-content */
+}
+
+@media (min-width: 500px) {
+    aside {
+        display: revert;
+    }
+
+    .side {
+        display: flex;
+    }
+}
+
+aside > img {
+    float: left;
+    height: 2lh;
+    margin-right: var(--spacing-vertical-small);
+}
+
+aside > * + *:not(:nth-child(2)) {
+    margin-top: var(--spacing-horizontal-relative);
+}
+
+.side {
+    margin-left: var(--spacing-vertical-large);
+    color: var(--dark-grey);
+    justify-self: end;
+    flex-direction: column;
+
+    justify-content: start;
+}
+
+.side > :is(h1, h2, h3, h4, h5, h6) {
+    font-size: var(--font-size-normal);
+    font-family: var(--font-family-sans);
+    font-style: normal;
+    order: 1;
+}
+
+.side > :is(h1, h2, h3, h4, h5, h6)::after {
+    content: ' →';
+}
+
+.side > * + * {
+    margin-bottom: var(--spacing-horizontal-relative);
+}
+
+/* LEARNINGS */
+
+#learnings {
+    --color-selected: var(--dark-green);
+    --color-hover: var(--light-green);
+    --color-regular: var(--light-yellow);
+
+    display: contents;
+}
+
+#learnings > header.side {
+    grid-area: learnings-side;
+
+    margin-top: var(--spacing-horizontal-huge);
+}
+
+#learnings > ul {
+    grid-area: learnings;
+
+    margin-top: calc(var(--spacing-horizontal-medium) * -1);
+    list-style-type: none;
+}
+
+#learnings > ul > li {
+    display: flex;
+    gap: var(--spacing-vertical-small);
+
+    padding-right: var(--spacing-vertical-medium);
+    padding-block: var(--spacing-horizontal-tiny);
+
+    font-size: var(--font-size-medium);
+    font-weight: var(--font-weight-bold);
+}
+
+@media (min-width: 500px) {
+    #learnings > ul > li {
+        padding-right: calc(100vw - 100% + var(--spacing-vertical-medium));
+    }
+}
+
+#learnings > ul > li > img {
+    translate: 0 calc((1lh - 100%) / 2);
+
+    width: 1lh;
+    height: 1lh;
+}
+
+/* MAKING TOGETHER */
+
+#making-together {
+    --color-selected: var(--dark-blue);
+    --color-hover: var(--light-blue);
+    --color-regular: var(--light-yellow);
+
+    display: contents;
+}
+
+#making-together > header {
+    display: contents;
+}
+
+#making-together > header > div:not(.side) {
+    grid-area: making-together-header;
+
+    margin-top: var(--spacing-horizontal-huge);
+}
+
+#making-together > header > div:not(.side) > * + * {
+    margin-top: var(--spacing-horizontal-relative);
+}
+
+#making-together > header > .side {
+    grid-area: making-together-side;
+}
+
+#making-together > div {
+    display: grid;
+
+    grid-area: making-together;
+
+    margin-top: var(--spacing-horizontal-medium);
+
+    gap: var(--spacing-horizontal-small);
+}
+
+@media (min-width: 500px) {
+    #making-together > div {
+        grid-template-columns: repeat(
+            auto-fill,
+            minmax(var(--main-columns-width), var(--main-columns-width))
+        );
+    }
+}
+
+#making-together > div > div {
+    display: contents;
+}
+
+#making-together > div > div > article {
+    height: 320px;
+}
+
+#making-together > div > button {
+    color: var(--mid-grey);
+}
+
+@media (min-width: 500px) {
+    #making-together > div > button {
+        grid-column: 2;
+
+        margin-top: var(--spacing-horizontal-medium);
+
+        margin-left: calc(var(--spacing-vertical) / 2 * -1);
+        margin-right: calc(var(--spacing-vertical) / 2 * -1);
+    }
+}
+
+#making-together > div > button:hover {
+    color: var(--dark);
+}
+
+/* LET'S PLAY */
+
+#lets-play {
+    --color-selected: var(--dark-red);
+    --color-hover: var(--light-red);
+    --color-regular: var(--dark-yellow);
+
+    display: contents;
+}
+
+#lets-play > header {
+    display: contents;
+}
+
+#lets-play > header > div:not(.side) {
+    margin-top: var(--spacing-horizontal-huge);
+    padding-block: var(--spacing-horizontal-huge);
+    padding-bottom: calc(var(--spacing-horizontal-huge) + 160px);
+    grid-area: lets-play-header;
+    box-shadow: var(--foreground) 0 0 0 100vw;
+    clip-path: inset(0 -100vw);
+    background-color: var(--foreground);
+    color: var(--background);
+
+    z-index: -1;
+}
+
+#lets-play > header > .side {
+    grid-area: lets-play-side;
+
+    margin-bottom: var(--spacing-large);
+
+    align-self: end;
+
+    color: var(--light-grey);
+}
+
+#lets-play > header > div:not(.side) > * + * {
+    margin-top: var(--spacing-horizontal-relative);
+}
+
+@media (min-width: 500px) {
+    #lets-play > div {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+#lets-play > div {
+    grid-area: lets-play;
+
+    display: grid;
+
+    margin-top: -160px;
+
+    gap: var(--spacing-horizontal-small);
+}
+
+#lets-play > div > div {
+    display: contents;
+}
+
+#lets-play > div > div > article {
+    height: 320px;
+}
+
+@media (min-width: 500px) {
+    #lets-play > div > button {
+        grid-column: -2;
+    }
+}
+
+#lets-play > div > button {
+    background-color: var(--color-hover);
+}
+
+#lets-play > div > button:hover {
+    background-color: var(--color-selected);
+}
+
+@media (min-width: 500px) {
+    #lets-play > div > button {
+        margin-top: var(--spacing-horizontal-small);
+    }
+}
+
+/* MASTERS OF CARE */
+
+#masters-of-care {
+    grid-area: masters-of-care;
+
+    margin-top: var(--spacing-horizontal-huge);
+}
+
+#masters-of-care > p {
+    margin-top: var(--spacing-horizontal-relative);
+}
+
+#masters-of-care > ul {
+    display: grid;
+    margin-top: var(--spacing-horizontal-medium);
+    column-gap: var(--spacing-vertical-medium);
+    row-gap: var(--spacing-horizontal-medium);
+}
+
+@media (min-width: 500px) {
+    #masters-of-care > ul {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+#masters-of-care > ul > li {
+    display: flex;
+    gap: var(--spacing-vertical-medium);
+}
+
+#masters-of-care > ul > li:nth-child(3) > img {
+    margin-left: -17px;
+    margin-right: -13px;
+}

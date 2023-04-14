@@ -1,41 +1,39 @@
-<!doctype html>
-<html class="no-js" lang="en">
+<?php 
+    declare(strict_types = 1);
 
-<head>
-    <meta charset="utf-8">
+    function url(string $url) {
+        return wp_make_link_relative(get_template_directory_uri()) . $url;
+    }
+?>
 
-    <title>Komuhn</title>
-    <meta name="description" content="Our new website">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <!-- <meta charset="UTF-8"> -->
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+        <meta name="viewport" content="width=device-width">
+
+        <title>Care</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+        <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@1,600&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+        
+        <link rel="stylesheet" href="<?= url('/styles.css'); ?>" />
+
+        <?php foreach ($args['scripts'] as $script) {
+            $script_URL = url($script);
+
+            echo "<script type=\"module\" src=\"{$script_URL}\"></script>";
+        }?>
+    </head>
     
-    <?php openGraph(); ?>
+    <body>
+        <nav>
+            <a id="ok" href="/">OK</a>
+        </nav>
 
-    <?php wp_head(); ?>
-
-
-    <!--Favicon Default-->
-    <link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/Favicon-32x32.png"/>
-    <!--Favicon Apple Touch Icon-->
-    <link rel="apple-touch-icon" sizes="180x180" href="<?php echo get_template_directory_uri(); ?>/Favicon-apple-touch-icon-180x180.png">
-    <!--Favicon Android, Chrome and Opera-->
-    <link rel="manifest" href="<?php echo get_template_directory_uri(); ?>/manifest.json">
-    <!--Favicon Safari-->
-    <link rel="mask-icon" href="<?php echo get_template_directory_uri(); ?>/Favicon-16x16.svg">
-
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/main.css">
-
-</head>
-
-<body <?php body_class(); ?>>
-
-    <header class="main-header">
-
-        <?php $title_tag = is_front_page() ? 'h1' : 'div'; ?>
-
-        <<?php echo $title_tag; ?> class="logo">
-            <a href="<?php echo esc_url( home_url( '/' ) ) ?>">Komuhn</a>
-        </<?php echo $title_tag; ?>>
-
-    </header>
-
-    <main>
+        <main>
