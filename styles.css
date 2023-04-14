@@ -253,10 +253,10 @@ main > header {
 #header-titles > h1 {
     font-size: 0;
     font-weight: 900;
-    /*margin-block: var(--spacing-huge);*/
+    /* margin-block: var(--spacing-huge); */
 }
 
-main > header > img {
+#header-titles > img {
     max-width: 100%;
     margin-block: var(--spacing-horizontal-large);
 }
@@ -336,7 +336,7 @@ aside > * + *:not(:nth-child(2)) {
     margin-left: var(--spacing-vertical-large);
     color: var(--dark-grey);
     justify-self: end;
-    flex-direction: column-reverse;
+    flex-direction: column;
 
     justify-content: start;
 }
@@ -345,6 +345,7 @@ aside > * + *:not(:nth-child(2)) {
     font-size: var(--font-size-normal);
     font-family: var(--font-family-sans);
     font-style: normal;
+    order: 1;
 }
 
 .side > :is(h1, h2, h3, h4, h5, h6)::after {
@@ -458,7 +459,6 @@ aside > * + *:not(:nth-child(2)) {
 }
 
 #making-together > div > button {
-    margin-top: 0;
     color: var(--mid-grey);
 }
 
