@@ -2,15 +2,17 @@
 
 <header>
     <div id="header-titles">
-        <h1>Fluency<br/>in <span id="care">care</span></h1>
-        <img src="<?= url('/fluency-in-care.png'); ?>" alt="Fluency in care">
+        <h1>
+            <!--Fluency<br/>in <span id="care">care</span>-->
+            <img src="<?= url('/fluency-in-care.png'); ?>" title="Fluency in care" alt="Fluency in care">
+        </h1>
+        
 
         <h2>Thriving organizations through empathy</h2>
     </div>
 
     <div id="header-content">
         <p><strong>How we build capacity for care</strong> within our communities, organizations, teams, has a critical effect on how much we can participate, accomplish, and invest in.</p>
-        <br/>
         <p>In this proposal, we are exploring ways towards more sustainable collaborations by understanding the value of being together.</p>
     </div>
 </header>
