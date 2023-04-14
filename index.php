@@ -4,10 +4,13 @@
     <h1>
         <img src="" alt="">
     </h1>
-    <h2></h2>
+    <h2>Collaboration is not about gluing together existing egos. It's about the ideas that never existed until after everyone entered the room.</h2>
 
-    <!--Next: Update this section to be dynamic, as one for highlights, fetching a page/post/etc.-->
-    <article class="fluency-in-care">
+</header>
+
+<!--TODO: Update this section to be dynamic, as one for highlights, fetching a page/post/etc.-->
+<section class="featured">
+
         <h2>
             <!--Fluency<br/>in <span id="care">care</span>-->
             <img src="<?=url('/images/fluency-in-care.png'); ?>" title="Fluency in care" alt="Fluency in care">
@@ -21,9 +24,7 @@
         <a class="button" href="#">Read the post</a>
         <a class="button" href="#">Learn more</a>
 
-    </article>
-
-</header>
+</section>
 
 <section class="related-posts">
     <h2>Recent posts ↓</h2>
@@ -43,7 +44,21 @@
     <header>
         <h2>Jacks of all trades.<br/>Masters of some.</h2>
 
-        <p><strong>This is an invitation</strong> to explore new and sometimes unexpected approaches to learning about - what we need - to be able to work well as a whole.</p>
+        <p>We’re a multidisciplinary team working in the intersection of design, collaboration, and what-can-be.</p>
+    </header>
+
+    <div>
+        
+    </div>
+
+</section>
+
+<section class="">
+
+    <header>
+        <h2>Dance like nobody is watching, <strong>collaborate like everyone is</strong>.</h2>
+
+        <p>We work with partners, clients, and collaborators across the world.</p>
     </header>
 
     <div>

@@ -44,7 +44,7 @@
             <nav>
                 <?php 
                     $title_tag = is_front_page() ? 'h1' : 'div';
-                    $logo = is_front_page() ? 'white' : 'grey';
+                    //$logo = is_front_page() ? 'white' : 'grey';
                 ?>
 
                 <<?= $title_tag; ?> class="logo">
