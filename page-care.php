@@ -7,7 +7,6 @@
             <img src="<?=url('/images/fluency-in-care.png'); ?>" title="Fluency in care" alt="Fluency in care">
         </h1>
         
-
         <h2>Thriving organizations through empathy</h2>
     </div>
 

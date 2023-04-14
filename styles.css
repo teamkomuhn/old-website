@@ -138,50 +138,61 @@ main > * {
 article > header {
     display: grid;
 
+    gap: var(--spacing-medium);
+
     grid-template-areas:
-        'titles aside'
+        'titles author'
         'image image';
 }
 
-article > header > div {
+#titles {
     grid-area: titles;
+
+    margin-top: var(--spacing-large);
 }
 
-article > header > aside {
-    grid-area: aside;
+#titles > * + * {
+    margin-top: var(--spacing-horizontal-relative);
+}
+
+#titles > h2 {
+    font-family: var(--font-family-sans);
+    font-style: normal;
+    font-weight: normal;
+
+    font-size: 40px;
+}
+
+article > header > .author {
+    grid-area: author;
 
     align-self: end;
 }
 
-article > header > aside {
-    display: grid;
+.author {
+    display: flex;
 
-    grid-template-areas:
-        'image name'
-        'image date';
-
-    place-content: start;
+    gap: 1rem;
+    align-items: center;
 }
 
-article > header > aside > address {
-    display: contents;
-}
-
-article > header > aside > address > img {
-    grid-area: image;
-
+.author > img {
+    height: 64px;
     border-radius: 50%;
 }
 
+.author > address {
+    display: contents;
+}
+
 article > header > aside > address > span {
-    grid-area: name;
 }
 
 article > header > aside > address > datetime {
-    grid-area: date;
 }
 
 article > header > img {
+    margin-top: var(--spacing-large);
     max-width: 100%;
     grid-area: image;
     background-color: var(--dark);
@@ -191,6 +202,20 @@ article > header > img {
 
 #content {
     margin-top: var(--spacing-horizontal-medium);
+}
+
+#content > h2 {
+    font-family: var(--font-family-sans);
+    font-style: normal;
+    font-weight: normal;
+}
+
+#content > *:not(:last-child) {
+    margin-bottom: var(--spacing-horizontal-relative);
+}
+
+a {
+    color: currentColor;
 }
 
 /* INFORMATION */
@@ -225,17 +250,6 @@ time {
     align-items: center;
     /* TODO */
     gap: 16px;
-}
-
-#comments ol > li > header > address {
-    display: contents;
-}
-
-#comments ol > li > header > address > img {
-    width: var(--spacing-medium);
-    aspect-ratio: 1;
-    border-radius: 50%;
-    background-color: var(--light-grey);
 }
 
 #comments ol > li > p {

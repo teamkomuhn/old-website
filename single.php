@@ -3,28 +3,27 @@
 <?php while (have_posts()): the_post();?>
     <article>
         <header>
-            <div>
+            <div id="titles">
                 <h1><?= get_the_title(); ?></h1>
                 <h2><?= get_post_meta(get_the_ID(), 'subtitle', true); ?></h2>
             </div>
 
-            <aside>
-                <address>
-                    <img src="<?php print get_avatar_url( get_the_author_meta( 'ID' ) ); ?>" />
-                    <span><?= get_the_author_meta('display_name'); ?></span>
-                </address>
+            <div class="author short">
+                <img aria-hidden="true" src="<?php print get_avatar_url( get_the_author_meta( 'ID' ) ); ?>" />
 
-                <time datetime="<?= get_the_date('c'); ?>">
-                    <?= get_the_date('F j, Y'); ?>
-                </time>
-            </aside>
+                <div>
+                    <address>
+                        <?= get_the_author_meta('display_name'); ?>
+                    </address>
+
+                    <time datetime="<?= get_the_date('c'); ?>">
+                        <?= get_the_date('F j, Y'); ?>
+                    </time>
+                </div>
+            </div>
 
             <img src="<?= get_the_post_thumbnail_url(); ?>" />
         </header>
-
-        <div class="side">
-            hey ima sider
-        </div>
 
         <section id="content">
             <?= get_the_content(); ?>
