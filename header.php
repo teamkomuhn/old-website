@@ -10,13 +10,11 @@
 
 <html lang="en">
     <head>
-        <!-- <meta charset="UTF-8"> -->
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-
         <meta name="viewport" content="width=device-width">
-
-        <!-- TODO `single_post_title` vs `get_the_title` -->
-        <title><?php single_post_title(null, false); ?>, Komuhn</title>
+        
+        <title><?= is_singular() ? get_the_title($post) . " - " . get_bloginfo( 'name' ) : get_bloginfo( 'name' ) . " - " . strip_tags(get_bloginfo( 'description' )); ?></title>
+        <?php openGraph(); ?>
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
