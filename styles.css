@@ -489,6 +489,8 @@ main > header > p {
     bottom: 0;
 
     translate: -50% 0;
+
+    max-width: 136px;
 }
 
 #about > div > :nth-child(odd) > img {

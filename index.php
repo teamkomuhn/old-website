@@ -101,7 +101,7 @@
 
     <div>
         <article>
-            <img alt="Andréa" src="<?= url('/images/andréa.png'); ?>">
+            <img alt="Andréa" src="<?= url('/images/andrea.png'); ?>">
 
             <div>
                 <p><strong>Andréa</strong> is making a case for <strong>Rotulama</strong> a site-specific artwork experiment aiming to grasp gentrification’s impact on small local businesses and their neighborhoods. A joint-project with <a href="https://www.supereclectic.team">Super Eclectic</a>.</p>
@@ -117,7 +117,7 @@
         </article>
 
         <article>
-            <img alt="Pedro" src="..."> 
+            <img alt="Pedro" src="<?= url('/images/pedro.png'); ?>"> 
 
             <div>
                 <p><strong>Pedro</strong> is giving shape to our latest proposal — <strong>Fluency in care</strong> — an exploration of new and sometimes unexpected approaches, towards learning about what we need to be able to work well together.</p>
@@ -125,7 +125,7 @@
         </article>
 
         <article>
-            <img alt="Riikka" src="..">
+            <img alt="Riikka" src="<?= url('/images/riikka.png'); ?>">
 
             <div>
                 <p><strong>Riikka</strong> is facilitating the conversations within a group of scientists that want to become a team and understand how they can take advantage of their capacities to create self-sustainability. </p>
@@ -133,7 +133,7 @@
         </article>
 
         <article>
-            <img alt="Tita" src="...">
+            <img alt="Tita" src="<?= url('/images/tita.png'); ?>">
 
             <div>
                 <p><strong>Tita</strong> is laying out the content for <strong>Peniche - Treasure island</strong>, a book more than a book, a contribution towards this place, history, and community’s identity.</p>
