@@ -9,11 +9,11 @@
             </div>
 
             <div class="author short">
-                <img aria-hidden="true" src="<?php print get_avatar_url( get_the_author_meta( 'ID' ) ); ?>" />
+                <img aria-hidden="true" src="<?= get_avatar_url( get_the_author_meta( 'ID' ) ); ?>" />
 
                 <div>
                     <address>
-                        <?= get_the_author_meta('display_name'); ?>
+                        <?= get_the_author_meta('first_name') . ' '. get_the_author_meta('last_name'); ?>
                     </address>
 
                     <time datetime="<?= get_the_date('c'); ?>">
@@ -22,7 +22,10 @@
                 </div>
             </div>
 
-            <img src="<?= get_the_post_thumbnail_url(); ?>" />
+            <?php
+                $post_image = get_the_post_thumbnail();
+                if ( !empty($post_image) ){ echo $post_image; }
+            ?>
         </header>
 
         <section id="content">
