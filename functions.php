@@ -1,6 +1,14 @@
 <?php
 add_theme_support('post-thumbnails');
 
+function comment_fields($fields) {
+	unset($fields['cookies']);
+
+	return $fields;
+}
+
+add_filter('comment_form_default_fields', 'comment_fields');
+
 
 //TRIM TEXT - limit words
 

@@ -5,14 +5,23 @@
     --mid-grey: #666;
     --dark-grey: #444;
     --dark: #222;
-    --light-blue: #a2e2eb;
+    --transparent-black: #0a0a0a;
+
+    /* --light-blue: #a2e2eb;
     --dark-blue: #4edcf1;
     --light-green: #b4ffe4;
     --dark-green: #51f6bb;
     --light-yellow: #ffe8bb;
     --dark-yellow: #fcc57a;
     --light-red: #ffa184;
-    --dark-red: #f07b56;
+    --dark-red: #f07b56; */
+
+    --red: #fab0ac;
+    --orange: #ffd0ad;
+    --yellow: #faef8a;
+    --green: #8fffd7;
+    --blue: #a2e2eb;
+    --purple: #5f5cf4;
 
     --foreground: var(--dark);
     --background: var(--light);
@@ -21,52 +30,42 @@
         -apple-system, 'Segoe UI', sans-serif;
     --font-family-serif: 'Crimson Pro', ui-serif, serif;
 
-    --font-size-huge: 64px;
+    /* --font-size-huge: 64px;
     --font-size-large: 40px;
     --font-size-medium: 22px;
     --font-size-normal: 16px;
-    --font-size-small: 14px;
+    --font-size-small: 14px; */
 
+    --font-weight-normal: 400;
+    --font-weight-regular: 500;
     --font-weight-bold: 700;
 
-    --spacing-huge: 12rem;
-    --spacing-large: 6rem;
-    --spacing-medium: 3rem;
-    --spacing-small: 1.5rem;
-
-    --spacing-horizontal-huge: var(--spacing-large);
-    --spacing-horizontal-large: var(--spacing-medium);
-    --spacing-horizontal-medium: var(--spacing-medium);
-    --spacing-horizontal-small: var(--spacing-medium);
-    --spacing-horizontal-tiny: var(--spacing-small);
+    --spacing-huge: 192px;
+    --spacing-large: 96px;
+    --spacing-medium: 48px;
+    --spacing-small: 24px;
+    --spacing-tiny: 16px;
 
     --spacing-horizontal-relative: 1em;
 
-    --spacing-vertical-large: var(--spacing-medium);
-    --spacing-vertical-medium: var(--spacing-small);
-    --spacing-vertical-small: var(--spacing-small);
-
     --border-thin: 1px solid currentColor;
     --border-thick: 4px solid currentColor;
+
+    --border-radius: 6px;
 }
 
-@media (min-width: 500px) {
+/* @media (min-width: 500px) {
     :root {
         --font-size-huge: 128px;
         --font-size-large: 64px;
+        --font-size-x: 40px;
         --font-size-medium: 32px;
         --font-size-normal: 24px;
+        --font-size-y: 20px;
         --font-size-small: 18px;
-
-        --spacing-horizontal-huge: var(--spacing-huge);
-        --spacing-horizontal-large: var(--spacing-huge);
-        --spacing-horizontal-medium: var(--spacing-large);
-        --spacing-horizontal-tiny: var(--spacing-medium);
-
-        --spacing-vertical-large: var(--spacing-large);
-        --spacing-vertical-medium: var(--spacing-medium);
+        --font-size-tiny: 16px;
     }
-}
+} */
 
 * {
     box-sizing: border-box;
@@ -79,28 +78,16 @@
 
 body {
     font-family: var(--font-family-sans);
-    font-size: var(--font-size-normal);
 
     background-color: var(--background);
     color: var(--foreground);
 
+    padding-inline: max(calc((100% - 960px) / 2), var(--spacing-medium));
+}
+
+ol,
+ul {
     list-style-position: inside;
-
-    padding-inline: max(calc((100% - 960px) / 2), 2rem);
-}
-
-/* INFORMATION */
-
-address {
-    font-size: 16px;
-}
-
-time {
-    font-size: 14px;
-}
-address {
-    font-style: normal;
-    font-weight: var(--font-weight-bold);
 }
 
 h1,
@@ -111,28 +98,89 @@ h5,
 h6 {
     font-family: var(--font-family-serif);
     font-style: italic;
-
-    line-height: 120%;
 }
 
 h1 {
-    font-size: var(--font-size-huge);
+    font-size: 128px;
 }
 
 h2 {
-    font-size: var(--font-size-large);
+    font-size: 64px;
+}
+
+h3 {
+    font-size: 32px;
 }
 
 :is(h1, h2, h3, h4, h5, h6) > strong {
     text-decoration: underline;
 }
 
+p {
+    color: currentColor;
+}
+
+p,
+li {
+    line-height: 150%;
+}
+
+.author {
+    display: flex;
+
+    gap: 24px;
+    align-items: center;
+}
+
+.author > img {
+    height: 48px;
+
+    border-radius: 50%;
+}
+
+header .author > img {
+    height: 64px;
+}
+
+.author > div > address {
+    font-size: 18px;
+    font-style: normal;
+    font-weight: var(--font-weight-bold);
+}
+
+.author > div > time {
+    font-size: 16px;
+}
+
+a {
+    color: currentColor;
+}
+
+/* ARROWS */
+
+.arrow-left::after {
+    content: ' ←';
+}
+
+.arrow-right::after {
+    content: ' →';
+}
+
+.arrow-up::after {
+    content: ' ↑';
+}
+
+.arrow-down::after {
+    content: ' ↓';
+}
+
+/* BUTTONS */
+
 button,
 .button {
     display: block;
 
-    /* TODO */
-    padding-block: var(--spacing-small);
+    padding-block: var(--spacing-tiny);
 
     font: var(--font-family-sans);
     font-size: var(--font-size-normal);
@@ -145,16 +193,29 @@ button,
     color: inherit;
 
     border: var(--border-thin);
-    border-radius: 0.5rem;
+    border-radius: var(--border-radius);
 }
 
-p {
-    color: currentColor;
+.button-group-horizontal {
+    display: grid;
+    align-items: stretch;
+    grid-auto-flow: column;
 }
 
-p,
-li {
-    line-height: 150%;
+.button-group-horizontal > :first-child {
+    border-radius: var(--border-radius) 0 0 var(--border-radius);
+}
+
+.button-group-horizontal > :is(button, .button) {
+    border-radius: none;
+}
+
+.button-group-horizontal > :is(button, .button):not(:first-child) {
+    border-left: none;
+}
+
+.button-group-horizontal > :last-child {
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
 }
 
 /* HEADER */
@@ -168,14 +229,53 @@ main > header {
     padding-block: var(--spacing-large);
 }
 
-main > header {
+main > header > * + * {
+    margin-top: var(--spacing-horizontal-relative);
+}
+
+main > header > p {
+    font-size: 64px;
+    font-family: var(--font-family-serif);
+
+    line-height: revert;
 }
 
 /* RECENT WORK */
 
 #recent-work {
-    --background: #0a0a0a;
+    font-size: 18px;
+}
+
+:is(#recent-work, #recent-posts) > h2 {
+    font-family: var(--font-family-sans);
+    font-style: normal;
+    font-size: 24px;
+
+    color: var(--light);
+
+    padding-bottom: var(--spacing-medium);
+}
+
+:is(#recent-work, #recent-posts) > h2 > a {
+    text-decoration: none;
+}
+
+#recent-work > h2 {
+    --background: var(--dark);
     --foreground: var(--light);
+
+    background-color: var(--background);
+    color: var(--foreground);
+
+    box-shadow: var(--background) 0 0 0 100vw;
+    clip-path: inset(-1px -100vw);
+}
+
+#recent-work > div {
+    --background: var(--transparent-black);
+    --foreground: var(--light);
+
+    padding-block: var(--spacing-huge);
 
     background-color: var(--background);
     color: var(--foreground);
@@ -186,35 +286,33 @@ main > header {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-medium);
-
-    padding-block: var(--spacing-huge);
 }
 
-#recent-work > :first-child > * + * {
+#recent-work > div > :first-child > * + * {
     margin-top: var(--spacing-horizontal-relative);
 }
 
-#recent-work > :first-child > h3 > img {
+#recent-work > div > :first-child > h3 > img {
     width: 100%;
 }
 
-#recent-work > :first-child > h4 {
+#recent-work > div > :first-child > h4 {
     font-family: var(--font-family-sans);
     font-weight: normal;
-    font-size: var(--font-size-medium);
+    font-size: 32px;
 }
 
-#recent-work > :last-child > * + * {
+#recent-work > div > :last-child > * + * {
     margin-top: var(--spacing-horizontal-relative);
 }
 
-#recent-work > :last-child > .button-group-horizontal {
-    --foreground: #5f5cf4;
+#recent-work > div > :last-child > .button-group-horizontal {
+    --foreground: var(--purple);
 
     color: var(--foreground);
 }
 
-#recent-work > :last-child > .button-group-horizontal > :last-child {
+#recent-work > div > :last-child > .button-group-horizontal > :last-child {
     background-color: var(--foreground);
 
     color: var(--background);
@@ -224,44 +322,44 @@ main > header {
 
 /* RECENT POSTS */
 
-#recent-posts {
-    padding-top: var(--spacing-large);
-
-    /* background-image: linear-gradient(red, blue); */
-    /* position: relative; */
-}
-
 #recent-posts::before {
-    /* z-index: -1; */
-    content: 'sss';
-    background-color: red;
+    --background: var(--dark);
+
+    content: '';
+
+    height: 400px;
+
     position: absolute;
     top: 0;
-    left: 0;
-    /* inset: 0; */
-    /* top: 0; */
-    display: block;
-    width: 100vw;
-    height: 10px;
+    z-index: -1;
+
+    background-color: var(--background);
+
+    box-shadow: var(--background) 0 0 0 100vw;
+    clip-path: inset(0 -100vw);
+}
+
+#recent-posts {
+    position: relative;
+    padding-top: var(--spacing-large);
 }
 
 #recent-posts > div {
+    margin-top: var(--spacing-medium);
+
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-medium);
 }
 
-#recent-posts > div > article {
-    grid-row: span 2;
-
-    display: grid;
-    grid-template-rows: repeat(2, 1fr);
-}
-
 #recent-posts > div > article:nth-child(3) {
-    background-color: red;
     grid-row: auto;
     grid-column: span 2;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    gap: var(--spacing-medium);
 }
 
 #recent-posts > div > article > img {
@@ -274,8 +372,18 @@ main > header {
 #recent-posts > div > article > div {
     padding: var(--spacing-small);
     padding-bottom: 0;
-    aspect-ratio: 1;
-    width: 100%;
+}
+
+#recent-posts > div > article > div > h3 {
+    font-family: var(--font-family-sans);
+    font-style: normal;
+}
+
+#recent-posts > div > article > div > h4 {
+    font-family: var(--font-family-sans);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: var(--font-weight-regular);
 }
 
 #recent-posts > div > article > div > * + * {
@@ -284,15 +392,37 @@ main > header {
 
 #recent-posts > div > article > div > a {
     display: block;
+
+    font-weight: var(--font-weight-regular);
+
+    text-decoration: none;
+
+    color: var(--mid-grey);
+}
+
+#recent-posts > button {
+    margin: auto;
+    margin-top: var(--spacing-medium);
+
+    width: 340px;
+
+    color: var(--mid-grey);
+}
+
+#recent-posts > button:hover {
+    color: var(--dark);
 }
 
 /* ABOUT */
 
 #about {
-    --background: #5f5cf4;
+    --background: var(--purple);
     --foreground: var(--light);
 
+    margin-top: var(--spacing-huge);
     padding-top: var(--spacing-huge);
+
+    font-size: 24px;
 
     background-color: var(--background);
     color: var(--foreground);
@@ -357,15 +487,28 @@ main > header {
 
     z-index: 1;
     bottom: 0;
+
+    translate: -50% 0;
+}
+
+#about > div > :nth-child(odd) > img {
     left: 0;
 
     translate: -50% 0;
+}
+
+#about > div > :nth-child(even) > img {
+    right: 0;
+
+    translate: 50% 0;
 }
 
 /* PARTNERS CLIENTS COLLABORATORS */
 
 #partners-clients-collaborators {
     margin-top: var(--spacing-huge);
+
+    font-size: 24px;
 }
 
 #partners-clients-collaborators > header > * + * {
@@ -373,7 +516,7 @@ main > header {
 }
 
 #partners-clients-collaborators > header > h2 {
-    color: #5f5cf4;
+    color: var(--purple);
 }
 
 #partners-clients-collaborators > div {
@@ -386,49 +529,8 @@ main > header {
     place-items: center;
 }
 
-/* ARROWS */
+/* POST */
 
-.arrow-left::after {
-    content: ' ←';
-}
-
-.arrow-right::after {
-    content: ' →';
-}
-
-.arrow-up::after {
-    content: ' ↑';
-}
-
-.arrow-down::after {
-    content: ' ↓';
-}
-
-/* BUTTONS */
-
-.button-group-horizontal {
-    display: grid;
-    align-items: stretch;
-    grid-auto-flow: column;
-}
-
-.button-group-horizontal > :first-child {
-    border-radius: 10px 0 0 10px;
-}
-
-.button-group-horizontal > :is(button, .button) {
-    border-radius: none;
-}
-
-.button-group-horizontal > :is(button, .button):not(:first-child) {
-    border-left: none;
-}
-
-.button-group-horizontal > :last-child {
-    border-radius: 0 10px 10px 0;
-}
-
-/*///////////////////////////////////*/
 article > header {
     display: grid;
 
@@ -463,22 +565,6 @@ article > header > .author {
     align-self: end;
 }
 
-.author {
-    display: flex;
-
-    gap: 1rem;
-    align-items: center;
-}
-
-.author > img {
-    height: 64px;
-    border-radius: 50%;
-}
-
-.author > address {
-    display: contents;
-}
-
 article > header > img {
     margin-top: var(--spacing-large);
     max-width: 100%;
@@ -500,10 +586,6 @@ article > header > img {
 
 #content > *:not(:last-child) {
     margin-bottom: var(--spacing-horizontal-relative);
-}
-
-a {
-    color: currentColor;
 }
 
 /* COMMENTS */

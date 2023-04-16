@@ -1,30 +1,33 @@
 <?php get_header(null, [ 'styles' => [ '/styles.css' ] ]); ?>
 
 <header>
-    <h2>Collaboration is not about gluing together existing egos. It's about the ideas that never existed until after everyone entered the room.</h2>
+    <h1>Komuhn</h1>
+
+    <p>Collaboration is not about gluing together existing egos. It's about the ideas that never existed until after everyone entered the room.</p>
 </header>
 
 <!-- TODO Update this section to be dynamic, as one for highlights, fetching a page/post/etc -->
-<h2><a class="arrow-down" href="#recent-work">Recent work</a></h2>
 <section id="recent-work">
-    
+    <h2><a class="arrow-down" href="#recent-work">Recent work</a></h2>
 
     <div>
-        <h3>
-            <img alt="Fluency in care" title="Fluency in care" src="<?= url('/images/fluency-in-care-light.png'); ?>" >
-        </h3>
+        <div>
+            <h3>
+                <img alt="Fluency in care" title="Fluency in care" src="<?= url('/images/fluency-in-care-light.png'); ?>" >
+            </h3>
 
-        <h4>Thriving organizations through empathy</h4>
-    </div>
-    
-    <div>
-        <p><strong>How we build capacity for care</strong> within our communities, organizations, teams, has a critical effect on how much we can participate, accomplish, and invest in.</p>
+            <h4>Thriving organizations through empathy</h4>
+        </div>
+        
+        <div>
+            <p><strong>How we build capacity for care</strong> within our communities, organizations, teams, has a critical effect on how much we can participate, accomplish, and invest in.</p>
 
-        <p>In this proposal, we are exploring ways towards more sustainable collaborations by understanding the value of being together.</p>
+            <p>In this proposal, we are exploring ways towards more sustainable collaborations by understanding the value of being together.</p>
 
-        <div class="button-group-horizontal">
-            <a class="button" href="/fluency-in-care/proposal">Read the post</a>
-            <a class="button" href="/fluency-in-care">Learn more</a>
+            <div class="button-group-horizontal">
+                <a class="button" href="/fluency-in-care/proposal">Read the post</a>
+                <a class="button" href="/fluency-in-care">Learn more</a>
+            </div>
         </div>
     </div>
 </section>
@@ -106,7 +109,7 @@
         </article>
 
         <article>
-            <img alt="Kako" src="...">
+            <img alt="Kako" src="<?= url('/images/kako.png'); ?>">
 
             <div>
                 <p><strong>Kako</strong> is organizing the next community meeting for <strong>RUA+</strong>, a participatory design exercise with the purpose of making the public spaces we inhabit more liveable and healthy.</p>

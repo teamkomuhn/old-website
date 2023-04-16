@@ -20,8 +20,9 @@
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        
+        <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@1,600&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
 
-        <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@1,600&family=Inter:wght@400;700&display=swap" rel="stylesheet">
 
         <?php
             foreach ($args['styles'] ?? [] as $style) {
@@ -43,17 +44,9 @@
     <body>
         <header>
             <nav>
-                <?php 
-                    $title_tag = is_front_page() ? 'h1' : 'div';
-                    //$logo = is_front_page() ? 'white' : 'grey';
-                ?>
-
-                <<?= $title_tag; ?> class="logo">
-                    <a href="<?= esc_url(home_url('/')) ?>" title="Komuhn">
-                        Komuhn
-                    </a>
-                    <!--<img src="<?//=url('/images/logo-ko-'. $logo .'.svg'); ?>" alt="Komuhn">-->
-                </<?= $title_tag; ?>>
+                <?php if (!is_front_page()): ?>
+                    <a href="/" title="Komuhn">Komuhn</a>
+                <?php endif ?>
             </nav>
         </header>
 
