@@ -15,7 +15,8 @@
 
         <meta name="viewport" content="width=device-width">
 
-        <title>Komuhn</title>
+        <!-- TODO `single_post_title` vs `get_the_title` -->
+        <title><?php single_post_title(null, false); ?>, Komuhn</title>
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
