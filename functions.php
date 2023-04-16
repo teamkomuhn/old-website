@@ -4,15 +4,6 @@ define('THEME_DIR', get_template_directory_uri());
 
 add_theme_support('post-thumbnails');
 
-function comment_fields($fields) {
-	unset($fields['cookies']);
-
-	return $fields;
-}
-
-add_filter('comment_form_default_fields', 'comment_fields');
-
-
 function openGraph(){
 	
 	$website_name = get_bloginfo( 'name' );

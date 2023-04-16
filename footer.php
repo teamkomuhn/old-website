@@ -1,8 +1,11 @@
         </main>
 
         <footer>
-            <!-- TODO Apostrophe -->
-            <h2>Let's talk</h2>
+            <?php
+                if (comments_open() || get_comments_number()) {
+                    comments_template();
+                } 
+            ?>
 
             <div>
                 <img src="..." alt="">

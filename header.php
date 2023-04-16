@@ -10,8 +10,8 @@
 
 <html lang="en">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <meta name="viewport" content="width=device-width">
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
         
         <title><?= is_singular() ? get_the_title($post) . " - " . get_bloginfo( 'name' ) : get_bloginfo( 'name' ) . " - " . strip_tags(get_bloginfo( 'description' )); ?></title>
         <?php openGraph(); ?>

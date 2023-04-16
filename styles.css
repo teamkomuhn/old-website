@@ -177,6 +177,11 @@ a {
 /* BUTTONS */
 
 button,
+input {
+    display: block;
+}
+
+button,
 .button {
     display: block;
 
