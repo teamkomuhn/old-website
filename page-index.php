@@ -2,7 +2,7 @@
 
 <header id="header">
     <h1>
-        <img src="<?= url('/images/logo-ko-circle-purple-min.svg'); ?>" alt="Komuhn" title="Komuhn">
+        <img src="<?= url('/images/logo-ko-circle-purple.svg'); ?>" alt="Komuhn" title="Komuhn">
     </h1>
 
     <p>Collaboration is not about gluing together existing egos. It's about the ideas that never existed until after everyone entered the room.</p>

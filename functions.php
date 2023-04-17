@@ -9,6 +9,7 @@ remove_action('wp_head', 'wp_generator');
 function enqueue_scripts_styles() {
 	// REGISTER
 		/// CSS
+		wp_register_style( 'icomoon', get_stylesheet_directory_uri() . '/icomoon/icomoon.css' );
         wp_register_style( 'fluency-in-care', get_stylesheet_directory_uri() . '/fluency-in-care.css' );
 		wp_register_style( 'style', get_stylesheet_directory_uri() . '/styles.css' );
 
@@ -17,11 +18,13 @@ function enqueue_scripts_styles() {
 
 	// ENQUEUE
 		/// CSS
+        wp_enqueue_style( 'icomoon');
         if (is_page('fluency-in-care')) {
 		    wp_enqueue_style( 'fluency-in-care');
         } else {
 		    wp_enqueue_style( 'style');
         }
+
 		/// JS
         if (is_page('care')) {
             wp_enqueue_script( 'script' );
@@ -47,7 +50,7 @@ function openGraph(){
     $website_description = strip_tags(get_bloginfo( 'description' ));
     $homepage_excerpt = "Collaboration is not about gluing together existing egos. It's about the ideas that never existed until after everyone entered the room.";
     $type = is_single() ? 'article' : 'website';
-    $title = is_singular() ? get_the_title() : $website_name . " - " . $website_description;
+    $title = is_front_page() ? $website_name . " - " . $website_description : get_the_title();
     $description = is_front_page() ? $homepage_excerpt : get_the_excerpt();
 
     //replace this with a default image

@@ -245,19 +245,27 @@ p {
 }
 
 .arrow-left::after {
-    content: ' ←';
+    content: '\e90d';
+    font-family: 'icomoon';
+    padding-left: 8px;
 }
 
 .arrow-right::after {
-    content: ' →';
+    content: '\e90c';
+    font-family: 'icomoon';
+    padding-left: 8px;
 }
 
 .arrow-up::after {
-    content: ' ↑';
+    content: '\e90b';
+    font-family: 'icomoon';
+    padding-left: 8px;
 }
 
 .arrow-down::after {
-    content: ' ↓';
+    content: '\e90e';
+    font-family: 'icomoon';
+    padding-left: 8px;
 }
 
 /* 3. Layout */
