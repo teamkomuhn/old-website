@@ -1,7 +1,6 @@
-<?php //get_header(null, [ 'styles' => [ '/styles.css' ], 'scripts' => [ '/lets-talk.js' ] ]); ?>
 <?php get_header(); ?>
 
-<header>
+<header id="header">
     <h1>
         <img src="<?= url('/images/logo-ko-circle-purple.svg'); ?>" alt="Komuhn" title="Komuhn">
     </h1>

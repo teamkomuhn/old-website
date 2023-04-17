@@ -1,11 +1,9 @@
-<?php //get_header(null, [ 'styles' => [ '/fluency-in-care.css' ], 'scripts' => [ '/interaction.js' ] ]); ?>
 <?php get_header(); ?>
 
 <header>
     <div id="header-titles">
         <h1>
-            <!--Fluency<br/>in <span id="care">care</span>-->
-            <img src="<?=url('/images/fluency-in-care.png'); ?>" title="Fluency in care" alt="Fluency in care">
+            <img src="<?=url('/images/fluency-in-care-dark.png'); ?>" title="Fluency in care" alt="Fluency in care">
         </h1>
         
         <h2>Thriving organizations through empathy</h2>
