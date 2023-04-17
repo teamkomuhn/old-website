@@ -645,7 +645,7 @@ main > header > h1 > img {
     height: auto;
     aspect-ratio: 1;
 
-    object-fit: contain;
+    object-fit: scale-down;
 }
 
 /* POST */
