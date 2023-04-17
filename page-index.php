@@ -168,7 +168,7 @@
         <img src="<?= url('/images/logo-largo.svg'); ?>" alt="Largo">
         <img src="<?= url('/images/logo-greenpeace.svg'); ?>" alt="Greenpeace">
         <img src="<?= url('/images/logo-cmp.svg'); ?>" alt="Câmara Municipal de Peniche">
-        <img src="<?= url('/images/logo-tggp.svg'); ?>" alt="TGGP">
+        <img src="<?= url('/images/logo-docapesca.svg'); ?>" alt="Docapesca">
         <img src="<?= url('/images/logo-govint.svg'); ?>" alt="Govint">
         <img src="<?= url('/images/logo-iss.svg'); ?>" alt="ISS - Instituto da Segurança Social">
         <img src="<?= url('/images/logo-espaco-o.svg'); ?>" alt="Espaço Ó">
@@ -178,7 +178,7 @@
         <img src="<?= url('/images/logo-r4l.svg'); ?>" alt="Reciclar para aprender">
         <img src="<?= url('/images/logo-twnd.svg'); ?>" alt="TWND">
         <img src="<?= url('/images/logo-seaentia.svg'); ?>" alt="Seaentia">
-        <img src="<?= url('/images/logo-colab.svg'); ?>" alt="COLAB+">
+        <img src="<?= url('/images/logo-tggp.svg'); ?>" alt="TGGP+">
     </div>
 
 </section>
