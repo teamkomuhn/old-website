@@ -9,7 +9,7 @@
         <?php openGraph(); ?>
 
         <link rel="icon" href="<?= get_template_directory_uri() . "/images/favicon.ico"; ?>" sizes="any"><!-- 32×32 -->
-        <link rel="icon" href="<?= get_template_directory_uri() . "/images/favicon.svg"; ?>" type="image/svg+xml">
+        <link rel="icon" href="<?= get_template_directory_uri() . "/images/logo-ko-circle-purple-min.svg"; ?>" type="image/svg+xml">
         <link rel="apple-touch-icon" href="<?= get_template_directory_uri() . "/images/favicon-apple-touch-icon.png" ?>"><!-- 180×180 -->
         <!--<link rel="manifest" href="/images/manifest.webmanifest";"-->
 
