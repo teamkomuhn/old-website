@@ -720,6 +720,100 @@ article > header > img {
 
 /* COMMENTS */
 
+#contact {
+    --background: var(--dark);
+    --foreground: var(--purple);
+
+    font-size: var(--font-size-section-description);
+
+    padding-block: var(--spacing-desktop-192, var(--spacing-96));
+
+    background-color: var(--background);
+    color: var(--foreground);
+
+    box-shadow: var(--background) 0 0 0 100vw;
+    clip-path: inset(-1px -100vw);
+}
+
+#contact > h2 {
+    font-family: var(--font-family-serif);
+    font-size: var(--font-size-section-title);
+}
+
+#contact > p {
+    margin-top: var(--spacing-relative);
+    color: var(--light);
+}
+
+#contact > :is(p, address) {
+    /* font-size: ; */
+}
+
+#contact > address {
+    font-family: var(--font-family-sans);
+    font-size: 18px;
+    font-weight: var(--font-weight-bold);
+    margin-top: var(--spacing-48);
+    font-size: var(--font-weight-bold);
+    display: flex;
+    gap: var(--spacing-48);
+    align-items: end;
+}
+
+#contact > address > ::before {
+    font-family: icomoon;
+    font-size: 48px;
+
+    font-weight: var(--font-weight-regular);
+}
+
+#contact > address > a.paper-plane::before {
+    content: '\e902';
+}
+
+#contact > address > a.phone::before {
+    content: '\e903';
+}
+
+#contact > address > a {
+    font-size: 18px;
+    text-decoration: none;
+    display: flex;
+    place-items: center;
+    font-family: var(--font-family-sans);
+    font-style: normal;
+    gap: 1ch;
+}
+
+#ko {
+    padding-top: var(--spacing-desktop-96);
+    padding-bottom: var(--spacing-desktop-192);
+}
+
+@media (max-width: 500px) {
+    #contact > address {
+        font-size: 16px;
+        justify-content: space-between;
+    }
+
+    #contact > address > a {
+        flex-direction: column;
+        gap: var(--spacing-16);
+    }
+
+    #contact > address > a.paper-plane::before {
+        font-size: 34.5px;
+    }
+
+    #contact > address > a.phone::before {
+        font-size: 40px;
+    }
+
+    #contact > address > a.phone {
+        font-size: 14px;
+    }
+}
+
 #comments {
     /* TODO */
     margin-top: var(--spacing-horizontal-large);

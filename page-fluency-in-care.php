@@ -20,7 +20,7 @@
 
     <p>Within many types of organizations - care - is often seen as something important, still, there’s this uncertainty about its impact or how to put it into practice. How do we go about defining and manifesting it?</p>
 
-    <a class="button" href="#">Read the post</a>
+    <a class="button" href="/posts/fluency-in-care">Read the post</a>
 </aside>
 
 <section id="learnings">

@@ -502,10 +502,8 @@ aside > * + *:not(:nth-child(2)) {
     list-style-type: none;
 }
 
-@media (max-width: 500px) {
-    #learnings > ul {
-        margin-right: calc(var(--spacing-24) * -1);
-    }
+#learnings > ul {
+    margin-right: calc(var(--spacing-24) * -1);
 }
 
 #learnings > ul > li {
@@ -520,7 +518,7 @@ aside > * + *:not(:nth-child(2)) {
 
 @media (min-width: 500px) {
     #learnings > ul > li {
-        padding-right: calc(100vw - 100% + var(--spacing-vertical-medium));
+        padding-right: calc(100vw - 100%);
     }
 }
 

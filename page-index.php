@@ -41,7 +41,7 @@
         'post_type'         => array('post'),
         'category_name'     => 'post',
         'post_status'       => array('publish'),
-        'posts_per_page'    => '10',
+        'posts_per_page'    => -1,
         'order'             => 'DESC',
         'orderby'           => 'date',
     );
