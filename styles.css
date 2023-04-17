@@ -232,6 +232,7 @@ header nav {
 }
 
 header nav .logo {
+    display: inline-block;
     font-size: 0;
 }
 header nav .logo a {
