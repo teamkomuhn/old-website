@@ -209,10 +209,10 @@
     <p><strong>Always searching for</strong> deeper understanding, fairness, and better ways of making together. Is this you?</p>
 
     <ul>
-        <li><span>You're part of a <strong>team</strong> that wants to go the long haul and is looking for ways to create <strong>sustainable involvement</strong>.</span></li>
-        <li><span>You want to build a culture in your <strong>organization</strong> that enables people to be with uncertainty and <strong>tackle difficult issues</strong>.</span></li>
-        <li /><img src="<?=url('/images/hands-3.svg'); ?>');" /><span>You lead a <strong>community</strong> project that is seeking more <strong>investment</strong> from the participants.</span></li>
-        <li><span>You're always looking for self-improvement and want to learn more about <strong>fair and thriving collaborations</strong>.</span></li>
+        <li><img src="<?=url('/images/icon-high5.svg'); ?>');" /><span>You're part of a <strong>team</strong> that wants to go the long haul and is looking for ways to create <strong>sustainable involvement</strong>.</span></li>
+        <li><img src="<?=url('/images/icon-fist.svg'); ?>');" /><span>You want to build a culture in your <strong>organization</strong> that enables people to be with uncertainty and <strong>tackle difficult issues</strong>.</span></li>
+        <li><img src="<?=url('/images/icon-fist-bump.svg'); ?>');" /><span>You lead a <strong>community</strong> project that is seeking more <strong>investment</strong> from the participants.</span></li>
+        <li><img src="<?=url('/images/icon-ok.svg'); ?>');" /><span>You're always looking for self-improvement and want to learn more about <strong>fair and thriving collaborations</strong>.</span></li>
     </ul>
 </section>
 

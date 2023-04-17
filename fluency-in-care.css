@@ -717,6 +717,10 @@ aside > * + *:not(:nth-child(2)) {
     gap: var(--spacing-vertical-medium);
 }
 
+#masters-of-care > ul > li > img {
+    height: fit-content;
+}
+
 #masters-of-care > ul > li:nth-child(3) > img {
     margin-left: -17px;
     margin-right: -13px;
