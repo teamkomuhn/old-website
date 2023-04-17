@@ -9,6 +9,7 @@ remove_action('wp_head', 'wp_generator');
 function enqueue_scripts_styles() {
 	// REGISTER
 		/// CSS
+        wp_register_style( 'fluency-in-care', get_stylesheet_directory_uri() . '/fluency-in-care.css' );
 		wp_register_style( 'style', get_stylesheet_directory_uri() . '/styles.css' );
 
 		/// JS
@@ -16,10 +17,15 @@ function enqueue_scripts_styles() {
 
 	// ENQUEUE
 		/// CSS
-		wp_enqueue_style( 'style');
-
+        if (is_page('fluency-in-care')) {
+		    wp_enqueue_style( 'fluency-in-care');
+        } else {
+		    wp_enqueue_style( 'style');
+        }
 		/// JS
-		wp_enqueue_script( 'script' );
+        if (is_page('care')) {
+            wp_enqueue_script( 'script' );
+        }
 
 
 }
