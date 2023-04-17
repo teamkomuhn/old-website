@@ -68,13 +68,6 @@
     }
 }
 
-@media (prefers-color-scheme: dark) {
-    :root {
-        --foreground: var(--light);
-        --background: var(--dark);
-    }
-}
-
 * {
     box-sizing: border-box;
 

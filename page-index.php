@@ -12,8 +12,7 @@
 
 <!-- TODO Update this section to be dynamic, as one for highlights, fetching a page/post/etc -->
 <section id="recent-work">
-    
-    <h2><a class="arrow-down" href="#recent-work">Recent work</a></h2>
+    <h2 class="arrow-down">Recent work</h2>
 
     <article>
         <div>
@@ -54,7 +53,7 @@
 
 <section id="recent-posts">
 
-    <h2><a class="arrow-down" href="#recent-posts">Recent posts</a></h2>
+    <h2 class="arrow-down">Recent posts</h2>
 
     <div>
         <?php
