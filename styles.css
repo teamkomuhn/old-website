@@ -575,6 +575,7 @@ article > header > .author {
 article > header > img {
     margin-top: var(--spacing-large);
     max-width: 100%;
+    height: auto;
     grid-area: image;
     background-color: var(--dark);
     box-shadow: var(--foreground) 0 0 0 100vw;
@@ -628,4 +629,20 @@ article > header > img {
     border: none;
     padding: 0;
     color: var(--mid-grey);
+}
+
+#comments > #respond > form {
+    display: grid;
+
+    gap: var(--spacing-small);
+
+    grid-template-columns: repeat(3, 1fr);
+}
+
+#comments > #respond > form > * {
+    grid-column: span 3;
+}
+
+#comments > #respond > form > button {
+    grid-column: 3;
 }

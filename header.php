@@ -1,11 +1,3 @@
-<?php 
-    declare(strict_types = 1);
-
-    function url(string $url) {
-        return wp_make_link_relative(get_template_directory_uri()) . $url;
-    }
-?>
-
 <!DOCTYPE html>
 
 <html lang="en">

@@ -1,4 +1,4 @@
-<?php get_header(null, [ 'styles' => [ '/styles.css' ] ]); ?>
+<?php get_header(null, [ 'styles' => [ '/styles.css' ], 'scripts' => [ '/lets-talk.js' ] ]); ?>
 
 <header>
     <h1>Komuhn</h1>
@@ -31,66 +31,6 @@
         </div>
     </div>
 </section>
-
-<?php //GET POSTS
-    $args = array(
-        'post_type'         => array('post'),
-        'category_name'     => 'post',
-        'post_status'       => array('publish'),
-        'posts_per_page'    => '10',
-        'order'             => 'DESC',
-        'orderby'           => 'date',
-    );
-
-    $ko_posts = new WP_Query( $args );
-    if ( $ko_posts -> have_posts() ):
-?>
-
-<section id="recent-posts">
-    <h2><a class="arrow-down" href="#recent-posts">Recent posts</a></h2>
-
-    <div>
-        <?php
-            while ( $ko_posts -> have_posts() ): $ko_posts -> the_post();
-        ?>
-
-        <article>
-            <?php
-                $post_image = get_the_post_thumbnail();
-                if (!empty($post_image)) { echo $post_image; }
-            ?>
-
-            <div>
-                <h3><?= get_the_title(); ?></h3>
-                <h4><?= get_post_meta(get_the_ID(), 'subtitle', true); ?></h4>
-
-
-                <div class="author short">
-                    <img aria-hidden="true" src="<?= get_avatar_url( get_the_author_meta( 'ID' ) ); ?>" />
-
-                    <div>
-                        <address>
-                            <?= get_the_author_meta('first_name') . ' '. get_the_author_meta('last_name'); ?>
-                        </address>
-
-                        <time datetime="<?= get_the_date('c'); ?>">
-                            <?= get_the_date('F j, Y'); ?>
-                        </time>
-                    </div>
-                </div>
-                
-                <p><?= limit_characters(get_the_excerpt(), 150); ?></p>
-                <a class="arrow-right" href="<?= get_the_permalink(); ?>">Read more</a>
-            </div>              
-            </article>
-
-        <?php endwhile; ?>
-    </div>
-
-    <button class="arrow-up">See more</button>
-</section>
-    
-<?php endif; wp_reset_postdata(); ?>
 
 <section id="about">
     <header>
@@ -156,5 +96,10 @@
         <img src="<?= url('/images/rua-mais.png'); ?>" alt="RUA+">
     </div>
 </section>
+
+<?php 
+    allow_comments_anywhere();
+    comments_template();
+?>
 
 <?php get_footer(); ?>
