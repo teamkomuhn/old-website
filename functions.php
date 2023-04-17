@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types = 1);
-
 define('THEME_DIR', get_template_directory_uri());
 
 // REMOVE GENERATOR META TAG
@@ -52,10 +50,10 @@ function allow_comments_anywhere() {
 }
 
 // https://developer.wordpress.org/reference/functions/comment_form/
-function comments_form(string $title_reply, string $label_submit, array $custom_fields, WP_Post | null $post) {
+function comments_form($title_reply, $label_submit, $custom_fields, $post) {
     // NOTE Fields don't seem to require names except for cookies
     comment_form([
-        'fields' => [
+        'fields' => array_merge([
             'author' => '<input
     placeholder="Name*"
 
@@ -96,9 +94,7 @@ function comments_form(string $title_reply, string $label_submit, array $custom_
 />',
 
             'cookies' => '',
-
-            ...$custom_fields
-    ],
+        ], $custom_fields),
 
         'comment_field' => '<textarea
     placeholder="Your comment*"
@@ -143,7 +139,7 @@ function comments_form(string $title_reply, string $label_submit, array $custom_
 }
 
 // https://developer.wordpress.org/reference/functions/wp_list_comments/
-function list_comments(array | null $comments) {
+function list_comments($comments) {
     wp_list_comments([
         // 'walker'
         // 'max_depth'
