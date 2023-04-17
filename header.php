@@ -24,9 +24,14 @@
     <body>
         <header>
             <nav>
-                <?php if (!is_front_page()): ?>
-                    <a href="/" title="Komuhn">Komuhn</a>
-                <?php endif ?>
+                <?php $title_tag = is_front_page() ? 'h1' : 'div'; ?>
+
+                <<?php echo $title_tag; ?> class="logo">
+                    <a href="<?php echo esc_url( home_url( '/' ) ) ?>" title="Komuhn">
+                        Komuhn
+                        <img src="<?= url('/images/logo-ko-circle-purple-min.svg'); ?>" alt="Komuhn">
+                    </a>
+                </<?php echo $title_tag; ?>>
             </nav>
         </header>
 

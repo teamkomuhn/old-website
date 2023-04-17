@@ -244,6 +244,7 @@ header nav .logo a img {
 main > header {
     background-color: var(--foreground);
     box-shadow: var(--foreground) 0 0 0 100vw;
+    -webkit-clip-path: inset(-1px -100vw);
     clip-path: inset(-1px -100vw);
     color: var(--background);
     padding-block: var(--spacing-large);
@@ -288,6 +289,7 @@ main > header > p {
     color: var(--foreground);
 
     box-shadow: var(--background) 0 0 0 100vw;
+    -webkit-clip-path: inset(-1px -100vw);
     clip-path: inset(-1px -100vw);
 }
 
@@ -301,6 +303,7 @@ main > header > p {
     color: var(--foreground);
 
     box-shadow: var(--background) 0 0 0 100vw;
+    -webkit-clip-path: inset(-1px -100vw);
     clip-path: inset(-1px -100vw);
 
     display: grid;
@@ -356,6 +359,7 @@ main > header > p {
     background-color: var(--background);
 
     box-shadow: var(--background) 0 0 0 100vw;
+    -webkit-clip-path: inset(0 -100vw);
     clip-path: inset(0 -100vw);
 }
 
@@ -383,6 +387,7 @@ main > header > p {
 }
 
 #recent-posts > div > article > img {
+    -o-object-fit: cover;
     object-fit: cover;
     aspect-ratio: 1;
     height: auto;
@@ -448,6 +453,7 @@ main > header > p {
     color: var(--foreground);
 
     box-shadow: var(--background) 0 0 0 100vw;
+    -webkit-clip-path: inset(-1px -100vw);
     clip-path: inset(-1px -100vw);
 }
 
@@ -475,10 +481,12 @@ main > header > p {
 }
 
 #about > div > :nth-child(odd) > div {
+    -webkit-clip-path: inset(0 -100vw 0 0);
     clip-path: inset(0 -100vw 0 0);
 }
 
 #about > div > :nth-child(even) > div {
+    -webkit-clip-path: inset(0 0 0 -100vw);
     clip-path: inset(0 0 0 -100vw);
 }
 
@@ -594,6 +602,7 @@ article > header > img {
     grid-area: image;
     background-color: var(--dark);
     box-shadow: var(--foreground) 0 0 0 100vw;
+    -webkit-clip-path: inset(0 -100vw);
     clip-path: inset(0 -100vw);
 }
 

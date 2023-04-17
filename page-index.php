@@ -2,8 +2,6 @@
 <?php get_header(); ?>
 
 <header>
-    <h1>Komuhn</h1>
-
     <p>Collaboration is not about gluing together existing egos. It's about the ideas that never existed until after everyone entered the room.</p>
 </header>
 
