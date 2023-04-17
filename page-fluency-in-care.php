@@ -64,99 +64,97 @@
             <article>
                 <h4>Mapping needs</h4>
 
-                <p>Who we are changes how we are. Make visible the needs of An exercise to make visible the needs</p>
-
-                <p>outline everybody's needs and facilitate conversations</p>
+                <p>Uncover and chart the collective and individual needs of everyone in your group and create opportunities for conversations and cross matching.</p>
             </article>
 
             <article>
                 <h4>Beyond rules</h4>
 
-                <p>What if we could organize and be without punishment and</p>
+                <p>Can we organize without punishment? What are the alternatives? Can we offset what we lose with what we gain? Let’s learn about other possible formats and interactions that can serve you better.</p>
             </article>
 
             <article>
                 <h4>Bending time</h4>
 
-                <p>Description</p>
+                <p>Time is not linear. Time is not the same for everyone. Time is not the same every time. Learn strategies to share time and create adaptive routines for a healthier team’s rhythm.</p>
             </article>
 
             <article>
                 <h4>Rhythm and routines</h4>
 
-                <p>Description</p>
+                <p>Design the spaces you share (physical and remote) with the intention to produce harmony and comfort for different interactions in different times.</p>
             </article>
 
             <article>
                 <h4>Facilitating behaviors</h4>
 
-                <p>Description</p>
+                <p>What type of things can we do to enable behaviors that facilitate understanding and compassion?</p>
             </article>
 
             <article>
                 <h4>Conflict resolution</h4>
 
-                <p>Description</p>
+                <p>What if resolving conflict was about extracting value from conflict itself? Let’s look at why some proposed strategies can be obstacles for learning and diversity.</p>
             </article>
 
             <article>
                 <h4>Distribute everything</h4>
 
-                <p>Description</p>
+                <p>Power imbalances are deeply embedded in our social systems. Learn how distributing tasks, roles, and capacity can also create equity.</p>
             </article>
 
             <article>
-                <h4>Art of hosting</h4>
+                <h4>The power of hosting</h4>
 
-                <p>Description</p>
+                <p>Learn how this specific role and set of rituals and routines can help facilitate the adoption of new practices towards shared outcomes.</p>
             </article>
 
             <article>
                 <h4>Practices of sharing</h4>
 
-                <p>Description</p>
+                <p>Even when we agree to share more, how do we go about it? How do we synchronize willingness and balance volume?</p>
             </article>
 
             <article>
-                <h4>Difference by default</h4>
+                <h4>Social meteorology</h4>
 
-                <p>Description</p>
+                <p>Use shared data and routines to forecast behaviors and prepare for capacity fluctuations in your team.</p>
             </article>
 
             <article>
-                <h4>Fairness and equity</h4>
+                <h4>Antifragility</h4>
 
-                <p>Description</p>
+                <p>Our capacity of being with uncertainty is proportional to our ability to comprehend what there is to gain from experiencing stress and growing with it.</p>
             </article>
 
             <article>
-                <h4>Optimism + cepticism</h4>
+                <h4>Optimism + scepticism</h4>
 
-                <p>Description</p>
+                <p>Cultivate the mastery of staying in the possibility of what can be while embracing critical thinking.</p>
             </article>
 
             <article>
                 <h4>Learning capacity</h4>
 
-                <p>Description</p>
+                <p>In our groups we often don’t have the time, the resources, or the conditions to be continuously learning. How do we make it part of our ways?</p>
             </article>
 
             <article>
                 <h4>Cultural artifacts</h4>
 
-                <p>Description</p>
+                <p>From posters to playbooks. The things that remind us about our organization’s culture and help us regulate and return to our shared decisions.</p>
             </article>
 
             <article>
                 <h4>The myth of genius</h4>
 
-                <p>Description</p>
+                <p>Create a greater awareness of the importance of everyone’s input in success stories by discovering new narratives and perspectives.</p>
             </article>
 
             <article>
                 <h4>Subliminal corruptions</h4>
 
-                <p>Description</p>
+                <p>Learn how we might reveal marginal habits that affect how we are together and make unfolding it part of your collective effort.</p>
             </article>
         </div>
 
