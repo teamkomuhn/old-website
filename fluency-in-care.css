@@ -104,7 +104,9 @@ body {
 
 @media (min-width: 500px) {
     body {
-        --main-columns-width: calc(33ch - var(--spacing-vertical-large) / 2);
+        --main-columns-width: calc(
+            (960px - var(--spacing-vertical-large) * 2) / 3
+        );
 
         column-gap: var(--spacing-vertical-large);
 
@@ -218,19 +220,20 @@ main {
 
 /* NAVIGATION */
 
-nav {
+body > header {
     grid-area: navigation;
 }
 
-#ok {
-    background-color: #8f8cff;
-    aspect-ratio: 1/1;
-    border-radius: 50%;
-    padding: 1rem 1rem;
-    display: inline-block;
-    text-decoration: none;
-    color: white;
-    font-weight: var(--font-weight-bold);
+body > header {
+    margin-top: 192px;
+    margin-bottom: 48px;
+}
+
+@media (max-width: 500px) {
+    body > header {
+        margin-top: 24px;
+        margin-bottom: 16px;
+    }
 }
 
 /* HEADER */
@@ -266,7 +269,7 @@ main > header {
 
 #header-titles > h1 > img {
     max-width: 100%;
-    margin-block: var(--spacing-horizontal-large);
+    margin-bottom: var(--spacing-horizontal-large);
 }
 
 #header-titles > h2,
@@ -463,7 +466,8 @@ aside > * + *:not(:nth-child(2)) {
 }
 
 #making-together > div > div > article {
-    height: 320px;
+    /* height: 320px; */
+    padding-inline: 24px;
 }
 
 #making-together > div > button {

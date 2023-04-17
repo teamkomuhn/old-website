@@ -180,6 +180,10 @@ a {
     color: currentColor;
 }
 
+p {
+    line-height: 150%;
+}
+
 /* 3. Classes */
 
 .author {
@@ -271,6 +275,10 @@ main > header > h1 > img {
     main > header > h1 > img {
         height: 96px;
     }
+}
+
+main > header > p {
+    line-height: normal;
 }
 
 main > header {
@@ -456,11 +464,13 @@ main > header {
 
 #recent-posts > div > article > div > h3 {
     font-size: var(--font-size-heading);
+    line-height: 120%;
 }
 
 #recent-posts > div > article > div > h4 {
     font-size: var(--font-size-subheading);
     font-weight: var(--font-weight-regular);
+    line-height: 150%;
 }
 
 #recent-posts > div > article > div > :not(:first-child) {
@@ -693,6 +703,7 @@ article > header > img {
 #content > h2 {
     font-size: var(--font-size-subtitle);
     font-weight: normal;
+    line-height: 150%;
 }
 
 /* COMMENTS */
