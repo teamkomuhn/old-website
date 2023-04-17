@@ -33,7 +33,16 @@
         <section id="content">
             <?= get_the_content(); ?>
         </section>
+
+        <section id="comments">
+            <?php 
+                comments_template();
+            ?>
+        </section>
+
     </article>
+    
 <?php endwhile; ?>
+
 
 <?php get_footer(); ?>

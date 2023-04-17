@@ -22,12 +22,14 @@
     </head>
     
     <body>
-        <header>
-            <nav>
-                <?php if (!is_front_page()): ?>
-                    <a href="/" title="Komuhn">Komuhn</a>
-                <?php endif ?>
-            </nav>
-        </header>
+        <?php if (!is_front_page()): ?>
+            <header>
+                <nav>
+                    <a href="/" title="Komuhn">
+                        <img src="<?= url('/images/logo-ko-circle-purple-min.svg'); ?>" alt="Komuhn">
+                    </a>
+                </nav>
+            </header>
+        <?php endif ?>
 
         <main>
