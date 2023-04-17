@@ -1,3 +1,15 @@
+/*
+    # Table of contents
+    
+    1. Variables
+    2. Reset
+    3. Elements
+    4. Classes
+    5. Layout
+*/
+
+/* 1. Variables */
+
 :root {
     /** TODO Use modern colors? */
     --light: white;
@@ -6,15 +18,6 @@
     --dark-grey: #444;
     --dark: #222;
     --transparent-black: #0a0a0a;
-
-    /* --light-blue: #a2e2eb;
-    --dark-blue: #4edcf1;
-    --light-green: #b4ffe4;
-    --dark-green: #51f6bb;
-    --light-yellow: #ffe8bb;
-    --dark-yellow: #fcc57a;
-    --light-red: #ffa184;
-    --dark-red: #f07b56; */
 
     --red: #fab0ac;
     --orange: #ffd0ad;
@@ -30,23 +33,34 @@
         -apple-system, 'Segoe UI', sans-serif;
     --font-family-serif: 'Crimson Pro', ui-serif, serif;
 
-    /* --font-size-huge: 64px;
-    --font-size-large: 40px;
-    --font-size-medium: 22px;
-    --font-size-normal: 16px;
-    --font-size-small: 14px; */
+    --font-size-title: 40px;
+    --font-size-subtitle: 24px;
+    --font-size-description: 32px;
+    --font-size-heading: 24px;
+    --font-size-subheading: 20px;
+    --font-size-section-title: 40px;
+    --font-size-section-title-alternative: 16px;
+    --font-size-section-description: 20px;
+    --font-size-post: 18px;
+    --font-size-body: 16px;
+    --font-size-name: 18px;
+    --font-size-date: 14px;
 
-    --font-weight-normal: 400;
-    --font-weight-regular: 500;
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
     --font-weight-bold: 700;
 
-    --spacing-huge: 192px;
-    --spacing-large: 96px;
-    --spacing-medium: 48px;
-    --spacing-small: 24px;
-    --spacing-tiny: 16px;
+    --base: 8px;
 
-    --spacing-horizontal-relative: 1em;
+    --sizing-960: calc(var(--base) * 120);
+
+    --spacing-192: calc(var(--base) * 24);
+    --spacing-96: calc(var(--base) * 12);
+    --spacing-48: calc(var(--base) * 6);
+    --spacing-24: calc(var(--base) * 3);
+    --spacing-16: calc(var(--base) * 2);
+
+    --spacing-relative: 1em;
 
     --border-thin: 1px solid currentColor;
     --border-thick: 4px solid currentColor;
@@ -54,18 +68,31 @@
     --border-radius: 6px;
 }
 
-/* @media (min-width: 500px) {
+@media (min-width: 500px) {
     :root {
-        --font-size-huge: 128px;
-        --font-size-large: 64px;
-        --font-size-x: 40px;
-        --font-size-medium: 32px;
-        --font-size-normal: 24px;
-        --font-size-y: 20px;
-        --font-size-small: 18px;
-        --font-size-tiny: 16px;
+        --font-size-title: 128px;
+        --font-size-subtitle: 40px;
+        --font-size-description: 64px;
+        --font-size-heading: 32px;
+        --font-size-subheading: 20px;
+        --font-size-section-title: 64px;
+        --font-size-section-title-alternative: 24px;
+        --font-size-section-description: 24px;
+        --font-size-section-content: 24px;
+        --font-size-post: 20px;
+        --font-size-body: 18px;
+        --font-size-name: 18px;
+        --font-size-date: 16px;
+
+        --spacing-desktop-192: var(--spacing-192);
+        --spacing-desktop-96: var(--spacing-96);
+        --spacing-desktop-48: var(--spacing-48);
+        --spacing-desktop-24: var(--spacing-24);
+        --spacing-desktop-16: var(--spacing-16);
     }
-} */
+}
+
+/* 2. Reset */
 
 * {
     box-sizing: border-box;
@@ -76,59 +103,89 @@
     transition: all 0.1s;
 }
 
+/* 3. Elements */
+
 body {
+    padding-inline: max(
+        calc((100% - var(--sizing-960)) / 2),
+        var(--spacing-48)
+    );
+
     font-family: var(--font-family-sans);
+    font-size: var(--font-size-body);
 
     background-color: var(--background);
     color: var(--foreground);
 
-    padding-inline: max(calc((100% - 960px) / 2), var(--spacing-medium));
-}
-
-ol,
-ul {
     list-style-position: inside;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+header :is(h1, h2, h3, h4, h5, h6) {
     font-family: var(--font-family-serif);
     font-style: italic;
 }
 
-h1 {
-    font-size: 128px;
-}
-
-h2 {
-    font-size: 64px;
-}
-
-h3 {
-    font-size: 32px;
-}
-
-:is(h1, h2, h3, h4, h5, h6) > strong {
+header :is(h1, h2, h3, h4, h5, h6) > strong {
     text-decoration: underline;
 }
 
-p {
-    color: currentColor;
+main > header > p {
+    font-family: var(--font-family-serif);
+    font-size: var(--font-size-description);
+    font-style: italic;
+}
+
+section {
+    font-size: var(--font-size-section-content);
+}
+
+section article {
+    font-size: var(--font-size-body);
+}
+
+section > header > :is(h1, h2, h3, h4, h5, h6) {
+    font-size: var(--font-size-section-title);
+}
+
+section > header > p {
+    font-size: var(--font-size-section-description);
+}
+
+button,
+.button,
+input {
+    display: block;
+}
+
+button,
+.button {
+    padding-block: var(--spacing-16);
+
+    font: var(--font-family-sans);
+    font-size: var(--font-size-body);
+    font-weight: var(--font-weight-bold);
+
+    text-decoration: none;
+    text-align: center;
+
+    background-color: transparent;
+    color: inherit;
+
+    border: var(--border-thin);
+    border-radius: var(--border-radius);
 }
 
 p,
-li {
-    line-height: 150%;
+a {
+    color: currentColor;
 }
+
+/* 3. Classes */
 
 .author {
     display: flex;
 
-    gap: 24px;
+    gap: var(--spacing-24);
     align-items: center;
 }
 
@@ -138,25 +195,48 @@ li {
     border-radius: 50%;
 }
 
-header .author > img {
-    height: 64px;
-}
+/* TODO Header author, comment author */
 
 .author > div > address {
-    font-size: 18px;
+    font-size: var(--font-size-name);
     font-style: normal;
     font-weight: var(--font-weight-bold);
 }
 
 .author > div > time {
-    font-size: 16px;
+    font-size: var(--font-size-date);
 }
 
-a {
-    color: currentColor;
+@media (min-width: 500px) {
+    .button-group {
+        display: grid;
+        grid-auto-flow: column;
+        align-items: stretch;
+    }
+
+    .button-group > :first-child {
+        border-radius: var(--border-radius) 0 0 var(--border-radius);
+    }
+
+    .button-group > :is(button, .button) {
+        border-radius: none;
+    }
+
+    .button-group > :is(button, .button):not(:first-child) {
+        border-left: none;
+    }
+
+    .button-group > :last-child {
+        border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    }
 }
 
-/* ARROWS */
+.button-group > :last-child {
+    background-color: var(--foreground);
+    color: var(--background);
+
+    border: none;
+}
 
 .arrow-left::after {
     content: ' ←';
@@ -174,225 +254,202 @@ a {
     content: ' ↓';
 }
 
-/* BUTTONS */
-
-button,
-input {
-    display: block;
-}
-
-button,
-.button {
-    display: block;
-
-    padding-block: var(--spacing-tiny);
-
-    font: var(--font-family-sans);
-    font-size: var(--font-size-normal);
-    font-weight: var(--font-weight-bold);
-
-    text-decoration: none;
-    text-align: center;
-
-    background-color: transparent;
-    color: inherit;
-
-    border: var(--border-thin);
-    border-radius: var(--border-radius);
-}
-
-.button-group-horizontal {
-    display: grid;
-    align-items: stretch;
-    grid-auto-flow: column;
-}
-
-.button-group-horizontal > :first-child {
-    border-radius: var(--border-radius) 0 0 var(--border-radius);
-}
-
-.button-group-horizontal > :is(button, .button) {
-    border-radius: none;
-}
-
-.button-group-horizontal > :is(button, .button):not(:first-child) {
-    border-left: none;
-}
-
-.button-group-horizontal > :last-child {
-    border-radius: 0 var(--border-radius) var(--border-radius) 0;
-}
+/* 3. Layout */
 
 /* HEADER */
 
-/* :is(header > nav):has(+ main > header), */
 main > header {
-    background-color: var(--foreground);
-    box-shadow: var(--foreground) 0 0 0 100vw;
+    --background: var(--dark);
+    --foreground: var(--light);
+
+    padding-bottom: var(--spacing-desktop-192, var(--spacing-96));
+
+    background-color: var(--background);
+    color: var(--foreground);
+
+    box-shadow: var(--background) 0 0 0 100vw;
     clip-path: inset(-1px -100vw);
-    color: var(--background);
-    padding-block: var(--spacing-large);
 }
 
-main > header > * + * {
-    margin-top: var(--spacing-horizontal-relative);
+/* RECENT WORK and RECENT POSTS */
+
+#recent-work,
+#recent-posts {
+    position: relative;
 }
 
-main > header > p {
-    font-size: 64px;
-    font-family: var(--font-family-serif);
+:is(#recent-work, #recent-posts) > h2 {
+    --background: var(--dark);
+    --foreground: var(--light);
 
-    line-height: revert;
+    padding-bottom: var(--spacing-desktop-48, var(--spacing-24));
+
+    position: absolute;
+    top: 0;
+
+    font-size: var(--font-size-section-title-alternative);
+    color: var(--foreground);
+
+    translate: 0 -100%;
 }
 
 /* RECENT WORK */
 
+@media (min-width: 500px) {
+    #recent-work > article {
+        display: grid;
+    }
+}
+
 #recent-work {
-    font-size: 18px;
-}
-
-:is(#recent-work, #recent-posts) > h2 {
-    font-family: var(--font-family-sans);
-    font-style: normal;
-    font-size: 24px;
-
-    color: var(--light);
-
-    padding-bottom: var(--spacing-medium);
-}
-
-:is(#recent-work, #recent-posts) > h2 > a {
-    text-decoration: none;
-}
-
-#recent-work > h2 {
-    --background: var(--dark);
-    --foreground: var(--light);
-
-    background-color: var(--background);
-    color: var(--foreground);
-
-    box-shadow: var(--background) 0 0 0 100vw;
-    clip-path: inset(-1px -100vw);
-}
-
-#recent-work > div {
     --background: var(--transparent-black);
     --foreground: var(--light);
 
-    padding-block: var(--spacing-huge);
-
     background-color: var(--background);
     color: var(--foreground);
+}
 
-    box-shadow: var(--background) 0 0 0 100vw;
-    clip-path: inset(-1px -100vw);
+#recent-work > article {
+    padding-top: var(--spacing-desktop-192, var(--spacing-96));
+    padding-bottom: var(--spacing-desktop-192, var(--spacing-48));
 
-    display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: var(--spacing-medium);
-}
+    gap: var(--spacing-48);
 
-#recent-work > div > :first-child > * + * {
-    margin-top: var(--spacing-horizontal-relative);
-}
-
-#recent-work > div > :first-child > h3 > img {
-    width: 100%;
-}
-
-#recent-work > div > :first-child > h4 {
-    font-family: var(--font-family-sans);
-    font-weight: normal;
-    font-size: 32px;
-}
-
-#recent-work > div > :last-child > * + * {
-    margin-top: var(--spacing-horizontal-relative);
-}
-
-#recent-work > div > :last-child > .button-group-horizontal {
-    --foreground: var(--purple);
-
-    color: var(--foreground);
-}
-
-#recent-work > div > :last-child > .button-group-horizontal > :last-child {
-    background-color: var(--foreground);
-
-    color: var(--background);
-
-    border: none;
-}
-
-/* RECENT POSTS */
-
-#recent-posts::before {
-    --background: var(--dark);
-
-    content: '';
-
-    height: 400px;
-
-    position: absolute;
-    top: 0;
-    z-index: -1;
-
-    background-color: var(--background);
-
+    /* Here so it doesn't clip the "Recent posts ↓" */
     box-shadow: var(--background) 0 0 0 100vw;
     clip-path: inset(0 -100vw);
 }
 
+#recent-work > article > :first-child > * + * {
+    margin-top: var(--spacing-relative);
+}
+
+#recent-work > article > :first-child > h3 > img {
+    width: 100%;
+}
+
+#recent-work > article > :first-child > h4 {
+    font-family: var(--font-family-sans);
+    font-size: var(--font-size-heading);
+    font-weight: normal;
+}
+
+#recent-work > article > :last-child {
+    margin-top: var(--spacing-relative);
+}
+
+#recent-work > article > :last-child > * + * {
+    margin-top: var(--spacing-relative);
+}
+
+#recent-work > article > :last-child > .button-group {
+    --foreground: var(--purple);
+
+    margin-top: var(--spacing-48);
+
+    color: var(--foreground);
+}
+
+@media (max-width: 500px) {
+    #recent-work > article > :last-child > .button-group > * + * {
+        margin-top: var(--spacing-relative);
+    }
+}
+
+/* RECENT POSTS */
+
 #recent-posts {
-    position: relative;
-    padding-top: var(--spacing-large);
+    margin-top: var(--spacing-desktop-192, var(--spacing-96));
+    margin-bottom: var(--spacing-desktop-192, var(--spacing-96));
+}
+
+#recent-posts > h2 {
+    --half-content-width: (100vw - (2 * var(--spacing-48))) / 2;
+
+    background-color: var(--background);
+
+    z-index: -1;
+
+    box-shadow: var(--background) 0 0 0 100vw;
+    clip-path: inset(-100vh -100vw calc(var(--half-content-width) * -1) -100vw);
+}
+
+@media (min-width: 500px) {
+    #recent-posts > h2 {
+        /* TODO Dynamic */
+        clip-path: inset(-100vh -100vw calc(456 / 2 * -1px) -100vw);
+    }
 }
 
 #recent-posts > div {
-    margin-top: var(--spacing-medium);
-
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--spacing-medium);
+    gap: var(--spacing-48);
+}
+
+@media (min-width: 500px) {
+    #recent-posts > div {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+#recent-posts > div > article {
+    background-color: var(--background);
+}
+
+@media (max-width: 500px) {
+    #recent-posts > div > :nth-child(n + 3) > div > p {
+        display: none;
+    }
 }
 
 #recent-posts > div > article:nth-child(3) {
     grid-row: auto;
-    grid-column: span 2;
-
-    display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto;
     gap: var(--spacing-medium);
 }
 
-#recent-posts > div > article > img {
-    object-fit: cover;
-    aspect-ratio: 1;
-    height: auto;
-    width: 100%;
+@media (min-width: 500px) {
+    #recent-posts > div > article:nth-child(3) {
+        grid-column: span 2;
+
+        display: grid;
+
+        gap: var(--spacing-48);
+    }
+
+    #recent-posts > div > article:nth-child(3) > div {
+        padding-bottom: var(--spacing-24);
+    }
 }
 
-#recent-posts > div > article > div {
-    padding: var(--spacing-small);
-    padding-bottom: 0;
+#recent-posts > div > article > img {
+    height: auto;
+    width: 100%;
+    aspect-ratio: 1;
+
+    object-fit: cover;
+}
+
+@media (min-width: 500px) {
+    #recent-posts > div > article > div {
+        padding: var(--spacing-24);
+        padding-bottom: 0;
+    }
 }
 
 #recent-posts > div > article > div > h3 {
-    font-family: var(--font-family-sans);
-    font-style: normal;
+    font-size: var(--font-size-heading);
 }
 
 #recent-posts > div > article > div > h4 {
-    font-family: var(--font-family-sans);
-    font-size: 20px;
-    font-style: normal;
+    font-size: var(--font-size-subheading);
     font-weight: var(--font-weight-regular);
 }
 
-#recent-posts > div > article > div > * + * {
-    margin-top: var(--spacing-horizontal-relative);
+#recent-posts > div > article > div > :not(:first-child) {
+    margin-top: var(--spacing-relative);
 }
 
 #recent-posts > div > article > div > a {
@@ -407,9 +464,10 @@ main > header > p {
 
 #recent-posts > button {
     margin: auto;
-    margin-top: var(--spacing-medium);
+    margin-top: var(--spacing-desktop-96, var(--spacing-48));
 
-    width: 340px;
+    width: 100%;
+    max-width: 340px;
 
     color: var(--mid-grey);
 }
@@ -424,34 +482,33 @@ main > header > p {
     --background: var(--purple);
     --foreground: var(--light);
 
-    margin-top: var(--spacing-huge);
-    padding-top: var(--spacing-huge);
-
-    font-size: 24px;
+    padding-top: var(--spacing-192, var(--spacing-96));
 
     background-color: var(--background);
     color: var(--foreground);
 
     box-shadow: var(--background) 0 0 0 100vw;
-    clip-path: inset(-1px -100vw);
+    clip-path: inset(0 -100vw);
 }
 
-#about > header > :not(:last-child) {
-    margin-bottom: var(--spacing-small);
+#about > header > :not(:first-child) {
+    margin-top: var(--spacing-relative);
 }
 
 #about > div {
-    margin-top: var(--spacing-large);
+    margin-top: var(--spacing-desktop-96, var(--spacing-48));
 }
 
 #about > div > article {
     position: relative;
+
+    font-size: var(--font-size-section-content);
 }
 
 #about > div > article > div {
     --foreground: var(--dark);
 
-    padding: var(--spacing-medium);
+    padding: var(--spacing-48);
 
     color: var(--foreground);
     background-color: var(--background);
@@ -465,6 +522,16 @@ main > header > p {
 
 #about > div > :nth-child(even) > div {
     clip-path: inset(0 0 0 -100vw);
+}
+
+@media (max-width: 500px) {
+    #about > div > :nth-child(odd) > div {
+        padding-right: 0;
+    }
+
+    #about > div > :nth-child(even) > div {
+        padding-left: 0;
+    }
 }
 
 #about > div > :nth-child(1) > div {
@@ -489,9 +556,8 @@ main > header > p {
 
 #about > div > article > img {
     position: absolute;
-
-    z-index: 1;
     bottom: 0;
+    z-index: 1;
 
     translate: -50% 0;
 
@@ -510,42 +576,44 @@ main > header > p {
     translate: 50% 0;
 }
 
-/* PARTNERS CLIENTS COLLABORATORS */
+/* ORGANAZATIONS */
 
-#partners-clients-collaborators {
-    margin-top: var(--spacing-huge);
-
-    font-size: 24px;
+#organizations {
+    padding-top: var(--spacing-desktop-192, var(--spacing-96));
 }
 
-#partners-clients-collaborators > header > * + * {
-    margin-top: var(--spacing-horizontal-relative);
+#organizations > header > :not(:first-child) {
+    margin-top: var(--spacing-relative);
 }
 
-#partners-clients-collaborators > header > h2 {
+#organizations > header > h2 {
     color: var(--purple);
 }
 
-#partners-clients-collaborators > div {
-    margin-top: var(--spacing-large);
+#organizations > div {
+    margin-top: var(--spacing-desktop-96, var(--spacing-48));
 
     display: grid;
-
-    grid-template-columns: repeat(4, 1fr);
-
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: var(--spacing-48);
     place-items: center;
+}
+
+#organizations > div > img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+
+    object-fit: contain;
 }
 
 /* POST */
 
-article > header {
+article > header > :first-child {
     display: grid;
-
-    gap: var(--spacing-medium);
-
-    grid-template-areas:
-        'titles author'
-        'image image';
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: 'titles titles author';
+    gap: var(--spacing-48);
 }
 
 #titles {
@@ -554,46 +622,56 @@ article > header {
     margin-top: var(--spacing-large);
 }
 
-#titles > * + * {
-    margin-top: var(--spacing-horizontal-relative);
+#titles > :not(:first-child) {
+    margin-top: var(--spacing-relative);
 }
 
-#titles > h2 {
-    font-family: var(--font-family-sans);
-    font-style: normal;
-    font-weight: normal;
-
-    font-size: 40px;
+#titles > h1 {
+    font-size: var(--font-size-title);
 }
 
-article > header > .author {
+#titles > p {
+    font-size: var(--font-size-subtitle);
+}
+
+article > header > div .author {
     grid-area: author;
 
     align-self: end;
 }
 
+article > header > div > .author > img {
+    height: 64px;
+}
+
 article > header > img {
-    margin-top: var(--spacing-large);
+    grid-area: image;
+
+    margin-top: var(--spacing-desktop-96, var(--spacing-48));
     max-width: 100%;
     height: auto;
-    grid-area: image;
+
     background-color: var(--dark);
+
     box-shadow: var(--foreground) 0 0 0 100vw;
     clip-path: inset(0 -100vw);
 }
 
+/* CONTENT */
+
 #content {
-    margin-top: var(--spacing-horizontal-medium);
+    padding-top: var(--spacing-desktop-96, var(--spacing-48));
+
+    font-size: var(--font-size-post);
+}
+
+#content > :not(:first-child) {
+    margin-top: var(--spacing-relative);
 }
 
 #content > h2 {
-    font-family: var(--font-family-sans);
-    font-style: normal;
+    font-size: var(--font-size-subtitle);
     font-weight: normal;
-}
-
-#content > *:not(:last-child) {
-    margin-bottom: var(--spacing-horizontal-relative);
 }
 
 /* COMMENTS */
