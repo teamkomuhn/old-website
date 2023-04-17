@@ -90,10 +90,26 @@
     </header>
 
     <div>
-        <img src="<?= url('/images/inecc.png'); ?>" alt="INECC">
-        <img src="<?= url('/images/mindworks.png'); ?>" alt="Mindworks">
-        <img src="<?= url('/images/smart-ocean.png'); ?>" alt="Smart Ocean">
-        <img src="<?= url('/images/rua-mais.png'); ?>" alt="RUA+">
+        <img src="<?= url('/images/logo-inecc.svg'); ?>" alt="INECC">
+        <img src="<?= url('/images/logo-mindworks.svg'); ?>" alt="Mindworks">
+        <img src="<?= url('/images/logo-smart-ocean.svg'); ?>" alt="Smart Ocean">
+        <img src="<?= url('/images/logo-rua-mais.svg'); ?>" alt="RUA+">
+        <img src="<?= url('/images/logo-tedx-peniche.svg'); ?>" alt="TEDx Peniche">
+        <img src="<?= url('/images/logo-open-knowledge-finland.svg'); ?>" alt="Open Knowledge Finland">
+        <img src="<?= url('/images/logo-largo.svg'); ?>" alt="Largo">
+        <img src="<?= url('/images/logo-greenpeace.svg'); ?>" alt="Greenpeace">
+        <img src="<?= url('/images/logo-cmp.svg'); ?>" alt="Câmara Municipal de Peniche">
+        <img src="<?= url('/images/logo-tggp.svg'); ?>" alt="TGGP">
+        <img src="<?= url('/images/logo-govint.svg'); ?>" alt="Govint">
+        <img src="<?= url('/images/logo-iss.svg'); ?>" alt="ISS - Instituto da Segurança Social">
+        <img src="<?= url('/images/logo-espaco-o.svg'); ?>" alt="Espaço Ó">
+        <img src="<?= url('/images/logo-estm.svg'); ?>" alt="ESTM - IPL">
+        <img src="<?= url('/images/logo-esad.svg'); ?>" alt="ESAD - IPL">
+        <img src="<?= url('/images/logo-kaospilot.svg'); ?>" alt="Kaospilot">
+        <img src="<?= url('/images/logo-r4l.svg'); ?>" alt="Reciclar para aprender">
+        <img src="<?= url('/images/logo-twnd.svg'); ?>" alt="TWND">
+        <img src="<?= url('/images/logo-seaentia.svg'); ?>" alt="Seaentia">
+        <img src="<?= url('/images/logo-colab.svg'); ?>" alt="COLAB+">
     </div>
 </section>
 

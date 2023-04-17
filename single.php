@@ -1,4 +1,5 @@
-<?php get_header(null, [ 'styles' => [ '/styles.css' ] ]); ?>
+<?php //get_header(null, [ 'styles' => [ '/fluency-in-care.css' ], 'scripts' => [ '/interaction.js' ] ]); ?>
+<?php get_header(); ?>
 
 <?php while (have_posts()): the_post();?>
     <article>
