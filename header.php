@@ -22,17 +22,14 @@
     </head>
     
     <body>
-        <header>
-            <nav>
-                <?php $title_tag = is_front_page() ? 'h1' : 'div'; ?>
-
-                <<?php echo $title_tag; ?> class="logo">
-                    <a href="<?php echo esc_url( home_url( '/' ) ) ?>" title="Komuhn">
-                        Komuhn
+        <?php if (!is_front_page()): ?>
+            <header>
+                <nav>
+                    <a href="/" title="Komuhn">
                         <img src="<?= url('/images/logo-ko-circle-purple-min.svg'); ?>" alt="Komuhn">
                     </a>
-                </<?php echo $title_tag; ?>>
-            </nav>
-        </header>
+                </nav>
+            </header>
+        <?php endif ?>
 
         <main>

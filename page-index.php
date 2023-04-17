@@ -2,6 +2,10 @@
 <?php get_header(); ?>
 
 <header>
+    <h1>
+        <img src="<?= url('/images/logo-ko-circle-purple-min.svg'); ?>" alt="Komuhn" title="Komuhn">
+    </h1>
+
     <p>Collaboration is not about gluing together existing egos. It's about the ideas that never existed until after everyone entered the room.</p>
 </header>
 
@@ -11,7 +15,7 @@
     
     <h2><a class="arrow-down" href="#recent-work">Recent work</a></h2>
 
-    <div>
+    <article>
         <div>
             <h3>
                 <img alt="Fluency in care" title="Fluency in care" src="<?= url('/images/fluency-in-care-light.png'); ?>" >
@@ -25,12 +29,12 @@
 
             <p>In this proposal, we are exploring ways towards more sustainable collaborations by understanding the value of being together.</p>
 
-            <div class="button-group-horizontal">
+            <div class="button-group">
                 <a class="button" href="/fluency-in-care/proposal">Read the post</a>
                 <a class="button" href="/fluency-in-care">Learn more</a>
             </div>
         </div>
-    </div>
+    </article>
 
 </section>
 
@@ -148,7 +152,7 @@
 
 </section>
 
-<section id="partners-clients-collaborators">
+<section id="organizations">
 
     <header>
         <h2>Dance like nobody is watching, <strong>collaborate</strong> like everyone is.</h2>
