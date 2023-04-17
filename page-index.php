@@ -30,7 +30,7 @@
             <p>In this proposal, we are exploring ways towards more sustainable collaborations by understanding the value of being together.</p>
 
             <div class="button-group">
-                <a class="button" href="/fluency-in-care/proposal">Read the post</a>
+                <a class="button" href="/posts/fluency-in-care">Read the post</a>
                 <a class="button" href="/fluency-in-care">Learn more</a>
             </div>
         </div>

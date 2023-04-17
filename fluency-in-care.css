@@ -242,6 +242,21 @@ nav {
 
 /* HEADER */
 
+body > header > nav > a > img,
+main > header > h1 > img {
+    height: 64px;
+
+    margin-top: var(--spacing-desktop-96, var(--spacing-48));
+    margin-bottom: var(--spacing-desktop-96, var(--spacing-24));
+}
+
+@media (min-width: 500px) {
+    body > header > nav > a > img,
+    main > header > h1 > img {
+        height: 96px;
+    }
+}
+
 main > header {
     display: contents;
 }
