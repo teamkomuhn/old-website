@@ -6,7 +6,16 @@
             <div>
                 <div id="titles">
                     <h1><?= get_the_title(); ?></h1>
-                    <p><?= get_post_meta(get_the_ID(), 'subtitle', true); ?></p>
+
+                    <?php
+                        $subtitle = get_post_meta(get_the_ID(), 'subtitle', true);
+
+                        if (!empty($subtitle)):
+                    ?>
+                    
+                        <p><?= $subtitle; ?></p>
+
+                    <?php endif ?>
                 </div>
 
                 <div class="author short">
