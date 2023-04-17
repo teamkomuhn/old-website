@@ -185,7 +185,7 @@
 </section>
 
 <?php 
-    comments_template('/comments-lets-talk.php');
+    //comments_template('/comments-lets-talk.php');
 ?>
 
 <?php get_footer(); ?>

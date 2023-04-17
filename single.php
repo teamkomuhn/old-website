@@ -45,7 +45,7 @@
 
         <section id="comments">
             <?php 
-                comments_template();
+                //comments_template();
             ?>
         </section>
 
