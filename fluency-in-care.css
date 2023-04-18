@@ -42,12 +42,12 @@ body {
         'footer';
 
     column-gap: var(--spacing-desktop-48);
+
+    scroll-behavior: smooth;
 }
 
 @media (min-width: 501px) {
     body {
-        --main-columns-width: calc((960px - var(--spacing-desktop-48) * 2) / 3);
-
         grid-template-columns:
             1fr var(--main-columns-width) var(--main-columns-width)
             var(--main-columns-width) 1fr;
@@ -90,12 +90,11 @@ main > header {
 }
 
 #header-titles > h1 {
-    margin-bottom: var(--spacing-mobile-24, var(--spacing-desktop-48));
+    margin-bottom: var(--spacing-mobile-48, var(--spacing-desktop-192));
 }
 
 #header-titles > h1 > img {
-    max-width: 100%;
-    margin-bottom: var(--spacing-horizontal-large);
+    width: 100%;
 }
 
 #header-titles > h2,
@@ -115,6 +114,8 @@ main > header {
 }
 
 #header-content {
+    font-size: var(--font-size-section-description);
+
     grid-area: header-content;
 
     z-index: -1;
@@ -141,13 +142,13 @@ aside,
 
     max-width: 400px;
 
-    font-size: var(--font-size-body) !important;
+    font-size: var(--font-size-body);
 }
 
 @media (max-width: 500px) {
     aside,
     .side {
-        display: none;
+        display: none !important;
     }
 }
 
@@ -288,10 +289,10 @@ aside > .button:hover {
 #making-together > div > div {
     display: grid;
 
-    gap: var(--spacing-desktop-48);
+    gap: var(--spacing-48);
 }
 
-@media (min-width: 500px) {
+@media (min-width: 501px) {
     #making-together > div > div {
         grid-template-columns: repeat(
             auto-fill,
@@ -300,19 +301,22 @@ aside > .button:hover {
     }
 }
 
-#making-together > div > div > article {
-    /* height: 320px; */
-    padding-inline: 24px;
-}
-
 #making-together > div > button {
-    margin: auto;
+    display: block;
+
     margin-top: var(--spacing-mobile-48, var(--spacing-desktop-96));
+    margin-left: calc((var(--sizing-desktop-960) - 340px) / 2);
 
     width: 100%;
     max-width: 340px;
 
     color: var(--mid-grey);
+}
+
+@media (max-width: 500px) {
+    #making-together > div > button {
+        grid-column: 3;
+    }
 }
 
 #making-together > div > button:hover {
@@ -385,7 +389,7 @@ aside > .button:hover {
 
     margin-top: calc(var(--sizing-96) * -1);
 
-    gap: var(--spacing-desktop-48);
+    gap: var(--spacing-48);
 }
 
 #lets-play > div > div {
@@ -393,18 +397,18 @@ aside > .button:hover {
 }
 
 @media (min-width: 500px) {
-    #lets-play > div > button {
+    #lets-play > div > .button {
         grid-column: -2;
     }
 }
 
-#lets-play > div > button {
-    margin-top: var(--spacing-48);
+#lets-play > div > .button {
+    margin-top: var(--spacing-desktop-48);
 
     background-color: var(--color-hover);
 }
 
-#lets-play > div > button:hover {
+#lets-play > div > .button:hover {
     background-color: var(--color-selected);
 }
 
@@ -414,6 +418,12 @@ aside > .button:hover {
     grid-area: masters-of-care;
 
     padding-block: var(--spacing-mobile-96, var(--spacing-desktop-192));
+}
+
+@media (min-width: 501px) {
+    #masters-of-care > header {
+        width: var(--two-thirds);
+    }
 }
 
 #masters-of-care > header > :not(:first-child) {

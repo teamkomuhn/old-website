@@ -17,13 +17,43 @@ for (const card of cards) {
         currentTarget.classList.toggle('selected');
 
         toggleSetValue(selected, currentTarget);
-
-        // console.log(selected);
     });
 }
 
-const makingTogetherCards = document.querySelectorAll(
-    '#making-together > div > div > *',
-);
+/** @param {HTMLElement} element */
+function getGridColumnCount(element) {
+    return getComputedStyle(element).gridTemplateColumns.split(' ').length;
+}
 
-console.log(makingTogetherCards);
+const showMoreContainers = document.querySelectorAll('[data-show-more-rows]');
+
+for (const showMoreContainer of showMoreContainers) {
+    const columnCount = getGridColumnCount(showMoreContainer);
+    const rowCount = Number(showMoreContainer.dataset.showMoreRows);
+    const itemCount = showMoreContainer.childElementCount;
+    const showCount = columnCount * rowCount;
+
+    const showMoreButton = showMoreContainer.nextElementSibling;
+
+    if (itemCount <= showCount) {
+        showMoreButton.remove();
+
+        continue;
+    }
+
+    const hideAfter = showMoreContainer.children.item(showCount - 1);
+
+    hideAfter.classList.add('hide-after');
+
+    showMoreButton.addEventListener(
+        'click',
+
+        (event) => {
+            event.stopPropagation();
+            hideAfter.classList.remove('hide-after');
+            event.currentTarget.remove();
+        },
+
+        { once: true },
+    );
+}

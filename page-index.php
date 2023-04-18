@@ -155,7 +155,7 @@
     <header>
         <h2>Dance like nobody is watching, <strong>collaborate</strong> like everyone is.</h2>
 
-        <p>We work with partners, clients, and collaborators across the world.</p>
+        <p>We work with organizations of all types across the world.</p>
     </header>
 
     <div>
