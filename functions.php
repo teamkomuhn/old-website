@@ -156,7 +156,7 @@ function comments_form($title_reply, $label_submit, $custom_fields, $post) {
         'id_submit' => '',
         'class_container' => '',
         'class_form' => '',
-        'class_submit' => '',
+        'class_submit' => 'button button-inverted',
         'name_submit' => '',
         'title_reply' => $title_reply,
         'title_reply_to' => "What are you thinking about %s's thought?",
@@ -168,7 +168,7 @@ function comments_form($title_reply, $label_submit, $custom_fields, $post) {
         // 'cancel_reply_link'
 
         'label_submit' => $label_submit,
-        'submit_button' => '<button>%4$s</button>',
+        'submit_button' => '<button class="%3$s">%4$s</button>',
         'submit_field' => '%1$s %2$s',
 
         // 'format'
@@ -188,17 +188,25 @@ function list_comments($comments) {
 
             <li>
                 <header>
-                    <address>
-                        <img src="" alt="">
-                        <span><?= get_comment_author(); ?></span>
-                    </address>
+                    <?php 
+                        $userID = $comment->user_id;
+                        $user = get_userdata($userID);
+                        $first_name = $user->user_firstname;
+                        $last_name = $user->user_lastname;
+                    ?>
+                    
+                    <div class="author">
+                        <img aria-hidden="true" src="<?= get_avatar_url( $userID ); ?>" />
 
-                    <?php $time = strtotime($comment->comment_date); ?>
+                        <div>
+                            <address><?= $first_name . ' '. $last_name; ?></address>
 
-                    <time datetime='<?= date('c', $time); ?>'><?= date('F j, Y', $time); ?></time>
+                            <?php $time = strtotime($comment->comment_date); ?>
+                            <time datetime='<?= date('c', $time); ?>'><?= date('F j, Y', $time); ?></time>
+                        </div>
+                    </div>
                 </header>
-
-                <p><?= $comment->comment_content; ?></p>
+                <div><?= apply_filters('the_content', $comment->comment_content); ?></div>
 
                 <!-- https://developer.wordpress.org/reference/functions/get_comment_reply_link/ -->
                 <?= get_comment_reply_link([
@@ -210,9 +218,7 @@ function list_comments($comments) {
                     // 'login_text'
 
                     'max_depth'  => get_option('thread_comments_depth'),
-                    'depth'      => 1,
-                    'before'     => '<a class="arrow-left">',
-                    'after'      => '</a>',
+                    'depth'      => 1
                 ]); ?>
             <?php
         },

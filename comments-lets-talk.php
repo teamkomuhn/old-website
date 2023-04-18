@@ -1,7 +1,5 @@
 <section id="lets-talk">
     <?php 
-        comments_form('Let’s talk!', 'Send', [], null);
+        comments_form('', 'Send', [], null);
     ?>
-
-    <?php  /* <ol> <?php list_comments(null); ?> </ol> */ ?>
 </section>
