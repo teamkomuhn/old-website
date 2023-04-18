@@ -357,6 +357,8 @@ a {
 
 [class|='arrow']::after {
     font-family: 'icomoon';
+    padding-left: 8px;
+    font-size: 0.65em;
 }
 
 .arrow-left::after {
@@ -792,6 +794,12 @@ dialog > form > button {
     clip-path: inset(0 0 0 -100vw);
 }
 
+@media (min-width: 501px) {
+    #about > header {
+        width: calc((100% - (var(--spacing-48) * 2)) / 3 * 2);
+    }
+}
+
 @media (max-width: 500px) {
     #about > div > :nth-child(odd) > div {
         padding-right: 0;
@@ -848,6 +856,7 @@ dialog > form > button {
 
 #organizations {
     padding-top: var(--spacing-desktop-192, var(--spacing-96));
+    padding-bottom: var(--spacing-mobile-96, var(--spacing-desktop-192));
 }
 
 #organizations > header > :not(:first-child) {
@@ -867,7 +876,10 @@ dialog > form > button {
     place-items: center;
 }
 
-@media (min-width: 500px) {
+@media (min-width: 501px) {
+    #organizations > header {
+        width: calc((100% - (var(--spacing-48) * 2)) / 3 * 2);
+    }
     #organizations > div {
         grid-template-columns: repeat(4, 1fr);
     }
@@ -1014,6 +1026,12 @@ article > header > img {
     font-family: var(--font-family-sans);
     font-style: normal;
     gap: 1ch;
+}
+
+@media (min-width: 501px) {
+    #contact > p {
+        width: calc((100% - (var(--spacing-48) * 2)) / 3 * 2);
+    }
 }
 
 @media (min-width: 501px) {

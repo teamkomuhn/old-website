@@ -2,8 +2,14 @@
 
 define('THEME_DIR', get_template_directory_uri());
 
+// ADD SUPPORT FOR FEATURED IMAGE
+add_theme_support('post-thumbnails');
+// ADD SUPPORT FOR MENUS
+add_theme_support( 'menus' );
+
 // REMOVE GENERATOR META TAG
 remove_action('wp_head', 'wp_generator');
+
 
 // ENQUEUE SCRIPTS and STYLES - Add custom CSS and JS
 function enqueue_scripts_styles() {
@@ -23,15 +29,6 @@ function enqueue_scripts_styles() {
 }
 
 add_action('wp_enqueue_scripts', 'enqueue_scripts_styles');
-
-
-function my_theme_setup_support(){
-    // ADD SUPPORT FOR FEATURED IMAGE
-    add_theme_support('post-thumbnails');
-    // ADD SUPPORT FOR MENUS
-    add_theme_support( 'menus' );
-}
-add_action('after_setup_theme', 'my_theme_setup_support');
 
 
 function openGraph(){
