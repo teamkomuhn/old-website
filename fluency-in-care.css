@@ -420,6 +420,12 @@ aside > .button:hover {
     padding-block: var(--spacing-mobile-96, var(--spacing-desktop-192));
 }
 
+@media (min-width: 501px) {
+    #masters-of-care > header {
+        width: var(--two-thirds);
+    }
+}
+
 #masters-of-care > header > :not(:first-child) {
     margin-top: var(--spacing-relative);
 }

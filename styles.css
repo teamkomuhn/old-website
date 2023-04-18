@@ -74,6 +74,8 @@
     --border-thick: 4px solid currentColor;
 
     --border-radius: 6px;
+
+    --two-thirds: calc((100% - var(--spacing-48)) / 3 * 2);
 }
 
 @media (max-width: 500px) {
@@ -146,9 +148,6 @@ body {
         calc((100% - var(--sizing-960)) / 2),
         var(--spacing-24)
     );
-
-    /* HACK Let's not do this */
-    overflow-x: hidden;
 
     font-family: var(--font-family-sans);
     font-size: var(--font-size-body);
@@ -383,10 +382,12 @@ a {
 
 body > header > nav > a > img,
 main > header > h1 > img {
-    height: var(--sizing-mobile-64, var(--sizing-desktop-96));
+    width: var(--sizing-mobile-64, var(--sizing-desktop-96));
 
-    padding-top: var(--spacing-desktop-96, var(--spacing-48));
-    padding-bottom: var(--spacing-desktop-96, var(--spacing-24));
+    /* height: 64px; */
+
+    padding-top: var(--spacing-mobile-48, var(--spacing-desktop-96));
+    padding-bottom: var(--spacing-mobile-24, var(--spacing-desktop-96));
 
     z-index: 1;
 }
@@ -753,6 +754,7 @@ dialog > form > button {
     --foreground: var(--light);
 
     padding-top: var(--spacing-desktop-192, var(--spacing-96));
+    padding-inline: var(--spacing-mobile-24);
 
     background-color: var(--background);
     color: var(--foreground);
@@ -796,7 +798,7 @@ dialog > form > button {
 
 @media (min-width: 501px) {
     #about > header {
-        width: calc((100% - (var(--spacing-48) * 2)) / 3 * 2);
+        width: var(--two-thirds);
     }
 }
 
@@ -878,7 +880,7 @@ dialog > form > button {
 
 @media (min-width: 501px) {
     #organizations > header {
-        width: calc((100% - (var(--spacing-48) * 2)) / 3 * 2);
+        width: var(--two-thirds);
     }
     #organizations > div {
         grid-template-columns: repeat(4, 1fr);
@@ -896,10 +898,15 @@ dialog > form > button {
 /* POST */
 
 article > header > :first-child {
-    display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-areas: 'titles titles author';
     gap: var(--spacing-48);
+}
+
+@media (min-width: 501px) {
+    article > header > :first-child {
+        display: grid;
+    }
 }
 
 #titles {
@@ -924,10 +931,16 @@ article > header > div > div > p {
     line-height: var(--line-height-heading);
 }
 
-article > header > div .author {
+article > header > div > .author {
     grid-area: author;
 
     align-self: end;
+}
+
+@media (max-width: 500px) {
+    article > header > div > .author {
+        display: none;
+    }
 }
 
 article > header > div > .author > img {
@@ -1030,7 +1043,7 @@ article > header > img {
 
 @media (min-width: 501px) {
     #contact > p {
-        width: calc((100% - (var(--spacing-48) * 2)) / 3 * 2);
+        width: var(--two-thirds);
     }
 }
 
@@ -1061,6 +1074,18 @@ article > header > img {
 
     #contact > address > a.phone {
         font-size: 14px;
+    }
+}
+
+/* AUTHOR */
+
+#author {
+    padding-bottom: var(--spacing-mobile-96);
+}
+
+@media (min-width: 501px) {
+    #author {
+        display: none;
     }
 }
 
