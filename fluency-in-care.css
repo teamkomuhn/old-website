@@ -90,12 +90,11 @@ main > header {
 }
 
 #header-titles > h1 {
-    margin-bottom: var(--spacing-mobile-24, var(--spacing-desktop-48));
+    margin-bottom: var(--spacing-mobile-48, var(--spacing-desktop-192));
 }
 
 #header-titles > h1 > img {
-    max-width: 100%;
-    margin-bottom: var(--spacing-horizontal-large);
+    width: 100%;
 }
 
 #header-titles > h2,

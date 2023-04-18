@@ -50,6 +50,9 @@
     --font-weight-medium: 500;
     --font-weight-bold: 700;
 
+    --line-height-1-2: 1.2;
+    --line-height-1-5: 1.5;
+
     --base: 8px;
 
     --sizing-960: calc(var(--base) * 120);
@@ -145,7 +148,7 @@ body {
     font-family: var(--font-family-sans);
     font-size: var(--font-size-body);
 
-    line-height: 150%;
+    line-height: var(--line-height-1-5);
 
     background-color: var(--background);
     color: var(--foreground);
@@ -183,6 +186,10 @@ section > header > :is(h1, h2, h3, h4, h5, h6) {
 /* HACK The :not */
 section > header:not(.side) > p {
     font-size: var(--font-size-section-description);
+}
+
+img {
+    display: block;
 }
 
 h1,
@@ -274,7 +281,7 @@ a {
     font-weight: var(--font-weight-bold);
     font-style: normal;
 
-    line-height: 120%;
+    line-height: var(--line-height-1-2);
 }
 
 .cards > * > :not(:first-child) {
@@ -366,17 +373,10 @@ a {
 
 body > header > nav > a > img,
 main > header > h1 > img {
-    height: 64px;
+    height: var(--sizing-mobile-64, var(--sizing-desktop-96));
 
     margin-top: var(--spacing-desktop-96, var(--spacing-48));
     margin-bottom: var(--spacing-desktop-96, var(--spacing-24));
-}
-
-@media (min-width: 500px) {
-    body > header > nav > a > img,
-    main > header > h1 > img {
-        height: 96px;
-    }
 }
 
 #header > p {
@@ -566,13 +566,13 @@ main > header > h1 > img {
 
 #recent-posts > div > article > div > h3 {
     font-size: var(--font-size-heading);
-    line-height: 120%;
+    line-height: var(--line-height-1-2);
 }
 
 #recent-posts > div > article > div > h4 {
     font-size: var(--font-size-subheading);
     font-weight: var(--font-weight-regular);
-    line-height: 150%;
+    line-height: var(--line-height-1-5);
 }
 
 #recent-posts > div > article > div > :not(:first-child) {
@@ -767,6 +767,10 @@ article > header > :first-child {
     font-size: var(--font-size-subtitle);
 }
 
+article > header > div > div > p {
+    line-height: var(--line-height-heading);
+}
+
 article > header > div .author {
     grid-area: author;
 
@@ -793,7 +797,8 @@ article > header > img {
 /* CONTENT */
 
 #content {
-    padding-top: var(--spacing-desktop-96, var(--spacing-48));
+    padding-top: var(--spacing-mobile-48, var(--spacing-desktop-96));
+    padding-bottom: var(--spacing-mobile-48, var(--spacing-desktop-192));
 
     font-size: var(--font-size-post);
 }
@@ -805,7 +810,7 @@ article > header > img {
 #content > h2 {
     font-size: var(--font-size-subtitle);
     font-weight: normal;
-    line-height: 150%;
+    line-height: var(--line-height-1-5);
 }
 
 /* CONTACT */
