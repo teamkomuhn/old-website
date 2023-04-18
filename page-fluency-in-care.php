@@ -56,7 +56,7 @@
     </header>
 
     <div>
-        <div class="cards">
+        <div class="cards" data-show-more-rows="3">
             <article>
                 <h4>Mapping needs</h4>
 
@@ -154,7 +154,7 @@
             </article>
         </div>
 
-        <button type="button">Show more<span aria-hidden="true"> ↑</span></button>
+        <button type="button" class="arrow-up show-more-button">Show more</button>
     </div>
 </section>
 
@@ -196,7 +196,7 @@
             </article>
         </div>
 
-        <button type="button">Let's talk<span aria-hidden="true">  ↓</span></button>
+        <a class="button arrow-down" href="#contact">Let's talk</a>
     </div>
 </section>
 

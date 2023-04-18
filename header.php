@@ -32,4 +32,28 @@
             </header>
         <?php endif ?>
 
+        <dialog open>
+            <!-- <p class="visually-hidden"><del>S</del>care</p> -->
+            <img alt="Scare" src="<?= url('/images/scare.svg'); ?>">
+
+            <div>
+                <h2 class="arrow-right">Join us in Helsinki</h2>
+
+                <!-- <div>
+                    <time datetime="2023-04-27">
+                        <span class="day">27</span>
+                        <span class="month">Apr</span>
+                    </time>
+
+                    <p>Open space</p>
+                </div> -->
+
+                <img src="<?= url('/images/event.svg'); ?>" alt="27 April, Open space">
+            </div>
+            
+            <p>An exploration of what can be working together without fear. <a class="arrow-right" href="#">Register</a></p>
+
+            <form method="dialog"><button>X</button></form>
+        </dialog>
+
         <main>
