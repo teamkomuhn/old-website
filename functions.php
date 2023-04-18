@@ -6,6 +6,8 @@ define('THEME_DIR', get_template_directory_uri());
 add_theme_support('post-thumbnails');
 // ADD SUPPORT FOR MENUS
 add_theme_support( 'menus' );
+// ADD SUPPORT FOR EXCERPT ON PAGES
+add_post_type_support( 'page', 'excerpt' );
 
 // REMOVE GENERATOR META TAG
 remove_action('wp_head', 'wp_generator');
