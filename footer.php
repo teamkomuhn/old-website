@@ -5,13 +5,14 @@
             <p>See something that makes you want to talk with us? Send us a message and we wil get back to you in a bit.</p>
             
             <address>
-                <a class="paper-plane"><span>team@komuhn.org</span></a>
-                <a class="phone" href=><span>+351 9<!-- skjdjjsdj -->60001270</span></a>
+                <a class="paper-plane" href="mailto:team@komuhn.org"><span>team@komuhn.org</span></a>
+                <a class="phone"><span>+351 960001270</span></a>
             </address>
         </footer>
 
-        <footer id="ko">
-            <span>komuhn.co</span>
+        <footer id="footer">
+            <img src="<?= url('/images/logo-ko-circle-purple.svg') ?>" alt="">
+            <a href='/'>komuhn.co</a>
         </footer>
         
         <?php wp_footer(); ?>
