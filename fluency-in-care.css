@@ -1,60 +1,7 @@
-:root {
-    /** TODO Use modern colors? */
-    --light: white;
-    --light-grey: #999;
-    --mid-grey: #666;
-    --dark-grey: #444;
-    --dark: #222;
-    --light-blue: #a2e2eb;
-    --dark-blue: #4edcf1;
-    --light-green: #b4ffe4;
-    --dark-green: #51f6bb;
-    --light-yellow: #ffe8bb;
-    --dark-yellow: #fcc57a;
-    --light-red: #ffa184;
-    --dark-red: #f07b56;
-
-    --foreground: var(--dark);
-    --background: var(--light);
-
-    --font-family-sans: Inter, ui-sans-serif, system-ui, BlinkMacSystemFont,
-        -apple-system, 'Segoe UI', sans-serif;
-    --font-family-serif: 'Crimson Pro', ui-serif, serif;
-
-    --font-size-huge: 64px;
-    --font-size-large: 40px;
-    --font-size-medium: 22px;
-    --font-size-normal: 16px;
-    --font-size-small: 14px;
-
-    --font-weight-bold: 700;
-
-    --spacing-huge: 12rem;
-    --spacing-large: 6rem;
-    --spacing-medium: 3rem;
-    --spacing-small: 1.5rem;
-
-    --spacing-horizontal-huge: var(--spacing-large);
-    --spacing-horizontal-large: var(--spacing-medium);
-    --spacing-horizontal-medium: var(--spacing-medium);
-    --spacing-horizontal-small: var(--spacing-medium);
-    --spacing-horizontal-tiny: var(--spacing-small);
-
-    --spacing-horizontal-relative: 1em;
-
-    --spacing-vertical-large: var(--spacing-medium);
-    --spacing-vertical-medium: var(--spacing-small);
-    --spacing-vertical-small: var(--spacing-small);
-
-    --border-thin: 1px solid currentColor;
-    --border-thick: 4px solid currentColor;
-}
-
 /*
     # Table of contents
     
     1. Variables
-    2. Reset
     3. Elements
     4. Classes
     5. Layout
@@ -64,127 +11,22 @@
 
 :root {
     /** TODO Use modern colors? */
-    --light: white;
-    --light-grey: #999;
-    --mid-grey: #666;
-    --dark-grey: #444;
-    --dark: #222;
-    --transparent-black: #0a0a0a;
-
-    --red: #fab0ac;
-    --orange: #ffd0ad;
-    --yellow: #faef8a;
-    --green: #8fffd7;
-    --blue: #a2e2eb;
-    --purple: #5f5cf4;
-
-    --foreground: var(--dark);
-    --background: var(--light);
-
-    --font-family-sans: Inter, ui-sans-serif, system-ui, BlinkMacSystemFont,
-        -apple-system, 'Segoe UI', sans-serif;
-    --font-family-serif: 'Crimson Pro', ui-serif, serif;
-
-    --font-size-title: 40px;
-    --font-size-subtitle: 24px;
-    --font-size-description: 32px;
-    --font-size-heading: 24px;
-    --font-size-subheading: 20px;
-    --font-size-section-title: 40px;
-    --font-size-section-title-alternative: 16px;
-    --font-size-section-description: 20px;
-    --font-size-post: 18px;
-    --font-size-body: 16px;
-    --font-size-name: 18px;
-    --font-size-date: 14px;
-
-    --font-weight-regular: 400;
-    --font-weight-medium: 500;
-    --font-weight-bold: 700;
-
-    --base: 8px;
-
-    --sizing-960: calc(var(--base) * 120);
-
-    --spacing-192: calc(var(--base) * 24);
-    --spacing-96: calc(var(--base) * 12);
-    --spacing-48: calc(var(--base) * 6);
-    --spacing-24: calc(var(--base) * 3);
-    --spacing-16: calc(var(--base) * 2);
-
-    --spacing-relative: 1em;
-
-    --border-thin: 1px solid currentColor;
-    --border-thick: 4px solid currentColor;
-
-    --border-radius: 6px;
-}
-
-@media (min-width: 500px) {
-    :root {
-        --font-size-title: 128px;
-        --font-size-subtitle: 40px;
-        --font-size-description: 64px;
-        --font-size-heading: 32px;
-        --font-size-subheading: 20px;
-        --font-size-section-title: 64px;
-        --font-size-section-title-alternative: 24px;
-        --font-size-section-description: 24px;
-        --font-size-section-content: 24px;
-        --font-size-post: 20px;
-        --font-size-body: 18px;
-        --font-size-name: 18px;
-        --font-size-date: 16px;
-
-        --spacing-desktop-192: var(--spacing-192);
-        --spacing-desktop-96: var(--spacing-96);
-        --spacing-desktop-48: var(--spacing-48);
-        --spacing-desktop-24: var(--spacing-24);
-        --spacing-desktop-16: var(--spacing-16);
-    }
-}
-
-@media (min-width: 500px) {
-    :root {
-        --font-size-huge: 128px;
-        --font-size-large: 64px;
-        --font-size-medium: 32px;
-        --font-size-normal: 24px;
-        --font-size-small: 18px;
-
-        --spacing-horizontal-huge: var(--spacing-huge);
-        --spacing-horizontal-large: var(--spacing-huge);
-        --spacing-horizontal-medium: var(--spacing-large);
-        --spacing-horizontal-tiny: var(--spacing-medium);
-
-        --spacing-vertical-large: var(--spacing-large);
-        --spacing-vertical-medium: var(--spacing-medium);
-    }
-}
-
-* {
-    box-sizing: border-box;
-
-    margin: 0;
-    padding: 0;
-
-    transition: all 0.1s;
+    --light-blue: #a2e2eb;
+    --dark-blue: #4edcf1;
+    --light-green: #b4ffe4;
+    --dark-green: #51f6bb;
+    --light-yellow: #ffe8bb;
+    --dark-yellow: #fcc57a;
+    --light-red: #ffa184;
+    --dark-red: #f07b56;
 }
 
 body {
-    font-family: var(--font-family-sans);
-    font-size: var(--font-size-normal);
+    padding-inline: var(--spacing-24);
 
-    -webkit-font-smoothing: antialiased;
-
-    background-color: var(--background);
-    color: var(--foreground);
+    position: relative;
 
     display: grid;
-
-    padding-inline: 0;
-
-    padding-inline: var(--spacing-24);
 
     grid-template-areas:
         'navigation'
@@ -196,16 +38,15 @@ body {
         'lets-play-header'
         'lets-play'
         'masters-of-care'
+        'contact'
         'footer';
+
+    column-gap: var(--spacing-desktop-48);
 }
 
-@media (min-width: 500px) {
+@media (min-width: 501px) {
     body {
-        --main-columns-width: calc(
-            (960px - var(--spacing-vertical-large) * 2) / 3
-        );
-
-        column-gap: var(--spacing-vertical-medium);
+        --main-columns-width: calc((960px - var(--spacing-desktop-48) * 2) / 3);
 
         grid-template-columns:
             1fr var(--main-columns-width) var(--main-columns-width)
@@ -221,105 +62,9 @@ body {
             'lets-play-side       lets-play-header       lets-play-header       .               .'
             '.                    lets-play              lets-play              lets-play       .'
             '.                    masters-of-care        masters-of-care        masters-of-care .'
+            '.                    contact                contact                contact         .'
             '.                    footer                 footer                 footer          .';
     }
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: var(--font-family-serif);
-    font-style: italic;
-
-    /* line-height: 120%; */
-}
-
-h1 {
-    font-size: var(--font-size-title);
-}
-
-h2 {
-    font-size: var(--font-size-section-title);
-}
-
-button,
-.button {
-    display: block;
-
-    /* TODO */
-    padding-block: var(--spacing-small);
-
-    font: var(--font-family-sans);
-    font-size: var(--font-size-normal);
-    font-weight: var(--font-weight-bold);
-
-    text-decoration: none;
-    text-align: center;
-
-    background-color: transparent;
-    color: inherit;
-
-    border: var(--border-thin);
-    border-radius: 0.5rem;
-}
-
-p {
-    color: currentColor;
-}
-
-p,
-li {
-    line-height: 150%;
-}
-
-@media (max-width: 500px) {
-    li {
-        line-height: 120%;
-    }
-}
-
-/* CARDS */
-
-@media (hover: hover) {
-    .cards > :hover {
-        background-color: var(--color-hover);
-    }
-
-    .cards > .selected:not(:hover) {
-        background-color: var(--color-selected);
-    }
-}
-
-.cards:not(:hover:has(> .selected), :has(> .selected)) > :first-of-type {
-    background-color: var(--color-hover);
-}
-
-.cards > * {
-    padding-inline: var(--spacing-24);
-    padding-block: var(--spacing-48);
-
-    background-color: var(--color-regular);
-    border-bottom: var(--border-thick);
-}
-
-.cards > .selected {
-    background-color: var(--color-selected);
-}
-
-.cards > * > :is(h1, h2, h3, h4, h5, h6) {
-    font-size: var(--font-size-heading);
-    font-family: var(--font-family-sans);
-    font-weight: var(--font-weight-bold);
-    font-style: normal;
-
-    line-height: 120%;
-}
-
-.cards > * > :not(:first-child) {
-    margin-top: var(--spacing-relative);
 }
 
 /* MAIN */
@@ -328,40 +73,13 @@ main {
     display: contents;
 }
 
-/* NAVIGATION */
+/* HEADER */
 
 body > header {
     grid-area: navigation;
 }
-/* 
-body > header {
-    margin-top: 192px;
-    margin-bottom: 48px;
-} */
 
-@media (max-width: 500px) {
-    body > header {
-        margin-top: 24px;
-        margin-bottom: 16px;
-    }
-}
-
-/* HEADER */
-
-body > header > nav > a > img,
-main > header > h1 > img {
-    height: 64px;
-
-    margin-top: var(--spacing-desktop-96, var(--spacing-48));
-    margin-bottom: var(--spacing-desktop-96, var(--spacing-24));
-}
-
-@media (min-width: 500px) {
-    body > header > nav > a > img,
-    main > header > h1 > img {
-        height: 96px;
-    }
-}
+/* FLUENCY IN CARE */
 
 main > header {
     display: contents;
@@ -372,9 +90,7 @@ main > header {
 }
 
 #header-titles > h1 {
-    /* font-size: 0;
-    font-weight: 900;
-    margin-block: var(--spacing-huge); */
+    margin-bottom: var(--spacing-mobile-24, var(--spacing-desktop-48));
 }
 
 #header-titles > h1 > img {
@@ -384,14 +100,18 @@ main > header {
 
 #header-titles > h2,
 #header-content {
-    background-color: var(--foreground);
-    color: var(--background);
-    box-shadow: var(--foreground) 0 0 0 100vw;
+    --background: var(--dark);
+    --foreground: var(--light);
+
+    background-color: var(--background);
+    color: var(--foreground);
+
+    box-shadow: var(--background) 0 0 0 100vw;
     clip-path: inset(-1px -100vw);
 }
 
 #header-titles > h2 {
-    padding-top: var(--spacing-horizontal-large);
+    padding-top: var(--spacing-mobile-48, var(--spacing-desktop-192));
 }
 
 #header-content {
@@ -401,24 +121,37 @@ main > header {
 }
 
 #header-content > * {
-    margin-top: var(--spacing-horizontal-relative);
+    margin-top: var(--spacing-relative);
 }
+
+/* FLUENCY IN CARE and ASIDE */
 
 #header-content,
 aside {
     padding-bottom: calc(
-        var(--spacing-horizontal-large) + var(--spacing-horizontal-medium)
+        var(--spacing-mobile-48, var(--spacing-desktop-192)) + var(--sizing-96)
     );
 }
 
-/* ASIDE, SIDE */
+/* ASIDE and SIDE */
 
 aside,
 .side {
-    display: none;
+    margin-inline: var(--spacing-desktop-48);
+
     max-width: 400px;
-    font-size: var(--font-size-small);
+
+    font-size: var(--font-size-body) !important;
 }
+
+@media (max-width: 500px) {
+    aside,
+    .side {
+        display: none;
+    }
+}
+
+/* ASIDE */
 
 aside {
     margin-left: 48px;
@@ -429,54 +162,48 @@ aside {
     color: var(--light-grey);
     grid-area: aside;
     margin-right: var(--spacing-vertical-large);
-    margin-top: var(
-        --font-size-normal
-    ); /* TODO this is hacky; to align with header-content */
+    /* HACK To align with header-content */
+    margin-top: 1em;
 }
 
-@media (min-width: 500px) {
-    aside {
-        display: revert;
-    }
-
-    .side {
-        display: flex;
-    }
+aside > :not(:first-child, :nth-child(2)) {
+    margin-top: var(--spacing-relative);
 }
 
 aside > img {
     float: left;
     height: 2lh;
-    margin-right: var(--spacing-vertical-small);
+    margin-right: var(--spacing-desktop-16);
 }
 
-aside > * + *:not(:nth-child(2)) {
-    margin-top: var(--spacing-horizontal-relative);
+aside > .button:hover {
+    color: var(--light);
 }
+
+/* SIDE */
 
 .side {
-    margin-right: 48px;
-    margin-left: var(--spacing-vertical-large);
-    color: var(--dark-grey);
-    justify-self: end;
-    flex-direction: column;
+    position: absolute;
+    top: 0;
+    right: 0;
 
+    display: flex;
+    flex-direction: column;
     justify-content: start;
+
+    color: var(--dark-grey);
 }
 
 .side > :is(h1, h2, h3, h4, h5, h6) {
-    font-size: var(--font-size-normal);
-    font-family: var(--font-family-sans);
-    font-style: normal;
     order: 1;
+
+    font-family: var(--font-family-sans);
+    font-size: var(--font-size-section-title-alternative);
+    font-style: normal;
 }
 
-.side > :is(h1, h2, h3, h4, h5, h6)::after {
-    content: ' →';
-}
-
-.side > * + * {
-    margin-bottom: var(--spacing-horizontal-relative);
+.side > :not(:first-child) {
+    margin-bottom: var(--spacing-relative);
 }
 
 /* LEARNINGS */
@@ -492,31 +219,29 @@ aside > * + *:not(:nth-child(2)) {
 #learnings > header.side {
     grid-area: learnings-side;
 
-    margin-top: var(--spacing-horizontal-huge);
+    margin-top: var(--spacing-desktop-192);
 }
 
 #learnings > ul {
     grid-area: learnings;
 
-    margin-top: calc(var(--spacing-horizontal-medium) * -1);
     list-style-type: none;
-}
 
-#learnings > ul {
+    margin-top: calc(var(--sizing-96) * -1);
     margin-right: calc(var(--spacing-24) * -1);
 }
 
 #learnings > ul > li {
     display: flex;
-    gap: var(--spacing-vertical-small);
+    gap: var(--spacing-24);
 
-    padding-block: var(--spacing-horizontal-tiny);
+    padding-block: var(--spacing-24);
 
     font-size: var(--font-size-medium);
     font-weight: var(--font-weight-bold);
 }
 
-@media (min-width: 500px) {
+@media (min-width: 501px) {
     #learnings > ul > li {
         padding-right: calc(100vw - 100%);
     }
@@ -540,17 +265,13 @@ aside > * + *:not(:nth-child(2)) {
 }
 
 #making-together > header {
-    display: contents;
-}
-
-#making-together > header > div:not(.side) {
     grid-area: making-together-header;
 
-    margin-top: var(--spacing-horizontal-huge);
+    padding-top: var(--spacing-mobile-96, var(--spacing-desktop-192));
 }
 
-#making-together > header > div:not(.side) > * + * {
-    margin-top: var(--spacing-horizontal-relative);
+#making-together > header > :not(:first-child, .side) {
+    margin-top: var(--spacing-relative);
 }
 
 #making-together > header > .side {
@@ -558,26 +279,25 @@ aside > * + *:not(:nth-child(2)) {
 }
 
 #making-together > div {
-    display: grid;
-
     grid-area: making-together;
 
-    margin-top: var(--spacing-horizontal-medium);
+    padding-top: var(--spacing-mobile-48, var(--spacing-desktop-96));
+    padding-bottom: var(--spacing-mobile-96, var(--spacing-desktop-192));
+}
 
-    gap: var(--spacing-horizontal-small);
+#making-together > div > div {
+    display: grid;
+
+    gap: var(--spacing-desktop-48);
 }
 
 @media (min-width: 500px) {
-    #making-together > div {
+    #making-together > div > div {
         grid-template-columns: repeat(
             auto-fill,
             minmax(var(--main-columns-width), var(--main-columns-width))
         );
     }
-}
-
-#making-together > div > div {
-    display: contents;
 }
 
 #making-together > div > div > article {
@@ -586,18 +306,13 @@ aside > * + *:not(:nth-child(2)) {
 }
 
 #making-together > div > button {
+    margin: auto;
+    margin-top: var(--spacing-mobile-48, var(--spacing-desktop-96));
+
+    width: 100%;
+    max-width: 340px;
+
     color: var(--mid-grey);
-}
-
-@media (min-width: 500px) {
-    #making-together > div > button {
-        grid-column: 2;
-
-        margin-top: var(--spacing-horizontal-medium);
-
-        margin-left: calc(var(--spacing-vertical) / 2 * -1);
-        margin-right: calc(var(--spacing-vertical) / 2 * -1);
-    }
 }
 
 #making-together > div > button:hover {
@@ -615,34 +330,46 @@ aside > * + *:not(:nth-child(2)) {
 }
 
 #lets-play > header {
-    display: contents;
-}
+    --background: var(--dark);
+    --foreground: var(--light);
 
-#lets-play > header > div:not(.side) {
-    margin-top: var(--spacing-horizontal-huge);
-    padding-block: var(--spacing-horizontal-huge);
-    padding-bottom: calc(var(--spacing-horizontal-huge) + 160px);
     grid-area: lets-play-header;
-    box-shadow: var(--foreground) 0 0 0 100vw;
-    clip-path: inset(0 -100vw);
-    background-color: var(--foreground);
-    color: var(--background);
 
     z-index: -1;
+
+    padding-block: var(--spacing-mobile-48, var(--spacing-desktop-96));
+    padding-bottom: calc(
+        var(--spacing-mobile-48, var(--spacing-desktop-96)) + var(--sizing-96)
+    );
+
+    background-color: var(--background);
+    color: var(--foreground);
+
+    box-shadow: var(--background) 0 0 0 100vw;
+    clip-path: inset(0 -100vw);
+}
+
+#lets-play > header > :not(:first-child, h2, .side) {
+    margin-top: var(--spacing-relative);
+}
+
+#lets-play > header > img {
+    height: var(--sizing-mobile-96, var(--sizing-desktop-128));
+}
+
+#lets-play > header > h2 {
+    margin-top: var(--spacing-16);
 }
 
 #lets-play > header > .side {
     grid-area: lets-play-side;
 
-    margin-bottom: var(--spacing-large);
+    top: auto;
+    bottom: 0;
 
-    align-self: end;
+    margin-bottom: var(--spacing-desktop-96);
 
     color: var(--light-grey);
-}
-
-#lets-play > header > div:not(.side) > * + * {
-    margin-top: var(--spacing-horizontal-relative);
 }
 
 @media (min-width: 500px) {
@@ -656,9 +383,9 @@ aside > * + *:not(:nth-child(2)) {
 
     display: grid;
 
-    margin-top: -160px;
+    margin-top: calc(var(--sizing-96) * -1);
 
-    gap: var(--spacing-horizontal-small);
+    gap: var(--spacing-desktop-48);
 }
 
 #lets-play > div > div {
@@ -672,6 +399,8 @@ aside > * + *:not(:nth-child(2)) {
 }
 
 #lets-play > div > button {
+    margin-top: var(--spacing-48);
+
     background-color: var(--color-hover);
 }
 
@@ -679,32 +408,27 @@ aside > * + *:not(:nth-child(2)) {
     background-color: var(--color-selected);
 }
 
-@media (min-width: 500px) {
-    #lets-play > div > button {
-        margin-top: var(--spacing-horizontal-small);
-    }
-}
-
 /* MASTERS OF CARE */
 
 #masters-of-care {
     grid-area: masters-of-care;
 
-    margin-top: var(--spacing-horizontal-huge);
+    padding-block: var(--spacing-mobile-96, var(--spacing-desktop-192));
 }
 
-#masters-of-care > p {
-    margin-top: var(--spacing-horizontal-relative);
+#masters-of-care > header > :not(:first-child) {
+    margin-top: var(--spacing-relative);
 }
 
 #masters-of-care > ul {
+    margin-top: var(--spacing-mobile-48, var(--spacing-desktop-96));
+
     display: grid;
-    margin-top: var(--spacing-horizontal-medium);
-    column-gap: var(--spacing-vertical-medium);
-    row-gap: var(--spacing-horizontal-medium);
+    column-gap: var(--spacing-desktop-48);
+    row-gap: var(--spacing-mobile-48, var(--spacing-desktop-96));
 }
 
-@media (min-width: 500px) {
+@media (min-width: 501px) {
     #masters-of-care > ul {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -712,7 +436,7 @@ aside > * + *:not(:nth-child(2)) {
 
 #masters-of-care > ul > li {
     display: flex;
-    gap: var(--spacing-vertical-medium);
+    gap: var(--spacing-mobile-24, var(--spacing-desktop-48));
 }
 
 #masters-of-care > ul > li > img {
@@ -724,6 +448,14 @@ aside > * + *:not(:nth-child(2)) {
     margin-right: -13px;
 }
 
-footer {
+/* CONTACT */
+
+#contact {
+    grid-area: contact;
+}
+
+/* FOOTER */
+
+#footer {
     grid-area: footer;
 }

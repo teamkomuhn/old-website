@@ -13,32 +13,22 @@ remove_action('wp_head', 'wp_generator');
 
 // ENQUEUE SCRIPTS and STYLES - Add custom CSS and JS
 function enqueue_scripts_styles() {
-	// REGISTER
-		/// CSS
-		wp_register_style( 'icomoon', get_stylesheet_directory_uri() . '/icomoon/icomoon.css' );
-        wp_register_style( 'fluency-in-care', get_stylesheet_directory_uri() . '/fluency-in-care.css' );
-		wp_register_style( 'style', get_stylesheet_directory_uri() . '/styles.css' );
+    wp_register_style('icomoon', get_stylesheet_directory_uri() . '/icomoon/icomoon.css');
+    wp_register_style('style', get_stylesheet_directory_uri() . '/styles.css');
+    wp_register_style('fluency-in-care', get_stylesheet_directory_uri() . '/fluency-in-care.css');
+    
+    wp_register_script('script', get_template_directory_uri() . '/interaction.js', array(), '1.0.0', true);
 
-		/// JS
-		wp_register_script( 'script', get_template_directory_uri() . '/interation.js', array(), '1.0.0', true );
+    wp_enqueue_style('icomoon');
+    wp_enqueue_style('style');
 
-	// ENQUEUE
-		/// CSS
-        wp_enqueue_style( 'icomoon');
-        if (is_page('fluency-in-care')) {
-		    wp_enqueue_style( 'fluency-in-care');
-        } else {
-		    wp_enqueue_style( 'style');
-        }
-
-		/// JS
-        if (is_page('fluency-in-care')) {
-            wp_enqueue_script( 'script' );
-        }
-
-
+    if (is_page('fluency-in-care')) {
+        wp_enqueue_style('fluency-in-care');
+        wp_enqueue_script('script');
+    }
 }
-add_action( 'wp_enqueue_scripts', 'enqueue_scripts_styles' );
+
+add_action('wp_enqueue_scripts', 'enqueue_scripts_styles');
 
 
 function openGraph(){

@@ -53,6 +53,10 @@
     --base: 8px;
 
     --sizing-960: calc(var(--base) * 120);
+    --sizing-128: calc(var(--base) * 16);
+    --sizing-96: calc(var(--base) * 12);
+    --sizing-64: calc(var(--base) * 8);
+    --sizing-48: calc(var(--base) * 6);
 
     --spacing-192: calc(var(--base) * 24);
     --spacing-96: calc(var(--base) * 12);
@@ -68,9 +72,25 @@
     --border-radius: 6px;
 }
 
-@media (min-width: 500px) {
+@media (max-width: 500px) {
     :root {
-        --font-size-title: 128px;
+        --sizing-mobile-960: var(--sizing-960);
+        --sizing-mobile-128: var(--sizing-128);
+        --sizing-mobile-96: var(--sizing-96);
+        --sizing-mobile-64: var(--sizing-64);
+        --sizing-mobile-48: var(--sizing-48);
+
+        --spacing-mobile-192: var(--spacing-192);
+        --spacing-mobile-96: var(--spacing-96);
+        --spacing-mobile-48: var(--spacing-48);
+        --spacing-mobile-24: var(--spacing-24);
+        --spacing-mobile-16: var(--spacing-16);
+    }
+}
+
+@media (min-width: 501px) {
+    :root {
+        --font-size-title: 96px;
         --font-size-subtitle: 40px;
         --font-size-description: 64px;
         --font-size-heading: 32px;
@@ -83,6 +103,12 @@
         --font-size-body: 18px;
         --font-size-name: 18px;
         --font-size-date: 16px;
+
+        --sizing-desktop-960: var(--sizing-960);
+        --sizing-desktop-128: var(--sizing-128);
+        --sizing-desktop-96: var(--sizing-96);
+        --sizing-desktop-64: var(--sizing-64);
+        --sizing-desktop-48: var(--sizing-48);
 
         --spacing-desktop-192: var(--spacing-192);
         --spacing-desktop-96: var(--spacing-96);
@@ -113,8 +139,13 @@ body {
         var(--spacing-24)
     );
 
+    /* HACK Let's not do this */
+    overflow-x: hidden;
+
     font-family: var(--font-family-sans);
     font-size: var(--font-size-body);
+
+    line-height: 150%;
 
     background-color: var(--background);
     color: var(--foreground);
@@ -149,8 +180,26 @@ section > header > :is(h1, h2, h3, h4, h5, h6) {
     font-size: var(--font-size-section-title);
 }
 
-section > header > p {
+/* HACK The :not */
+section > header:not(.side) > p {
     font-size: var(--font-size-section-description);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    line-height: normal;
+}
+
+h1 {
+    font-size: var(--font-size-title);
+}
+
+h2 {
+    font-size: var(--font-size-section-title);
 }
 
 button,
@@ -162,6 +211,8 @@ input {
 button,
 .button {
     padding-block: var(--spacing-16);
+
+    max-width: 340px;
 
     font: var(--font-family-sans);
     font-size: var(--font-size-body);
@@ -175,6 +226,8 @@ button,
 
     border: var(--border-thin);
     border-radius: var(--border-radius);
+
+    cursor: pointer;
 }
 
 p,
@@ -182,11 +235,53 @@ a {
     color: currentColor;
 }
 
-p {
-    line-height: 150%;
+/* 3. Classes */
+
+/* CARDS */
+
+@media (hover: hover) {
+    .cards > .selected:not(:hover) {
+        background-color: var(--color-selected);
+    }
+
+    .cards > :hover,
+    .cards:not(:hover, :has(> .selected)) > :first-of-type {
+        background-color: var(--color-hover);
+    }
 }
 
-/* 3. Classes */
+@media (hover: none) {
+    .cards > .selected {
+        background-color: var(--color-selected);
+    }
+
+    .cards:not(:has(> .selected)) > :first-of-type {
+        background-color: var(--color-hover);
+    }
+}
+
+.cards > * {
+    padding-inline: var(--spacing-24);
+    padding-block: var(--spacing-48);
+
+    background-color: var(--color-regular);
+    border-bottom: var(--border-thick);
+}
+
+.cards > * > :is(h1, h2, h3, h4, h5, h6) {
+    font-size: var(--font-size-heading);
+    font-family: var(--font-family-sans);
+    font-weight: var(--font-weight-bold);
+    font-style: normal;
+
+    line-height: 120%;
+}
+
+.cards > * > :not(:first-child) {
+    margin-top: var(--spacing-relative);
+}
+
+/* AUTHOR */
 
 .author {
     display: flex;
@@ -244,28 +339,25 @@ p {
     border: none;
 }
 
-.arrow-left::after {
-    content: '\e90d';
+[class|='arrow']::after {
     font-family: 'icomoon';
     padding-left: 8px;
+}
+
+.arrow-left::after {
+    content: '\e90d';
 }
 
 .arrow-right::after {
     content: '\e90c';
-    font-family: 'icomoon';
-    padding-left: 8px;
 }
 
 .arrow-up::after {
     content: '\e90b';
-    font-family: 'icomoon';
-    padding-left: 8px;
 }
 
 .arrow-down::after {
     content: '\e90e';
-    font-family: 'icomoon';
-    padding-left: 8px;
 }
 
 /* 3. Layout */
@@ -650,8 +742,6 @@ main > header > h1 > img {
 
 /* POST */
 
-/*MOBILE NOT WORK*/
-
 article > header > :first-child {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -718,7 +808,7 @@ article > header > img {
     line-height: 150%;
 }
 
-/* COMMENTS */
+/* CONTACT */
 
 #contact {
     --background: var(--dark);
@@ -743,10 +833,6 @@ article > header > img {
 #contact > p {
     margin-top: var(--spacing-relative);
     color: var(--light);
-}
-
-#contact > :is(p, address) {
-    /* font-size: ; */
 }
 
 #contact > address {
@@ -785,11 +871,6 @@ article > header > img {
     gap: 1ch;
 }
 
-#ko {
-    padding-top: var(--spacing-desktop-96);
-    padding-bottom: var(--spacing-desktop-192);
-}
-
 @media (max-width: 500px) {
     #contact > address {
         font-size: 16px;
@@ -813,6 +894,28 @@ article > header > img {
         font-size: 14px;
     }
 }
+
+/* FOOTER */
+
+#footer {
+    color: var(--purple);
+    font-weight: var(--font-weight-bold);
+    padding-top: var(--spacing-mobile-48, var(--spacing-desktop-96));
+    padding-bottom: var(--spacing-192);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-mobile-16, var(--spacing-desktop-24));
+}
+
+#footer > img {
+    width: var(--spacing-mobile-48, var(--spacing-desktop-96));
+}
+
+#footer > a {
+    text-decoration: none;
+}
+
+/* COMMENTS */
 
 #comments {
     /* TODO */

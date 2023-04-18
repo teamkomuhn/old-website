@@ -25,7 +25,7 @@
 
 <section id="learnings">
     <header class="side">
-        <h2>Learnings</h2>
+        <h2  class="arrow-right">Learnings</h2>
 
         <p>Harnessing the potential of everyone within a group is the outcome we’re after.</p>
         <p>Our proposal is made of all the things that we can do to learn how to be in a collective and understand each other better.</p>
@@ -43,14 +43,12 @@
 
 <section id="making-together">
     <header>
-        <div>
-            <h2>Making together</h2>
+        <h2>Making together</h2>
 
-            <p><strong>This is an invitation</strong> to explore new and sometimes unexpected approaches to learning about - what we need - to be able to work well as a whole.</p>
-        </div>
+        <p><strong>This is an invitation</strong> to explore new and sometimes unexpected approaches to learning about - what we need - to be able to work well as a whole.</p>
 
         <div class="side">
-            <h3>Processes and practice</h3>
+            <h3  class="arrow-right">Processes and practice</h3>
     
             <p>Over the many years of working with groups of all kinds, we have experienced the achievements and the struggles of seeking better together.</p>
             <p>Building on top of that and remixing with what we learn from the best practitioners in the world we have selected and designed approaches that can guide us in the right direction.</p>
@@ -162,15 +160,14 @@
 
 <section id="lets-play">
     <header>
-        <div>
-            <img src="<?=url('/images/box.svg'); ?>">
-            <h2>Let's play</h2>
+        <img src="<?= url('/images/icon-box.svg'); ?>">
+        
+        <h2>Let's play</h2>
 
-            <p><strong>The playground is open.</strong>  What we can do depends greatly on the daring ability to build on top of each other ideas.</p>
-        </div>
+        <p><strong>The playground is open.</strong>  What we can do depends greatly on the daring ability to build on top of each other ideas.</p>
 
         <div class="side">
-            <h3>Possibilities</h3>
+            <h3 class="arrow-right">Possibilities</h3>
 
             <p>We want to contribute to your efforts in defining what care is and ways to manifest it so you too can thrive.</p>
 
@@ -204,9 +201,11 @@
 </section>
 
 <section id="masters-of-care">
-    <h2>Masters of care</h2>
+    <header>
+        <h2>Masters of care</h2>
 
-    <p><strong>Always searching for</strong> deeper understanding, fairness, and better ways of making together. Is this you?</p>
+        <p><strong>Always searching for</strong> deeper understanding, fairness, and better ways of making together. Is this you?</p>
+    </header>
 
     <ul>
         <li><img src="<?=url('/images/icon-high5.svg'); ?>');" /><span>You're part of a <strong>team</strong> that wants to go the long haul and is looking for ways to create <strong>sustainable involvement</strong>.</span></li>
