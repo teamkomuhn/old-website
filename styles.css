@@ -797,7 +797,7 @@ dialog > form > button > img {
     --foreground: var(--light);
 
     padding-top: var(--spacing-desktop-192, var(--spacing-96));
-    padding-inline: var(--spacing-mobile-24);
+    padding-inline: var(--spacing-mobile-48, var(--spacing-desktop-24));
 
     background-color: var(--background);
     color: var(--foreground);
@@ -837,22 +837,6 @@ dialog > form > button > img {
 
 #about > div > :nth-child(even) > div {
     clip-path: inset(0 0 0 -100vw);
-}
-
-@media (min-width: 501px) {
-    #about > header {
-        width: var(--two-thirds);
-    }
-}
-
-@media (max-width: 500px) {
-    #about > div > :nth-child(odd) > div {
-        padding-right: 0;
-    }
-
-    #about > div > :nth-child(even) > div {
-        padding-left: 0;
-    }
 }
 
 #about > div > :nth-child(1) > div {
@@ -895,6 +879,22 @@ dialog > form > button > img {
     right: 0;
 
     translate: 50% 0;
+}
+
+@media (min-width: 501px) {
+    #about > header {
+        width: var(--two-thirds);
+    }
+}
+
+@media (max-width: 500px) {
+    #about > div > :nth-child(odd) > div {
+        padding-right: 0;
+    }
+
+    #about > div > :nth-child(even) > div {
+        padding-left: 0;
+    }
 }
 
 /* ORGANAZATIONS */
@@ -1069,10 +1069,7 @@ article > header > img {
 #contact form button {
     box-sizing: border-box;
     width: 100%; 
-
-    position: absolute;
-    right: 0;
-    top: calc(100% + 36px);
+    max-width: none;
 }
 
 #contact > address {
@@ -1114,18 +1111,22 @@ article > header > img {
     #contact > p {
         width: var(--two-thirds);
     }
-}
 
-@media (min-width: 501px) {
     #contact > address {
         gap: var(--spacing-desktop-48);
+    }
+
+    #contact form button {
+        position: absolute;
+        right: 0;
+        top: calc(100% + 36px);
     }
 }
 
 @media (max-width: 500px) {
     #contact > address {
         font-size: 16px;
-        justify-content: space-between;
+        justify-content: space-around;
     }
 
     #contact > address > a {
