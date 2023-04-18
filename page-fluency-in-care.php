@@ -56,7 +56,7 @@
     </header>
 
     <div>
-        <div class="cards" data-show-more-rows="3">
+        <div class="cards" data-rows-mobile="3" data-rows-desktop="4">
             <article>
                 <h4>Mapping needs</h4>
 

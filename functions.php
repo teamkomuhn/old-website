@@ -1,5 +1,13 @@
 <?php
 
+function url(string $url) {
+    return wp_make_link_relative(get_template_directory_uri()) . $url;
+}
+
+function url_theme(string $url) {
+    return wp_make_link_relative(get_stylesheet_directory_uri()) . $url;
+}
+
 define('THEME_DIR', get_template_directory_uri());
 
 // ADD SUPPORT FOR FEATURED IMAGE
@@ -10,21 +18,23 @@ add_theme_support( 'menus' );
 // REMOVE GENERATOR META TAG
 remove_action('wp_head', 'wp_generator');
 
+function add_type_attribute($tag, $handle, $src) {
+    return '<script type="module" src="' . esc_url($src) . '"></script>';
+}
 
-// ENQUEUE SCRIPTS and STYLES - Add custom CSS and JS
+add_filter('script_loader_tag', 'add_type_attribute' , 10, 3);
+
 function enqueue_scripts_styles() {
-    wp_register_style('icomoon', get_stylesheet_directory_uri() . '/icomoon/icomoon.css');
-    wp_register_style('style', get_stylesheet_directory_uri() . '/styles.css');
-    wp_register_style('fluency-in-care', get_stylesheet_directory_uri() . '/fluency-in-care.css');
-    
-    wp_register_script('script', get_template_directory_uri() . '/interaction.js', array(), '1.0.0', true);
+    wp_register_style('fluency-in-care', url_theme('/fluency-in-care.css'));
+    wp_register_script('cards', url_theme('/scripts/cards.js'));
 
-    wp_enqueue_style('icomoon');
-    wp_enqueue_style('style');
+    wp_enqueue_style('icomoon', url_theme('/icomoon/icomoon.css'));
+    wp_enqueue_style('style', url_theme('/styles.css'));
+    wp_enqueue_script('show-more', url_theme('/scripts/show-more.js'));
 
     if (is_page('fluency-in-care')) {
         wp_enqueue_style('fluency-in-care');
-        wp_enqueue_script('script');
+        wp_enqueue_script('cards');
     }
 }
 
@@ -74,16 +84,6 @@ function limit_characters($text, $limit) {
     }
 
     return $text;
-}
-
-
-function url(string $url) {
-    return wp_make_link_relative(get_template_directory_uri()) . $url;
-}
-
-function allow_comments_anywhere() {
-    global $withcomments;
-    $withcomments = true;
 }
 
 // https://developer.wordpress.org/reference/functions/comment_form/

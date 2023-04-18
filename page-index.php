@@ -51,10 +51,9 @@
 ?>
 
 <section id="recent-posts">
-
     <h2 class="arrow-down">Recent posts</h2>
 
-    <div>
+    <div data-rows-mobile="4" data-items-desktop="5">
         <?php
             while ( $ko_posts -> have_posts() ): $ko_posts -> the_post();
         ?>
@@ -92,14 +91,12 @@
         <?php endwhile; ?>
     </div>
 
-    <button class="arrow-up">See more</button>
-    
+    <button class="arrow-up show-more-button">See more</button>
 </section>
 
 <?php endif; wp_reset_postdata(); ?>
 
 <section id="about">
-
     <header>
         <h2>Jacks of all trades.<br/>Masters of <strong>some</strong>.</h2>
 
@@ -158,7 +155,7 @@
         <p>We work with organizations of all types across the world.</p>
     </header>
 
-    <div>
+    <div data-rows-mobile="4" data-rows-desktop="Infinity">
         <img src="<?= url('/images/logo-inecc.svg'); ?>" alt="INECC">
         <img src="<?= url('/images/logo-mindworks.svg'); ?>" alt="Mindworks">
         <img src="<?= url('/images/logo-smart-ocean.svg'); ?>" alt="Smart Ocean">
@@ -178,13 +175,10 @@
         <img src="<?= url('/images/logo-r4l.svg'); ?>" alt="Reciclar para aprender">
         <img src="<?= url('/images/logo-twnd.svg'); ?>" alt="TWND">
         <img src="<?= url('/images/logo-seaentia.svg'); ?>" alt="Seaentia">
-        <img src="<?= url('/images/logo-tggp.svg'); ?>" alt="TGGP+">
+        <img src="<?= url('/images/logo-tggp.svg'); ?>" alt="TGGP">
     </div>
-
+    
+    <button class="arrow-up show-more-button">Show More</button>
 </section>
-
-<?php 
-    //comments_template('/comments-lets-talk.php');
-?>
 
 <?php get_footer(); ?>

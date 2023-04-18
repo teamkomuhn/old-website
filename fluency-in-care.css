@@ -53,6 +53,23 @@ body {
             var(--main-columns-width) 1fr;
 
         grid-template-areas:
+            '. navigation             navigation             navigation      .'
+            '. header-titles          header-titles          .               .'
+            '. header-content         header-content         aside           .'
+            '. learnings              learnings              learnings       learnings'
+            '. making-together-header making-together-header .               .'
+            '. making-together        making-together        making-together .'
+            '. lets-play-header       lets-play-header       .               .'
+            '. lets-play              lets-play              lets-play       .'
+            '. masters-of-care        masters-of-care        masters-of-care .'
+            '. contact                contact                contact         .'
+            '. footer                 footer                 footer          .';
+    }
+}
+
+@media (min-width: 1281px) {
+    body {
+        grid-template-areas:
             '.                    navigation             navigation             navigation      .'
             '.                    header-titles          header-titles          .               .'
             '.                    header-content         header-content         aside           aside'
@@ -145,13 +162,6 @@ aside,
     font-size: var(--font-size-body);
 }
 
-@media (max-width: 500px) {
-    aside,
-    .side {
-        display: none !important;
-    }
-}
-
 /* ASIDE */
 
 aside {
@@ -165,6 +175,12 @@ aside {
     margin-right: var(--spacing-vertical-large);
     /* HACK To align with header-content */
     margin-top: 1em;
+}
+
+@media (max-width: 500px) {
+    aside {
+        display: none !important;
+    }
 }
 
 aside > :not(:first-child, :nth-child(2)) {
@@ -193,6 +209,12 @@ aside > .button:hover {
     justify-content: start;
 
     color: var(--dark-grey);
+}
+
+@media (max-width: 1280px) {
+    .side {
+        display: none !important;
+    }
 }
 
 .side > :is(h1, h2, h3, h4, h5, h6) {
@@ -311,12 +333,6 @@ aside > .button:hover {
     max-width: 340px;
 
     color: var(--mid-grey);
-}
-
-@media (max-width: 500px) {
-    #making-together > div > button {
-        grid-column: 3;
-    }
 }
 
 #making-together > div > button:hover {

@@ -62,10 +62,8 @@
                 //comments_template();
             ?>
         </section>
-
     </article>
     
 <?php endwhile; ?>
-
 
 <?php get_footer(); ?>

@@ -65,6 +65,7 @@
     --spacing-96: calc(var(--base) * 12);
     --spacing-48: calc(var(--base) * 6);
     --spacing-24: calc(var(--base) * 3);
+    --spacing-32: calc(var(--base) * 4);
     --spacing-16: calc(var(--base) * 2);
 
     --spacing-relative: 1em;
@@ -89,6 +90,7 @@
         --spacing-mobile-192: var(--spacing-192);
         --spacing-mobile-96: var(--spacing-96);
         --spacing-mobile-48: var(--spacing-48);
+        --spacing-mobile-32: var(--spacing-32);
         --spacing-mobile-24: var(--spacing-24);
         --spacing-mobile-16: var(--spacing-16);
     }
@@ -119,6 +121,7 @@
         --spacing-desktop-192: var(--spacing-192);
         --spacing-desktop-96: var(--spacing-96);
         --spacing-desktop-48: var(--spacing-48);
+        --spacing-desktop-32: var(--spacing-32);
         --spacing-desktop-24: var(--spacing-24);
         --spacing-desktop-16: var(--spacing-16);
     }
@@ -354,7 +357,7 @@ a {
     border: none;
 }
 
-[class|='arrow']::after {
+[class*='arrow-']::after {
     font-family: 'icomoon';
     font-size: 0.65em;
 }
@@ -524,23 +527,19 @@ dialog > p {
     }
 }
 
-dialog > form {
+dialog > form,
+dialog > form > button {
+    display: contents;
+}
+
+dialog > form > button > img {
     position: absolute;
     top: 0;
     right: 0;
 
-    margin: var(--spacing-mobile-24, var(--sizing-desktop-48));
-}
-
-dialog > form > button {
-    margin: 0;
-    padding: 0;
-
-    border: none;
-}
-
-dialog > form > button > img {
     width: 16px;
+
+    margin: var(--spacing-32);
 }
 
 /* RECENT WORK and RECENT POSTS */
@@ -576,9 +575,6 @@ dialog > form > button > img {
 #recent-work {
     --background: var(--transparent-black);
     --foreground: var(--light);
-
-    background-color: var(--background);
-    color: var(--foreground);
 }
 
 #recent-work > article {
@@ -588,9 +584,12 @@ dialog > form > button > img {
     grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-48);
 
+    background-color: var(--background);
+    color: var(--foreground);
+
     /* Here so it doesn't clip the "Recent posts ↓" */
     box-shadow: var(--background) 0 0 0 100vw;
-    clip-path: inset(0 -100vw);
+    clip-path: inset(-10px -100vw);
 }
 
 #recent-work > article > :first-child > * + * {
@@ -624,10 +623,14 @@ dialog > form > button > img {
 }
 
 @media (max-width: 500px) {
-    #recent-work > article > :last-child > .button-group > * + * {
+    #recent-work > article > :last-child > .button-group > :not(:first-child) {
         margin-top: var(--spacing-relative);
     }
 }
+
+/* #recent-work > article > :last-child > .button-group > :hover {
+    --foreground: var(--light);
+} */
 
 /* RECENT POSTS */
 
@@ -704,10 +707,13 @@ dialog > form > button > img {
     object-fit: cover;
 }
 
+#recent-posts > div > article > div {
+    padding-top: var(--spacing-24);
+}
+
 @media (min-width: 500px) {
     #recent-posts > div > article > div {
-        padding: var(--spacing-24);
-        padding-bottom: 0;
+        padding-inline: var(--spacing-desktop-24);
     }
 }
 
@@ -996,7 +1002,7 @@ article > header > img {
     color: var(--foreground);
 
     box-shadow: var(--background) 0 0 0 100vw;
-    clip-path: inset(-1px -100vw);
+    clip-path: inset(0px -100vw);
 }
 
 #contact > h2 {
@@ -1098,7 +1104,9 @@ article > header > img {
     color: var(--purple);
     font-weight: var(--font-weight-bold);
     padding-top: var(--spacing-mobile-48, var(--spacing-desktop-96));
-    padding-bottom: var(--spacing-192);
+    padding-bottom: calc(
+        var(--spacing-192) + var(--spacing-mobile-48, var(--spacing-desktop-96))
+    );
     display: flex;
     align-items: center;
     gap: var(--spacing-mobile-16, var(--spacing-desktop-24));
