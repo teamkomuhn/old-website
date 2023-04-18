@@ -1187,13 +1187,8 @@ article > header > img {
 
 /* COMMENTS */
 
-#comments {
-    /* TODO */
-    margin-top: var(--spacing-192);
-}
-
 #comments h2 {
-    font-family: --font-family-serif;
+    font-family: var(--font-family-serif);
     font-style: italic;
 }
 
