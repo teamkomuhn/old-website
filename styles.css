@@ -539,6 +539,10 @@ dialog > form > button {
     border: none;
 }
 
+dialog > form > button > img {
+    width: 16px;
+}
+
 /* RECENT WORK and RECENT POSTS */
 
 #recent-work,

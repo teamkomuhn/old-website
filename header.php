@@ -53,7 +53,7 @@
             
             <p>An exploration of what can be working together without fear. <a class="arrow-right" href="#">Register</a></p>
 
-            <form method="dialog"><button>X</button></form>
+            <form method="dialog"><button><img src="<?= url('/images/close.svg'); ?>" alt="Close"></button></form>
         </dialog>
 
         <main>
