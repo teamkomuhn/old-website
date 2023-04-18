@@ -1075,7 +1075,6 @@ article > header > img {
 #contact form button {
     box-sizing: border-box;
     width: 100%;
-    max-width: none;
 }
 
 #contact > address {
@@ -1130,6 +1129,10 @@ article > header > img {
 }
 
 @media (max-width: 500px) {
+    #contact form button {
+        width: 100%;
+        max-width: none;
+    }
     #contact > address {
         font-size: 16px;
         justify-content: space-around;
