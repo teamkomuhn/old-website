@@ -5,7 +5,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
         
-        <title><?= is_singular() ? get_the_title($post) . " - " . get_bloginfo( 'name' ) : get_bloginfo( 'name' ) . " - " . strip_tags(get_bloginfo( 'description' )); ?></title>
+        <title><?= is_front_page() ? get_bloginfo( 'name' ) . " - " . strip_tags(get_bloginfo( 'description' )) : get_the_title() . " - " . get_bloginfo( 'name' ); ?></title>
         <?php openGraph(); ?>
 
         <link rel="icon" href="<?= get_template_directory_uri() . "/images/favicon.ico"; ?>" sizes="any"><!-- 32×32 -->
