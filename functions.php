@@ -35,10 +35,13 @@ function openGraph(){
 
 	$website_name = get_bloginfo( 'name' );
     $website_description = strip_tags(get_bloginfo( 'description' ));
+    $subtitle = get_post_meta(get_the_ID(), 'subtitle', true);
+    $excerpt = get_the_excerpt();
     $homepage_excerpt = "Collaboration is not about gluing together existing egos. It's about the ideas that never existed until after everyone entered the room.";
     $type = is_single() ? 'article' : 'website';
-    $title = is_front_page('index') ? $website_name . " - " . $website_description : get_the_title() . " - " . get_the_excerpt() ;
-    $description = is_front_page('index') ? $homepage_excerpt : get_the_excerpt();
+    $title = is_front_page('index') ? $website_name . " - " . $website_description : get_the_title();
+    $description_content = !empty($excerpt) ? $excerpt : $subtitle;
+    $description = is_front_page('index') ? $homepage_excerpt : $description_content;
 
     //replace this with a default image
 	$default_image = get_template_directory_uri() . "/images/open-graph-image-default.jpg"; 
