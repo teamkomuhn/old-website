@@ -35,13 +35,13 @@ add_action('after_setup_theme', 'my_theme_setup_support');
 
 
 function openGraph(){
-	
+
 	$website_name = get_bloginfo( 'name' );
     $website_description = strip_tags(get_bloginfo( 'description' ));
     $homepage_excerpt = "Collaboration is not about gluing together existing egos. It's about the ideas that never existed until after everyone entered the room.";
     $type = is_single() ? 'article' : 'website';
-    $title = is_front_page() ? $website_name . " - " . $website_description : get_the_title();
-    $description = is_front_page() ? $homepage_excerpt : get_the_excerpt();
+    $title = is_front_page('index') ? $website_name . " - " . $website_description : get_the_title() . " - " . $website_description ;
+    $description = is_front_page('index') ? $homepage_excerpt : get_the_excerpt();
 
     //replace this with a default image
 	$default_image = get_template_directory_uri() . "/images/open-graph-image-default.jpg"; 
