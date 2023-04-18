@@ -13,11 +13,14 @@
 :root {
     /** TODO Use modern colors? */
     --light: white;
+    --lighter-grey: #ccc;
     --light-grey: #999;
     --mid-grey: #666;
     --dark-grey: #444;
     --dark: #222;
+    --darker: #111;
     --transparent-black: #0a0a0a;
+    --black: #000;
 
     --red: #fab0ac;
     --orange: #ffd0ad;
@@ -244,9 +247,46 @@ button,
     cursor: pointer;
 }
 
+button.button-inverted,
+.button.button-inverted {
+
+    background-color: var(--foreground);
+    color: var(--background);
+
+    border: var(--border-thin);
+    border-radius: var(--border-radius);
+}
+
 p,
 a {
     color: currentColor;
+}
+
+form {
+    margin: var(--spacing-48) 0;
+    font-family: var(--font-family-sans);
+    font-size: var(--font-size-body);
+    color: var(--dark-grey);
+}
+
+form::placeholder {
+    color: var(--dark-grey);
+}
+
+form input,
+form textarea {
+    box-sizing: border-box;
+    width: 100%;
+    padding: var(--spacing-24);
+    margin-bottom: var(--spacing-24);
+    border: 1px solid var(--mid-grey);
+    border-radius: 6px;
+    font-family: var(--font-family-sans);
+    font-size: var(--font-size-body);
+}
+
+form textarea {
+    resize: vertical;
 }
 
 /* 3. Classes */
@@ -763,7 +803,7 @@ dialog > form > button > img {
     --foreground: var(--light);
 
     padding-top: var(--spacing-desktop-192, var(--spacing-96));
-    padding-inline: var(--spacing-mobile-24);
+    padding-inline: var(--spacing-mobile-48, var(--spacing-desktop-24));
 
     background-color: var(--background);
     color: var(--foreground);
@@ -803,22 +843,6 @@ dialog > form > button > img {
 
 #about > div > :nth-child(even) > div {
     clip-path: inset(0 0 0 -100vw);
-}
-
-@media (min-width: 501px) {
-    #about > header {
-        width: var(--two-thirds);
-    }
-}
-
-@media (max-width: 500px) {
-    #about > div > :nth-child(odd) > div {
-        padding-right: 0;
-    }
-
-    #about > div > :nth-child(even) > div {
-        padding-left: 0;
-    }
 }
 
 #about > div > :nth-child(1) > div {
@@ -861,6 +885,22 @@ dialog > form > button > img {
     right: 0;
 
     translate: 50% 0;
+}
+
+@media (min-width: 501px) {
+    #about > header {
+        width: var(--two-thirds);
+    }
+}
+
+@media (max-width: 500px) {
+    #about > div > :nth-child(odd) > div {
+        padding-right: 0;
+    }
+
+    #about > div > :nth-child(even) > div {
+        padding-left: 0;
+    }
 }
 
 /* ORGANAZATIONS */
@@ -1015,6 +1055,29 @@ article > header > img {
     color: var(--light);
 }
 
+#contact form {
+    position: relative;
+    color: var(--lighter-grey);
+}
+
+#contact form input,
+#contact form textarea {
+    border: 1px solid var(--mid-grey);
+}
+
+#contact form input,
+#contact form textarea,
+#contact form ::placeholder {
+    color: var(--lighter-grey);
+    background: var(--darker);
+}
+
+#contact form button {
+    box-sizing: border-box;
+    width: 100%; 
+    max-width: none;
+}
+
 #contact > address {
     font-family: var(--font-family-sans);
     font-size: 18px;
@@ -1054,18 +1117,22 @@ article > header > img {
     #contact > p {
         width: var(--two-thirds);
     }
-}
 
-@media (min-width: 501px) {
     #contact > address {
         gap: var(--spacing-desktop-48);
+    }
+
+    #contact form button {
+        position: absolute;
+        right: 0;
+        top: calc(100% + 36px);
     }
 }
 
 @media (max-width: 500px) {
     #contact > address {
         font-size: 16px;
-        justify-content: space-between;
+        justify-content: space-around;
     }
 
     #contact > address > a {
@@ -1129,20 +1196,43 @@ article > header > img {
 
 /* COMMENTS */
 
-#comments {
-    /* TODO */
-    margin-top: var(--spacing-horizontal-large);
+#comments h2 {
+    font-family: var(--font-family-serif);
+    font-style: italic;
+}
+
+#comments ol {
+    padding-left: var(--spacing-48);
+    margin-bottom: var(--spacing-48);
+    list-style-type: none;
+}
+
+#comments ol ol {
+    padding-left: var(--spacing-96);
+}
+
+#comments ol ol ol {
+    padding-left: 0;
+}
+
+#comments ol > li {
+    margin-top: var(--spacing-48);
 }
 
 #comments > ol > li ol > li {
-    /* TODO */
     margin-left: var(--spacing-large);
-    border-left: var(--border-thick);
-    padding-left: var(--spacing-small);
+    border-left: 4px solid var(--black);
+    padding-left: var(--spacing-24);
+    margin-top: var(--spacing-24);
+}
+
+#comments > ol > li ol > li ol > li {
+    border-left: 0;
+    padding-left: 0;
 }
 
 #comments ol > li > * + * {
-    margin-top: 1em;
+    margin-top: var(--spacing-24);
 }
 
 #comments ol > li > header {
@@ -1152,15 +1242,32 @@ article > header > img {
     gap: 16px;
 }
 
-#comments ol > li > p {
-    font-size: 18px;
+#comments ol > li > div > p {
+    font-size: var(--font-size-body);
+    margin-top: 1em;
 }
 
-#comments ol > li > button {
-    font-size: 18px;
+#comments ol > li > .comment-reply-link {
+    font-size: var(--font-size-body);
     border: none;
     padding: 0;
     color: var(--mid-grey);
+    text-decoration: none;
+    display: block;
+}
+
+#comments ol > li > .comment-reply-link::after {
+    content: "\e90c";
+    font-family: 'icomoon';
+    font-size: .65em;
+    border: none;
+    padding-left: 8px;
+    color: var(--mid-grey);
+    text-decoration: none;
+}
+
+#comments .author div {
+    display: contents;
 }
 
 #comments > #respond > form {
