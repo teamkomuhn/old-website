@@ -27,16 +27,24 @@ function add_type_attribute($tag, $handle, $src) {
 add_filter('script_loader_tag', 'add_type_attribute' , 10, 3);
 
 function enqueue_scripts_styles() {
-    wp_register_style('fluency-in-care', url_theme('/fluency-in-care.css'));
-    wp_register_script('cards', url_theme('/scripts/cards.js'));
+    wp_register_style('icomoon', get_stylesheet_directory_uri() . '/icomoon/icomoon.css');
+    wp_register_style('style', get_stylesheet_directory_uri() . '/styles.css');
+    wp_register_style('fluency-in-care', get_stylesheet_directory_uri() . '/fluency-in-care.css');
+    
+    wp_register_script('show-more', get_template_directory_uri() . '/scripts/show-more.js', array(), '1.0.0', true);
+    wp_register_script('device-tag', get_template_directory_uri() . '/scripts/device-tag.js', array(), '1.0.0', true);
+    wp_register_script('capitalize', get_template_directory_uri() . '/scripts/capitalize.js', array(), '1.0.0', true);
+    wp_register_script('cards', get_template_directory_uri() . '/scripts/cards.js', array(), '1.0.0', true);
 
-    wp_enqueue_style('icomoon', url_theme('/icomoon/icomoon.css'));
-    wp_enqueue_style('style', url_theme('/styles.css'));
-    wp_enqueue_script('show-more', url_theme('/scripts/show-more.js'));
+    wp_enqueue_style('icomoon');
+    wp_enqueue_style('style');
+    wp_enqueue_script('show-more');
+    wp_enqueue_script('device-tag');
+    wp_enqueue_script('capitalize');
+    wp_enqueue_script('cards');
 
     if (is_page('fluency-in-care')) {
         wp_enqueue_style('fluency-in-care');
-        wp_enqueue_script('cards');
     }
 }
 

@@ -51,7 +51,7 @@
                 <img src="<?= url('/images/event.svg'); ?>" alt="27 April, Open space">
             </div>
             
-            <p>An exploration of what can be working together without fear. <a class="arrow-right" href="#">Register</a></p>
+            <p>An exploration of what can be working together without fear. <a class="arrow-right" href="https://www.eventbrite.pt/e/scare-an-exploration-of-what-can-be-working-together-without-fear-tickets-619914098757">Register</a></p>
 
             <form method="dialog"><button><img src="<?= url('/images/close.svg'); ?>" alt="Close"></button></form>
         </dialog>
