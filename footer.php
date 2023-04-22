@@ -8,12 +8,29 @@
 
             <address>
                 <a class="paper-plane" href="mailto:team@komuhn.org"><span>team@komuhn.org</span></a>
-                <a class="phone"><span>+351 960001270</span></a>
+                <a class="phone" href="tel:+351960001270"><span>+351 960001270</span></a>
             </address>
         </footer>
 
         <footer id="footer">
             <img src="<?= url('/images/logo-ko-circle-purple.svg') ?>" alt="">
+
+            <!-- <?php
+                // $character = '/';
+
+                // $url = $_SERVER['REQUEST_URI'];
+                // $path = parse_url($url, PHP_URL_PATH);
+                // $parts = explode($character, trim($path, $character));
+                // $previous = '';
+            
+                // foreach ($parts as $part):
+                //     $previous .= "/{$part}";
+            ?>
+
+            <a href="<?= $previous; ?>">> <?= $part; ?></a>
+
+            <?php // endforeach ?> -->
+
             <a href='/'>komuhn.org</a>
         </footer>
         
