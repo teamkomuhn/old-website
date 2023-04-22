@@ -16,7 +16,7 @@
     <article>
         <div>
             <h3>
-                <img alt="Fluency in care" title="Fluency in care" src="<?= url('/images/fluency-in-care-light.png'); ?>" >
+                <img alt="Fluency in care" title="Fluency in care" src="<?= url('/images/logo-fluency-in-care-light.png'); ?>" >
             </h3>
 
             <h4>Thriving organizations through empathy</h4>

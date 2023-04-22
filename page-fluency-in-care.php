@@ -3,7 +3,7 @@
 <header>
     <div id="header-titles">
         <h1>
-            <img src="<?=url('/images/fluency-in-care-dark.png'); ?>" title="Fluency in care" alt="Fluency in care">
+            <img src="<?=url('/images/logo-fluency-in-care-dark.png'); ?>" title="Fluency in care" alt="Fluency in care">
         </h1>
         
         <h2>Thriving organizations through empathy</h2>
