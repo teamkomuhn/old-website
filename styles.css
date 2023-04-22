@@ -40,6 +40,7 @@
     --font-size-subtitle: 24px;
     --font-size-description: 32px;
     --font-size-heading: 24px;
+    --font-size-heading-2: 20px;
     --font-size-subheading: 20px;
     --font-size-section-title: 40px;
     --font-size-section-title-alternative: 16px;
@@ -53,6 +54,7 @@
     --font-weight-medium: 500;
     --font-weight-bold: 700;
 
+    --line-height-1: 1;
     --line-height-1-2: 1.2;
     --line-height-1-5: 1.5;
 
@@ -105,6 +107,7 @@
         --font-size-subtitle: 40px;
         --font-size-description: 64px;
         --font-size-heading: 32px;
+        --font-size-heading-2: 32px;
         --font-size-subheading: 20px;
         --font-size-section-title: 64px;
         --font-size-section-title-alternative: 24px;
@@ -143,6 +146,12 @@
 
 /* 3. Elements */
 
+/* HACK https://stackoverflow.com/questions/24193272/overflow-xhidden-on-mobile-device-not-working,https://stackoverflow.com/questions/14270084/overflow-xhidden-doesnt-prevent-content-from-overflowing-in-mobile-browsers */
+html,
+body {
+    overflow-x: hidden;
+}
+
 body {
     --main-columns-width: calc(
         (var(--sizing-desktop-960) - var(--spacing-desktop-48) * 2) / 3
@@ -154,6 +163,9 @@ body {
         calc((100% - var(--sizing-960)) / 2),
         var(--spacing-24)
     );
+
+    /* TODO Vs https://developer.mozilla.org/en-US/docs/Web/CSS/word-break? */
+    overflow-wrap: break-word;
 
     font-family: var(--font-family-sans);
     font-size: var(--font-size-body);
@@ -213,7 +225,6 @@ h6 {
 
 h1 {
     font-size: var(--font-size-title);
-    line-height: 1;
 }
 
 h2 {
@@ -230,7 +241,7 @@ button,
 .button {
     padding-block: var(--spacing-16);
 
-    max-width: 340px;
+    width: 100%;
 
     font: var(--font-family-sans);
     font-size: var(--font-size-body);
@@ -248,8 +259,14 @@ button,
     cursor: pointer;
 }
 
-button.button-inverted,
-.button.button-inverted {
+@media (min-width: 501px) {
+    button,
+    .button {
+        max-width: 340px;
+    }
+}
+
+:is(button, .button).button-inverted {
     background-color: var(--foreground);
     color: var(--background);
 
@@ -366,7 +383,7 @@ form textarea {
     font-size: var(--font-size-date);
 }
 
-@media (min-width: 500px) {
+@media (min-width: 501px) {
     .button-group {
         display: grid;
         grid-auto-flow: column;
@@ -454,11 +471,12 @@ main > header > h1 > img {
 /* DIALOG */
 
 dialog[open] {
-    position: fixed;
-    left: 0;
     width: 100%;
-    bottom: 0;
+    height: auto;
+
     z-index: 2;
+    position: fixed;
+    bottom: 0;
 
     grid-template-columns:
         1fr calc(var(--main-columns-width) + 2 * var(--sizing-desktop-48))
@@ -606,7 +624,7 @@ dialog > form > button > img {
 
 /* RECENT WORK */
 
-@media (min-width: 500px) {
+@media (min-width: 501px) {
     #recent-work > article {
         display: grid;
     }
@@ -632,7 +650,7 @@ dialog > form > button > img {
     clip-path: inset(-10px -100vw);
 }
 
-#recent-work > article > :first-child > * + * {
+#recent-work > article > :first-child > :not(:first-child) {
     margin-top: var(--spacing-relative);
 }
 
@@ -650,7 +668,7 @@ dialog > form > button > img {
     margin-top: var(--spacing-relative);
 }
 
-#recent-work > article > :last-child > * + * {
+#recent-work > article > :last-child > :not(:first-child) {
     margin-top: var(--spacing-relative);
 }
 
@@ -668,9 +686,15 @@ dialog > form > button > img {
     }
 }
 
-/* #recent-work > article > :last-child > .button-group > :hover {
-    --foreground: var(--light);
-} */
+#recent-work > article > :last-child > .button-group > :hover {
+    --background: var(--light);
+    --foreground: var(--dark);
+
+    background-color: var(--background);
+    color: var(--foreground);
+
+    border-color: var(--background);
+}
 
 /* RECENT POSTS */
 
@@ -690,7 +714,7 @@ dialog > form > button > img {
     clip-path: inset(-100vh -100vw calc(var(--half-content-width) * -1) -100vw);
 }
 
-@media (min-width: 500px) {
+@media (min-width: 501px) {
     #recent-posts > h2 {
         /* TODO Dynamic */
         clip-path: inset(-100vh -100vw calc(456 / 2 * -1px) -100vw);
@@ -702,7 +726,7 @@ dialog > form > button > img {
     gap: var(--spacing-48);
 }
 
-@media (min-width: 500px) {
+@media (min-width: 501px) {
     #recent-posts > div {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -725,7 +749,7 @@ dialog > form > button > img {
     gap: var(--spacing-medium);
 }
 
-@media (min-width: 500px) {
+@media (min-width: 501px) {
     #recent-posts > div > article:nth-child(3) {
         grid-column: span 2;
 
@@ -751,7 +775,7 @@ dialog > form > button > img {
     padding-top: var(--spacing-24);
 }
 
-@media (min-width: 500px) {
+@media (min-width: 501px) {
     #recent-posts > div > article > div {
         padding-inline: var(--spacing-desktop-24);
     }
@@ -782,6 +806,10 @@ dialog > form > button > img {
     color: var(--mid-grey);
 }
 
+#recent-posts > div > article > div > a:hover {
+    color: var(--dark);
+}
+
 #recent-posts > button {
     margin: auto;
     margin-top: var(--spacing-desktop-96, var(--spacing-48));
@@ -803,7 +831,7 @@ dialog > form > button > img {
     --foreground: var(--light);
 
     padding-top: var(--spacing-desktop-192, var(--spacing-96));
-    padding-inline: var(--spacing-mobile-48, var(--spacing-desktop-24));
+    padding-inline: var(--spacing-mobile-24);
 
     background-color: var(--background);
     color: var(--foreground);
@@ -906,8 +934,8 @@ dialog > form > button > img {
 /* ORGANAZATIONS */
 
 #organizations {
-    padding-top: var(--spacing-desktop-192, var(--spacing-96));
-    padding-bottom: var(--spacing-mobile-96, var(--spacing-desktop-192));
+    padding-top: var(--spacing-mobile-96, var(--spacing-desktop-192));
+    padding-bottom: var(--spacing-mobile-48, var(--spacing-desktop-192));
 }
 
 #organizations > header > :not(:first-child) {
@@ -944,6 +972,16 @@ dialog > form > button > img {
     object-fit: scale-down;
 }
 
+#organizations > button {
+    margin-top: var(--spacing-mobile-48);
+
+    color: var(--mid-grey);
+}
+
+#organizations > button:hover {
+    color: var(--dark);
+}
+
 /* POST */
 
 article > header > :first-child {
@@ -970,6 +1008,8 @@ article > header > :first-child {
 
 #titles > h1 {
     font-size: var(--font-size-title);
+
+    line-height: var(--line-height-1);
 }
 
 #titles > p {
@@ -1034,9 +1074,9 @@ article > header > img {
     --background: var(--dark);
     --foreground: var(--purple);
 
-    font-size: var(--font-size-section-description);
+    padding-block: var(--spacing-mobile-96, var(--spacing-desktop-192));
 
-    padding-block: var(--spacing-desktop-192, var(--spacing-96));
+    font-size: var(--font-size-section-description);
 
     background-color: var(--background);
     color: var(--foreground);
@@ -1048,6 +1088,7 @@ article > header > img {
 #contact > h2 {
     font-family: var(--font-family-serif);
     font-size: var(--font-size-section-title);
+    font-style: italic;
 }
 
 #contact > p {
@@ -1060,14 +1101,11 @@ article > header > img {
     color: var(--lighter-grey);
 }
 
-#contact form input,
-#contact form textarea {
+#contact form :is(input, textarea) {
     border: 1px solid var(--mid-grey);
 }
 
-#contact form input,
-#contact form textarea,
-#contact form ::placeholder {
+#contact form :is(input, textarea, ::placeholder) {
     color: var(--lighter-grey);
     background: var(--darker);
 }
@@ -1103,12 +1141,15 @@ article > header > img {
 }
 
 #contact > address > a {
-    font-size: 18px;
-    text-decoration: none;
     display: flex;
     place-items: center;
+
+    font-size: 16px;
     font-family: var(--font-family-sans);
     font-style: normal;
+
+    text-decoration: none;
+
     gap: 1ch;
 }
 
@@ -1133,8 +1174,8 @@ article > header > img {
         width: 100%;
         max-width: none;
     }
+
     #contact > address {
-        font-size: 16px;
         justify-content: space-around;
     }
 
@@ -1151,9 +1192,9 @@ article > header > img {
         font-size: 40px;
     }
 
-    #contact > address > a.phone {
-        font-size: 14px;
-    }
+    /* #contact > address > a.phone {
+        font-size: 15px;
+    } */
 }
 
 /* AUTHOR */
@@ -1234,7 +1275,7 @@ article > header > img {
     padding-left: 0;
 }
 
-#comments ol > li > * + * {
+#comments ol > li > :not(:first-child) {
     margin-top: var(--spacing-24);
 }
 
