@@ -34,8 +34,7 @@
             </div>
 
             <?php
-                $post_image = get_the_post_thumbnail();
-                if ( !empty($post_image) ){ echo $post_image; }
+                if (has_post_thumbnail()) { echo get_the_post_thumbnail(); }
             ?>
         </header>
 

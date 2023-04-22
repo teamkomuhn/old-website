@@ -60,13 +60,21 @@
 
         <article>
             <?php
-                $post_image = get_the_post_thumbnail();
-                if (!empty($post_image)) { echo $post_image; }
+                if (has_post_thumbnail()) {
+                    echo get_the_post_thumbnail();
+                }
             ?>
 
             <div>
                 <h3><?= get_the_title(); ?></h3>
-                <h4><?= get_post_meta(get_the_ID(), 'subtitle', true); ?></h4>
+
+                <?php
+                    $post_subtitle = get_post_meta(get_the_ID(), 'subtitle', true);
+
+                    if (!empty($post_subtitle)): 
+                ?>
+                    <h4><?= $post_subtitle; ?></h4>
+                <?php endif ?>
 
 
                 <div class="author short">
