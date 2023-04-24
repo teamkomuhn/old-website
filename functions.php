@@ -24,7 +24,7 @@ function add_type_attribute($tag, $handle, $src) {
     return '<script type="module" src="' . esc_url($src) . '"></script>';
 }
 
-add_filter('script_loader_tag', 'add_type_attribute' , 10, 3);
+//add_filter('script_loader_tag', 'add_type_attribute' , 10, 3);
 
 function enqueue_scripts_styles() {
     wp_register_style('icomoon', get_stylesheet_directory_uri() . '/icomoon/icomoon.css');
@@ -38,6 +38,7 @@ function enqueue_scripts_styles() {
 
     wp_enqueue_style('icomoon');
     wp_enqueue_style('style');
+    
     wp_enqueue_script('show-more');
     wp_enqueue_script('device-tag');
     wp_enqueue_script('capitalize');

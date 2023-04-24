@@ -57,8 +57,7 @@
         </section>
 
         <section id="comments">
-            <?php  comments_template(); ?>
-            <ol> <?php list_comments(null); ?> </ol>
+            <?php comments_template(); ?>
         </section>
     </article>
     
