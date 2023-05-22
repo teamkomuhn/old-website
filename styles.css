@@ -164,7 +164,7 @@ body {
         var(--spacing-24)
     );
 
-    /* TODO Vs https://developer.mozilla.org/en-US/docs/Web/CSS/word-break? */
+    /* TODO https://developer.mozilla.org/en-US/docs/Web/CSS/word-break? */
     overflow-wrap: break-word;
 
     font-family: var(--font-family-sans);
