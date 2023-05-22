@@ -1,8 +1,0 @@
--   [ ] Tablet
--   [ ] Font sizes and line spacing on mobile
--   [ ] Adjust desktop sizes
--   [ ] All sides as asides
--   [ ] Page wraped in article
--   [ ] Arrow icons
--   [ ] Comment as article
--   [ ] Headers only span 2 columns
