@@ -116,7 +116,7 @@
             <img alt="Andréa" src="<?= url('/images/andrea.png'); ?>">
 
             <div>
-                <p><strong>Andréa</strong> is making a case for <strong>Rotulama</strong> a site-specific artwork experiment aiming to grasp gentrification’s impact on small local businesses and their neighborhoods. A joint-project with <a href="https://www.supereclectic.team">Super Eclectic</a>.</p>
+                <p><strong>Andréa</strong> is making a case for <strong><a href="https://www.rotulama.com">Rotulama</a></strong> a site-specific artwork experiment aiming to grasp gentrification’s impact on small local businesses and their neighborhoods. A joint-project with <a href="https://www.supereclectic.team">Super Eclectic</a>.</p>
             </div>
         </article>
 
@@ -124,7 +124,7 @@
             <img alt="Kako" src="<?= url('/images/kako.png'); ?>">
 
             <div>
-                <p><strong>Kako</strong> is organizing the next community meeting for <strong>RUA+</strong>, a participatory design exercise with the purpose of making the public spaces we inhabit more liveable and healthy.</p>
+                <p><strong>Kako</strong> is organizing the next community meeting for <strong><a href="https://www.ruamais.com">RUA+</a></strong>, a participatory design exercise with the purpose of making the public spaces we inhabit more liveable and healthy.</p>
             </div>
         </article>
 
@@ -132,7 +132,7 @@
             <img alt="Pedro" src="<?= url('/images/pedro.png'); ?>"> 
 
             <div>
-                <p><strong>Pedro</strong> is giving shape to our latest proposal — <strong>Fluency in care</strong> — an exploration of new and sometimes unexpected approaches, towards learning about what we need to be able to work well together.</p>
+                <p><strong>Pedro</strong> is giving shape to our latest proposal — <strong><a href="/fluency-in-care">Fluency in care</a></strong> — an exploration of new and sometimes unexpected approaches, towards learning about what we need to be able to work well together.</p>
             </div>
         </article>
 
@@ -140,7 +140,7 @@
             <img alt="Riikka" src="<?= url('/images/riikka.png'); ?>">
 
             <div>
-                <p><strong>Riikka</strong> is facilitating the conversations within a group of scientists that want to become a team and understand how they can take advantage of their capacities to create self-sustainability. </p>
+                <p><strong>Riikka</strong> is facilitating the conversations within a group of scientists that want to become a team and understand how they can take advantage of their capacities to create self-sustainability.</p>
             </div>
         </article>
 
@@ -148,11 +148,10 @@
             <img alt="Tita" src="<?= url('/images/tita.png'); ?>">
 
             <div>
-                <p><strong>Tita</strong> is laying out the content for <strong>Peniche - Treasure island</strong>, a book more than a book, a contribution towards this place, history, and community’s identity.</p>
+                <p><strong>Tita</strong> is laying out the content for <strong><a href="https://ilhadotesouro.pt">Peniche — Treasure island</a></strong>, a book more than a book, a contribution towards this place, history, and community’s identity.</p>
             </div>
         </article>
     </div>
-
 </section>
 
 <section id="organizations">

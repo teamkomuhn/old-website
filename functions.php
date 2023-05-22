@@ -24,31 +24,28 @@ add_post_type_support( 'page', 'excerpt' );
 remove_action('wp_head', 'wp_generator');
 
 function add_type_attribute($tag, $handle, $src) {
-    //return '<script type="module" src="' . esc_url($src) . '"></script>';
-
-    // if not your script, do nothing and return original $tag
-    if ( 'show-more' !== $handle && 'cards' !== $handle) {
+    if (!in_array($handle, ['click', 'show-more', 'cards'])) {
         return $tag;
     }
-    // change the script tag by adding type="module" and return it.
-    $tag = '<script type="module" src="' . esc_url( $src ) . '"></script>';
+
+    $tag = '<script type="module" src="' . esc_url($src) . '"></script>';
+
     return $tag;
 }
 
 add_filter('script_loader_tag', 'add_type_attribute' , 10, 3);
 
 function enqueue_scripts_styles() {
-    
     wp_enqueue_style('icomoon', url_theme('/icomoon/icomoon.css'));
     wp_enqueue_style('style', url_theme('/styles.css'));
 
+    wp_enqueue_script('click', get_template_directory_uri() . '/scripts/click.js');
     wp_enqueue_script('show-more', url_theme('/scripts/show-more.js'));
 
     if (is_page('fluency-in-care')) {
         wp_enqueue_style('fluency-in-care', url_theme('/fluency-in-care.css'));
         wp_enqueue_script('cards', url_theme('/scripts/cards.js'));
     }
-
 }
 
 add_action('wp_enqueue_scripts', 'enqueue_scripts_styles');

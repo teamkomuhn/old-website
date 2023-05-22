@@ -604,6 +604,10 @@ main > header > h1 > img {
     background-color: var(--background);
 }
 
+#recent-posts > div > article:hover {
+    cursor: pointer;
+}
+
 @media (max-width: 500px) {
     #recent-posts > div > :nth-child(n + 3) > div > p {
         display: none;
@@ -722,6 +726,10 @@ main > header > h1 > img {
     font-size: var(--font-size-section-content);
 }
 
+#about > div > article:hover {
+    cursor: pointer;
+}
+
 #about > div > article > div {
     --foreground: var(--dark);
 
@@ -731,6 +739,10 @@ main > header > h1 > img {
     background-color: var(--background);
 
     box-shadow: var(--background) 0 0 0 100vw;
+}
+
+#about > div > article > div > p > strong:not(:hover) > a {
+    text-decoration: none;
 }
 
 #about > div > :nth-child(odd) > div {
