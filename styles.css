@@ -391,6 +391,8 @@ form textarea {
     }
 
     .button-group > :first-child {
+        border-inline-end: none;
+
         border-radius: var(--border-radius) 0 0 var(--border-radius);
     }
 
@@ -403,6 +405,8 @@ form textarea {
     }
 
     .button-group > :last-child {
+        border-inline-start: none;
+
         border-radius: 0 var(--border-radius) var(--border-radius) 0;
     }
 }
