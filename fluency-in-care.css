@@ -33,6 +33,7 @@ body {
         'header-titles'
         'header-content'
         'learnings'
+        'aside'
         'making-together-header'
         'making-together'
         'lets-play-header'
@@ -144,8 +145,7 @@ main > header {
 
 /* FLUENCY IN CARE and ASIDE */
 
-#header-content,
-aside {
+#header-content {
     padding-bottom: calc(
         var(--spacing-mobile-48, var(--spacing-desktop-192)) + var(--sizing-96)
     );
@@ -165,21 +165,56 @@ aside,
 /* ASIDE */
 
 aside {
-    margin-left: 48px;
-    padding-bottom: calc(
-        var(--spacing-horizontal-large) + var(--spacing-horizontal-medium)
-    );
-
     color: var(--light-grey);
     grid-area: aside;
-    margin-right: var(--spacing-vertical-large);
-    /* HACK To align with header-content */
-    margin-top: 1em;
 }
 
 @media (max-width: 500px) {
     aside {
-        display: none !important;
+        border: var(--border-thin);
+        border-color: var(--light-grey);
+        border-radius: var(--border-radius);
+
+        margin-top: var(--spacing-mobile-96);
+
+        padding-block: var(--spacing-mobile-48);
+        padding-inline: var(--spacing-mobile-24);
+    }
+
+    aside > * {
+        color: var(--mid-grey) !important;
+    }
+
+    aside > .button {
+        margin: 0;
+        padding: 0;
+
+        border: none;
+
+        text-align: revert;
+    }
+
+    aside > .button:hover {
+        text-decoration: revert;
+    }
+
+    aside > .button::after {
+        content: ' \e90c';
+
+        font-family: icomoon;
+        font-size: 0.65em;
+    }
+}
+
+@media (min-width: 501px) {
+    aside {
+        /* HACK To align with header-content */
+        margin-top: var(--font-size-section-description);
+
+        padding-bottom: calc(
+            var(--spacing-mobile-48, var(--spacing-desktop-192)) +
+                var(--spacing-96)
+        );
     }
 }
 
@@ -190,7 +225,7 @@ aside > :not(:first-child, :nth-child(2)) {
 aside > img {
     float: left;
     height: 2lh;
-    margin-right: var(--spacing-desktop-16);
+    margin-right: var(--spacing-16);
 }
 
 aside > .button:hover {
