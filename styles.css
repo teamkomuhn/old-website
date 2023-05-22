@@ -419,8 +419,8 @@ form textarea {
 }
 
 [class*='arrow-']::after {
-    font-family: 'icomoon';
-    font-size: 0.65em;
+    font-family: icomoon;
+    font-size: 0.66em;
 }
 
 .arrow-left::after {
@@ -1186,7 +1186,7 @@ article > header > img {
 
 #comments ol > li > .comment-reply-link::after {
     content: '\e90c';
-    font-family: 'icomoon';
+    font-family: icomoon;
     font-size: 0.65em;
     border: none;
     padding-left: 8px;
