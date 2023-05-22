@@ -73,7 +73,7 @@
     --spacing-32: calc(var(--base) * 4);
     --spacing-16: calc(var(--base) * 2);
 
-    --spacing-relative: 1em;
+    --spacing-relative: 1lh;
 
     --border-thin: 1px solid currentColor;
     --border-medium: 3px solid currentColor;
