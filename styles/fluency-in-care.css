@@ -1,0 +1,526 @@
+/*
+    # Table of contents
+    
+    1. Variables
+    3. Elements
+    4. Classes
+    5. Layout
+*/
+
+/* 1. Variables */
+
+:root {
+    /** TODO Use modern colors? */
+    --light-blue: #a2e2eb;
+    --dark-blue: #4edcf1;
+    --light-green: #b4ffe4;
+    --dark-green: #51f6bb;
+    --light-yellow: #ffe8bb;
+    --dark-yellow: #fcc57a;
+    --light-red: #ffa184;
+    --dark-red: #f07b56;
+}
+
+body {
+    padding-inline: var(--spacing-24);
+
+    position: relative;
+
+    display: grid;
+
+    grid-template-areas:
+        'navigation'
+        'header-titles'
+        'header-content'
+        'learnings'
+        'aside'
+        'making-together-header'
+        'making-together'
+        'lets-play-header'
+        'lets-play'
+        'masters-of-care'
+        'contact'
+        'footer';
+
+    column-gap: var(--spacing-desktop-48);
+
+    scroll-behavior: smooth;
+}
+
+@media (min-width: 501px) {
+    body {
+        grid-template-columns:
+            1fr var(--main-columns-width) var(--main-columns-width)
+            var(--main-columns-width) 1fr;
+
+        grid-template-areas:
+            '. navigation             navigation             navigation      .'
+            '. header-titles          header-titles          .               .'
+            '. header-content         header-content         aside           .'
+            '. learnings              learnings              learnings       learnings'
+            '. making-together-header making-together-header .               .'
+            '. making-together        making-together        making-together .'
+            '. lets-play-header       lets-play-header       .               .'
+            '. lets-play              lets-play              lets-play       .'
+            '. masters-of-care        masters-of-care        masters-of-care .'
+            '. contact                contact                contact         .'
+            '. footer                 footer                 footer          .';
+    }
+}
+
+@media (min-width: 1281px) {
+    body {
+        grid-template-areas:
+            '.                    navigation             navigation             navigation      .'
+            '.                    header-titles          header-titles          .               .'
+            '.                    header-content         header-content         aside           aside'
+            'learnings-side       learnings              learnings              learnings       learnings'
+            '.                    making-together-header making-together-header .               .'
+            'making-together-side making-together        making-together        making-together making-together'
+            'lets-play-side       lets-play-header       lets-play-header       .               .'
+            '.                    lets-play              lets-play              lets-play       .'
+            '.                    masters-of-care        masters-of-care        masters-of-care .'
+            '.                    contact                contact                contact         .'
+            '.                    footer                 footer                 footer          .';
+    }
+}
+
+/* MAIN */
+
+main {
+    display: contents;
+}
+
+/* HEADER */
+
+body > header {
+    grid-area: navigation;
+}
+
+/* FLUENCY IN CARE */
+
+main > header {
+    display: contents;
+}
+
+#header-titles {
+    grid-area: header-titles;
+}
+
+#header-titles > h1 {
+    margin-bottom: var(--spacing-mobile-48, var(--spacing-desktop-192));
+}
+
+#header-titles > h1 > img {
+    width: 100%;
+}
+
+#header-titles > h2,
+#header-content {
+    --background: var(--dark);
+    --foreground: var(--light);
+
+    background-color: var(--background);
+    color: var(--foreground);
+
+    box-shadow: var(--background) 0 0 0 100vw;
+    clip-path: inset(-1px -100vw);
+}
+
+#header-titles > h2 {
+    padding-top: var(--spacing-mobile-48, var(--spacing-desktop-192));
+}
+
+#header-content {
+    font-size: var(--font-size-section-description);
+
+    grid-area: header-content;
+
+    z-index: -1;
+}
+
+#header-content > * {
+    margin-top: var(--spacing-relative);
+}
+
+/* FLUENCY IN CARE and ASIDE */
+
+#header-content {
+    padding-bottom: calc(
+        var(--spacing-mobile-48, var(--spacing-desktop-192)) + var(--sizing-96)
+    );
+}
+
+/* ASIDE and SIDE */
+
+aside,
+.side {
+    margin-inline: var(--spacing-desktop-48);
+
+    max-width: 400px;
+
+    font-size: var(--font-size-body);
+}
+
+/* ASIDE */
+
+aside {
+    color: var(--light-grey);
+    grid-area: aside;
+}
+
+@media (max-width: 500px) {
+    aside {
+        border: var(--border-thin);
+        border-color: var(--light-grey);
+        border-radius: var(--border-radius);
+
+        margin-top: var(--spacing-mobile-96);
+
+        padding-block: var(--spacing-mobile-48);
+        padding-inline: var(--spacing-mobile-24);
+    }
+
+    aside > * {
+        color: var(--mid-grey) !important;
+    }
+
+    aside > .button {
+        margin: 0;
+        padding: 0;
+
+        border: none;
+
+        text-align: revert;
+    }
+
+    aside > .button:hover {
+        text-decoration: revert;
+    }
+
+    aside > .button::after {
+        content: ' \e90c';
+
+        font-family: icomoon;
+        font-size: 0.65em;
+    }
+}
+
+@media (min-width: 501px) {
+    aside {
+        /* HACK To align with header-content */
+        margin-top: var(--font-size-section-description);
+
+        padding-bottom: calc(
+            var(--spacing-mobile-48, var(--spacing-desktop-192)) +
+                var(--spacing-96)
+        );
+    }
+}
+
+aside > :not(:first-child, :nth-child(2)) {
+    margin-top: var(--spacing-relative);
+}
+
+aside > img {
+    float: left;
+    height: 2lh;
+    margin-right: var(--spacing-16);
+}
+
+aside > .button:hover {
+    color: var(--light);
+}
+
+/* SIDE */
+
+.side {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+
+    color: var(--dark-grey);
+}
+
+@media (max-width: 1280px) {
+    .side {
+        display: none !important;
+    }
+}
+
+.side > :is(h1, h2, h3, h4, h5, h6) {
+    order: 1;
+
+    font-family: var(--font-family-sans);
+    font-size: var(--font-size-section-title-alternative);
+    font-style: normal;
+}
+
+.side > :not(:first-child) {
+    margin-bottom: var(--spacing-relative);
+}
+
+/* LEARNINGS */
+
+#learnings {
+    --color-selected: var(--dark-green);
+    --color-hover: var(--light-green);
+    --color-regular: var(--light-yellow);
+
+    display: contents;
+}
+
+#learnings > header.side {
+    grid-area: learnings-side;
+
+    margin-top: var(--spacing-desktop-192);
+}
+
+#learnings > ul {
+    grid-area: learnings;
+
+    list-style-type: none;
+
+    margin-top: calc(var(--sizing-96) * -1);
+    margin-right: calc(var(--spacing-24) * -1);
+}
+
+#learnings > ul > li {
+    display: flex;
+    gap: var(--spacing-24);
+
+    padding-block: var(--spacing-24);
+
+    font-size: var(--font-size-heading-2);
+    font-weight: var(--font-weight-bold);
+}
+
+@media (min-width: 501px) {
+    #learnings > ul > li {
+        padding-right: calc(100vw - 100% + (2 * var(--spacing-desktop-24)));
+    }
+}
+
+#learnings > ul > li > img {
+    translate: 0 calc((1lh - 100%) / 2);
+
+    width: 1lh;
+    height: 1lh;
+}
+
+/* MAKING TOGETHER */
+
+#making-together {
+    --color-selected: var(--dark-blue);
+    --color-hover: var(--light-blue);
+    --color-regular: var(--light-yellow);
+
+    display: contents;
+}
+
+#making-together > header {
+    grid-area: making-together-header;
+
+    padding-top: var(--spacing-mobile-96, var(--spacing-desktop-192));
+}
+
+#making-together > header > :not(:first-child, .side) {
+    margin-top: var(--spacing-relative);
+}
+
+#making-together > header > .side {
+    grid-area: making-together-side;
+}
+
+#making-together > div {
+    grid-area: making-together;
+
+    padding-top: var(--spacing-mobile-48, var(--spacing-desktop-96));
+    padding-bottom: var(--spacing-mobile-96, var(--spacing-desktop-192));
+}
+
+#making-together > div > div {
+    display: grid;
+
+    gap: var(--spacing-48);
+}
+
+@media (min-width: 501px) {
+    #making-together > div > div {
+        grid-template-columns: repeat(
+            auto-fill,
+            minmax(var(--main-columns-width), var(--main-columns-width))
+        );
+    }
+}
+
+#making-together > div > button {
+    display: block;
+
+    margin-top: var(--spacing-mobile-48, var(--spacing-desktop-96));
+
+    color: var(--mid-grey);
+}
+
+@media (min-width: 501px) {
+    #making-together > div > button {
+        margin-left: calc((var(--sizing-desktop-960) - 340px) / 2);
+    }
+}
+
+#making-together > div > button:hover {
+    color: var(--dark);
+}
+
+/* LET'S PLAY */
+
+#lets-play {
+    --color-selected: var(--dark-red);
+    --color-hover: var(--light-red);
+    --color-regular: var(--dark-yellow);
+
+    display: contents;
+}
+
+#lets-play > header {
+    --background: var(--dark);
+    --foreground: var(--light);
+
+    grid-area: lets-play-header;
+
+    padding-block: var(--spacing-mobile-48, var(--spacing-desktop-96));
+    padding-bottom: calc(
+        var(--spacing-mobile-48, var(--spacing-desktop-96)) + var(--sizing-96)
+    );
+
+    background-color: var(--background);
+    color: var(--foreground);
+
+    box-shadow: var(--background) 0 0 0 100vw;
+    clip-path: inset(0 -100vw);
+}
+
+#lets-play > header > :not(:first-child, h2, .side) {
+    margin-top: var(--spacing-relative);
+}
+
+#lets-play > header > img {
+    height: var(--sizing-mobile-96, var(--sizing-desktop-128));
+}
+
+#lets-play > header > h2 {
+    margin-top: var(--spacing-16);
+}
+
+#lets-play > header > .side {
+    grid-area: lets-play-side;
+
+    z-index: 1;
+
+    top: auto;
+    bottom: 0;
+
+    margin-bottom: var(--spacing-desktop-96);
+
+    color: var(--light-grey);
+}
+
+@media (min-width: 501px) {
+    #lets-play > div {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+#lets-play > div {
+    grid-area: lets-play;
+
+    z-index: 1;
+
+    display: grid;
+
+    margin-top: calc(var(--sizing-96) * -1);
+
+    gap: var(--spacing-48);
+}
+
+#lets-play > div > div {
+    display: contents;
+}
+
+@media (min-width: 501px) {
+    #lets-play > div > .button {
+        grid-column: -2;
+    }
+}
+
+#lets-play > div > .button {
+    margin-top: var(--spacing-desktop-48);
+
+    background-color: var(--color-hover);
+}
+
+#lets-play > div > .button:hover {
+    background-color: var(--color-selected);
+}
+
+/* MASTERS OF CARE */
+
+#masters-of-care {
+    grid-area: masters-of-care;
+
+    padding-block: var(--spacing-mobile-96, var(--spacing-desktop-192));
+}
+
+@media (min-width: 501px) {
+    #masters-of-care > header {
+        width: var(--two-thirds);
+    }
+}
+
+#masters-of-care > header > :not(:first-child) {
+    margin-top: var(--spacing-relative);
+}
+
+#masters-of-care > ul {
+    margin-top: var(--spacing-mobile-48, var(--spacing-desktop-96));
+
+    display: grid;
+    column-gap: var(--spacing-desktop-48);
+    row-gap: var(--spacing-mobile-48, var(--spacing-desktop-96));
+}
+
+@media (min-width: 501px) {
+    #masters-of-care > ul {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+#masters-of-care > ul > li {
+    display: flex;
+    gap: var(--spacing-mobile-24, var(--spacing-desktop-48));
+}
+
+#masters-of-care > ul > li > img {
+    height: fit-content;
+}
+
+#masters-of-care > ul > li:nth-child(3) > img {
+    margin-left: -17px;
+    margin-right: -13px;
+}
+
+/* CONTACT */
+
+#contact {
+    grid-area: contact;
+}
+
+/* FOOTER */
+
+#footer {
+    grid-area: footer;
+}

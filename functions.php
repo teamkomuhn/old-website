@@ -37,13 +37,13 @@ add_filter('script_loader_tag', 'add_type_attribute' , 10, 3);
 
 function enqueue_scripts_styles() {
     wp_enqueue_style('icomoon', url_theme('/icomoon/icomoon.css'));
-    wp_enqueue_style('style', url_theme('/styles.css'));
+    wp_enqueue_style('style', url_theme('/styles/main.css'));
 
     wp_enqueue_script('click', get_template_directory_uri() . '/scripts/click.js');
     wp_enqueue_script('show-more', url_theme('/scripts/show-more.js'));
 
     if (is_page('fluency-in-care')) {
-        wp_enqueue_style('fluency-in-care', url_theme('/fluency-in-care.css'));
+        wp_enqueue_style('fluency-in-care', url_theme('/styles/fluency-in-care.css'));
         wp_enqueue_script('cards', url_theme('/scripts/cards.js'));
     }
 }
