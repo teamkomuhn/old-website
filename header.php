@@ -5,13 +5,21 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
         
-        <title><?= is_front_page() ? get_bloginfo( 'name' ) . " - " . strip_tags(get_bloginfo( 'description' )) : get_the_title() . " - " . get_bloginfo( 'name' ); ?></title>
+        <title><?= is_front_page()
+        	? get_bloginfo('name') .
+        		' - ' .
+        		strip_tags(get_bloginfo('description'))
+        	: get_the_title() . ' - ' . get_bloginfo('name') ?></title>
         <?php openGraph(); ?>
 
-        <link rel="icon" href="<?= get_template_directory_uri() . "/images/favicon.ico"; ?>" sizes="any"><!-- 32×32 -->
-        <link rel="icon" href="<?= get_template_directory_uri() . "/images/logo-ko-circle-purple.svg"; ?>" type="image/svg+xml">
-        <link rel="apple-touch-icon" href="<?= get_template_directory_uri() . "/images/favicon-apple-touch-icon.png" ?>"><!-- 180×180 -->
-        <link rel="manifest" href="<?= get_template_directory_uri() . "/images/site.webmanifest"; ?>">
+        <link rel="icon" href="<?= get_template_directory_uri() .
+        	'/images/favicon.ico' ?>" sizes="any"><!-- 32×32 -->
+        <link rel="icon" href="<?= get_template_directory_uri() .
+        	'/images/logo-ko-circle-purple.svg' ?>" type="image/svg+xml">
+        <link rel="apple-touch-icon" href="<?= get_template_directory_uri() .
+        	'/images/favicon-apple-touch-icon.png' ?>"><!-- 180×180 -->
+        <link rel="manifest" href="<?= get_template_directory_uri() .
+        	'/images/site.webmanifest' ?>">
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,10 +34,12 @@
             <header>
                 <nav>
                     <a href="/" title="Komuhn">
-                        <img src="<?= url('/images/logo-ko-circle-purple.svg'); ?>" alt="Komuhn">
+                        <img src="<?= url(
+                        	'/images/logo-ko-circle-purple.svg'
+                        ) ?>" alt="Komuhn">
                     </a>
                 </nav>
             </header>
-        <?php endif ?>
+        <?php endif; ?>
 
         <main>

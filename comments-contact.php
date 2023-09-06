@@ -1,2 +1,2 @@
 <?php
-    comments_form('', 'Send');
+comments_form('', 'Send');

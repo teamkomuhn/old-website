@@ -1,7 +1,8 @@
 {
-    "tabWidth": 4,
-    "tabs": true,
-    "singleQuote": true,
-    "quoteProps": "consistent",
-    "trailingComma": "all"
+	"useTabs": true,
+	"singleQuote": true,
+	"quoteProps": "consistent",
+	"phpVersion": "7.1",
+	"plugins": ["@prettier/plugin-php"],
+	"proseWrap": "never"
 }
