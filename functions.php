@@ -99,11 +99,11 @@ function limit_characters($text, $limit) {
     return $text;
 }
 
-// https://developer.wordpress.org/reference/functions/comment_form/
-function comments_form($title_reply, $label_submit, $custom_fields, $post) {
-    // NOTE Fields don't seem to require names except for cookies
+/** https://developer.wordpress.org/reference/functions/comment_form/ */
+function comments_form(string $title_reply, string $label_submit) {
+    // NOTE only the `cookies` field seems to be needed
     comment_form([
-        'fields' => array_merge([
+        'fields' => [
             'author' => '<input
     placeholder="Name*"
 
@@ -144,7 +144,7 @@ function comments_form($title_reply, $label_submit, $custom_fields, $post) {
 />',
 
             'cookies' => '',
-        ], $custom_fields),
+        ],
 
         'comment_field' => '<textarea
     placeholder="Your comment*"
@@ -185,70 +185,5 @@ function comments_form($title_reply, $label_submit, $custom_fields, $post) {
         'submit_field' => '%1$s %2$s',
 
         // 'format'
-    ], $post);
-}
-
-// https://developer.wordpress.org/reference/functions/wp_list_comments/
-function list_comments($comments) {
-    wp_list_comments([
-        // 'walker'
-        // 'max_depth'
-
-        'style' => 'ol',
-
-        'callback' => function ( $comment, $depth, $args ) {
-            ?>
-
-            <li>
-                <header>
-                    <?php 
-                        $userID = $comment->user_id;
-                        $user = get_userdata($userID);
-                        $first_name = $user->user_firstname;
-                        $last_name = $user->user_lastname;
-                    ?>
-                    
-                    <div class="author">
-                        <img aria-hidden="true" src="<?= get_avatar_url( $userID ); ?>" />
-
-                        <div>
-                            <address><?= $first_name . ' '. $last_name; ?></address>
-
-                            <?php $time = strtotime($comment->comment_date); ?>
-                            <time datetime='<?= date('c', $time); ?>'><?= date('F j, Y', $time); ?></time>
-                        </div>
-                    </div>
-                </header>
-                <div><?= apply_filters('the_content', $comment->comment_content); ?></div>
-
-                <!-- https://developer.wordpress.org/reference/functions/get_comment_reply_link/ -->
-                <?= get_comment_reply_link([
-                    // 'add_below', this has something to do with moving the form below the reply
-
-                    'respond_id' => '',
-                    'reply_text' => 'Reply',
-
-                    // 'login_text'
-
-                    'max_depth'  => get_option('thread_comments_depth'),
-                    'depth'      => 1
-                ]); ?>
-            <?php
-        },
-        
-        'end-callback' => function () {
-            echo '</li>';
-        },
-
-        // 'type'
-        // 'page'
-        // 'per_page'
-        // 'avatar_size'
-        // 'reverse_top_level'
-        // 'reverse_children'
-        // 'reverse_top_level'
-        // 'format'
-        // 'short_ping'
-        // 'echo'
-    ], $comments);
+    ]);
 }

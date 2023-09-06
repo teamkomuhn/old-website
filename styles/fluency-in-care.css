@@ -334,6 +334,8 @@ aside > .button:hover {
 
 #making-together > header > .side {
     grid-area: making-together-side;
+
+    padding-top: var(--spacing-desktop-96);
 }
 
 #making-together > div {

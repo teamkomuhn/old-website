@@ -56,9 +56,7 @@
             </div>
         </section>
 
-        <section id="comments">
-            <?php comments_template(); ?>
-        </section>
+        <?php comments_template(); ?>
     </article>
     
 <?php endwhile; ?>

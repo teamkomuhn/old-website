@@ -61,6 +61,7 @@
     --base: 8px;
 
     --sizing-960: calc(var(--base) * 120);
+    --sizing-256: calc(var(--base) * 32);
     --sizing-128: calc(var(--base) * 16);
     --sizing-96: calc(var(--base) * 12);
     --sizing-64: calc(var(--base) * 8);
@@ -280,30 +281,27 @@ a {
 }
 
 form {
-    margin: var(--spacing-48) 0;
     font-family: var(--font-family-sans);
     font-size: var(--font-size-body);
+}
+
+form ::placeholder {
     color: var(--dark-grey);
 }
 
-form::placeholder {
-    color: var(--dark-grey);
-}
-
-form input,
-form textarea {
-    box-sizing: border-box;
-    width: 100%;
+form :is(input, textarea) {
     padding: var(--spacing-24);
-    margin-bottom: var(--spacing-24);
-    border: 1px solid var(--mid-grey);
-    border-radius: 6px;
+    width: 100%;
+    border: var(--border-thin);
+    border-color: var(--dark);
+    border-radius: var(--border-radius);
     font-family: var(--font-family-sans);
     font-size: var(--font-size-body);
 }
 
 form textarea {
     resize: vertical;
+    height: var(--sizing-256);
 }
 
 /* 3. Classes */
@@ -371,8 +369,6 @@ form textarea {
     border-radius: 50%;
 }
 
-/* TODO Header author, comment author */
-
 .author > div > address {
     font-size: var(--font-size-name);
     font-style: normal;
@@ -382,6 +378,8 @@ form textarea {
 .author > div > time {
     font-size: var(--font-size-date);
 }
+
+/* BUTTON GROUP */
 
 @media (min-width: 501px) {
     .button-group {
@@ -421,6 +419,8 @@ form textarea {
 [class*='arrow-']::after {
     font-family: icomoon;
     font-size: 0.66em;
+    /* translate: 0 -5px; */
+    /* display: inline-block; */
 }
 
 .arrow-left::after {
@@ -868,14 +868,18 @@ main > header > h1 > img {
 
 /* POST */
 
-article > header > :first-child {
+main > article {
+    padding-bottom: var(--spacing-mobile-96, var(--spacing-desktop-192));
+}
+
+main > article > header > :first-child {
     grid-template-columns: repeat(3, 1fr);
     grid-template-areas: 'titles titles author';
     gap: var(--spacing-48);
 }
 
 @media (min-width: 501px) {
-    article > header > :first-child {
+    main > article > header > :first-child {
         display: grid;
     }
 }
@@ -976,7 +980,7 @@ article > header > img {
 }
 
 #contact > p {
-    margin-top: var(--spacing-relative);
+    margin-top: var(--spacing-mobile-24, var(--spacing-desktop-48));
     color: var(--light);
 }
 
@@ -997,6 +1001,14 @@ article > header > img {
 #contact form button {
     box-sizing: border-box;
     width: 100%;
+}
+
+#contact > #respond {
+    margin-top: var(--spacing-48);
+}
+
+#contact > #respond > form > :not(:first-child) {
+    margin-top: var(--spacing-24);
 }
 
 #contact > address {
@@ -1124,64 +1136,74 @@ article > header > img {
 
 /* COMMENTS */
 
-#comments h2 {
+#comments > #respond > h2 {
     font-family: var(--font-family-serif);
     font-style: italic;
 }
 
+#comments > h2 {
+    font-size: var(--font-size-section-title-alternative);
+    margin-top: var(--spacing-desktop-96, var(--spacing-mobile-48));
+}
+
+#comments > ol {
+    margin-top: var(--spacing-desktop-96, var(--spacing-mobile-48));
+    padding-inline: var(--spacing-desktop-48);
+}
+
 #comments ol {
-    padding-left: var(--spacing-48);
-    margin-bottom: var(--spacing-48);
     list-style-type: none;
 }
 
-#comments ol ol {
-    padding-left: var(--spacing-96);
+#comments > ol ol {
+    margin-left: var(--spacing-desktop-96);
+    padding-left: var(--spacing-24);
+
+    border-left: var(--border-thick);
 }
 
-#comments ol ol ol {
-    padding-left: 0;
-}
-
-#comments ol > li {
+#comments ol > li:not(:first-child) {
     margin-top: var(--spacing-48);
 }
 
-#comments > ol > li ol > li {
-    margin-left: var(--spacing-large);
-    border-left: 4px solid var(--black);
+#comments > ol ol {
+    margin-left: var(--spacing-desktop-96);
     padding-left: var(--spacing-24);
+
+    border-left: var(--border-thick);
+}
+
+#comments > ol > li ol {
     margin-top: var(--spacing-24);
 }
 
-#comments > ol > li ol > li ol > li {
-    border-left: 0;
-    padding-left: 0;
+#comments > ol > li > ol ol {
+    margin-left: var(--spacing-mobile-24, var(--sizing-desktop-96));
 }
 
-#comments ol > li > :not(:first-child) {
-    margin-top: var(--spacing-24);
+/* COMMENT content */
+
+#comments ol > li > *:not(:first-child) {
+    margin-top: var(--spacing-relative);
 }
 
 #comments ol > li > header {
     display: flex;
     align-items: center;
-    /* TODO */
-    gap: 16px;
+    gap: var(--spacing-desktop-16, var(--spacing-mobile-24));
 }
 
-#comments ol > li > div > p {
+#comments ol > li > p {
     font-size: var(--font-size-body);
-    margin-top: 1em;
 }
 
 #comments ol > li > .comment-reply-link {
     font-size: var(--font-size-body);
     border: none;
-    padding: 0;
     color: var(--mid-grey);
     text-decoration: none;
     display: block;
+    font-weight: var(--font-weight-medium);
 }
 
 #comments ol > li > .comment-reply-link::after {
@@ -1194,14 +1216,27 @@ article > header > img {
     text-decoration: none;
 }
 
-#comments .author div {
+/* NOTE make layout horizontal */
+@media (min-width: 501px) {
+    #comments ol > li > header > div {
+        gap: var(--spacing-desktop-16);
+    }
+
+    #comments ol > li > header > div {
+        display: contents;
+    }
+}
+
+/*////////////////////////////////////*/
+
+#comments > #respond {
     display: contents;
 }
 
 #comments > #respond > form {
     display: grid;
 
-    gap: var(--spacing-small);
+    gap: var(--spacing-24);
 
     grid-template-columns: repeat(3, 1fr);
 }
@@ -1210,6 +1245,9 @@ article > header > img {
     grid-column: span 3;
 }
 
-#comments > #respond > form > button {
-    grid-column: 3;
+@media (min-width: 501px) {
+    #comments > #respond > form > button {
+        margin-top: var(--spacing-desktop-16);
+        grid-column: 3;
+    }
 }
