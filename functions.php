@@ -44,6 +44,7 @@ function register_post_types() {
 			'author',
 			'excerpt',
 			'page-attributes',
+			'thumbnail',
 			'custom-fields',
 		],
 

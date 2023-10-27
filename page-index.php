@@ -36,18 +36,17 @@
 
 </section>
 
-<?php //GET POSTS
-	$args = array(
-		'post_type'         => array('post'),
-		'category_name'     => 'post',
-		'post_status'       => array('publish'),
-		'posts_per_page'    => -1,
-		'order'             => 'DESC',
-		'orderby'           => 'date',
-	);
+<?php 
+	var_dump(get_category_by_slug('log'));
 
-	$ko_posts = new WP_Query( $args );
-	if ( $ko_posts -> have_posts() ):
+	$the_query = new WP_Query([
+		'category__not_in' => [ get_category_by_slug('log')->term_id ],
+		'post_type' => ['post', 'thread'],
+		'post_status' => 'publish',
+		'posts_per_page'    => -1,
+	]);
+
+	if ($the_query -> have_posts()):
 ?>
 
 <section id="recent-posts">
@@ -55,7 +54,7 @@
 
 	<div data-rows-mobile="4" data-items-desktop="5">
 		<?php
-			while ( $ko_posts -> have_posts() ): $ko_posts -> the_post();
+			while ($the_query -> have_posts()): $the_query -> the_post();
 		?>
 
 		<article>
