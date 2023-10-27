@@ -1,5 +1,61 @@
 <?php
 
+function register_post_types() {
+	// TOOD archive and feed
+	register_post_type('thread', [
+		'labels' => [
+			'name' => 'Threads',
+			'singular_name' => 'Thread',
+			'add_new_item' => 'Add New Thread',
+			'edit_item' => 'Edit Thread',
+			'new_item' => 'New Thread',
+			'view_item' => 'View Thread',
+			'view_items' => 'View Threads',
+			'search_items' => 'Search Threads',
+			'not_found' => 'No threads',
+			'not_found_in_trash' => 'No threads found in Trash',
+			'all_items' => 'All Threads',
+			'archives' => 'Thread Archives',
+			'attributes ' => 'Thread Attributes',
+			'insert_into_item ' => 'Insert into thread',
+			'uploaded_to_this_item' => 'Uploaded to this thread',
+			'filter_items_list' => 'Filter threads list',
+			'items_list_navigation' => 'Threads list navigation',
+			'items_list' => 'Threads list',
+			'item_published' => 'Thread published',
+			'item_published_privately' => 'Thread published privately',
+			'item_reverted_to_draft' => 'Thread reverted to draft',
+			'item_trashed' => 'Thread trashed',
+			'item_scheduled' => 'Thread scheduled',
+			'item_updated' => 'Thread updated',
+			'item_link' => 'Thread Link',
+			'item_link_description ' => 'A link to a thread.',
+		],
+
+		'description' => 'A thread',
+		'public' => true,
+		'menu_icon' => 'dashicons-format-chat',
+		
+		'supports' => [
+			'title',
+			'editor',
+			'comments',
+			'revisions',
+			'author',
+			'excerpt',
+			'page-attributes',
+			'custom-fields',
+		],
+
+		'rewrite' => [
+			'slug' => 'threads',
+			'with_front' => false,
+		]
+	]);
+}
+
+add_action('init', 'register_post_types');
+
 function url(string $url)
 {
 	//wp_make_link_relative(get_template_directory_uri()) . $url is returning the theme folder wordpress/ twice online (can't replicate it locally)
@@ -201,4 +257,54 @@ function comments_form(string $title_reply, string $label_submit)
 
 		// 'format'
 	]);
+}
+
+// https://developer.wordpress.org/reference/functions/wp_list_comments/
+function list_comments() {
+	wp_list_comments([
+		'style' => 'ol',
+
+		'callback' => function ($comment) {
+?>
+
+<li>
+	<article>
+		<header class='author'>
+			<?php
+				$user_id = $comment->user_id;
+				$user = get_userdata($user_id);
+
+				$name = $user
+					? "{$user->display_name}"
+					: get_comment_author();
+			?>
+
+			<img aria-hidden="true" src="<?= get_avatar_url($user_id) ?>" />
+
+			<div>
+				<!-- TODO ca only be used inside `article` -->
+				<address><?= $name ?></address>
+
+				<?php $time = strtotime($comment->comment_date); ?>
+				<time datetime='<?= date('c', $time) ?>'><?= date('F j, Y', $time) ?></time>
+			</div>
+		</header>
+
+		<?= apply_filters('the_content', $comment->comment_content) ?>
+
+		<!-- https://developer.wordpress.org/reference/functions/get_comment_reply_link/ -->
+		<?= get_comment_reply_link([
+			'respond_id' => '',
+			'reply_text' => 'Reply',
+			'max_depth' => get_option('thread_comments_depth'),
+			'depth' => 1,
+		]) ?>
+
+<?php
+		},
+
+		'end-callback' => function () {
+			echo '</article></li>';
+		},
+  	]);
 }

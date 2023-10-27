@@ -29,7 +29,7 @@
         <?php wp_head(); ?>
     </head>
     
-    <body>
+    <body <?php if (is_singular('thread')):?> class="thread" <?php endif; ?>>
         <?php if (!is_front_page()): ?>
             <header>
                 <nav>

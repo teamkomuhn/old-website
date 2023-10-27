@@ -143,11 +143,17 @@
 	padding: 0;
 
 	transition: all 0.1s;
+
+	color: currentColor;
 }
 
 /* 3. Elements */
 
-/* HACK https://stackoverflow.com/questions/24193272/overflow-xhidden-on-mobile-device-not-working,https://stackoverflow.com/questions/14270084/overflow-xhidden-doesnt-prevent-content-from-overflowing-in-mobile-browsers */
+/*
+	HACK
+	https://stackoverflow.com/questions/24193272/overflow-xhidden-on-mobile-device-not-working
+	https://stackoverflow.com/questions/14270084/overflow-xhidden-doesnt-prevent-content-from-overflowing-in-mobile-browsers
+*/
 html,
 body {
 	overflow-x: hidden;
@@ -272,9 +278,9 @@ button,
 	border-radius: var(--border-radius);
 }
 
-p,
-a {
-	color: currentColor;
+time {
+	font-size: var(--font-size-date);
+	font-style: normal;
 }
 
 form {
@@ -282,23 +288,26 @@ form {
 	font-size: var(--font-size-body);
 }
 
-form ::placeholder {
+::placeholder {
 	color: var(--dark-grey);
 }
 
-form :is(input, textarea) {
-	padding: var(--spacing-24);
-	width: 100%;
+:is(input, textarea) {
+	padding-block: var(--spacing-16);
+	padding-inline: var(--spacing-24);
+
 	border: var(--border-thin);
-	border-color: var(--dark);
 	border-radius: var(--border-radius);
+
 	font-family: var(--font-family-sans);
 	font-size: var(--font-size-body);
+
+	background: none;
 }
 
-form textarea {
-	resize: vertical;
+textarea {
 	height: var(--sizing-256);
+	resize: vertical;
 }
 
 /* 3. Classes */
@@ -361,19 +370,16 @@ form textarea {
 }
 
 .author > img {
-	height: 48px;
+	width: var(--sizing-48);
+	height: auto;
 
 	border-radius: 50%;
 }
 
-.author > div > address {
+.author address {
 	font-size: var(--font-size-name);
 	font-style: normal;
 	font-weight: var(--font-weight-bold);
-}
-
-.author > div > time {
-	font-size: var(--font-size-date);
 }
 
 /* BUTTON GROUP */
@@ -869,59 +875,57 @@ main > article {
 	padding-bottom: var(--spacing-mobile-96, var(--spacing-desktop-192));
 }
 
-main > article > header > :first-child {
-	grid-template-columns: repeat(3, 1fr);
-	grid-template-areas: 'titles titles author';
-	gap: var(--spacing-48);
-}
-
 @media (min-width: 501px) {
-	main > article > header > :first-child {
+	main > article > header {
 		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-areas:
+			'title    title    author-title-only '
+			'subtitle subtitle author-subtitle'
+			'image    image    image';
+		column-gap: var(--spacing-48);
 	}
 }
 
-#titles {
-	grid-area: titles;
+main > article > header > hgroup {
+	display: contents;
+}
+
+main > article > header h1 {
+	grid-area: title;
 
 	margin-top: var(--spacing-large);
-}
-
-#titles > :not(:first-child) {
-	margin-top: var(--spacing-relative);
-}
-
-#titles > h1 {
 	font-size: var(--font-size-title);
-
+	
 	line-height: var(--line-height-1);
 }
 
-#titles > p {
+main > article > header > hgroup > p {
+	grid-area: subtitle;
+	margin-top: var(--spacing-relative);
 	font-size: var(--font-size-subtitle);
-}
-
-article > header > div > div > p {
 	line-height: var(--line-height-heading);
 }
 
-article > header > div > .author {
-	grid-area: author;
+main > article > header > .author {
+	grid-area: author-title-only;
+}
 
-	align-self: end;
+main > article > header > hgroup + .author {
+	grid-area: author-subtitle;
 }
 
 @media (max-width: 500px) {
-	article > header > div > .author {
+	article > header > .author {
 		display: none;
 	}
 }
 
-article > header > div > .author > img {
-	height: 64px;
+main > article > header > .author > img {
+	width: 64px;
 }
 
-article > header > img {
+main > article > header > img {
 	grid-area: image;
 
 	margin-top: var(--spacing-desktop-96, var(--spacing-48));
@@ -929,16 +933,87 @@ article > header > img {
 	height: auto;
 
 	background-color: var(--dark);
+}
 
-	/* box-shadow: var(--foreground) 0 0 0 100vw;
-    clip-path: inset(0 -100vw); */
+/* THREAD */
+
+.thread {
+	--background: var(--dark);
+	--foreground: var(--light);
+}
+
+.thread .comment-reply-link {
+	color: var(--lighter-grey) !important;
+}
+
+.thread ::placeholder {
+	color: var(--lighter-grey) !important;
+}
+
+.thread #comments > #respond {
+	margin-top: var(--spacing-mobile-48, var(--spacing-desktop-96));
+}
+
+.thread #comments > #respond > form {
+	margin-top: var(--spacing-mobile-48, var(--spacing-desktop-96));
+}
+
+.thread > main > article > header div {
+	gap: var(--spacing-16);
+	align-items: center;
+}
+
+.thread > main > article > header > div {
+	margin-top: var(--spacing-mobile-24, var(--spacing-desktop-48));
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+@media (min-width: 501px) {
+	.thread > main > article > header > div {
+		flex-direction: unset;
+		align-items: center;
+	}
+
+	.thread > main > article > header > div div {
+		display: contents;
+	}
+
+	.thread > main > article > header > div > :last-child {
+		margin-left: var(--spacing-48);
+	}
+}
+
+.thread > main > article > header > div > b {
+	font-size: var(--font-size-post);
+}
+
+.thread > main > article > header > div > div {
+	display: flex;
+}
+
+.thread > main > article > header > div > div > img {
+	width: var(--sizing-48);
+
+	border-radius: 50%;
+}
+
+@media (min-width: 501px) {
+	.thread > main > article > header {
+		display: grid;
+		grid-template-columns: repeat(1, 1fr);
+		grid-template-areas:
+			'title'
+			'author-title-only';
+		column-gap: var(--spacing-48);
+	}
 }
 
 /* CONTENT */
 
 #content {
-	padding-top: var(--spacing-mobile-48, var(--spacing-desktop-96));
-	padding-bottom: var(--spacing-mobile-48, var(--spacing-desktop-192));
+	margin-top: var(--spacing-mobile-48, var(--spacing-desktop-96));
 
 	font-size: var(--font-size-post);
 }
@@ -1039,11 +1114,15 @@ article > header > img {
 
 	font-size: 16px;
 	font-family: var(--font-family-sans);
-	font-style: normal;
+	
 
 	text-decoration: none;
 
 	gap: 1ch;
+}
+
+address {
+	font-style: normal;
 }
 
 @media (min-width: 501px) {
@@ -1092,12 +1171,12 @@ article > header > img {
 
 /* AUTHOR */
 
-#author {
-	padding-bottom: var(--spacing-mobile-96);
+section#author {
+	margin-top: var(--spacing-mobile-48);
 }
 
 @media (min-width: 501px) {
-	#author {
+	section#author {
 		display: none;
 	}
 }
@@ -1133,14 +1212,13 @@ article > header > img {
 
 /* COMMENTS */
 
-#comments > #respond > h2 {
-	font-family: var(--font-family-serif);
-	font-style: italic;
-}
-
 #comments > h2 {
 	font-size: var(--font-size-section-title-alternative);
 	margin-top: var(--spacing-desktop-96, var(--spacing-mobile-48));
+}
+
+#comments ol {
+	list-style-type: none;
 }
 
 #comments > ol {
@@ -1148,11 +1226,8 @@ article > header > img {
 	padding-inline: var(--spacing-desktop-48);
 }
 
-#comments ol {
-	list-style-type: none;
-}
-
-#comments > ol ol {
+#comments > ol li > article > ol {
+	margin-top: var(--spacing-24);
 	margin-left: var(--spacing-desktop-96);
 	padding-left: var(--spacing-24);
 
@@ -1163,38 +1238,23 @@ article > header > img {
 	margin-top: var(--spacing-48);
 }
 
-#comments > ol ol {
-	margin-left: var(--spacing-desktop-96);
-	padding-left: var(--spacing-24);
-
-	border-left: var(--border-thick);
-}
-
-#comments > ol > li ol {
-	margin-top: var(--spacing-24);
-}
-
-#comments > ol > li > ol ol {
-	margin-left: var(--spacing-mobile-24, var(--sizing-desktop-96));
-}
-
 /* COMMENT content */
 
-#comments ol > li > *:not(:first-child) {
+#comments ol > li > article > :not(:first-child) {
 	margin-top: var(--spacing-relative);
 }
 
-#comments ol > li > header {
+#comments ol > li > article > header {
 	display: flex;
 	align-items: center;
 	gap: var(--spacing-desktop-16, var(--spacing-mobile-24));
 }
 
-#comments ol > li > p {
+#comments ol > li > article > p {
 	font-size: var(--font-size-body);
 }
 
-#comments ol > li > .comment-reply-link {
+#comments ol > li > article > .comment-reply-link {
 	font-size: var(--font-size-body);
 	border: none;
 	color: var(--mid-grey);
@@ -1203,39 +1263,37 @@ article > header > img {
 	font-weight: var(--font-weight-medium);
 }
 
-#comments ol > li > .comment-reply-link::after {
+#comments ol > li > article > .comment-reply-link::after {
 	content: '\e90c';
 	font-family: icomoon;
 	font-size: 0.65em;
-	border: none;
 	padding-left: 8px;
-	color: var(--mid-grey);
 	text-decoration: none;
 }
 
 /* NOTE make layout horizontal */
 @media (min-width: 501px) {
-	#comments ol > li > header > div {
-		gap: var(--spacing-desktop-16);
-	}
-
-	#comments ol > li > header > div {
+	#comments ol > li > article > header > div {
 		display: contents;
 	}
 }
 
-/*////////////////////////////////////*/
+/* COMMENT  */
 
 #comments > #respond {
-	display: contents;
+	margin-top: var(--spacing-mobile-96, var(--spacing-desktop-192));
+}
+
+#comments > #respond > h2 {
+	font-family: var(--font-family-serif);
+	font-style: italic;
 }
 
 #comments > #respond > form {
+	margin-top: var(--spacing-48);
 	display: grid;
-
-	gap: var(--spacing-24);
-
 	grid-template-columns: repeat(3, 1fr);
+	gap: var(--spacing-24);
 }
 
 #comments > #respond > form > * {
