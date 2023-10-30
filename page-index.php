@@ -2,7 +2,7 @@
 
 <header id="header">
 	<h1>
-		<img src="<?= url('/images/logo-ko-circle-purple.svg'); ?>" alt="Komuhn" title="Komuhn">
+		<img src="<?= get_theme_file_uri('/images/logo-ko-circle-purple.svg'); ?>" alt="Komuhn" title="Komuhn">
 	</h1>
 
 	<p>Collaboration is not about gluing together existing egos. It's about the ideas that never existed until after everyone entered the room.</p>
@@ -16,7 +16,7 @@
 	<article>
 		<div>
 			<h3>
-				<img alt="Fluency in care" title="Fluency in care" src="<?= url('/images/logo-fluency-in-care-light.png'); ?>" >
+				<img alt="Fluency in care" title="Fluency in care" src="<?= get_theme_file_uri('/images/logo-fluency-in-care-light.png'); ?>" >
 			</h3>
 
 			<h4>Thriving organizations through empathy</h4>
@@ -112,7 +112,7 @@
 
 	<div>
 		<article>
-			<img alt="Andréa" src="<?= url('/images/andrea.png'); ?>">
+			<img alt="Andréa" src="<?= get_theme_file_uri('/images/andrea.png'); ?>">
 
 			<div>
 				<p><strong>Andréa</strong> is making a case for <strong><a href="https://www.rotulama.com">Rotulama</a></strong> a site-specific artwork experiment aiming to grasp gentrification’s impact on small local businesses and their neighborhoods. A joint-project with <a href="https://www.supereclectic.team">Super Eclectic</a>.</p>
@@ -120,7 +120,7 @@
 		</article>
 
 		<article>
-			<img alt="Kako" src="<?= url('/images/kako.png'); ?>">
+			<img alt="Kako" src="<?= get_theme_file_uri('/images/kako.png'); ?>">
 
 			<div>
 				<p><strong>Kako</strong> is organizing the next community meeting for <strong><a href="https://www.ruamais.com">RUA+</a></strong>, a participatory design exercise with the purpose of making the public spaces we inhabit more liveable and healthy.</p>
@@ -128,7 +128,7 @@
 		</article>
 
 		<article>
-			<img alt="Pedro" src="<?= url('/images/pedro.png'); ?>"> 
+			<img alt="Pedro" src="<?= get_theme_file_uri('/images/pedro.png'); ?>"> 
 
 			<div>
 				<p><strong>Pedro</strong> is giving shape to our latest proposal — <strong><a href="/fluency-in-care">Fluency in care</a></strong> — an exploration of new and sometimes unexpected approaches, towards learning about what we need to be able to work well together.</p>
@@ -136,7 +136,7 @@
 		</article>
 
 		<article>
-			<img alt="Riikka" src="<?= url('/images/riikka.png'); ?>">
+			<img alt="Riikka" src="<?= get_theme_file_uri('/images/riikka.png'); ?>">
 
 			<div>
 				<p><strong>Riikka</strong> is facilitating the conversations within a group of scientists that want to become a team and understand how they can take advantage of their capacities to create self-sustainability.</p>
@@ -144,7 +144,7 @@
 		</article>
 
 		<article>
-			<img alt="Tita" src="<?= url('/images/tita.png'); ?>">
+			<img alt="Tita" src="<?= get_theme_file_uri('/images/tita.png'); ?>">
 
 			<div>
 				<p><strong>Tita</strong> is laying out the content for <strong><a href="https://ilhadotesouro.pt">Peniche — Treasure island</a></strong>, a book more than a book, a contribution towards this place, history, and community’s identity.</p>
@@ -162,26 +162,26 @@
 	</header>
 
 	<div data-rows-mobile="4" data-rows-desktop="Infinity">
-		<img src="<?= url('/images/logo-inecc.svg'); ?>" alt="INECC">
-		<img src="<?= url('/images/logo-mindworks.svg'); ?>" alt="Mindworks">
-		<img src="<?= url('/images/logo-smart-ocean.svg'); ?>" alt="Smart Ocean">
-		<img src="<?= url('/images/logo-rua-mais.svg'); ?>" alt="RUA+">
-		<img src="<?= url('/images/logo-tedx-peniche.svg'); ?>" alt="TEDx Peniche">
-		<img src="<?= url('/images/logo-open-knowledge-finland.svg'); ?>" alt="Open Knowledge Finland">
-		<img src="<?= url('/images/logo-largo.svg'); ?>" alt="Largo">
-		<img src="<?= url('/images/logo-greenpeace.svg'); ?>" alt="Greenpeace">
-		<img src="<?= url('/images/logo-cmp.svg'); ?>" alt="Câmara Municipal de Peniche">
-		<img src="<?= url('/images/logo-docapesca.svg'); ?>" alt="Docapesca">
-		<img src="<?= url('/images/logo-govint.svg'); ?>" alt="Govint">
-		<img src="<?= url('/images/logo-iss.svg'); ?>" alt="ISS - Instituto da Segurança Social">
-		<img src="<?= url('/images/logo-espaco-o.svg'); ?>" alt="Espaço Ó">
-		<img src="<?= url('/images/logo-estm.svg'); ?>" alt="ESTM - IPL">
-		<img src="<?= url('/images/logo-esad.svg'); ?>" alt="ESAD - IPL">
-		<img src="<?= url('/images/logo-kaospilot.svg'); ?>" alt="Kaospilot">
-		<img src="<?= url('/images/logo-r4l.svg'); ?>" alt="Reciclar para aprender">
-		<img src="<?= url('/images/logo-twnd.svg'); ?>" alt="TWND">
-		<img src="<?= url('/images/logo-seaentia.svg'); ?>" alt="Seaentia">
-		<img src="<?= url('/images/logo-tggp.svg'); ?>" alt="TGGP">
+		<img src="<?= get_theme_file_uri('/images/logo-inecc.svg'); ?>" alt="INECC">
+		<img src="<?= get_theme_file_uri('/images/logo-mindworks.svg'); ?>" alt="Mindworks">
+		<img src="<?= get_theme_file_uri('/images/logo-smart-ocean.svg'); ?>" alt="Smart Ocean">
+		<img src="<?= get_theme_file_uri('/images/logo-rua-mais.svg'); ?>" alt="RUA+">
+		<img src="<?= get_theme_file_uri('/images/logo-tedx-peniche.svg'); ?>" alt="TEDx Peniche">
+		<img src="<?= get_theme_file_uri('/images/logo-open-knowledge-finland.svg'); ?>" alt="Open Knowledge Finland">
+		<img src="<?= get_theme_file_uri('/images/logo-largo.svg'); ?>" alt="Largo">
+		<img src="<?= get_theme_file_uri('/images/logo-greenpeace.svg'); ?>" alt="Greenpeace">
+		<img src="<?= get_theme_file_uri('/images/logo-cmp.svg'); ?>" alt="Câmara Municipal de Peniche">
+		<img src="<?= get_theme_file_uri('/images/logo-docapesca.svg'); ?>" alt="Docapesca">
+		<img src="<?= get_theme_file_uri('/images/logo-govint.svg'); ?>" alt="Govint">
+		<img src="<?= get_theme_file_uri('/images/logo-iss.svg'); ?>" alt="ISS - Instituto da Segurança Social">
+		<img src="<?= get_theme_file_uri('/images/logo-espaco-o.svg'); ?>" alt="Espaço Ó">
+		<img src="<?= get_theme_file_uri('/images/logo-estm.svg'); ?>" alt="ESTM - IPL">
+		<img src="<?= get_theme_file_uri('/images/logo-esad.svg'); ?>" alt="ESAD - IPL">
+		<img src="<?= get_theme_file_uri('/images/logo-kaospilot.svg'); ?>" alt="Kaospilot">
+		<img src="<?= get_theme_file_uri('/images/logo-r4l.svg'); ?>" alt="Reciclar para aprender">
+		<img src="<?= get_theme_file_uri('/images/logo-twnd.svg'); ?>" alt="TWND">
+		<img src="<?= get_theme_file_uri('/images/logo-seaentia.svg'); ?>" alt="Seaentia">
+		<img src="<?= get_theme_file_uri('/images/logo-tggp.svg'); ?>" alt="TGGP">
 	</div>
 	
 	<button class="arrow-up show-more-button">Show More</button>

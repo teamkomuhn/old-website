@@ -3,7 +3,7 @@
 <header>
 	<div id="header-titles">
 		<h1>
-			<img src="<?=url('/images/logo-fluency-in-care-dark.png'); ?>" title="Fluency in care" alt="Fluency in care">
+			<img src="<?= get_theme_file_uri('/images/logo-fluency-in-care-dark.png'); ?>" title="Fluency in care" alt="Fluency in care">
 		</h1>
 		
 		<h2>Thriving organizations through empathy</h2>
@@ -16,7 +16,7 @@
 </header>
 
 <aside>
-	<img aria-hidden="true" src="<?=url('/images/read-the-post.svg'); ?>">
+	<img aria-hidden="true" src="<?= get_theme_file_uri('/images/read-the-post.svg'); ?>">
 
 	<p>Within many types of organizations - care - is often seen as something important, still, there’s this uncertainty about its impact or how to put it into practice. How do we go about defining and manifesting it?</p>
 
@@ -32,12 +32,12 @@
 	</header>
 
 	<ul class="cards">
-		<li><img aria-hidden="true" src="<?=url('/images/lightning.svg'); ?>" />Identify opportunities for raising collective capacity</li>
-		<li><img aria-hidden="true" src="<?=url('/images/sliders.svg'); ?>" />Recognize power imbalances, understand its causes, and learn to propose distribution</li>
-		<li><img aria-hidden="true" src="<?=url('/images/eye.svg'); ?>" />Enable practices that create awareness of positive habits and behaviors, and help detect obstacles to progress</li>
-		<li><img aria-hidden="true" src="<?=url('/images/circle-half-stroke.svg'); ?>" />Facilitate activities that amplify strengths and consider everyone's needs</li>
-		<li><img aria-hidden="true" src="<?=url('/images/circle-nodes.svg'); ?>" />Apply conflict as a device for supporting diversity</li>
-		<li><img aria-hidden="true" src="<?=url('/images/draft.svg'); ?>" />Culture-in uncertainty and complexity and transform resistance into vulnerability and curiosity</li>
+		<li><img aria-hidden="true" src="<?= get_theme_file_uri('/images/lightning.svg'); ?>" />Identify opportunities for raising collective capacity</li>
+		<li><img aria-hidden="true" src="<?= get_theme_file_uri('/images/sliders.svg'); ?>" />Recognize power imbalances, understand its causes, and learn to propose distribution</li>
+		<li><img aria-hidden="true" src="<?= get_theme_file_uri('/images/eye.svg'); ?>" />Enable practices that create awareness of positive habits and behaviors, and help detect obstacles to progress</li>
+		<li><img aria-hidden="true" src="<?= get_theme_file_uri('/images/circle-half-stroke.svg'); ?>" />Facilitate activities that amplify strengths and consider everyone's needs</li>
+		<li><img aria-hidden="true" src="<?= get_theme_file_uri('/images/circle-nodes.svg'); ?>" />Apply conflict as a device for supporting diversity</li>
+		<li><img aria-hidden="true" src="<?= get_theme_file_uri('/images/draft.svg'); ?>" />Culture-in uncertainty and complexity and transform resistance into vulnerability and curiosity</li>
 	</ul>
 </section>
 
@@ -160,7 +160,7 @@
 
 <section id="lets-play">
 	<header>
-		<img src="<?= url('/images/icon-box.svg'); ?>">
+		<img src="<?= get_theme_file_uri('/images/icon-box.svg'); ?>">
 		
 		<h2>Let's play</h2>
 
@@ -208,10 +208,10 @@
 	</header>
 
 	<ul>
-		<li><img src="<?=url('/images/icon-high5.svg'); ?>');" /><span>You're part of a <strong>team</strong> that wants to go the long haul and is looking for ways to create <strong>sustainable involvement</strong>.</span></li>
-		<li><img src="<?=url('/images/icon-fist.svg'); ?>');" /><span>You want to build a culture in your <strong>organization</strong> that enables people to be with uncertainty and <strong>tackle difficult issues</strong>.</span></li>
-		<li><img src="<?=url('/images/icon-fist-bump.svg'); ?>');" /><span>You lead a <strong>community</strong> project that is seeking more <strong>investment</strong> from the participants.</span></li>
-		<li><img src="<?=url('/images/icon-ok.svg'); ?>');" /><span>You're always looking for self-improvement and want to learn more about <strong>fair and thriving collaborations</strong>.</span></li>
+		<li><img src="<?= get_theme_file_uri('/images/icon-high5.svg'); ?>');" /><span>You're part of a <strong>team</strong> that wants to go the long haul and is looking for ways to create <strong>sustainable involvement</strong>.</span></li>
+		<li><img src="<?= get_theme_file_uri('/images/icon-fist.svg'); ?>');" /><span>You want to build a culture in your <strong>organization</strong> that enables people to be with uncertainty and <strong>tackle difficult issues</strong>.</span></li>
+		<li><img src="<?= get_theme_file_uri('/images/icon-fist-bump.svg'); ?>');" /><span>You lead a <strong>community</strong> project that is seeking more <strong>investment</strong> from the participants.</span></li>
+		<li><img src="<?= get_theme_file_uri('/images/icon-ok.svg'); ?>');" /><span>You're always looking for self-improvement and want to learn more about <strong>fair and thriving collaborations</strong>.</span></li>
 	</ul>
 </section>
 

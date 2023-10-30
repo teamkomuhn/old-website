@@ -57,19 +57,6 @@ function register_post_types() {
 
 add_action('init', 'register_post_types');
 
-function url(string $url)
-{
-	//wp_make_link_relative(get_template_directory_uri()) . $url is returning the theme folder wordpress/ twice online (can't replicate it locally)
-	//return wp_make_link_relative(get_template_directory_uri()) . $url;
-	return get_stylesheet_directory_uri() . $url;
-}
-
-function url_theme(string $url)
-{
-	//return wp_make_link_relative(get_stylesheet_directory_uri()) . $url;
-	return get_stylesheet_directory_uri() . $url;
-}
-
 define('THEME_DIR', get_template_directory_uri());
 
 // ADD SUPPORT FOR FEATURED IMAGE
@@ -97,21 +84,21 @@ add_filter('script_loader_tag', 'add_type_attribute', 10, 3);
 
 function enqueue_scripts_styles()
 {
-	wp_enqueue_style('icomoon', url_theme('/icomoon/icomoon.css'));
-	wp_enqueue_style('style', url_theme('/styles/main.css'));
+	wp_enqueue_style('icomoon', get_theme_file_uri('/icomoon/icomoon.css'));
+	wp_enqueue_style('style', get_theme_file_uri('/styles/main.css'));
 
 	wp_enqueue_script(
 		'click',
 		get_template_directory_uri() . '/scripts/click.js'
 	);
-	wp_enqueue_script('show-more', url_theme('/scripts/show-more.js'));
+	wp_enqueue_script('show-more', get_theme_file_uri('/scripts/show-more.js'));
 
 	if (is_page('fluency-in-care')) {
 		wp_enqueue_style(
 			'fluency-in-care',
-			url_theme('/styles/fluency-in-care.css')
+			 get_theme_file_uri('/styles/fluency-in-care.css')
 		);
-		wp_enqueue_script('cards', url_theme('/scripts/cards.js'));
+		wp_enqueue_script('cards', get_theme_file_uri('/scripts/cards.js'));
 	}
 }
 
