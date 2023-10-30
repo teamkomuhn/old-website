@@ -4,7 +4,10 @@
 -->
 
 <section id="comments">
-    <?php comments_form('What are you thinking?', 'Comment'); ?>
+    <?php comments_form(
+        title_reply: 'What are you thinking?',
+        title_reply_to: "What are you thinking about %s's thought?",
+    ); ?>
 
     <h2 class="arrow-down">
 		Comments (<?= get_comment_count(get_the_ID())['approved'] ?>)

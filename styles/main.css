@@ -70,8 +70,9 @@
 	--spacing-192: calc(var(--base) * 24);
 	--spacing-96: calc(var(--base) * 12);
 	--spacing-48: calc(var(--base) * 6);
-	--spacing-24: calc(var(--base) * 3);
+	--spacing-40: calc(var(--base) * 5);
 	--spacing-32: calc(var(--base) * 4);
+	--spacing-24: calc(var(--base) * 3);
 	--spacing-16: calc(var(--base) * 2);
 
 	--spacing-relative: 1lh;
@@ -96,6 +97,7 @@
 		--spacing-mobile-192: var(--spacing-192);
 		--spacing-mobile-96: var(--spacing-96);
 		--spacing-mobile-48: var(--spacing-48);
+		--spacing-mobile-40: var(--spacing-40);
 		--spacing-mobile-32: var(--spacing-32);
 		--spacing-mobile-24: var(--spacing-24);
 		--spacing-mobile-16: var(--spacing-16);
@@ -128,6 +130,7 @@
 		--spacing-desktop-192: var(--spacing-192);
 		--spacing-desktop-96: var(--spacing-96);
 		--spacing-desktop-48: var(--spacing-48);
+		--spacing-desktop-40: var(--spacing-40);
 		--spacing-desktop-32: var(--spacing-32);
 		--spacing-desktop-24: var(--spacing-24);
 		--spacing-desktop-16: var(--spacing-16);
@@ -237,16 +240,18 @@ h2 {
 
 button,
 .button,
-input {
+input,
+textarea {
 	display: block;
+
+	width: 100%;
+
+	padding-inline: var(--spacing-24);
+	padding-block: var(--spacing-16);
 }
 
 button,
 .button {
-	padding-block: var(--spacing-16);
-
-	width: 100%;
-
 	font: var(--font-family-sans);
 	font-size: var(--font-size-body);
 	font-weight: var(--font-weight-bold);
@@ -1034,6 +1039,8 @@ main > article > header > img {
 	--background: var(--dark);
 	--foreground: var(--purple);
 
+	position: relative;
+
 	padding-block: var(--spacing-mobile-96, var(--spacing-desktop-192));
 
 	font-size: var(--font-size-section-description);
@@ -1045,51 +1052,86 @@ main > article > header > img {
 	clip-path: inset(0px -100vw);
 }
 
-#contact > h2 {
+@media (min-width: 501px) {
+	#contact {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		column-gap: var(--spacing-desktop-48);
+	}
+}
+
+#contact > *,
+#contact > #respond > * {
+	grid-column: span 3;
+}
+
+#contact > #respond {
+	display: contents;
+}
+
+#contact > #respond > h2 {
+	grid-column: span 2;
+
 	font-family: var(--font-family-serif);
 	font-size: var(--font-size-section-title);
 	font-style: italic;
 }
 
-#contact > p {
-	margin-top: var(--spacing-mobile-24, var(--spacing-desktop-48));
+#contact > #respond > form > p {
+	margin-top: var(--spacing-mobile-16, var(--spacing-desktop-24));
 	color: var(--light);
 }
 
-#contact form {
-	position: relative;
+#contact > #respond > form {
 	color: var(--lighter-grey);
 }
 
-#contact form :is(input, textarea) {
-	border: 1px solid var(--mid-grey);
+#contact > #respond > form > :is(input, textarea),
+#contact > #respond > form > ::placeholder {
+	color: var(--lighter-grey);
 }
 
-#contact form :is(input, textarea, ::placeholder) {
-	color: var(--lighter-grey);
+#contact > #respond > form > :is(input, textarea) {
+	border: var(--border-thin);
+	border-color: var(--mid-grey);
+
 	background: var(--darker);
 }
 
-#contact form button {
-	box-sizing: border-box;
-	width: 100%;
+#contact > #respond > form > textarea {
+	margin-top: var(--spacing-40);
 }
 
-#contact > #respond {
-	margin-top: var(--spacing-48);
-}
-
-#contact > #respond > form > :not(:first-child) {
+#contact > #respond > form > input {
 	margin-top: var(--spacing-24);
 }
 
+#contaxt > #respond > form > button,
 #contact > address {
+	grid-row: 3;
+}
+
+#contact > #respond > form > button {
+	grid-column: -2;
+
+	left: 0;
+}
+
+#contact > address,
+#contact > #respond > form > button {
+	margin-top: var(--spacing-40);
+}
+
+#contact > address {
+	grid-column: span 2;
+
+	display: flex;
+	gap: var(--spacing-mobile-16, var(--spacing-desktop-48));
+
 	font-family: var(--font-family-sans);
 	font-size: 18px;
 	font-weight: var(--font-weight-bold);
-	margin-top: var(--spacing-48);
 	font-size: var(--font-weight-bold);
-	display: flex;
 	align-items: end;
 }
 
@@ -1100,6 +1142,18 @@ main > article > header > img {
 	font-weight: var(--font-weight-regular);
 }
 
+#contact > address > a {
+	display: flex;
+	place-items: center;
+
+	font-size: 16px;
+	font-family: var(--font-family-sans);
+
+	text-decoration: none;
+
+	gap: 1ch;
+}
+
 #contact > address > a.paper-plane::before {
 	content: '\e902';
 }
@@ -1108,52 +1162,27 @@ main > article > header > img {
 	content: '\e903';
 }
 
-#contact > address > a {
-	display: flex;
-	place-items: center;
-
-	font-size: 16px;
-	font-family: var(--font-family-sans);
-	
-
-	text-decoration: none;
-
-	gap: 1ch;
-}
-
 address {
 	font-style: normal;
 }
 
 @media (min-width: 501px) {
-	#contact > p {
+	#contact > #respond > form > p {
 		width: var(--two-thirds);
 	}
 
-	#contact > address {
-		gap: var(--spacing-desktop-48);
-	}
-
-	#contact form button {
+	#contact > #respond > form > button {
 		position: absolute;
-		right: 0;
-		top: calc(100% + 36px);
 	}
 }
 
 @media (max-width: 500px) {
-	#contact form button {
-		width: 100%;
-		max-width: none;
-	}
-
 	#contact > address {
 		justify-content: space-around;
 	}
 
 	#contact > address > a {
 		flex-direction: column;
-		gap: var(--spacing-16);
 	}
 
 	#contact > address > a.paper-plane::before {
@@ -1163,10 +1192,6 @@ address {
 	#contact > address > a.phone::before {
 		font-size: 40px;
 	}
-
-	/* #contact > address > a.phone {
-        font-size: 15px;
-    } */
 }
 
 /* AUTHOR */

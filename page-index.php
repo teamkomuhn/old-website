@@ -36,9 +36,7 @@
 
 </section>
 
-<?php 
-	var_dump(get_category_by_slug('log'));
-
+<?php
 	$the_query = new WP_Query([
 		'category__not_in' => [ get_category_by_slug('log')->term_id ],
 		'post_type' => ['post', 'thread'],
