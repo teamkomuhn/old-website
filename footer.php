@@ -7,4 +7,6 @@
 
             <a href='/'>komuhn.org</a>
         </footer>
+
+        <?php wp_footer(); ?>
 </html>
