@@ -167,37 +167,37 @@ function comments_form(
 	comment_form([
 		'fields' => [
 			'author' => '<input
-    placeholder="Name*"
-    name="author"
-    maxlength="245"
-    autocomplete="name"
-    required
+	placeholder="Name*"
+	name="author"
+	maxlength="245"
+	autocomplete="name"
+	required
 />',
 
 			'email' => '<input
-    placeholder="Email*"
-    name="email"
-    maxlength="100"
-    aria-describedby="email-notes"
-    autocomplete="email"
-    required
+	placeholder="Email*"
+	name="email"
+	maxlength="100"
+	aria-describedby="email-notes"
+	autocomplete="email"
+	required
 />',
 
 			'url' => '<input
-    placeholder="Website"
-    name="url"
-    maxlength="200"
-    autocomplete="url"
+	placeholder="Website"
+	name="url"
+	maxlength="200"
+	autocomplete="url"
 />',
 
 			'cookies' => '',
 		],
 
 		'comment_field' => '<textarea
-    placeholder="Your comment*"
-    name="comment"
-    maxlength="65525"
-    required
+	placeholder="Your comment*"
+	name="comment"
+	maxlength="65525"
+	required
 ></textarea>',
 
 		'comment_notes_before' => $comment_notes_before,

@@ -1,5 +1,5 @@
 <section id="comments">
-    <ol>
+	<ol>
 		<?php list_comments(); ?>
 	</ol>
 

@@ -1,5 +1,15 @@
-import { capitalize } from './capitalize.js';
-import { deviceTag } from './device-tag.js';
+/** @param {string} string */
+export function capitalize(string) {
+	return string[0].toUpperCase() + string.slice(1);
+}
+
+function isMobile() {
+	return matchMedia('(max-width: 500px)').matches;
+}
+
+function deviceTag() {
+	return isMobile() ? 'mobile' : 'desktop';
+}
 
 /** @param {HTMLElement} element */
 function getGridColumnCount(element) {
