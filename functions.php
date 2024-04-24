@@ -1,7 +1,12 @@
 <?php
 
-function register_post_types() {
-	// TOOD archive and feed
+add_theme_support('post-thumbnails');
+add_post_type_support('page', 'excerpt');
+
+add_filter('excerpt_length', fn () => 35);
+add_filter('excerpt_more', fn () => '…');
+
+add_action('init', function () {
 	register_post_type('thread', [
 		'labels' => [
 			'name' => 'Threads',
@@ -53,109 +58,20 @@ function register_post_types() {
 			'with_front' => false,
 		]
 	]);
-}
+});
 
-add_action('init', 'register_post_types');
-
-define('THEME_DIR', get_template_directory_uri());
-
-// ADD SUPPORT FOR FEATURED IMAGE
-add_theme_support('post-thumbnails');
-// ADD SUPPORT FOR MENUS
-add_theme_support('menus');
-// ADD SUPPORT FOR EXCERPT ON PAGES
-add_post_type_support('page', 'excerpt');
-
-// REMOVE GENERATOR META TAG
-remove_action('wp_head', 'wp_generator');
-
-function add_type_attribute($tag, $handle, $src)
-{
-	if (!in_array($handle, ['click', 'show-more', 'cards'])) {
-		return $tag;
-	}
-
-	$tag = '<script type="module" src="' . esc_url($src) . '"></script>';
-
-	return $tag;
-}
-
-add_filter('script_loader_tag', 'add_type_attribute', 10, 3);
-
-function enqueue_scripts_styles()
-{
+add_action('wp_enqueue_scripts', function () {
 	wp_enqueue_style('icomoon', get_theme_file_uri('/icomoon/icomoon.css'));
 	wp_enqueue_style('style', get_theme_file_uri('/styles/main.css'));
 
-	wp_enqueue_script(
-		'click',
-		get_template_directory_uri() . '/scripts/click.js'
-	);
-	wp_enqueue_script('show-more', get_theme_file_uri('/scripts/show-more.js'));
+	wp_enqueue_script_module('click', get_theme_file_uri('/scripts/click.js'));
+	wp_enqueue_script_module('show-more', get_theme_file_uri('/scripts/show-more.js'));
 
 	if (is_page('fluency-in-care')) {
-		wp_enqueue_style(
-			'fluency-in-care',
-			 get_theme_file_uri('/styles/fluency-in-care.css')
-		);
-		wp_enqueue_script('cards', get_theme_file_uri('/scripts/cards.js'));
+		wp_enqueue_style('fluency-in-care', get_theme_file_uri('/styles/fluency-in-care.css'));
+		wp_enqueue_script_module('cards', get_theme_file_uri('/scripts/cards.js'));
 	}
-}
-
-add_action('wp_enqueue_scripts', 'enqueue_scripts_styles');
-
-function openGraph()
-{
-	$website_name = get_bloginfo('name');
-	$website_description = strip_tags(get_bloginfo('description'));
-	$subtitle = get_post_meta(get_the_ID(), 'subtitle', true);
-	$excerpt = get_the_excerpt();
-	$homepage_excerpt =
-		"Collaboration is not about gluing together existing egos. It's about the ideas that never existed until after everyone entered the room.";
-	$type = is_single() ? 'article' : 'website';
-	$title = is_front_page('index')
-		? $website_name . ' - ' . $website_description
-		: get_the_title();
-	$description_content = !empty($excerpt) ? $excerpt : $subtitle;
-	$description = is_front_page('index')
-		? $homepage_excerpt
-		: $description_content;
-
-	//replace this with a default image
-	$default_image =
-		get_template_directory_uri() . '/images/open-graph-image-default.jpg';
-	$post_featured_image = get_post_thumbnail_id();
-
-	if (!empty($post_featured_image)) {
-		$image = wp_get_attachment_image_url($post_featured_image, 'medium');
-	} else {
-		$image = $default_image;
-	}
-
-	echo '<meta property="og:url" content="' . get_permalink() . '"/>';
-	echo '<meta property="og:title" content="' . $title . '"/>';
-	echo '<meta property="og:description" content="' . $description . '"/>';
-	echo '<meta property="og:type" content="' . $type . '"/>';
-	echo '<meta property="og:image" content="' . $image . '"/>';
-
-	echo '<meta name="twitter:card" content="summary_large_image" />';
-	echo '<meta name="twitter:site" content="' . $website_name . '" />';
-	echo '<meta name="twitter:title" content="' . $title . '" />';
-	echo '<meta name="twitter:description" content="' . $description . '" />';
-	echo '<meta name="twitter:image" content="' . $image . '" />';
-}
-
-//TRIM TEXT - limit characters
-
-function limit_characters($text, $limit)
-{
-	if (strlen($text) > $limit) {
-		$offset = $limit - 3 - strlen($text);
-		$text = substr($text, 0, strrpos($text, ' ', $offset)) . '...';
-	}
-
-	return $text;
-}
+});
 
 // https://developer.wordpress.org/reference/functions/comment_form/
 function comments_form(

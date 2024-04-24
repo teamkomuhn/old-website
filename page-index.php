@@ -88,7 +88,7 @@
 					</div>
 				</div>
 
-				<p><?= limit_characters(get_the_excerpt(), 150); ?></p>
+				<p><?= get_the_excerpt() ?></p>
 				<a class="arrow-right" href="<?= get_the_permalink(); ?>">Read more</a>
 			</div>              
 			</article>

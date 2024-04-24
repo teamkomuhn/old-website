@@ -1,42 +1,88 @@
 <!DOCTYPE html>
 
 <html lang="en">
-	<head>
+	<head prefix="og: https://ogp.me/ns#">
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		
-		<title><?= is_front_page()
-			? get_bloginfo('name') .
-				' - ' .
-				strip_tags(get_bloginfo('description'))
-			: get_the_title() . ' - ' . get_bloginfo('name') ?></title>
-		<?php openGraph(); ?>
 
-		<link rel="icon" href="<?= get_theme_file_uri(
-			'/images/favicon.ico') ?>" sizes="any"><!-- 32×32 -->
-		<link rel="icon" href="<?= get_theme_file_uri(
-			'/images/logo-ko-circle-purple.svg') ?>" type="image/svg+xml">
-		<link rel="apple-touch-icon" href="<?= get_theme_file_uri(
-			'/images/favicon-apple-touch-icon.png') ?>"><!-- 180×180 -->
-		<link rel="manifest" href="<?= get_theme_file_uri(
-			'/images/site.webmanifest') ?>">
+		<?php
+			$page_type = match (true) {
+				is_front_page() => 'home',
+				is_singular() => 'post',
+				is_404() => 'not_found',
+			};
 
+			$site_name = get_bloginfo('site_name');
+			$site_description = get_bloginfo('description');
+			
+			$title = match ($page_type) {
+				'home' => $site_name,
+				'post' => get_the_title(),
+				'not_found' => 'Page not found'
+			};
+			
+			$full_title = "{$title} | " . match ($page_type) {
+				'home' => $site_description,
+				default => $site_name,
+			};
+
+			$subtitle = get_post_meta(get_the_ID(), 'subtitle', true);
+			$excerpt = get_the_excerpt();
+
+			$description = match ($page_type) {
+				'post' => $subtitle != '' ? $subtitle : $excerpt,
+				default => $site_description,
+			};
+
+			$type = match ($page_type) {
+				'post' => 'article',
+				default => 'website',
+			};
+
+			$image = match ($page_type) {
+				'post' => get_the_post_thumbnail_url(),
+				default => get_theme_file_uri('/images/open-graph-image-default.jpg'),
+			};
+			
+			// HACK
+			$url = home_url(add_query_arg([]));
+		?>
+
+		<title><?= $full_title ?></title>
+
+		<meta name="description" content="<?= $description ?>" />
+
+		<meta property="og:title" content="<?= $title ?>" />
+		<meta property="og:type" content="<?= $type ?>" />
+		<meta property="og:image" content="<?= $image ?>" />
+		<meta property="og:url" content="<?= $url ?>" />
+		<meta property="og:site_name" content="<?= $site_name ?>" />
+		<meta name="X:card" content="summary_large_image" />
+
+		<link rel="icon" href="<?= get_theme_file_uri('/images/favicon.png') ?>" type="image/png">
+		<link rel="icon" href="<?= get_theme_file_uri('/images/komuhn.svg') ?>" type="image/svg+xml">
+
+		<!-- GOOGLE FONTS -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		
-		<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@1,600&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@1,600&family=Inter:slnt,wght@-10..0,100..900&display=swap" rel="stylesheet">
+
+		<!-- CSS ANCHOR POSITIONING POLYFILL -->
+		<script type="module">
+			if (!("anchorName" in document.documentElement.style)) {
+				import("https://unpkg.com/@oddbird/css-anchor-positioning");
+			}
+		</script>
 
 		<?php wp_head(); ?>
 	</head>
-	
-	<body <?php if (is_singular('thread')):?> class="thread" <?php endif; ?>>
+
+	<body>
 		<?php if (!is_front_page()): ?>
 			<header>
 				<nav>
-					<a href="/" title="Komuhn">
-						<img src="<?= get_theme_file_uri(
-							'/images/logo-ko-circle-purple.svg'
-						) ?>" alt="Komuhn">
+					<a href="/">
+						<img alt="Komuhn" src="<?= get_theme_file_uri('/images/komuhn.svg') ?>" />
 					</a>
 				</nav>
 			</header>
