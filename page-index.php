@@ -96,7 +96,7 @@
 		<?php endwhile; ?>
 	</div>
 
-	<button class="arrow-up show-more-button">See more</button>
+	<button class="arrow-up see-more">See more</button>
 </section>
 
 <?php endif; wp_reset_postdata(); ?>
@@ -182,7 +182,7 @@
 		<img src="<?= get_theme_file_uri('/images/logo-tggp.svg'); ?>" alt="TGGP">
 	</div>
 	
-	<button class="arrow-up show-more-button">Show More</button>
+	<button class="arrow-up see-more">Show More</button>
 </section>
 
 <?php get_footer(); ?>

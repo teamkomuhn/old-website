@@ -154,7 +154,7 @@
 			</article>
 		</div>
 
-		<button type="button" class="arrow-up show-more-button">Show more</button>
+		<button type="button" class="arrow-up see-more">Show more</button>
 	</div>
 </section>
 
