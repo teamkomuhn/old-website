@@ -1,81 +1,184 @@
-main > article {
-	padding-bottom: var(--spacing-mobile-96, var(--spacing-desktop-192));
-}
+@layer variables {
+	:root {
+		/* WIDTHS */
 
-@media (min-width: 501px) {
-	main > article > header {
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		grid-template-areas:
-			'title    title    author-title-only '
-			'subtitle subtitle author-subtitle'
-			'image    image    image';
-		column-gap: var(--spacing-48);
+		/* NOTE also 742.5px */
+		--width: 66ch;
+
+		/* FONTS */
+
+		--font-post-heading: var(--is-mobile, 24px) var(--is-desktop, 40px) var(--font-family-sans);
+		--font-post: var(--is-mobile, 18px) var(--is-desktop, 20px) / var(--line-height-1-5) var(--font-family-sans);
 	}
 }
 
-main > article > header > hgroup {
-	display: contents;
-}
-
-main > article > header h1 {
-	grid-area: title;
-
-	margin-top: var(--spacing-large);
-	font-size: var(--font-size-title);
-	
-	line-height: var(--line-height-1);
-}
-
-main > article > header > hgroup > p {
-	grid-area: subtitle;
-	margin-top: var(--spacing-relative);
-	font-size: var(--font-size-subtitle);
-	line-height: var(--line-height-heading);
-}
-
-main > article > header > .author {
-	grid-area: author-title-only;
-}
-
-main > article > header > hgroup + .author {
-	grid-area: author-subtitle;
-}
-
-@media (max-width: 500px) {
-	article > header > .author {
-		display: none;
+@layer elements {
+	:root {
+		font: var(--font-post)
 	}
 }
 
-main > article > header > .author > img {
-	width: 64px;
-}
+@layer layout {
+	/* HEADER */
+	main > article > header > hgroup > p {
+		margin-top: var(--is-mobile, 8px) var(--is-desktop, 32px);
 
-main > article > header > img {
-	grid-area: image;
+		font: var(--font-post-heading);
+	}
 
-	margin-top: var(--spacing-desktop-96, var(--spacing-48));
-	width: 100%;
-	height: auto;
+	main > article > header > .author {
+		margin-top: var(--is-mobile, 24px) var(--is-desktop, 48px);
+	}
 
-	background-color: var(--dark);
-}
+	/* NOTE --width + column-gaps */
+	@media (max-width: 790px) {
+		main > article > header > .author {
+			display: none;
+		}
+	}
 
-/* CONTENT */
+	main > article > header > img {
+		margin-top: var(--is-mobile, 48px) var(--is-desktop, 96px);
+	}
 
-#content {
-	margin-top: var(--spacing-mobile-48, var(--spacing-desktop-96));
+	/* CONTENT */
 
-	font-size: var(--font-size-post);
-}
+	#content {
+		margin-top: var(--is-mobile, 48px) var(--is-desktop, 96px);
 
-#content > :not(:first-child) {
-	margin-top: var(--spacing-relative);
-}
+		/* Too HACKy? */
+		font: inherit;
+	}
 
-#content > h2 {
-	font-size: var(--font-size-subtitle);
-	font-weight: normal;
-	line-height: var(--line-height-1-5);
+	#content > :not(:first-child, [class|='sidenote']) {
+		margin-top: var(--spacing-relative);
+	}
+
+	#content > :is(h2, h3, h4, h5, h6) {
+		font: var(--font-post-heading);
+	}
+
+	/* AUTHOR */
+
+	#author {
+		margin-top: 48px;
+	}
+
+	/* NOTE --width + column-gaps */
+	@media (min-width: 790.5px) {
+		#author {
+			display: none;
+		}
+	}
+
+	/* COMMENT FORM */
+
+	#comment-form {
+		margin-top: var(--is-mobile, 96px) var(--is-desktop, 192px);
+	}
+
+	#comment-form > div > p {
+		display: inline;
+	}
+
+	#comment-form > div > p::after {
+		content: ' / ';
+	}
+
+	/* NOTE --width (838.5) + 48 * 2 */
+	@media (min-width: 839px) {
+		#comment-form > div > form {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			column-gap: var(--spacing-gap);
+		}
+
+		#comment-form > div > form > * {
+			grid-column: 1 / -1;
+		}
+	}
+
+	#comment-form > div > form > :is(textarea, input)::placeholder {
+		color: var(--grey);
+	}
+
+	#comment-form > div > form > button {
+		--background: var(--dark);
+
+		grid-column: -2;
+
+		border-color: var(--background);
+
+		color: var(--light);
+		background-color: var(--background);
+	}
+
+	/* COMMENTS */
+
+	#comments {
+		margin-top: var(--is-mobile, 48px) var(--is-desktop, 96px);
+		margin-bottom: var(--is-mobile, 96px) var(--is-desktop, 192px);
+	}
+
+	#comments > h2 {
+		font: var(--font-section-title-alternate);
+	}
+
+	#comments > ol {
+		margin-top: var(--is-mobile, 48px) var(--is-desktop, 96px);
+	}
+
+	/* NOTE 1+ levels deep */
+
+	#comments ol > li {
+		list-style-type: none;
+	}
+
+	#comments ol > li:not(:first-child) {
+		margin-top: 48px;
+	}
+
+	#comments ol > li > article > .author > div {
+		display: var(--is-mobile, revert-layer) var(--is-desktop, contents);
+	}
+
+	#comments ol > li > article > div {
+		margin-top: 16px;
+	}
+
+	#comments ol > li > article > div > :not(:first-child) {
+		margin-top: var(--spacing-relative);
+	}
+
+	#comments ol > li > article > div > .comment-reply-link {
+		display: block;
+
+		color: var(--grey);
+		font-weight: var(--font-weight-medium);
+		text-decoration: none;
+
+		transition-property: color;
+	}
+
+	#comments ol > li > article > div > .comment-reply-link:hover {
+		color: var(--dark);
+	}
+
+	#comments ol > li > article > div > .comment-reply-link:after {
+		content: ' ->';
+	}
+
+	#comments ol > li > article > ol {
+		margin-top: 24px;
+		margin-left: var(--is-desktop, 96px);
+		padding-left: 24px;
+
+		border-left: var(--border-thick);
+	}
+
+	/* NOTE 2+ levels deep */
+
+	#comments ol > li > article > ol > li > article > ol {
+		margin-left: var(--is-mobile, 48px) var(--is-desktop, 96px);
+	}
 }

@@ -40,7 +40,7 @@ add_action('init', function () {
 		'description' => 'A thread',
 		'public' => true,
 		'menu_icon' => 'dashicons-format-chat',
-		
+
 		'supports' => [
 			'title',
 			'editor',
@@ -61,10 +61,10 @@ add_action('init', function () {
 });
 
 add_action('wp_enqueue_scripts', function () {
-	wp_enqueue_style('icomoon', get_theme_file_uri('/icomoon/icomoon.css'));
 	wp_enqueue_style('styles', get_theme_file_uri('/styles/styles.css'));
+	wp_enqueue_style('anchor-positioning', get_theme_file_uri('/styles/anchor-positioning.css'));
 	wp_enqueue_script_module('see-more', get_theme_file_uri('/scripts/see-more.js'));
-	
+
 	if (is_front_page()) {
 		wp_enqueue_style('home', get_theme_file_uri('/styles/home.css'));
 		wp_enqueue_script_module('click', get_theme_file_uri('/scripts/click.js'));
@@ -82,15 +82,25 @@ add_action('wp_enqueue_scripts', function () {
 		wp_enqueue_style('fluency-in-care', get_theme_file_uri('/styles/fluency-in-care.css'));
 		wp_enqueue_script_module('cards', get_theme_file_uri('/scripts/cards.js'));
 	}
+
+	if (is_404()) {
+		wp_enqueue_style('not-found', get_theme_file_uri('/styles/not-found.css'));
+	}
 });
 
+function author() {
+	?>
+		<?= get_avatar(get_the_author_meta('ID'), args: ['extra_attr' => 'aria-hidden="true"']) ?>
+
+		<div>
+			<address><?= get_the_author_meta('display_name') ?></address>
+			<time datetime="<?= get_the_date('c') ?>"><?= get_the_date('F j, Y') ?></time>
+		</div>
+	<?php
+}
+
 // https://developer.wordpress.org/reference/functions/comment_form/
-function comments_form(
-	string $title_reply,
-	string $title_reply_to = '',
-	string $comment_notes_before = '',
-	string $label_submit = 'Comment',
-) {
+function comments_form(string $label_submit = 'Comment') {
 	comment_form([
 		'fields' => [
 			'author' => '<input
@@ -121,26 +131,29 @@ function comments_form(
 		],
 
 		'comment_field' => '<textarea
-	placeholder="Your comment*"
+	placeholder="Your message*"
 	name="comment"
 	maxlength="65525"
 	required
+	rows="9"
 ></textarea>',
 
-		'comment_notes_before' => $comment_notes_before,
+		'comment_notes_before' => '',
 		'comment_notes_after' => '',
 		'id_form' => '',
 		'id_submit' => '',
 		'class_container' => '',
 		'class_form' => '',
-		'class_submit' => 'button-inverted',
+		'class_submit' => '',
 		'name_submit' => '',
-		'title_reply' => $title_reply,
-		'title_reply_to' => $title_reply_to,
-		'title_reply_before' => '<h2>',
-		'title_reply_after' => '</h2>',
+		'title_reply' => '',
+		'title_reply_to' => '<p>About %s\'s thought?</p>',
+		'title_reply_before' => '',
+		'title_reply_after' => '',
+		'cancel_reply_before' => '',
+		'cancel_reply_after' => '',
 		'label_submit' => $label_submit,
-		'submit_button' => '<button class="%3$s">%4$s</button>',
+		'submit_button' => '<button>%4$s</button>',
 		'submit_field' => '%1$s %2$s',
 	]);
 }
@@ -159,16 +172,12 @@ function list_comments() {
 			<?php
 				$user_id = $comment->user_id;
 				$user = get_userdata($user_id);
-
-				$name = $user
-					? "{$user->display_name}"
-					: get_comment_author();
+				$name = $user ? "{$user->display_name}" : get_comment_author();
 			?>
 
-			<img aria-hidden="true" src="<?= get_avatar_url($user_id) ?>" />
+			<?= get_avatar($user_id, args: ['extra_attr' => 'aria-hidden="true"']) ?>
 
-			<div>
-				<!-- TODO ca only be used inside `article` -->
+			<div >
 				<address><?= $name ?></address>
 
 				<?php $time = strtotime($comment->comment_date); ?>
@@ -176,21 +185,18 @@ function list_comments() {
 			</div>
 		</header>
 
-		<?= apply_filters('the_content', $comment->comment_content) ?>
+		<div>
+			<?= apply_filters('the_content', $comment->comment_content) ?>
 
-		<!-- https://developer.wordpress.org/reference/functions/get_comment_reply_link/ -->
-		<?= get_comment_reply_link([
-			'respond_id' => '',
-			'reply_text' => 'Reply',
-			'max_depth' => get_option('thread_comments_depth'),
-			'depth' => 1,
-		]) ?>
-
+			<!-- https://developer.wordpress.org/reference/functions/get_comment_reply_link/ -->
+			<?= get_comment_reply_link([
+				'max_depth' => get_option('thread_comments_depth'),
+				'depth' => 1,
+			]) ?>
+		</div>
 <?php
 		},
 
-		'end-callback' => function () {
-			echo '</article></li>';
-		},
+		'end-callback' => function () { ?></article></li><?php },
   	]);
 }

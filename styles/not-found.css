@@ -1,0 +1,14 @@
+@layer layout {
+	body {
+		height: 100svh;
+		align-content: center;
+
+		color: var(--light);
+		background-color: var(--purple);
+	}
+
+	#footer {
+		padding-bottom: 0;
+		color: var(--light);
+	}
+}

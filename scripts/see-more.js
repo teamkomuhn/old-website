@@ -1,5 +1,5 @@
 function is_mobile() {
-	return matchMedia('(max-width: 512px)').matches;
+	return matchMedia('(max-width: 1279.5px)').matches;
 }
 
 function device_tag() {
@@ -21,9 +21,7 @@ function get_responsive_data_attribute(element, attribute_name) {
 	return element.dataset[attribute_name + capitalize(device_tag())];
 }
 
-const containers = document.querySelectorAll(
-	'[data-rows-mobile], [data-rows-desktop], [data-items-mobile], [data-items-desktop]',
-);
+const containers = document.querySelectorAll('[data-rows-mobile], [data-rows-desktop], [data-items-mobile], [data-items-desktop]');
 
 for (const container of containers) {
 	const column_count = get_grid_column_count(container);

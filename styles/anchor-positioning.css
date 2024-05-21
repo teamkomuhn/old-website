@@ -1,0 +1,70 @@
+/*
+    NOTE I separated these styles to avoid FOUC when the polyfill reapplies,
+    it can be merged when support grows.
+*/
+
+@layer classes {
+	/* SIDENOTES */
+
+	[class|='sidenote'] {
+		position: absolute;
+		top: anchor(top);
+	}
+
+	.sidenote-left {
+		right: anchor(left);
+	}
+
+	.sidenote-right {
+		left: anchor(right);
+	}
+}
+
+@layer layout {
+	/* HEADER */
+
+	main > header > div > :first-child {
+		anchor-name: --header;
+	}
+
+	/* READ THE POST */
+
+	main > aside {
+		top: anchor(--header top);
+		left: anchor(--header right);
+	}
+
+	/* LEARNINGS */
+
+	#learnings > header {
+		top: anchor(--learnings bottom);
+		right: anchor(--learnings left);
+	}
+
+	#learnings > ul > li:first-child > .before {
+		anchor-name: --learnings;
+	}
+
+	/* MAKING TOGETHER */
+
+	#making-together > aside {
+		top: anchor(--making-together top);
+		right: anchor(--making-together left);
+	}
+
+	#making-together > div {
+		anchor-name: --making-together;
+	}
+
+	/* LET'S PLAY */
+
+	#lets-play > aside {
+		top: auto;
+		bottom: anchor(--lets-play bottom);
+		right: anchor(--lets-play left);
+	}
+
+	#lets-play > div > div > article:first-child > .before {
+		anchor-name: --lets-play;
+	}
+}
