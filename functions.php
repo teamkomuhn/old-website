@@ -7,10 +7,13 @@ add_filter('excerpt_length', fn () => 35);
 add_filter('excerpt_more', fn () => '…');
 
 add_action('init', function () {
+	// https://developer.wordpress.org/reference/functions/register_post_type/
 	register_post_type('thread', [
+		// https://developer.wordpress.org/reference/functions/get_post_type_labels/
 		'labels' => [
 			'name' => 'Threads',
 			'singular_name' => 'Thread',
+			'add_new' => 'Add New Thread',
 			'add_new_item' => 'Add New Thread',
 			'edit_item' => 'Edit Thread',
 			'new_item' => 'New Thread',
@@ -19,6 +22,7 @@ add_action('init', function () {
 			'search_items' => 'Search Threads',
 			'not_found' => 'No threads',
 			'not_found_in_trash' => 'No threads found in Trash',
+			'parent_item_colon' => 'Parent Thread:',
 			'all_items' => 'All Threads',
 			'archives' => 'Thread Archives',
 			'attributes ' => 'Thread Attributes',
@@ -39,6 +43,7 @@ add_action('init', function () {
 
 		'description' => 'A thread',
 		'public' => true,
+		'show_in_rest' => true,
 		'menu_icon' => 'dashicons-format-chat',
 
 		'supports' => [

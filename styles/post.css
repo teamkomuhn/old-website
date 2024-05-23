@@ -30,6 +30,14 @@
 		margin-top: var(--is-mobile, 24px) var(--is-desktop, 48px);
 	}
 
+	main > article > header > .author > img {
+		width: 64px;
+	}
+
+	main > article > header > .author > div {
+		display: contents;
+	}
+
 	/* NOTE --width + column-gaps */
 	@media (max-width: 790px) {
 		main > article > header > .author {

@@ -63,7 +63,7 @@
 
 	@media (hover: hover) {
 		.cards > :hover,
-		.cards:not(:hover, :has(> .selected)) > :first-of-type {
+		.cards:not(:has(> .selected, :hover)) > :first-of-type {
 			background-color: var(--color-hover);
 		}
 	}
@@ -167,6 +167,8 @@
 			border-color: var(--lighter-grey);
 			border-radius: var(--border-radius);
 
+			visibility: visible;
+
 			color: var(--grey);
 		}
 
@@ -240,6 +242,7 @@
 
 	#learnings > ul > li {
 		display: flex;
+		align-items: center;
 		gap: var(--is-mobile, 8px) var(--is-desktop, 24px);
 
 		padding-block: var(--is-mobile, 24px) var(--is-desktop, 48px);

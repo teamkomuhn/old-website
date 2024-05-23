@@ -4,7 +4,9 @@
 -->
 
 <section id="comment-form">
-	<h2>What are you thinking?</h2>
+	<header>
+		<h2>What are you thinking?</h2>
+	</header>
 
 	<?php comments_form(); ?>
 </section>

@@ -1,5 +1,5 @@
 function is_mobile() {
-	return matchMedia('(max-width: 1279.5px)').matches;
+	return matchMedia('(max-width: 1007.5px)').matches;
 }
 
 function device_tag() {

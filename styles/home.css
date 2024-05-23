@@ -331,8 +331,7 @@
 	/* ORGANIZATIONS */
 
 	#organizations {
-		padding-top: var(--is-mobile, 96px) var(--is-desktop, 192px);
-		padding-bottom: var(--is-mobile, 48px) var(--is-desktop, 192px);
+		padding-block: var(--is-mobile, 96px) var(--is-desktop, 192px);
 	}
 
 	#organizations > header > h2 {

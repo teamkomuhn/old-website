@@ -5,27 +5,36 @@
 ?>
 
 <article>
-	<header>
+	<header> 
+		<?php
+			$subtitle = get_post_meta(get_the_ID(), 'subtitle', true);
+			$comments_count = get_comment_count(get_the_ID())['approved'];
+
+			if (empty($subtitle)):
+		?>
+
 		<h1><?= get_the_title() ?></h1>
 
+		<?php else: ?>
+
+		<hgroup>
+			<h1><?= get_the_title() ?></h1>
+			<p><?= $subtitle ?></p>
+		</hgroup>
+
+		<?php endif; ?>
+
 		<div>
-			<b>#thread started by</b>
 			<div>
-				<img aria-hidden="true" src="<?= get_avatar_url(get_the_author_meta('ID')) ?>" />
-				<div>
-					<address><?= get_the_author_meta('display_name') ?></address>
-					<time datetime="<?= get_the_date('c') ?>"><?= get_the_date('F j, Y') ?></time>
-				</div>
+				<span>#thread started by</span>
+				<div class="author"><?= author() ?></div>
 			</div>
-			<?php $comments_count = get_comment_count(get_the_ID())['approved'] ?>
-			<b class="arrow-down"><?= $comments_count ?> <?= $comments_count === 1 ? 'response' : 'responses' ?></b>
+
+			<h2 class="arrow-down"><?= $comments_count ?> <?= $comments_count === 1 ? 'response' : 'responses' ?></h2>
 		</div>
 	</header>
 
-	<section id="content">
-		<?= get_the_content() ?>
-	</section>
-
+	<section id="content"><?= get_the_content() ?></section>
 	<?php comments_template('/comments-thread.php'); ?>
 </article>
 

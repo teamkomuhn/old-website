@@ -68,10 +68,8 @@
 
 		<!-- CSS ANCHOR POSITIONING POLYFILL -->
 		<script type="module">
-			if (matchMedia('(min-width: 1008px)').matches && !('anchorName' in document.documentElement.style)) {
-				// TODO
+			if (matchMedia('(min-width: 1280px)').matches && !('anchorName' in document.documentElement.style)) {
 				const { default: polyfill } = await import('https://unpkg.com/@oddbird/css-anchor-positioning/dist/css-anchor-positioning-fn.js');
-				// const { default: polyfill } = await import('http://maze/wordpress/wp-content/themes/komuhn.org/scripts/anchor-positioning-polyfill.js');
 
 				await polyfill()
 			}

@@ -4,9 +4,6 @@ Komuhn's website?
 
 ## Todo
 
-- [ ] Thread
-- [ ] #content style
-
 - [ ] CSS features
   - [ ] [Media query range syntax](https://caniuse.com/css-media-range-syntax)
   - [ ] [`color-mix()`](https://caniuse.com/mdn-css_types_color_color-mix)
@@ -15,6 +12,7 @@ Komuhn's website?
   - [ ] [Subgrid](https://caniuse.com/css-subgrid)
   - [ ] [`margin-trim`](https://developer.mozilla.org/en-US/docs/Web/CSS/margin-trim#browser_compatibility)
   - [ ] [`lh` unit](https://caniuse.com/mdn-css_types_length_lh)
+  - [ ] [Multi-keyword `display` values](https://caniuse.com/mdn-css_properties_display_multi-keyword_values)
 
 ## Hacks
 

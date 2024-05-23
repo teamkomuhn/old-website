@@ -15,14 +15,14 @@
 	</div>
 </header>
 
-<aside class="sidenote">
+<aside class="sidenote-right">
 	<img aria-hidden="true" src="<?= get_theme_file_uri('/images/icons/post.svg') ?>" />
 	<p>Within many types of organizations — care — is often seen as something important, still, there’s this uncertainty about its impact or how to put it into practice. How do we go about defining and manifesting it?</p>
 	<a href="<?= home_url('/posts/fluency-in-care') ?>">Read the post</a>
 </aside>
 
 <section id="learnings">
-	<header class="sidenote">
+	<header class="sidenote-left">
 		<h2>Learnings</h2>
 		<p>Harnessing the potential of everyone within a group is the outcome we’re after.</p>
 		<p>Our proposal is made of all the things that we can do to learn how to be in a collective and understand each other better.</p>
@@ -44,7 +44,7 @@
 		<p><strong>This is an invitation</strong> to explore new and sometimes unexpected approaches to learning about — what we need — to be able to work well as a whole.</p>
 	</header>
 
-	<aside class="sidenote">
+	<aside class="sidenote-left">
 		<h2>Processes and practice</h2>
 		<p>Over the many years of working with groups of all kinds, we have experienced the achievements and the struggles of seeking better together.</p>
 		<p>Building on top of that and remixing with what we learn from the best practitioners in the world we have selected and designed approaches that can guide us in the right direction.</p>
@@ -142,7 +142,7 @@
 		<p><strong>The playground is open.</strong>  What we can do depends greatly on the daring ability to build on top of each other ideas.</p>
 	</header>
 
-	<aside class="sidenote">
+	<aside class="sidenote-left">
 		<h2>Possibilities</h2>
 		<p>We want to contribute to your efforts in defining what care is and ways to manifest it so you too can thrive.</p>
 		<p>We are open to any type of collaboration, from workshops to long-term projects. We want the proposal to be as adaptive to the group’s needs and aspirations as possible.</p>

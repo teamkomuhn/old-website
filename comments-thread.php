@@ -1,10 +1,11 @@
 <section id="comments">
-	<ol>
-		<?php list_comments(); ?>
-	</ol>
+	<ol><?php list_comments(); ?></ol>
+</section>
 
-	<?php comments_form(
-		title_reply: 'Participate in the conversation',
-		title_reply_to: "What are you thinking about %s's thought?",
-	); ?>
+<section id="comment-form">
+	<header>
+		<h2>Participate in the conversation</h2>
+	</header>
+
+	<?php comments_form(); ?>
 </section>
