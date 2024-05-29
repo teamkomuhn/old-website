@@ -68,7 +68,7 @@
 
 		<!-- CSS ANCHOR POSITIONING POLYFILL -->
 		<script type="module">
-			if (matchMedia('(min-width: 1280px)').matches && !('anchorName' in document.documentElement.style)) {
+			if (matchMedia('(min-width: 1492px)').matches && !('anchorName' in document.documentElement.style)) {
 				const { default: polyfill } = await import('https://unpkg.com/@oddbird/css-anchor-positioning/dist/css-anchor-positioning-fn.js');
 
 				await polyfill()

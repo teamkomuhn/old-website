@@ -18,4 +18,3 @@ Komuhn's website?
 
 - [Cyclic Dependency Space Toggles](https://kizu.dev/cyclic-toggles/) && [Layered Toggles: Optional CSS Mixins](https://kizu.dev/layered-toggles/).
 - There are some weird things done in combination with anchor positioning because the polyfill does not completly match the spec/implementation.
-- TODO Probably add more.

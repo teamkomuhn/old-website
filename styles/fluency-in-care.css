@@ -63,7 +63,7 @@
 
 	@media (hover: hover) {
 		.cards > :hover,
-		.cards:not(:has(> .selected, :hover)) > :first-of-type {
+		.cards:not(:hover, :has(> .selected)) > :first-of-type {
 			background-color: var(--color-hover);
 		}
 	}
@@ -149,7 +149,7 @@
 	}
 
 	/* NOTE mobile/desktop */
-	@media (max-width: 1277.5px) {
+	@media (max-width: 1919.5px) {
 		main > aside {
 			grid-row: 4;
 
@@ -190,7 +190,7 @@
 		}
 	}
 
-	@media (min-width: 1280px) {
+	@media (min-width: 1920px) {
 		main > aside {
 			color: var(--light-grey);
 		}

@@ -2,15 +2,21 @@
 
 @layer variables {
 	/* TODO tilling wms? */
-	@media (max-width: 1279.5px) {
+	@media (min-width: 0) {
 		:root {
-			--_breakpoint: var(--is-mobile,);
+			--_breakpoint: var(--is-mobile) var(--is-phone);
 		}
 	}
 
 	@media (min-width: 1280px) {
 		:root {
-			--_breakpoint: var(--is-desktop,);
+			--_breakpoint: var(--is-mobile) var(--is-tablet);
+		}
+	}
+
+	@media (min-width: 1920px) {
+		:root {
+			--_breakpoint: var(--is-desktop);
 		}
 	}
 
@@ -18,6 +24,8 @@
 		/* BREAKPOINTS */
 
 		--is-mobile: var(--_breakpoint,);
+		--is-phone: var(--_breakpoint,);
+		--is-tablet: var(--_breakpoint,);
 		--is-desktop: var(--_breakpoint,);
 
 		/* SPACINGS */
@@ -336,22 +344,13 @@
 
 	[class|='sidenote'] {
 		max-width: 340px;
-		margin-inline: var(--padding);
+		margin-inline: var(--is-mobile, 48px) var(--is-desktop, 96px);
 
 		font: var(--font-sidenote);
 		color: var(--dark-grey); 
 	}
 
-	.sidenote-left {
-		/* margin-left: max(auto, var(--padding));
-		margin-right: var(--padding); */
-	}
-
-	.sidenote-right {
-		/* margin-left: var(--padding);
-		margin-right: max(auto, var(--padding)); */
-	}
-
+	/* NOTE give at least a --third of space */
 	@media (max-width: 1919.5px) {
 		[class|='sidenote'] {
 			display: none;
@@ -498,19 +497,19 @@
 		padding-top: var(--is-mobile, 48px) var(--is-desktop, 96px);
 		padding-bottom: 384px;
 
+		color: var(--purple);
+		font-weight: var(--font-weight-bold);
+	}
+	
+	#footer > a {
 		display: flex;
 		align-items: center;
 		gap: var(--is-mobile, 16px) var(--is-desktop, 24px);
 
-		color: var(--purple);
-		font-weight: var(--font-weight-bold);
-	}
-
-	#footer > img {
-		width: var(--is-mobile, 48px) var(--is-desktop, 96px);
-	}
-
-	#footer > a {
 		text-decoration: none;
+	}
+
+	#footer > a > img {
+		width: var(--is-mobile, 48px) var(--is-desktop, 96px);
 	}
 }

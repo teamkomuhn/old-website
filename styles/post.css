@@ -2,7 +2,7 @@
 	:root {
 		/* WIDTHS */
 
-		/* NOTE also 742.5px */
+		/* NOTE 742.5px */
 		--width: 66ch;
 
 		/* FONTS */
@@ -15,6 +15,17 @@
 @layer elements {
 	:root {
 		font: var(--font-post)
+	}
+}
+
+@layer classes {
+	/* SIDENOTES */
+
+	/* NOTE give at least a --third of space */
+	@media (min-width: 1492.5px) {
+		[class|='sidenote'] {
+			display: revert-layer;
+		}
 	}
 }
 
@@ -93,8 +104,8 @@
 		content: ' / ';
 	}
 
-	/* NOTE --width (838.5) + 48 * 2 */
-	@media (min-width: 839px) {
+	/* NOTE --width + --column-gaps */
+	@media (min-width: 790.5px) {
 		#comment-form > div > form {
 			display: grid;
 			grid-template-columns: repeat(3, 1fr);
