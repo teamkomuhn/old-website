@@ -342,7 +342,7 @@
 
 	/* SIDENOTES */
 
-	[class|='sidenote'] {
+	[class^='sidenote-'] {
 		max-width: 340px;
 		margin-inline: var(--is-mobile, 48px) var(--is-desktop, 96px);
 
@@ -352,18 +352,18 @@
 
 	/* NOTE give at least a --third of space */
 	@media (max-width: 1919.5px) {
-		[class|='sidenote'] {
+		[class^='sidenote-'] {
 			display: none;
 		}
 	}
 
 	@supports not (anchor-name: --the-spice-must-flow) {
-		[class|='sidenote']:not([style*="--anchor-"]) {
+		[class^='sidenote-']:not([style*="--anchor-"]) {
 			visibility: hidden;
 		}
 	}
 
-	[class|='sidenote'] > :not(:first-child) {
+	[class^='sidenote-'] > :not(:first-child) {
 		margin-top: var(--spacing-relative);
 	}
 }

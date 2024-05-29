@@ -21,27 +21,27 @@
 	/* SIDONOTES */
 
 	@media (min-width: 1920px) {
-		[class|='sidenote'] {
+		[class^='sidenote-'] {
 			display: flex;
 			flex-direction: column;
 		}
 	}
 
-	[class|='sidenote'] > * {
+	[class^='sidenote-'] > * {
 		margin-top: var(--spacing-relative);
 	}
 
-	[class|='sidenote'] > :nth-child(2) {
+	[class^='sidenote-'] > :nth-child(2) {
 		margin-top: 0;
 	}
 
-	[class|='sidenote'] > h2 {
+	[class^='sidenote-'] > h2 {
 		order: 1;
 
 		font: var(--font-section-title-alternate);
 	}
 
-	[class|='sidenote'] > h2::after {
+	[class^='sidenote-'] > h2::after {
 		content: ' ->';
 	}
 

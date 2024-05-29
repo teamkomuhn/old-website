@@ -23,7 +23,7 @@
 
 	/* NOTE give at least a --third of space */
 	@media (min-width: 1492.5px) {
-		[class|='sidenote'] {
+		[class^='sidenote-'] {
 			display: revert-layer;
 		}
 	}
@@ -69,7 +69,7 @@
 		font: inherit;
 	}
 
-	#content > :not(:first-child, [class|='sidenote']) {
+	#content > :not(:first-child, [class^='sidenote-']) {
 		margin-top: var(--spacing-relative);
 	}
 
