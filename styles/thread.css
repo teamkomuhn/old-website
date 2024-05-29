@@ -31,6 +31,17 @@
 	main > article > header div > :is(span, h2) {
 		font: var(--font-section-title-alternate);
 	}
+
+	
+	main > article > header > div > h2 > a {
+		text-decoration-color: transparent;
+
+		transition-property: text-decoration-color;
+	}
+
+	main > article > header > div > h2 > a:hover {
+		text-decoration-color: revert-layer;
+	}
 	
 	main > article > header > div > div > .author > div {
 		display: var(--is-mobile, revert-layer) var(--is-desktop, contents);

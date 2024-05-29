@@ -5,7 +5,7 @@
 ?>
 
 <article>
-	<header> 
+	<header>
 		<?php
 			$subtitle = get_post_meta(get_the_ID(), 'subtitle', true);
 			$comments_count = get_comment_count(get_the_ID())['approved'];
@@ -30,7 +30,11 @@
 				<div class="author"><?= author() ?></div>
 			</div>
 
-			<h2 class="arrow-down"><?= $comments_count ?> <?= $comments_count === 1 ? 'response' : 'responses' ?></h2>
+			<h2 class="arrow-down">
+				<a href="#comments">
+					<?= $comments_count ?> <?= $comments_count === 1 ? 'response' : 'responses' ?>
+				</a>
+			</h2>
 		</div>
 	</header>
 
@@ -40,6 +44,6 @@
 
 <?php
 	endwhile;
-	
+
 	get_footer();
 ?>
