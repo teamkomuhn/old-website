@@ -9,7 +9,6 @@
 	[class|='sidenote'] {
 		position: absolute;
 		top: anchor(top);
-		inset-inline: 0;
 	}
 
 	.sidenote-left {

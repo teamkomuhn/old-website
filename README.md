@@ -4,6 +4,7 @@ Komuhn's website?
 
 ## Todo
 
+- [ ] Align sidenotes using grid column
 - [ ] CSS features
   - [ ] [Media query range syntax](https://caniuse.com/css-media-range-syntax)
   - [ ] [`color-mix()`](https://caniuse.com/mdn-css_types_color_color-mix)
