@@ -2,7 +2,7 @@
 	:root {
 		/* FONTS */
 
-		--font-tagline: var(--is-phone, 32px) var(--is-tablet, 64px) var(--is-desktop, 64px) var(--font-family-serif);
+		--font-tagline: italic var(--font-weight-semi-bold) var(--is-phone, 32px) var(--is-tablet, 64px) var(--is-desktop, 64px) var(--font-family-serif);
 	}
 }
 
