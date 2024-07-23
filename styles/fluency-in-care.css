@@ -230,6 +230,13 @@
 		grid-column-end: -1;
 	}
 
+	#learnings > div {
+		--background: var(--dark);
+		--mixins: var(--full-bleed);
+
+		position: absolute;
+	}
+
 	#learnings > header {
 		margin-top: 96px;
 	}
@@ -251,16 +258,6 @@
 
 	#learnings > ul > li:first-child {
 		position: relative;
-	}
-
-	#learnings > ul > li:first-child > .before {
-		--background: var(--dark);
-		--mixins: var(--full-bleed);
-
-		position: absolute;
-		inset: 0;
-		bottom: 50%;
-		z-index: -1;
 	}
 
 	#learnings > ul > li:first-child > :nth-child(2) {
@@ -346,9 +343,11 @@
 		position: relative;
 	}
 
-	#lets-play > div > div > article:first-child > .before {
+	#lets-play > div > div > article:first-child::before {
 		--background: var(--dark);
 		--mixins: var(--full-bleed);
+
+		content: '';
 
 		position: absolute;
 		inset: 0;

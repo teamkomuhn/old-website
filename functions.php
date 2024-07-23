@@ -69,8 +69,6 @@ add_action('wp_enqueue_scripts', function () {
 	wp_enqueue_style('styles', get_theme_file_uri('/styles/styles.css'));
 	wp_enqueue_style('sidenotes', get_theme_file_uri('/styles/sidenotes.css'));
 	wp_enqueue_script_module('see-more', get_theme_file_uri('/scripts/see-more.js'));
-	wp_enqueue_script_module('anchor-attribute-polyfill', get_theme_file_uri('/scripts/anchor-attribute-polyfill.js'));
-
 
 	if (is_front_page()) {
 		wp_enqueue_style('home', get_theme_file_uri('/styles/home.css'));
@@ -97,7 +95,7 @@ add_action('wp_enqueue_scripts', function () {
 
 function author() {
 	?>
-		<?= get_avatar(get_the_author_meta('ID'), args: ['extra_attr' => 'aria-hidden="true"']) ?>
+		<?= get_avatar(get_the_author_meta('ID'), args: ['extra_attr' => 'alt=""']) ?>
 
 		<div>
 			<address><?= get_the_author_meta('display_name') ?></address>
@@ -182,7 +180,7 @@ function list_comments() {
 				$name = $user ? "{$user->display_name}" : get_comment_author();
 			?>
 
-			<?= get_avatar($user_id, args: ['extra_attr' => 'aria-hidden="true"']) ?>
+			<?= get_avatar($user_id, args: ['extra_attr' => 'alt=""']) ?>
 
 			<div >
 				<address><?= $name ?></address>

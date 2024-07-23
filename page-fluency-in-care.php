@@ -16,12 +16,14 @@
 </header>
 
 <aside class="sidenote-right">
-	<img aria-hidden="true" src="<?= get_theme_file_uri('/images/icons/post.svg') ?>" />
+	<img alt="" src="<?= get_theme_file_uri('/images/icons/post.svg') ?>" />
 	<p>Within many types of organizations — care — is often seen as something important, still, there’s this uncertainty about its impact or how to put it into practice. How do we go about defining and manifesting it?</p>
 	<a href="<?= home_url('/posts/fluency-in-care') ?>">Read the post</a>
 </aside>
 
 <section id="learnings">
+	<div></div>
+
 	<header class="sidenote-left">
 		<h2>Learnings</h2>
 		<p>Harnessing the potential of everyone within a group is the outcome we’re after.</p>
@@ -29,12 +31,12 @@
 	</header>
 
 	<ul class="cards">
-		<li><div class="before"></div><img aria-hidden="true" src="<?= get_theme_file_uri('/images/icons/lightning.svg') ?>" />Identify opportunities for raising collective capacity</li>
-		<li><img aria-hidden="true" src="<?= get_theme_file_uri('/images/icons/sliders.svg') ?>" />Recognize power imbalances, understand its causes, and learn to propose distribution</li>
-		<li><img aria-hidden="true" src="<?= get_theme_file_uri('/images/icons/eye.svg') ?>" />Enable practices that create awareness of positive habits and behaviors, and help detect obstacles to progress</li>
-		<li><img aria-hidden="true" src="<?= get_theme_file_uri('/images/icons/contrast.svg') ?>" />Facilitate activities that amplify strengths and consider everyone’s needs</li>
-		<li><img aria-hidden="true" src="<?= get_theme_file_uri('/images/icons/shapes.svg') ?>" />Apply conflict as a device for supporting diversity</li>
-		<li><img aria-hidden="true" src="<?= get_theme_file_uri('/images/icons/scribble.svg') ?>" />Culture-in uncertainty and complexity and transform resistance into vulnerability and curiosity</li>
+		<li><img alt="" src="<?= get_theme_file_uri('/images/icons/lightning.svg') ?>" />Identify opportunities for raising collective capacity</li>
+		<li><img alt="" src="<?= get_theme_file_uri('/images/icons/sliders.svg') ?>" />Recognize power imbalances, understand its causes, and learn to propose distribution</li>
+		<li><img alt="" src="<?= get_theme_file_uri('/images/icons/eye.svg') ?>" />Enable practices that create awareness of positive habits and behaviors, and help detect obstacles to progress</li>
+		<li><img alt="" src="<?= get_theme_file_uri('/images/icons/contrast.svg') ?>" />Facilitate activities that amplify strengths and consider everyone’s needs</li>
+		<li><img alt="" src="<?= get_theme_file_uri('/images/icons/shapes.svg') ?>" />Apply conflict as a device for supporting diversity</li>
+		<li><img alt="" src="<?= get_theme_file_uri('/images/icons/scribble.svg') ?>" />Culture-in uncertainty and complexity and transform resistance into vulnerability and curiosity</li>
 	</ul>
 </section>
 
@@ -151,7 +153,6 @@
 	<div>
 		<div class="cards">
 			<article>
-				<div class="before"></div>
 				<h3>Design together</h3>
 				<p>Let’s talk about what works better for you and design together an approach adapted to your needs.</p>
 			</article>

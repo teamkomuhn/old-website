@@ -3,20 +3,40 @@
     it can be merged when support grows.
 */
 
+@layer elements {
+	main {
+		anchor-name: --main;
+	}
+}
+
 @layer classes {
 	/* SIDENOTES */
 
+	:has(+ [class^='sidenote-'])::before {
+		content: '';
+		position: absolute;
+		anchor-name: --sidenote-anchor;
+	}
+	
 	[class^='sidenote-'] {
 		position: absolute;
-		top: anchor(top);
+		top: anchor(--sidenote-anchor top);
+		anchor-name: --sidenote;
+	}
+	
+	[class^='sidenote-']:not(:first-of-type) {
+		top: max(
+			anchor(--sidenote-anchor top),
+			calc(anchor(--sidenote bottom) + var(--spacing-relative))
+		);
 	}
 
 	.sidenote-left {
-		right: anchor(left);
+		right: anchor(--main left);
 	}
 
 	.sidenote-right {
-		left: anchor(right);
+		left: anchor(--main right);
 	}
 }
 
@@ -36,13 +56,19 @@
 
 	/* LEARNINGS */
 
+	#learnings > div {
+		anchor-name: --learnings;
+
+		height: calc(anchor-size(--learnings-first height) / 2);
+	}
+
 	#learnings > header {
 		top: anchor(--learnings bottom);
 		right: anchor(--learnings left);
 	}
 
-	#learnings > ul > li:first-child > .before {
-		anchor-name: --learnings;
+	#learnings > ul > li:first-child {
+		anchor-name: --learnings-first;
 	}
 
 	/* MAKING TOGETHER */
@@ -64,7 +90,7 @@
 		right: anchor(--lets-play left);
 	}
 
-	#lets-play > div > div > article:first-child > .before {
+	#lets-play > div > div > article:first-child::before {
 		anchor-name: --lets-play;
 	}
 }

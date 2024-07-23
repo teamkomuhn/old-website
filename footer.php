@@ -4,7 +4,7 @@
 
 		<footer id="footer">
 			<a href="<?= home_url() ?>">
-				<img aria-hidden="true" src="<?= get_theme_file_uri(is_404() ? '/images/komuhn-light.svg' : '/images/komuhn.svg') ?>" />
+				<img alt="" src="<?= get_theme_file_uri(is_404() ? '/images/komuhn-light.svg' : '/images/komuhn.svg') ?>" />
 				komuhn.org
 			</a>
 		</footer>

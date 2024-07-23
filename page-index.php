@@ -92,27 +92,27 @@
 
 	<div>
 		<article>
-			<img aria-hidden="true" src="<?= get_theme_file_uri('/images/team/andrea.png'); ?>" />
+			<img alt="" src="<?= get_theme_file_uri('/images/team/andrea.png'); ?>" />
 			<p><strong>Andréa</strong> is making a case for <strong><a href="https://www.rotulama.com">Rotulama</a></strong> a site-specific artwork experiment aiming to grasp gentrification’s impact on small local businesses and their neighborhoods. A joint-project with <a href="https://www.supereclectic.team">Super Eclectic</a>.</p>
 		</article>
 
 		<article>
-			<img aria-hidden="true" src="<?= get_theme_file_uri('/images/team/kako.png'); ?>" />
+			<img alt="" src="<?= get_theme_file_uri('/images/team/kako.png'); ?>" />
 			<p><strong>Kako</strong> is organizing the next community meeting for <strong><a href="https://www.ruamais.com">RUA+</a></strong>, a participatory design exercise with the purpose of making the public spaces we inhabit more liveable and healthy.</p>
 		</article>
 
 		<article>
-			<img aria-hidden="true" src="<?= get_theme_file_uri('/images/team/pedro.png'); ?>" />
+			<img alt="" src="<?= get_theme_file_uri('/images/team/pedro.png'); ?>" />
 			<p><strong>Pedro</strong> is giving shape to our latest proposal — <strong><a href="<?= home_url('/fluency-in-care') ?>">Fluency in care</a></strong> — an exploration of new and sometimes unexpected approaches, towards learning about what we need to be able to work well together.</p>
 		</article>
 
 		<article>
-			<img aria-hidden="true" src="<?= get_theme_file_uri('/images/team/riikka.png'); ?>" />
+			<img alt="" src="<?= get_theme_file_uri('/images/team/riikka.png'); ?>" />
 			<p><strong>Riikka</strong> is facilitating the conversations within a group of scientists that want to become a team and understand how they can take advantage of their capacities to create self-sustainability.</p>
 		</article>
 
 		<article>
-			<img aria-hidden="true" src="<?= get_theme_file_uri('/images/team/tita.png'); ?>" />
+			<img alt="" src="<?= get_theme_file_uri('/images/team/tita.png'); ?>" />
 			<p><strong>Tita</strong> is laying out the content for <strong><a href="https://ilhadotesouro.pt">Peniche — Treasure island</a></strong>, a book more than a book, a contribution towards this place, history, and community’s identity.</p>
 		</article>
 	</div>

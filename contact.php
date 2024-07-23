@@ -13,12 +13,12 @@
 
 		<address>
 			<a href="mailto:team@komuhn.org">
-				<img aria-hidden="true" src="<?= get_theme_file_uri('/images/icons/phone.svg') ?>" />
+				<img alt="" src="<?= get_theme_file_uri('/images/icons/phone.svg') ?>" />
 				team@komuhn.org
 			</a>
 
 			<a href="tel:+351960001270">
-				<img aria-hidden="true" src="<?= get_theme_file_uri('/images/icons/paper-plane.svg') ?>" />
+				<img alt="" src="<?= get_theme_file_uri('/images/icons/paper-plane.svg') ?>" />
 				+351 960001270
 			</a>
 		</address>
